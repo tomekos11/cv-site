@@ -4,4 +4,5 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   components: true,
   modules: ['nuxt-quasar-ui', '@nuxt/eslint'],
+  css: ['@/assets/styles/global.css']
 });
