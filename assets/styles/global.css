@@ -2,6 +2,42 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
+/* Styl dla czcionki Lato */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lato', sans-serif;
+    margin: 0.2em 0; /* Minimalny margines, dla nieco lepszej czytelności */
+    line-height: 1.2; /* Optymalne odstępy między wierszami */
+  }
+  
+/* Rozmiary nagłówków w rem (skalowalne) */
+h1 {
+    font-size: 2.8rem; /* Duży nagłówek */
+}
+
+h2 {
+    font-size: 2.4rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+h4 {
+    font-size: 1.6rem;
+}
+
+h5 {
+    font-size: 1.4rem;
+}
+
+h6 {
+    font-size: 1.2rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0.1em 0;
+}
+
 .d-flex {
     display: flex;
 }
@@ -9,3 +45,47 @@ body {
 .flex-column {
     flex-direction: column;
 }
+
+.fancy-text {
+    font-size: 1.5rem; /* Rozmiar tekstu */
+    letter-spacing: 0.1em; /* Delikatne rozciągnięcie liter */
+    line-height: 1.6; /* Odpowiednia przestrzeń między wierszami */
+    text-transform: uppercase; /* Wszystkie litery wielkie */
+    font-weight: 300; /* Smukła grubość czcionki */
+    color: #2c3e50; /* Stylowy, ciemny odcień */
+    margin: 0; /* Minimalne marginesy */
+    padding: 0; /* Brak dodatkowego odstępu */
+    text-align: center; /* Wyrównanie do środka */
+  }
+  
+  /* Dodatkowy efekt przy najechaniu */
+  .fancy-text:hover {
+    color: #3498db; /* Efekt podświetlenia - zmiana koloru */
+    letter-spacing: 0.15em; /* Subtelne zwiększenie odstępu liter */
+    transition: all 0.3s ease; /* Płynny efekt przejścia */
+  }
+  
+  /* Wersja z gradientem w tle */
+  .fancy-text-gradient {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 0.08em;
+    line-height: 1.5;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+    background: linear-gradient(90deg, #ff7675, #6c5ce7); /* Gradient poziomy */
+    -webkit-background-clip: text; /* Wyświetlenie gradientu w tekście */
+    -webkit-text-fill-color: transparent; /* Tekst jest "przezroczysty" */
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Dla mniejszych ekranów (responsywność) */
+  @media (max-width: 768px) {
+    .fancy-text,
+    .fancy-text-gradient {
+      font-size: 1.2rem;
+      letter-spacing: 0.05em;
+    }
+  }
