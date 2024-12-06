@@ -3,6 +3,6 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
   components: true,
-  modules: ['nuxt-quasar-ui', '@nuxt/eslint'],
+  modules: ['nuxt-quasar-ui', '@nuxt/eslint', '@nuxt/icon'],
   css: ['@/assets/styles/global.css']
 });

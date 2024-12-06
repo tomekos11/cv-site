@@ -3,7 +3,7 @@
     <h1 class="text-center fancy-text">projects</h1>
     <div 
       class="q-pt-sm q-pb-md" 
-      style="display: grid; grid-template-columns: repeat(auto-fit, 374px); gap: 10px; justify-content: center;"
+      style="display: grid; grid-template-columns: repeat(auto-fit, min(374px, 100%)); gap: 10px; justify-content: center;"
     >
       <q-card
         v-for="(project, index) in projects"

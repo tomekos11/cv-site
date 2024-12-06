@@ -23,8 +23,11 @@
     <p>
       XD
     </p>
+
     <technologies />
     <projects />
+    <certificates />
+    
   </div>
 </template>
 
