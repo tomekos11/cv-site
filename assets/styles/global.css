@@ -46,6 +46,14 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
 }
 
+.gap-10 {
+  gap: 10px;
+}
+
+.gap-20 {
+  gap: 20px;
+}
+
 .fancy-text {
     font-size: 1.5rem; /* Rozmiar tekstu */
     letter-spacing: 0.1em; /* Delikatne rozciągnięcie liter */

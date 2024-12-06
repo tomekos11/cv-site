@@ -9,6 +9,11 @@
           Rozwijającym się Full Stack Developer, z zamiłowaniem do rozwiązywania problemów.
           Zawsze gotów na wyzwania, nieustannie dążący do doskonalenia swoich umiejętności.
         </p>
+
+        <div class="d-flex justify-center gap-20" >
+          <q-btn :icon="`img:${linkedin}`" rounded class="q-px-sm" size="lg" href="https://www.linkedin.com/in/tomasz-slapinski/" target="_blank"/>
+          <q-btn :icon="`img:${github}`" rounded class="q-px-sm" size="lg" href="https://github.com/tomekos11" target="_blank"/>
+        </div>
       </div>
       <div class="col-12 col-lg-6">
         xd
@@ -24,7 +29,8 @@
 </template>
 
 <script setup lang="ts">
-
+import github from '/assets/icons/github.png';
+import linkedin from '/assets/icons/linkedin.png';
 </script>
 
 <style scoped>
