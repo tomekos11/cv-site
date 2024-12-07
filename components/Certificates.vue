@@ -28,18 +28,18 @@
                 </q-item-label>
 
                 <q-item-label class="q-pt-sm">
-                  <q-btn rounded class="q-px-md q-mr-sm" no-caps>
+                  <q-btn v-if="item.link" rounded class="q-px-md q-mr-sm" no-caps :href="item.link" target="_blank">
                     <span class="q-mr-sm">
                       Poświadczenie
                     </span>
-                    <Icon name="fa-solid:external-link-alt" style="color: darkblue" />
+                    <Icon name="fa-solid:external-link-alt" style="color: #2c3e50" />
                   </q-btn>
 
                   <q-btn v-if="item.certImage" rounded class="q-px-md" no-caps @click="openModal(item)">
                     <span class="q-mr-sm">
                       Zdjęcie
                     </span>
-                    <Icon name="pepicons-pop:photo-camera" style="color: darkblue" size="1.4em"/>
+                    <Icon name="pepicons-pop:photo-camera" style="color: #2c3e50" size="1.4em"/>
                   </q-btn>
                 </q-item-label>
 
@@ -60,7 +60,7 @@
 
     <!-- Modal do wyświetlania większego zdjęcia -->
     <q-dialog v-model="showModal">
-      <q-card style="min-width: 400px;">
+      <q-card style="width: 100%; max-height: 90svh;">
         <q-card-section>
           <q-img :src="modalImage" :alt="modalImage" />
         </q-card-section>
@@ -73,14 +73,18 @@
 </template>
 
 <script setup lang="ts">
-import softSystem from 'assets/icons/softsystem.jpg';
-import ets from 'assets/icons/ets.jpg';
+import softSystem from 'assets/icons/companies/softsystem.jpg';
+
+
+import ets from 'assets/icons/companies/ets.jpg';
+import toeic from 'assets/icons/certificates/toeic.jpg';
 
 interface Item {
     name: string;
     company: string;
     receivedDate: string;
     skills: string[];
+    companyImage: string;
     certImage?: string;
     identifier?: string;
     link?: string;
@@ -95,6 +99,7 @@ const items: Item[] = [
     company: 'SoftSystem Sp. z.o.o',
     receivedDate: '2023-05',
     skills: ['Vue', 'Python'],
+    companyImage: softSystem,
     certImage: softSystem,
   },
   {
@@ -102,15 +107,10 @@ const items: Item[] = [
     company: 'ETS',
     receivedDate: '2024-01',
     skills: ['English C1'],
-    certImage: ets,
+    companyImage: ets,
+    certImage: toeic,
     identifier: '776460',
     link: 'https://www.etsglobal.org/fr/en/digital-score-report/E82351FEC236574022D93D920C6A29DD1F27DA6347D454A35F19C46A8084FBB4cnFwWjVjKzFPWnArVnlXQnA2VDdsRmZFbGJoNmp5UC9Bazk2M3FwSThoTjJva1Rs'
-  },
-  {
-    name: 'Certyfikat 3',
-    company: 'xd',
-    receivedDate: '2024-11-20',
-    skills: ['Vue', 'Python'],
   },
 ];
 
