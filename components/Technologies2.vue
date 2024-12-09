@@ -14,7 +14,7 @@
       >
         <q-carousel-slide
           v-for="(chunk, chunkIndex) in visibleChunks"
-          :key="chunkIndex"
+          :key="JSON.stringify(chunk)"
           :name="chunkIndex"
         >
           <div class="carousel-grid">
@@ -90,6 +90,7 @@ const visibleChunks = computed(() => {
 const updateMaxCardsPerSlide = () => {
   if(!carousel.value) return;
   // Dynamically update the number of cards based on the width of the container
+  slide.value = 0;
   const containerWidth = carousel.value?.offsetWidth;
   const cardWidth = 220; // szerokość karty + gap
   maxCardsPerSlide.value = Math.max(1, Math.floor(containerWidth / cardWidth));

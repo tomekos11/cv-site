@@ -1,13 +1,26 @@
 <template>
   <q-layout view="hHh lpR fff">
     
-    <q-header elevated class="bg-primary text-white">
+    <q-header elevated class="bg-black text-white">
       <q-toolbar class="q-py-sm">
-        <q-toolbar-title>
+        <q-toolbar-title class="d-flex full-width justify-between">
           <q-avatar>
             <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg">
           </q-avatar>
-          Title
+
+          <div class="d-flex gap-20 flex-center">
+            <a>
+              Experience
+            </a>
+
+            <a>
+              Technologies
+            </a>
+
+            <a>
+              Projects
+            </a>
+          </div>
         </q-toolbar-title>
       </q-toolbar>
     </q-header>
