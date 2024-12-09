@@ -1,6 +1,7 @@
 <template>
   <div class="q-pt-sm q-mt-md">
     <h1 class="text-center fancy-text bg-grey-2">technologies</h1>
+    <q-select v-model="selectedCategory" :options="options" label="Filtruj przez kategorię" style="width: 200px; margin-inline: auto" @update:model-value="slide = 0"/>
 
     <div ref="carousel" class="custom-carousel">
       <q-carousel
@@ -54,20 +55,36 @@ import nuxt from '/assets/icons/nuxt.png';
 import php from '/assets/icons/php.png';
 import laravel from '/assets/icons/laravel.png';
 import git from '/assets/icons/git.png';
+import bootstrap from 'assets/icons/bootstrap.png';
 
-const technologies = [
-  { name: 'HTML', src: html5Icon },
-  { name: 'CSS', src: cssIcon },
-  { name: 'JavaScript', src: jsIcon  },
-  { name: 'TypeScript', src: tsIcon },
-  { name: 'SEO', src: seo },
-  { name: 'Vue', src: vue },
-  { name: 'Quasar', src: quasar },
-  { name: 'Nuxt', src: nuxt },
-  { name: 'PHP', src: php },
-  { name: 'Laravel', src: laravel },
-  { name: 'Git', src: git },
+const options = [
+  'frontend',
+  'backend',
+  'all'
+] as const;
+
+interface Technology {
+  name: string;
+  src: string;
+  type: typeof options[number]
+}
+
+const technologies: Technology[] = [
+  { name: 'HTML', src: html5Icon, type: 'frontend' },
+  { name: 'CSS', src: cssIcon, type: 'frontend' },
+  { name: 'JavaScript', src: jsIcon, type: 'frontend'  },
+  { name: 'TypeScript', src: tsIcon, type: 'frontend' },
+  { name: 'SEO', src: seo, type: 'frontend' },
+  { name: 'Vue', src: vue, type: 'frontend' },
+  { name: 'Quasar', src: quasar, type: 'frontend' },
+  { name: 'Nuxt', src: nuxt, type: 'frontend' },
+  { name: 'PHP', src: php, type: 'backend' },
+  { name: 'Laravel', src: laravel, type: 'backend' },
+  { name: 'Bootstrap', src: bootstrap, type: 'frontend' },
+  { name: 'Git', src: git, type: 'all' },
 ];
+
+const selectedCategory = ref<typeof options[number]>('all');
 
 const carousel = ref<HTMLElement | null>(null);
 
@@ -77,7 +94,14 @@ const maxCardsAmountUpdated = ref(false);
 
 const visibleChunks = computed(() => {
   const chunkSize = maxCardsPerSlide.value;
-  return technologies.reduce((resultArray, item, index) => {
+
+  // Filtrowanie technologii według wybranego typu
+  const filteredTechnologies = technologies.filter(
+    tech => selectedCategory.value === 'all' || tech.type === selectedCategory.value || tech.type === 'all'
+  );
+
+  // Redukcja z podziałem na segmenty
+  return filteredTechnologies.reduce<Technology[][]>((resultArray, item, index) => {
     const chunkIndex = Math.floor(index / chunkSize);
     if (!resultArray[chunkIndex]) {
       resultArray[chunkIndex] = [];

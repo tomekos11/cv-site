@@ -41,6 +41,8 @@ const education = [
   <style scoped>
   .education-section {
     padding: 30px;
+    max-width: 1000px;
+    margin-inline: auto;
   }
   
   .education-list {
