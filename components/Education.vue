@@ -1,10 +1,10 @@
 <template>
+  <h1 class="text-center fancy-text bg-grey-2">Edukacja</h1>
   <div class="education-section">
-    <h1 class="text-center fancy-text bg-grey-2">Edukacja</h1>
     <q-list class="education-list">
       <q-item v-for="school in education" :key="school.when" class="education-item">
         <q-item-section>
-          <div class="d-flex align-center">
+          <div class="d-flex align-center school">
             <q-img :src="school.img" alt="school logo" class="school-logo" fit="scale-down"/>
             <div class="school-info">
               <div class="school-name">{{ school.name }}</div>
@@ -80,6 +80,17 @@ const education = [
   .school-period {
     margin-top: 5px;
     color: #777;
+  }
+
+  @media(max-width: 500px) {
+    .school-logo {
+      margin-right: 0;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+    .school {
+      flex-direction: column;
+    }
   }
   </style>
   

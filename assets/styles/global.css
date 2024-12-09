@@ -46,12 +46,23 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .gap-10 {
   gap: 10px;
 }
 
 .gap-20 {
   gap: 20px;
+}
+
+.fixed-container {
+  max-width: 2000px;
+  width: min(2000px, );
+  margin-inline: auto;
+  min-width: 95vw;
 }
 
 .fancy-text {

@@ -1,7 +1,7 @@
 <template>
   <h1 class="text-center fancy-text bg-grey-2">Experience</h1>
 
-  <div v-if="$q.screen.gt.sm" class="work-history q-px-md">
+  <div v-if="$q.screen.width > 800" class="work-history q-px-md">
     <q-timeline color="primary" layout="loose">
       <q-timeline-entry
         v-for="(job, index) in workHistory"
@@ -20,7 +20,7 @@
           </div>
         </template>
         <div>
-          <div v-html="job.description" class="text-justify" />
+          <div class="text-justify" v-html="job.description" />
         </div>
       </q-timeline-entry>
     </q-timeline>
@@ -40,7 +40,7 @@
         </div>
       </div>
 
-      <div v-html="job.description" class="q-px-sm" />
+      <div class="q-px-sm" v-html="job.description" />
     </div>
   </div>
     
