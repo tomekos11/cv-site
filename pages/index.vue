@@ -27,7 +27,7 @@
     
     <experience />
     <technologies2 />
-    
+    <education />
     <!-- <technologies /> -->
     <projects />
     <certificates />

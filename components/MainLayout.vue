@@ -97,7 +97,6 @@
         </q-toolbar-title>
       </q-toolbar>
     </q-footer>
-
   </q-layout>
 </template>
 

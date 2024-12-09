@@ -3,13 +3,13 @@
     <h1 class="text-center fancy-text">projects</h1>
     <div 
       class="q-pt-sm q-pb-md" 
-      style="display: grid; grid-template-columns: repeat(auto-fit, min(374px, 100%)); gap: 10px; justify-content: center;"
+      style="display: grid; grid-template-columns: repeat(auto-fit, min(374px, 100%)); gap: 30px; justify-content: center;"
     >
       <template
         v-for="(project, index) in projects"
         :key="index"
       >
-        <q-parallax :src="project.image" class="full-width" style="height: 300px">
+        <q-parallax :src="project.image" class="full-width" :height="250">
           <q-card
             class="bg-white text-dark text-center project-hover"
             style="transition: 1s; position: relative; color: white; overflow: hidden;"
@@ -28,7 +28,7 @@
                   />
                 </template>
               </div>
-              <p>{{ project.description }}</p>
+              <p class="limit-lines">{{ project.description }}</p>
               <router-link :to="`/projects/${project.slug}`" class="styled-link">
                 Czytaj więcej ...
               </router-link>
@@ -37,33 +37,6 @@
         </q-parallax>
 
       </template>
-      <!-- <q-card
-        v-for="(project, index) in projects"
-        :key="index"
-        class="bg-white text-dark text-center project-hover"
-        style="transition: 1s; position: relative; color: white; overflow: hidden;"
-      >
-          <q-card-section 
-            class="d-flex flex-column full-height fit"
-            style="z-index: 1; position: relative;"
-          >
-            <div class="q-my-sm text-bold">{{ project.name }}</div>
-            <div class="d-flex justify-center q-mb-sm" style="gap:5px">
-              <template v-for="tech in project.technologies" :key="tech">
-                <q-badge 
-                  :color="getTechColor(tech)" 
-                  :label="tech" 
-                  class="q-py-xs q-px-sm text-with-border"
-                />
-              </template>
-            </div>
-            <p>{{ project.description }}</p>
-            <router-link :to="`/projects/${project.slug}`" class="styled-link">
-              Czytaj więcej ...
-            </router-link>
-          </q-card-section>
-        </q-parallax>
-      </q-card> -->
     </div>
   </div>
 </template>
@@ -71,8 +44,11 @@
 <script setup lang="ts">
 import gbFlag from 'assets/icons/gb_flag.jpg';
 import treesImg from 'assets/icons/trees.jpg';
+import chatImg from 'assets/icons/czat.jpg';
+import testImg from 'assets/icons/test.jpg';
 
-type Technology =  'Vue' | 'Quasar' | 'Nuxt'  | 'Laravel'
+
+type Technology =  'Vue' | 'Quasar' | 'Nuxt'  | 'Laravel' | 'Java' | 'Spring' | 'Thymeleaf';
 
 interface Project {
   name: string;
@@ -82,8 +58,6 @@ interface Project {
   technologies: Technology[];
   image: string;
 }
-
-const drawer = ref(true);
 
 const projects: Project[] = [
   { 
@@ -101,6 +75,22 @@ const projects: Project[] = [
     slug: 'dt',
     technologies: ['Quasar', 'Laravel'],
     image: treesImg
+  },
+  {
+    name: 'Aplikacja do konwersacji z wirtualnym asystentem',
+    description: 'Aplikacja umożliwiająca prowadzenie rozmów z wirtualnym asystentem, zbudowana przy użyciu frameworka Spring i Java na backendzie oraz Vue.js z Quasar Framework na frontendzie. Aplikacja integruje się z OpenAI API, umożliwiając użytkownikom wymianę wiadomości, tworzenie konwersacji oraz udostępnianie wiadomości innym użytkownikom. Dzięki zaawansowanej integracji z OpenAI, aplikacja oferuje inteligentne odpowiedzi i asystencję w czasie rzeczywistym. Użytkownicy mogą również tworzyć, zarządzać wieloma konwersacjami i dzielić się wiadomościami za pomocą linków lub wybierając odbiorców z listy użytkowników.',
+    year: 2024,
+    slug: 'ai-chat',
+    technologies: ['Quasar', 'Java', 'Spring'],
+    image: chatImg
+  },
+  {
+    name: 'Aplikacja do tworzenia i zarządzania testami',
+    description: 'Aplikacja stworzona z wykorzystaniem Spring Boot i Thymeleaf, zaprojektowana z myślą o nauczycielach, którzy mogą tworzyć, zarządzać testami oraz przypisywać je do użytkowników w wyznaczonych grupach. Aplikacja umożliwia użytkownikom rozwiązywanie testów w ramach grup, podobnie jak w środowisku uniwersyteckim. Użytkownicy mogą rozwiązywać zadania w wyznaczonym czasie, a nauczyciele mają dostęp do wyników i statystyk. Aplikacja oferuje również funkcje generowania wyników i raportów z wykonanych testów.',
+    year: 2024,
+    slug: 'test-management',
+    technologies: ['Spring', 'Thymeleaf'],
+    image: testImg
   }
 ];
 
@@ -110,6 +100,9 @@ const getTechColor = (tech: Technology) => {
   case 'Laravel': return 'indigo-8';
   case 'Nuxt': return 'green-10';
   case 'Quasar': return 'blue-10';
+  case 'Java': return 'amber-8';
+  case 'Spring': return 'grey-9';
+  case 'Thymeleaf': return 'primary';
   }
 };
 </script>
@@ -159,5 +152,17 @@ const getTechColor = (tech: Technology) => {
     1px -1px 0 #000,
     -1px 1px 0 #000,
     1px 1px 0 #000;
+}
+
+.limit-lines {
+  display: -webkit-box;         /* Wymaga -webkit do działania */
+  -webkit-box-orient: vertical; /* Określa kierunek, w którym element będzie rozciągany */
+  -webkit-line-clamp: 5;        /* Liczba linii, do których tekst ma zostać przycięty */
+  overflow: hidden;             /* Ukrywa nadmiarowy tekst */
+  text-overflow: ellipsis;      /* Dodaje wielokropek, gdy tekst zostaje przycięty */
+}
+
+:deep(.q-parallax__content) {
+  justify-content: start;
 }
 </style>
