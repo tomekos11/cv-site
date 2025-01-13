@@ -46,7 +46,7 @@
               </q-item-section>
               <q-item-section side>
                 <!-- Miniatura zdjęcia certyfikatu -->
-                <q-img :src="item.certImage" :alt="item.name" width="50px" height="50px" />
+                <q-img :src="item.companyImage" :alt="item.name" width="50px" height="50px" />
               </q-item-section>
 
             </q-item>
