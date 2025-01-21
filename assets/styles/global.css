@@ -50,6 +50,10 @@ h1, h2, h3, h4, h5, h6 {
   flex-wrap: wrap;
 }
 
+.gap-5 {
+  gap: 5px;
+}
+
 .gap-10 {
   gap: 10px;
 }

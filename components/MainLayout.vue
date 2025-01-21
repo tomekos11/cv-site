@@ -2,7 +2,7 @@
   <q-layout view="hHh lpR fff">
     
     <q-header elevated class="bg-black text-white">
-      <Header />
+      <Header v-model="drawer" />
     </q-header>
 
     <q-page-container>
@@ -23,5 +23,38 @@
         </q-toolbar-title>
       </q-toolbar>
     </q-footer>
+
+    <q-drawer v-model="drawer" side="left" class="bg-black text-white drawer">
+      <div class="bg-white" style="height: 5px;" />
+
+      <q-list class="sticky">
+        <q-item v-ripple clickable @click="navigateTo('experience')">
+          <q-item-section>Experience</q-item-section>
+        </q-item>
+        <q-item v-ripple clickable @click="navigateTo('technologies')">
+          <q-item-section>Technologies</q-item-section>
+        </q-item>
+        <q-item v-ripple clickable @click="navigateTo('projects')">
+          <q-item-section>Projects</q-item-section>
+        </q-item>
+      </q-list>
+    </q-drawer>
   </q-layout>
 </template>
+
+<script setup lang="ts">
+const drawer = ref(false);
+
+</script>
+
+<style scoped>
+
+.drawer {
+  overflow: unset;
+}
+
+.sticky {
+  top:80px;
+  position: sticky;
+}
+</style>

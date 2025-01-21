@@ -10,7 +10,7 @@
         animated
         control-color="primary"
         swipeable
-        arrows
+        :arrows="visibleChunks.length > 1"
         infinite
       >
         <q-carousel-slide
@@ -60,13 +60,12 @@ import bootstrap from 'assets/icons/bootstrap.png';
 const options = [
   'frontend',
   'backend',
-  'all'
 ] as const;
 
 interface Technology {
   name: string;
   src: string;
-  type: typeof options[number]
+  type?: typeof options[number]
 }
 
 const technologies: Technology[] = [
@@ -81,10 +80,10 @@ const technologies: Technology[] = [
   { name: 'PHP', src: php, type: 'backend' },
   { name: 'Laravel', src: laravel, type: 'backend' },
   { name: 'Bootstrap', src: bootstrap, type: 'frontend' },
-  { name: 'Git', src: git, type: 'all' },
+  { name: 'Git', src: git },
 ];
 
-const selectedCategory = ref<typeof options[number]>('all');
+const selectedCategory = ref<typeof options[number] | null>(null);
 
 const carousel = ref<HTMLElement | null>(null);
 
@@ -97,7 +96,7 @@ const visibleChunks = computed(() => {
 
   // Filtrowanie technologii według wybranego typu
   const filteredTechnologies = technologies.filter(
-    tech => selectedCategory.value === 'all' || tech.type === selectedCategory.value || tech.type === 'all'
+    tech => !selectedCategory.value || tech.type === selectedCategory.value || !tech.type
   );
 
   // Redukcja z podziałem na segmenty

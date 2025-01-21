@@ -49,7 +49,7 @@
       <q-card class="bg-white text-dark text-center">
         <q-card-section class="d-flex flex-column full-height fit">
           <div class="q-my-sm text-bold">Java</div>
-          <div class="d-flex justify-center q-mb-sm" style="gap:5px">
+          <div class="d-flex justify-center q-mb-sm gap-5">
             XDD
           </div>
         </q-card-section>
@@ -58,7 +58,7 @@
       <q-card class="bg-white text-dark text-center">
         <q-card-section class="d-flex flex-column full-height fit">
           <div class="q-my-sm text-bold">Java</div>
-          <div class="d-flex justify-center q-mb-sm" style="gap:5px">
+          <div class="d-flex justify-center q-mb-sm gap-5">
             XDD
           </div>
         </q-card-section>

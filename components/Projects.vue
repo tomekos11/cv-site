@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-grey-2 q-pt-sm">
-    <h1 class="text-center fancy-text">projects</h1>
+  <div class="q-pt-sm">
+    <h1 class="text-center fancy-text bg-grey-2">projects</h1>
     <div 
       class="q-pt-sm q-pb-md" 
       style="display: grid; grid-template-columns: repeat(auto-fit, min(374px, 100%)); gap: 30px; justify-content: center;"
@@ -19,13 +19,9 @@
               style="z-index: 1; position: relative;"
             >
               <div class="q-my-sm text-bold">{{ project.name }}</div>
-              <div class="d-flex justify-center q-mb-sm" style="gap:5px">
+              <div class="d-flex justify-center q-mb-sm gap-5">
                 <template v-for="tech in project.technologies" :key="tech">
-                  <q-badge 
-                    :color="getTechColor(tech)" 
-                    :label="tech" 
-                    class="q-py-xs q-px-sm text-with-border"
-                  />
+                  <technologies-badge :technology="tech" />
                 </template>
               </div>
               <p class="limit-lines">{{ project.description }}</p>
@@ -46,9 +42,8 @@ import gbFlag from 'assets/icons/gb_flag.jpg';
 import treesImg from 'assets/icons/trees.jpg';
 import chatImg from 'assets/icons/czat.jpg';
 import testImg from 'assets/icons/test.jpg';
+import type { Technology } from '~/helpers/technology';
 
-
-type Technology =  'Vue' | 'Quasar' | 'Nuxt'  | 'Laravel' | 'Java' | 'Spring' | 'Thymeleaf';
 
 interface Project {
   name: string;
@@ -94,17 +89,6 @@ const projects: Project[] = [
   }
 ];
 
-const getTechColor = (tech: Technology) => {
-  switch(tech) {
-  case 'Vue': return 'green-7';
-  case 'Laravel': return 'indigo-8';
-  case 'Nuxt': return 'green-10';
-  case 'Quasar': return 'blue-10';
-  case 'Java': return 'amber-8';
-  case 'Spring': return 'grey-9';
-  case 'Thymeleaf': return 'primary';
-  }
-};
 </script>
 
 <style scoped>
@@ -143,15 +127,6 @@ const getTechColor = (tech: Technology) => {
 .background-image:hover {
   transform: scale(1.1);
   transition: transform 0.5s ease;
-}
-
-.text-with-border {
-  color: white; /* Tekst biały */
-  text-shadow: 
-    -1px -1px 0 #000, /* Czarny cień dookoła */
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;
 }
 
 .limit-lines {

@@ -22,26 +22,12 @@
         />
       </q-toolbar>
 
-      <q-drawer v-model="drawer" side="left" bordered class="bg-black">
-        XD
-        <q-list>
-          <q-item v-ripple clickable @click="navigateTo('experience')">
-            <q-item-section>Experience</q-item-section>
-          </q-item>
-          <q-item v-ripple clickable @click="navigateTo('technologies')">
-            <q-item-section>Technologies</q-item-section>
-          </q-item>
-          <q-item v-ripple clickable @click="navigateTo('projects')">
-            <q-item-section>Projects</q-item-section>
-          </q-item>
-        </q-list>
-      </q-drawer>
     </q-toolbar-title>
   </q-toolbar>
 </template>
 
 <script setup lang="ts">
-const drawer = ref(false);
+const drawer = defineModel<boolean>();
 </script>
 
 <style scoped>
