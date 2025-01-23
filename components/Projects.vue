@@ -31,8 +31,12 @@
             </q-card-section>
           </q-card>
         </q-parallax>
-
       </template>
+    </div>
+    <div class="text-center q-py-xl">
+      <router-link to="/projects" class="extra-styled-link">
+        Zobacz wszystkie projekty <Icon name="fa-solid:external-link-alt" style="color: #2c3e50" size="1rem" />
+      </router-link>
     </div>
   </div>
 </template>
@@ -99,29 +103,29 @@ const projects: Project[] = [
 .styled-link {
   position: relative;
   text-decoration: none;
-  color: palevioletred; /* Indigo-10 */
+  color: palevioletred;
   font-weight: 500;
   transition: color 0.3s ease;
-  display: inline-block; /* Zapewnia dokładne dopasowanie pseudo-elementu */
+  display: inline-block;
 }
 
 .styled-link::after {
   content: '';
   position: absolute;
   left: 0;
-  bottom: -2px; /* Lekko poniżej tekstu */
+  bottom: -2px;
   width: 0;
   height: 2px;
-  background-color: pink; /* Indigo-10 */
+  background-color: pink;
   transition: width 0.3s ease;
 }
 
 .styled-link:hover {
-  color: palevioletred; /* Slightly darker indigo */
+  color: palevioletred;
 }
 
 .styled-link:hover::after {
-  width: 100%; /* Teraz zajmuje szerokość tekstu */
+  width: 100%;
 }
 
 .background-image:hover {
@@ -140,4 +144,37 @@ const projects: Project[] = [
 :deep(.q-parallax__content) {
   justify-content: start;
 }
+
+
+.extra-styled-link {
+  color: palevioletred;
+  font-weight: 600;
+  font-size: 1.0rem; 
+  text-decoration: none;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px; 
+  transition: color 0.3s ease;
+}
+
+.extra-styled-link:hover {
+  color: #3498db; /* Zmiana koloru na hover */
+}
+
+.extra-styled-link::after {
+  content: ""; /* Tworzymy pseudo-element */
+  position: absolute;
+  left: 0;
+  bottom: -2px; /* Linia poniżej tekstu */
+  width: 0;
+  height: 2px;
+  background-color: #3498db; /* Kolor linii */
+  transition: width 0.3s ease; /* Animacja szerokości */
+}
+
+.extra-styled-link:hover::after {
+  width: 100%; /* Rozszerzenie linii na hover */
+}
+
 </style>

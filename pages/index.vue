@@ -31,14 +31,12 @@
     <education />
     <technologies2 />
     <projects />
-    <!-- <certificates /> -->
-    <certificates-new />
+    <certificates />
     
   </q-page>
 </template>
 
 <script setup lang="ts">
-// import myPhoto from '/assets/icons/img/2023_linkedin_no_bg.png';
 </script>
 
 <style scoped>

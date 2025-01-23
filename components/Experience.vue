@@ -1,30 +1,28 @@
 <template>
   <h1 class="text-center fancy-text bg-grey-2">Experience</h1>
 
-  <div v-if="$q.screen.width > 800" class="work-history q-px-md">
-    <q-timeline color="primary" layout="loose">
-      <q-timeline-entry
-        v-for="(job, index) in workHistory"
-        :key="index"
-        :side="index % 2 === 0 ? 'left' : 'right'"
-        :title="job.company"
-        :header-class="'text-primary'"
-      >
-        <template #title>
-          <div :class="`entry-header ${index % 2 === 0 ? 'justify-end' : ''}`">
-            <q-img :src="job.logo" class="company-logo" />
-            <div>
-              <div class="text-bold">{{ job.company }}</div>
-              <div class="text-caption">{{ job.dates }}</div>
-            </div>
+  <q-timeline v-if="isDesktop" color="primary" layout="loose" class="q-px-lg">
+    <q-timeline-entry
+      v-for="(job, index) in workHistory"
+      :key="index"
+      :side="index % 2 === 0 ? 'left' : 'right'"
+      :title="job.company"
+      :header-class="'text-primary'"
+    >
+      <template #title>
+        <div :class="`entry-header ${index % 2 === 0 ? 'justify-end' : ''}`">
+          <img :src="job.logo" class="company-logo" >
+          <div>
+            <div class="text-bold">{{ job.company }}</div>
+            <div class="text-caption">{{ job.dates }}</div>
           </div>
-        </template>
-        <div>
-          <div class="text-justify" v-html="job.description" />
         </div>
-      </q-timeline-entry>
-    </q-timeline>
-  </div>
+      </template>
+      <div>
+        <div class="text-justify" v-html="job.description" />
+      </div>
+    </q-timeline-entry>
+  </q-timeline>
 
   <div v-else>
     <div
@@ -47,13 +45,25 @@
 </template>
 
 <script setup lang="ts">
-import polcarLogo from 'assets/icons/companies/polcar.png';
-import infraTeamLogo from 'assets/icons/companies/infrateam.jpg';
+
+const isDesktop = ref(true);
+
+if (import.meta.server) {
+  const userAgent = useRequestHeaders(['user-agent'])['user-agent'] || '';
+  isDesktop.value = !/Mobile|Android|iP(ad|hone)/i.test(userAgent);
+} else {
+  // Klient: aktualizacja szerokości ekranu
+  const updateWidth = () => {
+    isDesktop.value = window.innerWidth > 800;
+  };
+  window.addEventListener('resize', updateWidth);
+  updateWidth();
+}
 
 const workHistory = [
   {
     company: 'Polcar',
-    logo: polcarLogo,
+    logo: '/assets/icons/companies/polcar.png',
     dates: 'Lipiec 2023 - obecnie',
     description: '<p><strong>Polcar</strong> to hurtownia części samochodowych, która zarządza stronami internetowymi dla partnerów. W ramach mojej roli realizowałem następujące zadania:</p> \
           <ul> \
@@ -69,7 +79,7 @@ const workHistory = [
   },
   {
     company: 'Infra Team',
-    logo: infraTeamLogo,
+    logo: '/assets/icons/companies/infrateam.jpg',
     dates: 'Sierpień 2024 - Wrzesień 2024',
     description: 'Cemex to globalny lider w branży materiałów budowlanych, a InfraTeam współpracuje z nimi w zakresie zaawansowanych rozwiązań technologicznych. Zostałem zaproszony do współpracy nad projektem stworzenia systemu zarządzania użytkownikami i organizacją wydarzeń.',
     shortDescription: 'Frontend Engineer focusing on UI/UX.',
@@ -78,7 +88,7 @@ const workHistory = [
   },
   {
     company: 'Infra Team',
-    logo: infraTeamLogo,
+    logo: '/assets/icons/companies/infrateam.jpg',
     dates: 'Lipiec 2023 - Maj 2024',
     description: '<p>W ramach mojej roli w <strong>InfraTeam</strong> byłem odpowiedzialny za projektowanie i rozwój strony internetowej dla najnowszego projektu – <strong>InfraDays</strong>, będącego expo oraz multi-konferencją poświęconą inżynierii i technologiom wykorzystywanym w projektowaniu, budowie i utrzymaniu infrastruktury liniowej. W trakcie realizacji projektu:</p> \
     <ul> \
@@ -114,5 +124,12 @@ const workHistory = [
 
 .q-expansion-item {
   margin-top: 10px;
+}
+
+@media (min-width: 800px) {
+  .work-history {
+    max-width: 1000px;
+    margin: auto;
+  }
 }
 </style>

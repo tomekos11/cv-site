@@ -1,133 +1,179 @@
 <template>
-  <div class="q-pt-sm">
-    <h1 class="text-center fancy-text bg-grey-2">Certificates</h1>
-    
-    <div class="row">
-      <div class="col-12 offset-sm-1 col-sm-10 col-md-6 offset-md-3">
-        <q-list>
-          <template v-for="(item, index) in items" :key="index">
-            <q-item>
-              <q-item-section>
-                <q-item-label class="cert-title">{{ item.name }}</q-item-label>
-                <q-item-label class="text-h6">{{ item.company }}</q-item-label>
-
-                <q-item-label class="text-caption text-bold text-grey-10" >Issued {{ item.receivedDate }}</q-item-label>
-
-                <q-item-label>
-                  <strong>Umiejętności</strong>: 
-                  <span v-for="(skill, skillIndex) in item.skills" :key="skill">
-                    {{ skill }}<span v-if="skillIndex !== item.skills.length - 1"> | </span>
-                  </span>
-                
-                </q-item-label>
-
-                <q-item-label v-if="item.identifier">
-                  Identyfikator poświadczenia {{ item.identifier }}
-                </q-item-label>
-
-                <q-item-label class="q-pt-sm">
-                  <q-btn v-if="item.link" rounded class="q-px-md q-mr-sm" no-caps :href="item.link" target="_blank">
-                    <span class="q-mr-sm">
-                      Poświadczenie
-                    </span>
-                    <Icon name="fa-solid:external-link-alt" style="color: #2c3e50" />
+  <h1 class="text-center fancy-text bg-grey-2">Certificates</h1>
+  <div class="education-section">
+    <q-list class="education-list">
+      <q-item v-for="(cert, index) in certificates" :key="index" class="education-item">
+        <q-item-section>
+          <div class="d-flex align-center school">
+            <img :src="cert.companyImage" alt="company logo" class="school-logo" style="object-fit: scale-down;" >
+            <div class="school-info full-width">
+              <div class="d-flex justify-between">
+                <div class="school-name">{{ cert.name }}</div>
+                <div>
+                  <q-btn v-if="cert.link" round class="q-mr-sm" size="xs" :href="cert.link" target="_blank">
+                    <Icon name="fa-solid:external-link-alt" style="color: #2c3e50" size="0.8rem" />
+                    <q-tooltip class="bg-dark" :delay="400" max-width="300px">
+                      Otwórz poświadczenie
+                    </q-tooltip>
                   </q-btn>
 
-                  <q-btn v-if="item.certImage" rounded class="q-px-md" no-caps @click="openModal(item)">
-                    <span class="q-mr-sm">
-                      Zdjęcie
-                    </span>
-                    <Icon name="pepicons-pop:photo-camera" style="color: #2c3e50" size="1.4em"/>
+                  <q-btn v-if="cert.image" round size="xs" @click="openModal(cert)">
+                    <Icon name="pepicons-pop:photo-camera" style="color: #2c3e50" class="q-pa-sm" size="1rem"/>
+                    <q-tooltip class="bg-dark" :delay="400" max-width="300px">
+                      Pokaż zdjęcie
+                    </q-tooltip>
                   </q-btn>
-                </q-item-label>
+                </div>
+              </div>
+              <div class="school-title">{{ cert.company }}</div>
+              <div class="school-period">Wydany {{ cert.receivedDate }}</div>
+              <div v-if="cert.identifier" class="school-period">Identyfikator poświadczenia {{ cert.identifier }}</div>
+              
+              <q-expansion-item
+                icon="star"
+                label="Rozwiń nabyte umiejętności"
+                header-class="text-amber-10"
+                dense
+              >
+                <q-card class="bg-grey-1">
+                  <q-card-section>
+                    <div class="d-flex justify-center q-mb-sm gap-5">
+                      <template v-for="technology in cert.skills" :key="technology">
+                        <technologies-badge :technology="technology" />
+                      </template>
+                    </div>
 
-              </q-item-section>
-              <q-item-section side>
-                <!-- Miniatura zdjęcia certyfikatu -->
-                <q-img :src="item.companyImage" :alt="item.name" width="50px" height="50px" />
-              </q-item-section>
-
-            </q-item>
-            <q-separator class="q-my-sm" />
-          </template>
-          
-        </q-list>
-      </div>
-    </div>
-
-
-    <!-- Modal do wyświetlania większego zdjęcia -->
-    <q-dialog v-model="showModal">
-      <q-card style="width: 100%; max-height: 90svh;">
-        <q-card-section>
-          <q-img :src="modalImage" :alt="modalImage" />
-        </q-card-section>
-        <q-card-actions>
-          <q-btn label="Close" color="primary" @click="showModal = false" />
-        </q-card-actions>
-      </q-card>
-    </q-dialog>
+                    <p v-if="cert.description">
+                      {{ cert.description }}
+                    </p>
+                    
+                  </q-card-section>
+                </q-card>
+              </q-expansion-item>
+      
+            </div>
+          </div>
+        </q-item-section>
+      </q-item>
+    </q-list>
   </div>
+
+  <q-dialog v-model="showModal">
+    <q-card style="max-width: min(1200px, 100%); width: 100%; max-height: 90svh;">
+      <q-card-section>
+        <img :src="modalImage" :alt="modalImage" style="object-fit: cover;" >
+      </q-card-section>
+      <q-card-actions>
+        <q-btn label="Close" color="primary" @click="showModal = false" />
+      </q-card-actions>
+    </q-card>
+  </q-dialog>
 </template>
-
+  
 <script setup lang="ts">
-import softSystem from 'assets/icons/companies/softsystem.jpg';
+import type { Technology } from '~/helpers/technology';
 
-
-import ets from 'assets/icons/companies/ets.jpg';
-import toeic from 'assets/icons/certificates/toeic.jpg';
-
-interface Item {
+interface Certificate {
     name: string;
     company: string;
     receivedDate: string;
-    skills: string[];
+    skills: Technology[];
     companyImage: string;
-    certImage?: string;
+    image?: string;
     identifier?: string;
     link?: string;
+    description?: string;
 }
 
 const showModal = ref(false);
 const modalImage = ref('');
 
-const items: Item[] = [
+const certificates: Certificate[] = [
   {
     name: 'Building Modern Web Applications',
     company: 'SoftSystem Sp. z.o.o',
     receivedDate: '2023-05',
     skills: ['Vue', 'Python'],
-    companyImage: softSystem,
-    certImage: softSystem,
+    companyImage: '/assets/icons/companies/softsystem.jpg',
+    image: '/assets/icons/companies/softsystem.jpg',
+    description: 'Certyfikat nabyty został podczas zajęć prowadzonych przez firmę SoftSystem w Politechnice Rzeszowskiej.'
   },
   {
     name: 'TOEIC Certificate of achievement',
     company: 'ETS',
     receivedDate: '2024-01',
     skills: ['English C1'],
-    companyImage: ets,
-    certImage: toeic,
+    companyImage: '/assets/icons/companies/ets.jpg',
+    image: '/assets/icons/certificates/toeic.jpg',
     identifier: '776460',
-    link: 'https://www.etsglobal.org/fr/en/digital-score-report/E82351FEC236574022D93D920C6A29DD1F27DA6347D454A35F19C46A8084FBB4cnFwWjVjKzFPWnArVnlXQnA2VDdsRmZFbGJoNmp5UC9Bazk2M3FwSThoTjJva1Rs'
+    link: 'https://www.etsglobal.org/fr/en/digital-score-report/E82351FEC236574022D93D920C6A29DD1F27DA6347D454A35F19C46A8084FBB4cnFwWjVjKzFPWnArVnlXQnA2VDdsRmZFbGJoNmp5UC9Bazk2M3FwSThoTjJva1Rs',
+    description: 'Certyfikat nabyty został podczas zajęć prowadzonych przez firmę SoftSystem w Politechnice Rzeszowskiej.'
   },
 ];
 
-const openModal = (item: Item) => {
-  if(!item.certImage) return;
+const openModal = (certificate: Certificate) => {
+  if(!certificate.image) return;
 
-  modalImage.value = item.certImage;
+  modalImage.value = certificate.image;
   showModal.value = true;
 };
 </script>
 
 <style scoped>
-.cert-title {
-  font-size: 1.8rem;
-  letter-spacing: 0.03em;
-  line-height: 1.6;
-  font-weight: 300;
-  color: #2c3e50;
-  margin: 0;
-  padding: 0;
-}
-</style>
+  .education-section {
+    padding: 30px;
+    max-width: 1000px;
+    margin-inline: auto;
+  }
+  
+  .education-list {
+    margin-top: 20px;
+  }
+  
+  .education-item {
+    background-color: #f9f9f9;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .school-logo {
+    width: min(100px, 100%);
+    margin-right: 15px;
+  }
+  
+  .school-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .school-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .school-title {
+    font-style: italic;
+    margin-top: 5px;
+    color: #555;
+  }
+  
+  .school-period {
+    margin-top: 5px;
+    color: #777;
+  }
+
+  @media(max-width: 500px) {
+    .school-logo {
+      margin-right: 0;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+    .school {
+      flex-direction: column;
+    }
+  }
+  </style>
+  

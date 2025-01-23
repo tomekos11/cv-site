@@ -2,10 +2,16 @@
   <h1 class="text-center fancy-text bg-grey-2">Edukacja</h1>
   <div class="education-section">
     <q-list class="education-list">
-      <q-item v-for="school in education" :key="school.when" class="education-item">
+      <q-item
+        v-for="(school, index) in education"
+        :key="school.when"
+        ref="educationItems"
+        class="education-item"
+        :class="{ visible: visibleItems.includes(index) }"
+      >
         <q-item-section>
           <div class="d-flex align-center school">
-            <q-img :src="school.img" alt="school logo" class="school-logo" fit="scale-down"/>
+            <img :src="school.img" alt="school logo" class="school-logo" style="object-fit: scale-down">
             <div class="school-info">
               <div class="school-name">{{ school.name }}</div>
               <div class="school-title">{{ school.title }}</div>
@@ -19,23 +25,58 @@
 </template>
   
 <script setup lang="ts">
-import przLogo from 'assets/icons/companies/prz.png';
-import zseLogo from 'assets/icons/companies/zse.svg';
+import type { QItem } from 'quasar';
+
   
 const education = [
   {
     name: 'Politechnika Rzeszowska im. Ignacego Łukasiewicza',
     when: '10/2021 - 02/2025',
     title: 'Inżynier (Inż) Informatyka',
-    img: przLogo
+    img: '/assets/icons/companies/prz.png'
   },
   {
     name: 'Zespół Szkół Elektronicznych (ZSE) w Rzeszowie',
     when: '09/2017 - 06/2021',
     title: 'Technik Informatyk, Informatyka',
-    img: zseLogo
+    img: '/assets/icons/companies/zse.svg'
   }
 ];
+
+const visibleItems = ref<number[]>([]);
+const educationItems = ref<InstanceType<typeof QItem>[]>([]);
+
+let observer: IntersectionObserver | null = null;
+
+onMounted(() => {
+  observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const index = educationItems.value.findIndex(
+          (el) => el?.$el === entry.target 
+        );
+        console.log(index);
+
+        if (entry.isIntersecting && index !== -1) {
+          visibleItems.value.push(index);
+          observer?.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.1
+    }
+  );
+
+  educationItems.value.forEach((el) => {
+    observer?.observe(el?.$el);
+  });
+});
+
+onBeforeUnmount(() => {
+  observer?.disconnect();
+});
+
 </script>
   
   <style scoped>
@@ -48,14 +89,21 @@ const education = [
   .education-list {
     margin-top: 20px;
   }
-  
+
   .education-item {
-    background-color: #f9f9f9;
-    margin: 10px 0;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-  }
+  background-color: #f9f9f9;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.education-item.visible {
+  transform: translateX(0);
+  opacity: 1;
+}
   
   .school-logo {
     width: min(150px, 100%);
