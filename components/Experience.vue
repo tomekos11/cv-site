@@ -1,7 +1,7 @@
 <template>
   <h1 class="text-center fancy-text bg-grey-2">Experience</h1>
 
-  <q-timeline v-if="isDesktop" color="primary" layout="loose" class="q-px-lg">
+  <q-timeline v-if="isDesktop" color="primary" layout="loose" class="q-pa-lg work-history">
     <q-timeline-entry
       v-for="(job, index) in workHistory"
       :key="index"

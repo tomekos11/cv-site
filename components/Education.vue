@@ -11,7 +11,7 @@
       >
         <q-item-section>
           <div class="d-flex align-center school">
-            <img :src="school.img" alt="school logo" class="school-logo" style="object-fit: scale-down">
+            <img :src="school.img" alt="school logo" class="school-logo" style="object-fit: scale-down" loading="lazy">
             <div class="school-info">
               <div class="school-name">{{ school.name }}</div>
               <div class="school-title">{{ school.title }}</div>
@@ -26,6 +26,8 @@
   
 <script setup lang="ts">
 import type { QItem } from 'quasar';
+
+import { useIntersectionObserver } from '@vueuse/core';
 
   
 const education = [
@@ -46,36 +48,23 @@ const education = [
 const visibleItems = ref<number[]>([]);
 const educationItems = ref<InstanceType<typeof QItem>[]>([]);
 
-let observer: IntersectionObserver | null = null;
-
 onMounted(() => {
-  observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        const index = educationItems.value.findIndex(
-          (el) => el?.$el === entry.target 
-        );
-        console.log(index);
-
-        if (entry.isIntersecting && index !== -1) {
+  educationItems.value.forEach((el, index) => {
+    const { stop } = useIntersectionObserver(
+      el,
+      ([entry]) => {
+        console.log(entry.isIntersecting);
+        if (entry.isIntersecting) {
           visibleItems.value.push(index);
-          observer?.unobserve(entry.target);
+          stop();
         }
-      });
-    },
-    {
-      threshold: 0.1
-    }
-  );
-
-  educationItems.value.forEach((el) => {
-    observer?.observe(el?.$el);
+      },
+      { threshold: 0.01 }
+    );
   });
 });
 
-onBeforeUnmount(() => {
-  observer?.disconnect();
-});
+
 
 </script>
   
@@ -140,6 +129,11 @@ onBeforeUnmount(() => {
     }
     .school {
       flex-direction: column;
+    }
+
+    .education-item {
+      transform: translateX(0);
+      opacity: 1;
     }
   }
   </style>

@@ -7,7 +7,8 @@ export default defineNuxtConfig({
     'nuxt-quasar-ui',
     '@nuxt/eslint',
     '@nuxt/icon',
-    '@nuxt/image'
+    '@nuxt/image',
+    '@vueuse/nuxt'
   ],
   css: ['@/assets/styles/global.css']
 });

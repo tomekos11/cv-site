@@ -22,6 +22,8 @@
   },
   "devDependencies": {
     "@nuxt/eslint": "^0.7.2",
+    "@vueuse/core": "^12.5.0",
+    "@vueuse/nuxt": "^12.5.0",
     "eslint": "^9.16.0",
     "prettier-eslint": "^16.3.0",
     "typescript": "^5.7.2",
