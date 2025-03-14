@@ -41,7 +41,8 @@
 
 <style scoped>
 :deep(.card-hover:hover) {
-  background-color: #dbdbdb !important; /* Ciemniejszy kolor tła podczas hover */
+  /* background-color: #dbdbdb !important; */
+  transform: scale(1.2);
 }
 
 .img {

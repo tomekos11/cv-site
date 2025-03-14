@@ -10,5 +10,8 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@vueuse/nuxt'
   ],
+  plugins: [
+    { src: '~/plugins/pinia.ts', mode: 'client' }
+  ],
   css: ['@/assets/styles/global.css']
 });
