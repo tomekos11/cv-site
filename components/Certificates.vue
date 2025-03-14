@@ -1,73 +1,75 @@
 <template>
-  <h1 class="text-center fancy-text bg-grey-2">Certificates</h1>
-  <div class="education-section">
-    <q-list class="education-list">
-      <q-item v-for="(cert, index) in certificates" :key="index" class="education-item">
-        <q-item-section>
-          <div class="d-flex align-center school">
-            <img :src="cert.companyImage" alt="company logo" class="school-logo" style="object-fit: scale-down;" >
-            <div class="school-info full-width">
-              <div class="d-flex justify-between">
-                <div class="school-name">{{ cert.name }}</div>
-                <div>
-                  <q-btn v-if="cert.link" round class="q-mr-sm" size="xs" :href="cert.link" target="_blank">
-                    <Icon name="fa-solid:external-link-alt" style="color: #2c3e50" size="0.8rem" />
-                    <q-tooltip class="bg-dark" :delay="400" max-width="300px">
-                      Otwórz poświadczenie
-                    </q-tooltip>
-                  </q-btn>
+  <div ref="title">
+    <h1 class="text-center fancy-text bg-grey-2">Certificates</h1>
+    <div class="education-section">
+      <q-list class="education-list">
+        <q-item v-for="(cert, index) in certificates" :key="index" class="education-item">
+          <q-item-section>
+            <div class="d-flex align-center school">
+              <img :src="cert.companyImage" alt="company logo" class="school-logo" style="object-fit: scale-down;" >
+              <div class="school-info full-width">
+                <div class="d-flex justify-between">
+                  <div class="school-name">{{ cert.name }}</div>
+                  <div>
+                    <q-btn v-if="cert.link" round class="q-mr-sm" size="xs" :href="cert.link" target="_blank">
+                      <Icon name="fa-solid:external-link-alt" style="color: #2c3e50" size="0.8rem" />
+                      <q-tooltip class="bg-dark" :delay="400" max-width="300px">
+                        Otwórz poświadczenie
+                      </q-tooltip>
+                    </q-btn>
 
-                  <q-btn v-if="cert.image" round size="xs" @click="openModal(cert)">
-                    <Icon name="pepicons-pop:photo-camera" style="color: #2c3e50" class="q-pa-sm" size="1rem"/>
-                    <q-tooltip class="bg-dark" :delay="400" max-width="300px">
-                      Pokaż zdjęcie
-                    </q-tooltip>
-                  </q-btn>
+                    <q-btn v-if="cert.image" round size="xs" @click="openModal(cert)">
+                      <Icon name="pepicons-pop:photo-camera" style="color: #2c3e50" class="q-pa-sm" size="1rem"/>
+                      <q-tooltip class="bg-dark" :delay="400" max-width="300px">
+                        Pokaż zdjęcie
+                      </q-tooltip>
+                    </q-btn>
+                  </div>
                 </div>
-              </div>
-              <div class="school-title">{{ cert.company }}</div>
-              <div class="school-period">Wydany {{ cert.receivedDate }}</div>
-              <div v-if="cert.identifier" class="school-period">Identyfikator poświadczenia {{ cert.identifier }}</div>
+                <div class="school-title">{{ cert.company }}</div>
+                <div class="school-period">Wydany {{ cert.receivedDate }}</div>
+                <div v-if="cert.identifier" class="school-period">Identyfikator poświadczenia {{ cert.identifier }}</div>
               
-              <q-expansion-item
-                icon="star"
-                label="Rozwiń nabyte umiejętności"
-                header-class="text-amber-10"
-                dense
-              >
-                <q-card class="bg-grey-1">
-                  <q-card-section>
-                    <div class="d-flex justify-center q-mb-sm gap-5">
-                      <template v-for="technology in cert.skills" :key="technology">
-                        <technologies-badge :technology="technology" />
-                      </template>
-                    </div>
+                <q-expansion-item
+                  icon="star"
+                  label="Rozwiń nabyte umiejętności"
+                  header-class="text-amber-10"
+                  dense
+                >
+                  <q-card class="bg-grey-1">
+                    <q-card-section>
+                      <div class="d-flex justify-center q-mb-sm gap-5">
+                        <template v-for="technology in cert.skills" :key="technology">
+                          <technologies-badge :technology="technology" />
+                        </template>
+                      </div>
 
-                    <p v-if="cert.description">
-                      {{ cert.description }}
-                    </p>
+                      <p v-if="cert.description">
+                        {{ cert.description }}
+                      </p>
                     
-                  </q-card-section>
-                </q-card>
-              </q-expansion-item>
+                    </q-card-section>
+                  </q-card>
+                </q-expansion-item>
       
+              </div>
             </div>
-          </div>
-        </q-item-section>
-      </q-item>
-    </q-list>
-  </div>
+          </q-item-section>
+        </q-item>
+      </q-list>
+    </div>
 
-  <q-dialog v-model="showModal">
-    <q-card style="max-width: min(1200px, 100%); width: 100%; max-height: 90svh;">
-      <q-card-section>
-        <img :src="modalImage" :alt="modalImage" style="object-fit: cover;" >
-      </q-card-section>
-      <q-card-actions>
-        <q-btn label="Close" color="primary" @click="showModal = false" />
-      </q-card-actions>
-    </q-card>
-  </q-dialog>
+    <q-dialog v-model="showModal">
+      <q-card style="max-width: min(1200px, 100%); width: 100%; max-height: 90svh;">
+        <q-card-section>
+          <img :src="modalImage" :alt="modalImage" style="object-fit: cover;" >
+        </q-card-section>
+        <q-card-actions>
+          <q-btn label="Close" color="primary" @click="showModal = false" />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
+  </div>
 </template>
   
 <script setup lang="ts">
@@ -117,6 +119,13 @@ const openModal = (certificate: Certificate) => {
   modalImage.value = certificate.image;
   showModal.value = true;
 };
+
+const title = useTemplateRef('title');
+
+onMounted(() => {
+  const intersection = useHeaderIntersectionObserver();
+  intersection.createObserver(title.value, 'certificates');
+});
 </script>
 
 <style scoped>

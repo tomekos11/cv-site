@@ -1,6 +1,6 @@
 <template>
   <div class="q-pt-sm">
-    <h1 class="text-center fancy-text bg-grey-2">projects</h1>
+    <h1 ref="title" class="text-center fancy-text bg-grey-2">projects</h1>
     <div 
       class="q-pt-sm q-pb-md" 
       style="display: grid; grid-template-columns: repeat(auto-fit, min(374px, 100%)); gap: 30px; justify-content: center;"
@@ -92,6 +92,13 @@ const projects: Project[] = [
     image: testImg
   }
 ];
+
+const title = useTemplateRef('title');
+
+onMounted(() => {
+  const intersection = useHeaderIntersectionObserver();
+  intersection.createObserver(title.value, 'projects');
+});
 
 </script>
 

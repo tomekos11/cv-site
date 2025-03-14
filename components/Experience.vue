@@ -1,51 +1,51 @@
 <template>
-  <h1 class="text-center fancy-text bg-grey-2">Experience</h1>
+  <div ref="title">
+    <h1 class="text-center fancy-text bg-grey-2">Experience</h1>
 
-  <q-timeline v-if="isDesktop" color="primary" layout="loose" class="q-pa-lg work-history">
-    <q-timeline-entry
-      v-for="(job, index) in workHistory"
-      :key="index"
-      :side="index % 2 === 0 ? 'left' : 'right'"
-      :title="job.company"
-      :header-class="'text-primary'"
-    >
-      <template #title>
-        <div :class="`entry-header ${index % 2 === 0 ? 'justify-end' : ''}`">
-          <img :src="job.logo" class="company-logo" >
+    <q-timeline v-if="isDesktop" color="primary" layout="loose" class="q-pa-lg work-history">
+      <q-timeline-entry
+        v-for="(job, index) in workHistory"
+        :key="index"
+        :side="index % 2 === 0 ? 'left' : 'right'"
+        :title="job.company"
+        :header-class="'text-primary'"
+      >
+        <template #title>
+          <div :class="`entry-header ${index % 2 === 0 ? 'justify-end' : ''}`">
+            <img :src="job.logo" class="company-logo" >
+            <div>
+              <div class="text-bold">{{ job.company }}</div>
+              <div class="text-caption">{{ job.dates }}</div>
+            </div>
+          </div>
+        </template>
+        <div>
+          <div class="text-justify" v-html="job.description" />
+        </div>
+      </q-timeline-entry>
+    </q-timeline>
+
+    <div v-else>
+      <div
+        v-for="(job, index) in workHistory"
+        :key="index"
+        class="q-mb-lg"
+      >
+        <div class="entry-header q-px-xl">
+          <q-img :src="job.logo" class="company-logo" />
           <div>
             <div class="text-bold">{{ job.company }}</div>
             <div class="text-caption">{{ job.dates }}</div>
           </div>
         </div>
-      </template>
-      <div>
-        <div class="text-justify" v-html="job.description" />
-      </div>
-    </q-timeline-entry>
-  </q-timeline>
 
-  <div v-else>
-    <div
-      v-for="(job, index) in workHistory"
-      :key="index"
-      class="q-mb-lg"
-    >
-      <div class="entry-header q-px-xl">
-        <q-img :src="job.logo" class="company-logo" />
-        <div>
-          <div class="text-bold">{{ job.company }}</div>
-          <div class="text-caption">{{ job.dates }}</div>
-        </div>
+        <div class="q-px-sm" v-html="job.description" />
       </div>
-
-      <div class="q-px-sm" v-html="job.description" />
     </div>
   </div>
-    
 </template>
 
 <script setup lang="ts">
-
 const isDesktop = ref(true);
 
 if (import.meta.server) {
@@ -100,6 +100,15 @@ const workHistory = [
     expanded: false,
   },
 ];
+
+
+const title = useTemplateRef('title');
+
+onMounted(() => {
+  const intersection = useHeaderIntersectionObserver();
+  intersection.createObserver(title.value, 'experience');
+});
+
 </script>
 
 <style>

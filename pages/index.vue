@@ -29,7 +29,7 @@
     
     <experience />
     <education />
-    <technologies2 />
+    <technologies />
     <projects />
     <certificates />
     

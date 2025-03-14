@@ -1,24 +1,19 @@
-import { defineStore } from 'pinia';
-import type { QScrollArea } from 'quasar';
+import { scroll } from 'quasar';
 
-export const useScrollStore = defineStore('scroll', () => {
+const { getScrollTarget, setVerticalScrollPosition } = scroll;
 
-  const scrollAreaRef = ref<InstanceType<typeof QScrollArea> | null>(null);
+export const useScroll = () => {
 
-  const init = (scrollArea: InstanceType<typeof QScrollArea>) => {
-    scrollAreaRef.value = scrollArea;
-  };
-
-  const animateScroll = () => {
-    if (scrollAreaRef.value) {
-      const scrollPosition = scrollAreaRef.value.$el.scrollHeight; 
-      scrollAreaRef.value.setScrollPosition('vertical', scrollPosition, 200);
+  const scrollTo = (element: Element ) => {
+    if (element) {
+      const target = getScrollTarget(element);
+      const offset = element.offsetTop + 50;
+      const duration = 300;
+      setVerticalScrollPosition(target, offset, duration);
     }
   };
 
   return {
-    scrollAreaRef,
-    init,
-    animateScroll
+    scrollTo
   };
-});
+};

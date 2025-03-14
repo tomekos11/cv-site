@@ -1,6 +1,11 @@
 <template>
   <q-layout view="hHh lpR fff">
-    <q-scroll-area ref="scrollArea" style="height: 100vh; z-index: 9000;">
+    <q-scroll-area
+      ref="scrollArea"
+      style="height: 100vh;"
+      :thumb-style="{width: '6px', background: 'red' }"
+      :vertical-offset="[74,0]"
+    >
       <q-header elevated class="bg-black text-white">
         <Header v-model="drawer" />
       </q-header>
@@ -9,7 +14,7 @@
         <nuxt-page />
       </q-page-container>
   
-      <q-footer elevated class="text-white" style="background-color: lightslategrey;">
+      <q-footer elevated class="text-white" style="background-color: #2c3e50;">
         <q-toolbar class="q-py-sm">
           <q-toolbar-title>
             <div class="row justify-between">
@@ -46,16 +51,9 @@
 
 <script setup lang="ts">
 import type { QScrollArea } from 'quasar';
-import { useScrollStore } from '~/stores/scroll-store';
 
 const drawer = ref(false);
 const scrollArea = ref<InstanceType<typeof QScrollArea> | null>(null);
-
-onMounted(() => {
-  if (scrollArea.value) {
-    useScrollStore().init(scrollArea.value);
-  }
-});
 
 </script>
 
