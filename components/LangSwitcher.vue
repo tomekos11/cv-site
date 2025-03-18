@@ -6,7 +6,7 @@
     </div>
     <q-menu>
       <div>
-        <q-btn v-for="availableLocale in availableLocales" :key="availableLocale" @click="switchLanguage(availableLocale)">
+        <q-btn v-for="availableLocale in availableLocales" :key="availableLocale" @click="setLocale(availableLocale)">
           {{ availableLocale }}
           <span :class="`q-ml-sm flag-icon flag-icon-${ getCountryCode(availableLocale) }`"/>
         </q-btn>
@@ -18,11 +18,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n';
 
-const { locale, availableLocales } = useI18n();
-
-const switchLanguage = (lang) => {
-  locale.value = lang;
-};
+const { locale, availableLocales, setLocale } = useI18n();
 
 const getCountryCode = (availableLocale: string): string => {
   return availableLocale.toLowerCase() === 'en' ? 'gb' : availableLocale.toLowerCase();

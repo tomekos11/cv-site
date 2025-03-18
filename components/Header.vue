@@ -4,7 +4,7 @@
 
       <q-toolbar class="q-px-md justify-between">
         <q-toolbar-title>CV</q-toolbar-title>
-        {{ $t('welcome') }}
+        {{ t('part.welcome') }}
         <div class="d-none d-md-flex gap-20 flex-center">
           <q-btn flat :class="{ 'active-link': isSectionActive('experience')}" @click="scrollToSection('experience')">Experience</q-btn>
           <q-btn flat :class="{ 'active-link': isSectionActive('education')}" @click="scrollToSection('education')">Education</q-btn>
@@ -30,7 +30,7 @@
 
 <script setup lang="ts">
 const { isSectionActive, scrollToSection } = useActiveSection();
-
+const { t } = useI18n();
 const drawer = defineModel<boolean>();
 
 </script>

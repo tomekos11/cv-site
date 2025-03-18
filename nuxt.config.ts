@@ -18,4 +18,22 @@ export default defineNuxtConfig({
     '@/assets/styles/global.css',
     'flag-icon-css/css/flag-icons.min.css'
   ],
+  // i18n:{
+  //   vueI18n: '/i18n/i18n.config.ts'
+  // }
+  i18n: {
+    strategy: 'prefix_except_default', // Język w URL, ale nie dla domyślnego
+    locales: [
+      { code: 'en', iso: 'en-US', file: 'en.ts' },
+      { code: 'pl', iso: 'pl-PL', file: 'pl.ts' },
+    ],
+    defaultLocale: 'pl',
+    lazy: true, // Lazy loading tłumaczeń
+    langDir: 'locales/', // Folder z tłumaczeniami
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root',
+    }
+  }
 });
