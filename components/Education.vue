@@ -1,5 +1,5 @@
 <template>
-  <div ref="title">
+  <section ref="section">
     <h1 class="text-center fancy-text bg-grey-2">Edukacja</h1>
     <div class="education-section">
       <q-list class="education-list">
@@ -30,8 +30,7 @@
         </q-item>
       </q-list>
     </div>
-  </div>
- 
+  </section>
 </template>
   
 <script setup lang="ts">
@@ -84,12 +83,13 @@ onMounted(() => {
   });
 });
 
-const title = useTemplateRef('title');
+const section = useTemplateRef('section');
 
 onMounted(() => {
-  const intersection = useHeaderIntersectionObserver();
-  intersection.createObserver(title.value, 'education');
+  const { registerSection } = useActiveSection();
+  registerSection('education', section);
 });
+
 
 </script>
   

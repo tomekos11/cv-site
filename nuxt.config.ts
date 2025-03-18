@@ -8,10 +8,14 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/icon',
     '@nuxt/image',
-    '@vueuse/nuxt'
+    '@vueuse/nuxt',
+    '@nuxtjs/i18n'
   ],
   plugins: [
     { src: '~/plugins/pinia.ts', mode: 'client' }
   ],
-  css: ['@/assets/styles/global.css']
+  css: [
+    '@/assets/styles/global.css',
+    'flag-icon-css/css/flag-icons.min.css'
+  ],
 });

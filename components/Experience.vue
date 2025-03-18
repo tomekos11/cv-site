@@ -1,5 +1,5 @@
 <template>
-  <div ref="title">
+  <section ref="section">
     <h1 class="text-center fancy-text bg-grey-2">Experience</h1>
 
     <q-timeline v-if="isDesktop" color="primary" layout="loose" class="q-pa-lg work-history">
@@ -42,7 +42,7 @@
         <div class="q-px-sm" v-html="job.description" />
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -102,11 +102,11 @@ const workHistory = [
 ];
 
 
-const title = useTemplateRef('title');
+const section = useTemplateRef('section');
 
 onMounted(() => {
-  const intersection = useHeaderIntersectionObserver();
-  intersection.createObserver(title.value, 'experience');
+  const { registerSection } = useActiveSection();
+  registerSection('experience', section);
 });
 
 </script>

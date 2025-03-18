@@ -15,14 +15,3 @@ interface Props {
 
 defineProps<Props>();
 </script>
-
-<!-- <style scoped>
-.text-with-border {
-  color: white; /* Tekst biały */
-  text-shadow: 
-    -1px -1px 0 #000, /* Czarny cień dookoła */
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;
-}
-</style> -->

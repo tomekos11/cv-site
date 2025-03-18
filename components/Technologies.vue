@@ -1,5 +1,5 @@
 <template>
-  <div ref="title">
+  <section ref="section">
     
     <div class="q-pt-sm q-mt-md">
       <h1 class="text-center fancy-text bg-grey-2">technologies</h1>
@@ -57,7 +57,7 @@
         </q-carousel>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 
@@ -122,16 +122,16 @@ const updateMaxCardsPerSlide = () => {
   }
 };
 
-const title = useTemplateRef('title');
+const section = useTemplateRef('section');
 
 onMounted(() => {
   updateMaxCardsPerSlide();
   window.addEventListener('resize', updateMaxCardsPerSlide);
 
-  const intersection = useHeaderIntersectionObserver();
-  intersection.createObserver(title.value, 'technologies');
-
+  const { registerSection } = useActiveSection();
+  registerSection('technologies', section);
 });
+
 
 onBeforeUnmount(() => {
   window.removeEventListener('resize', updateMaxCardsPerSlide);

@@ -1,5 +1,5 @@
 <template>
-  <div ref="title">
+  <section ref="section">
     <h1 class="text-center fancy-text bg-grey-2">Certificates</h1>
     <div class="education-section">
       <q-list class="education-list">
@@ -69,7 +69,7 @@
         </q-card-actions>
       </q-card>
     </q-dialog>
-  </div>
+  </section>
 </template>
   
 <script setup lang="ts">
@@ -120,11 +120,11 @@ const openModal = (certificate: Certificate) => {
   showModal.value = true;
 };
 
-const title = useTemplateRef('title');
+const section = useTemplateRef('section');
 
 onMounted(() => {
-  const intersection = useHeaderIntersectionObserver();
-  intersection.createObserver(title.value, 'certificates');
+  const { registerSection } = useActiveSection();
+  registerSection('certificates', section);
 });
 </script>
 

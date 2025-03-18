@@ -5,6 +5,7 @@
       style="height: 100vh;"
       :thumb-style="{width: '6px', background: 'red' }"
       :vertical-offset="[74,0]"
+      @scroll="handleScroll"
     >
       <q-header elevated class="bg-black text-white">
         <Header v-model="drawer" />
@@ -54,6 +55,17 @@ import type { QScrollArea } from 'quasar';
 
 const drawer = ref(false);
 const scrollArea = ref<InstanceType<typeof QScrollArea> | null>(null);
+
+const { updateVisibleSections } = useActiveSection();
+
+const handleScroll = () => {
+  updateVisibleSections(scrollArea.value);
+};
+
+onMounted(() => {
+  updateVisibleSections(scrollArea.value);
+});
+
 
 </script>
 

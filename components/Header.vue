@@ -4,12 +4,15 @@
 
       <q-toolbar class="q-px-md justify-between">
         <q-toolbar-title>CV</q-toolbar-title>
+        {{ $t('welcome') }}
         <div class="d-none d-md-flex gap-20 flex-center">
-          <q-btn flat :class="{ 'active-link': isHeaderLinkActive('experience')}" @click="scrollToSection('experience')">Experience</q-btn>
-          <q-btn flat :class="{ 'active-link': isHeaderLinkActive('education')}" @click="scrollToSection('education')">Education</q-btn>
-          <q-btn flat :class="{ 'active-link': isHeaderLinkActive('technologies')}" @click="scrollToSection('technologies')">Technologies</q-btn>
-          <q-btn flat :class="{ 'active-link': isHeaderLinkActive('projects')}" @click="scrollToSection('projects')">Projects</q-btn>
-          <q-btn flat :class="{ 'active-link': isHeaderLinkActive('certificates')}" @click="scrollToSection('certificates')">Certificates</q-btn>
+          <q-btn flat :class="{ 'active-link': isSectionActive('experience')}" @click="scrollToSection('experience')">Experience</q-btn>
+          <q-btn flat :class="{ 'active-link': isSectionActive('education')}" @click="scrollToSection('education')">Education</q-btn>
+          <q-btn flat :class="{ 'active-link': isSectionActive('technologies')}" @click="scrollToSection('technologies')">Technologies</q-btn>
+          <q-btn flat :class="{ 'active-link': isSectionActive('projects')}" @click="scrollToSection('projects')">Projects</q-btn>
+          <q-btn flat :class="{ 'active-link': isSectionActive('certificates')}" @click="scrollToSection('certificates')">Certificates</q-btn>
+
+          <lang-switcher />
         </div>
         <!-- Przycisk hamburgera dla mniejszych ekranów -->
         <q-btn
@@ -26,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-const { isHeaderLinkActive, scrollToSection } = useHeaderIntersectionObserver();
+const { isSectionActive, scrollToSection } = useActiveSection();
 
 const drawer = defineModel<boolean>();
 

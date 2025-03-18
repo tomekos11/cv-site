@@ -1,6 +1,6 @@
 <template>
-  <div class="q-pt-sm">
-    <h1 ref="title" class="text-center fancy-text bg-grey-2">projects</h1>
+  <section ref="section" class="q-pt-sm">
+    <h1 class="text-center fancy-text bg-grey-2">projects</h1>
     <div 
       class="q-pt-sm q-pb-md" 
       style="display: grid; grid-template-columns: repeat(auto-fit, min(374px, 100%)); gap: 30px; justify-content: center;"
@@ -38,7 +38,7 @@
         Zobacz wszystkie projekty <Icon name="fa-solid:external-link-alt" style="color: #2c3e50" size="1rem" />
       </router-link>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -93,11 +93,11 @@ const projects: Project[] = [
   }
 ];
 
-const title = useTemplateRef('title');
+const section = useTemplateRef('section');
 
 onMounted(() => {
-  const intersection = useHeaderIntersectionObserver();
-  intersection.createObserver(title.value, 'projects');
+  const { registerSection } = useActiveSection();
+  registerSection('projects', section);
 });
 
 </script>
