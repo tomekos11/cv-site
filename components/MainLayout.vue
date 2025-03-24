@@ -3,8 +3,8 @@
     <q-scroll-area
       ref="scrollArea"
       style="height: 100vh;"
-      :thumb-style="{width: '6px', background: 'red' }"
-      :vertical-offset="[74,0]"
+      :thumb-style="{width: '6px', background: '#2c3e50' }"
+      :vertical-offset="[68,52]"
       @scroll="handleScroll"
     >
       <q-header elevated class="bg-black text-white">
@@ -30,19 +30,12 @@
         </q-toolbar>
       </q-footer>
 
-      <q-drawer v-model="drawer" side="left" class="bg-black text-white drawer">
+      <q-drawer v-if="shouldDownloadDrawer" v-model="drawer" side="left" class="bg-black text-white drawer">
         <div class="bg-white" style="height: 5px;" />
 
         <q-list class="sticky">
-          <q-item v-ripple clickable @click="navigateTo('experience')">
-            <q-item-section>Experience</q-item-section>
-          </q-item>
-          <q-item v-ripple clickable @click="navigateTo('technologies')">
-            <q-item-section>Technologies</q-item-section>
-          </q-item>
-          <q-item v-ripple clickable @click="navigateTo('projects')">
-            <q-item-section>Projects</q-item-section>
-          </q-item>
+          <async-navigation :is-block="true" />
+          <lang-switcher :is-block="true" />
         </q-list>
       </q-drawer>
     </q-scroll-area>
@@ -53,8 +46,12 @@
 <script setup lang="ts">
 import type { QScrollArea } from 'quasar';
 
+const AsyncNavigation = defineAsyncComponent(() => import('@/components/Navigation.vue'));
+
 const drawer = ref(false);
-const scrollArea = ref<InstanceType<typeof QScrollArea> | null>(null);
+const shouldDownloadDrawer = ref(false);
+
+const scrollArea = useTemplateRef<InstanceType<typeof QScrollArea>>('scrollArea');
 
 const { updateVisibleSections } = useActiveSection();
 
@@ -66,6 +63,11 @@ onMounted(() => {
   updateVisibleSections(scrollArea.value);
 });
 
+watch(drawer, (newValue) => {
+  if (newValue) {
+    shouldDownloadDrawer.value = true;
+  }
+});
 
 </script>
 

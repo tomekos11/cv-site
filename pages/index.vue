@@ -6,8 +6,7 @@
         <h2 class="text-grey-8">Fullstack Developer</h2>
 
         <p style="font-size: 24px; width: min(600px, calc(100% - 24px));" class="text-center q-mx-auto q-mt-lg">
-          Rozwijający się Full Stack Developer, z zamiłowaniem do rozwiązywania problemów.
-          Zawsze gotów na wyzwania, nieustannie dążący do doskonalenia swoich umiejętności.
+          {{ $t('myDescription') }}
         </p>
 
       </div>

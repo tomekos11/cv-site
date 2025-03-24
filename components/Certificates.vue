@@ -1,6 +1,6 @@
 <template>
   <section ref="section">
-    <h1 class="text-center fancy-text bg-grey-2">Certificates</h1>
+    <h1 class="text-center fancy-text bg-grey-2">{{ $t('nav.certificates') }}</h1>
     <div class="education-section">
       <q-list class="education-list">
         <q-item v-for="(cert, index) in certificates" :key="index" class="education-item">
@@ -14,25 +14,25 @@
                     <q-btn v-if="cert.link" round class="q-mr-sm" size="xs" :href="cert.link" target="_blank">
                       <Icon name="fa-solid:external-link-alt" style="color: #2c3e50" size="0.8rem" />
                       <q-tooltip class="bg-dark" :delay="400" max-width="300px">
-                        Otwórz poświadczenie
+                        {{ $t('certificates.openLink') }}
                       </q-tooltip>
                     </q-btn>
 
                     <q-btn v-if="cert.image" round size="xs" @click="openModal(cert)">
                       <Icon name="pepicons-pop:photo-camera" style="color: #2c3e50" class="q-pa-sm" size="1rem"/>
                       <q-tooltip class="bg-dark" :delay="400" max-width="300px">
-                        Pokaż zdjęcie
+                        {{ $t('certificates.showPhoto') }}
                       </q-tooltip>
                     </q-btn>
                   </div>
                 </div>
                 <div class="school-title">{{ cert.company }}</div>
-                <div class="school-period">Wydany {{ cert.receivedDate }}</div>
-                <div v-if="cert.identifier" class="school-period">Identyfikator poświadczenia {{ cert.identifier }}</div>
+                <div class="school-period">{{ $t('certificates.issued') }} {{ cert.receivedDate }}</div>
+                <div v-if="cert.identifier" class="school-period">{{ $t('certificates.credentialId') }} {{ cert.identifier }}</div>
               
                 <q-expansion-item
                   icon="star"
-                  label="Rozwiń nabyte umiejętności"
+                  :label="$t('certificates.expand')"
                   header-class="text-amber-10"
                   dense
                 >
@@ -90,18 +90,21 @@ interface Certificate {
 const showModal = ref(false);
 const modalImage = ref('');
 
+const { t } = useI18n();
+
 const certificates: Certificate[] = [
   {
-    name: 'Building Modern Web Applications',
+    // name: 'Building Modern Web Applications',
+    name: t('certificates.cert1.name'),
     company: 'SoftSystem Sp. z.o.o',
     receivedDate: '2023-05',
     skills: ['Vue', 'Python'],
     companyImage: '/assets/icons/companies/softsystem.jpg',
     image: '/assets/icons/companies/softsystem.jpg',
-    description: 'Certyfikat nabyty został podczas zajęć prowadzonych przez firmę SoftSystem w Politechnice Rzeszowskiej.'
+    description: t('certificates.cert1.description')
   },
   {
-    name: 'TOEIC Certificate of achievement',
+    name: t('certificates.cert2.name'),
     company: 'ETS',
     receivedDate: '2024-01',
     skills: ['English C1'],
@@ -109,7 +112,7 @@ const certificates: Certificate[] = [
     image: '/assets/icons/certificates/toeic.jpg',
     identifier: '776460',
     link: 'https://www.etsglobal.org/fr/en/digital-score-report/E82351FEC236574022D93D920C6A29DD1F27DA6347D454A35F19C46A8084FBB4cnFwWjVjKzFPWnArVnlXQnA2VDdsRmZFbGJoNmp5UC9Bazk2M3FwSThoTjJva1Rs',
-    description: 'Certyfikat nabyty został podczas zajęć prowadzonych przez firmę SoftSystem w Politechnice Rzeszowskiej.'
+    description: t('certificates.cert2.description')
   },
 ];
 

@@ -1,5 +1,5 @@
 <template>
-  <q-btn>
+  <q-btn :class="{'d-block': isBlock, 'full-width': isBlock}">
     <div>
       {{ locale }}
       <span :class="`flag-icon flag-icon-${getCountryCode(locale)}`"/>
@@ -17,6 +17,12 @@
 
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n';
+
+interface Props {
+  isBlock?: boolean;
+}
+
+const { isBlock = false } = defineProps<Props>();
 
 const { locale, availableLocales, setLocale } = useI18n();
 

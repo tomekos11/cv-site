@@ -1,6 +1,6 @@
 <template>
   <section ref="section">
-    <h1 class="text-center fancy-text bg-grey-2">Edukacja</h1>
+    <h1 class="text-center fancy-text bg-grey-2">{{ $t('nav.education') }}</h1>
     <div class="education-section">
       <q-list class="education-list">
         <q-item
@@ -16,11 +16,11 @@
               <div class="school-info">
                 <div class="school-name">{{ school.name }}</div>
                 <div class="school-title">{{ school.title }}</div>
-                <div v-if="school.mark" class="school-title">Ocena: {{ school.mark }}</div>
+                <div v-if="school.mark" class="school-title">{{ $t('education.grade') }}: {{ school.mark }}</div>
                 <div class="school-period">
                   {{ school.when }}
-                  <span v-if="school.status === 'ongoing'" class="text-orange-10">
-                    (obecnie)
+                  <span v-if="school.status === 'ongoing' && new Date() < new Date('2026-08-01')" class="text-orange-10">
+                    ({{ $t('education.currently') }})
                   </span>
                   <q-icon v-else name="done" color="green-10" />
                 </div>
@@ -38,27 +38,28 @@ import type { QItem } from 'quasar';
 
 import { useIntersectionObserver } from '@vueuse/core';
 
-  
+const { t } = useI18n();
+
 const education = [
   {
-    name: 'Politechnika Rzeszowska im. Ignacego Łukasiewicza',
+    name: t('education.school3.name'),
     when: '02/2025 - 07/2026',
-    title: 'Magister (Mgr), Informatyka - Cyberbezpieczeństwo i technologie chmurowe',
+    title: t('education.school3.title'),
     img: '/assets/icons/companies/prz.png',
     status: 'ongoing'
   },
   {
-    name: 'Politechnika Rzeszowska im. Ignacego Łukasiewicza',
+    name: t('education.school2.name'),
     when: '10/2021 - 02/2025',
-    title: 'Inżynier (Inż.), Informatyka - Inżynieria oprogramowania',
+    title: t('education.school2.title'),
     img: '/assets/icons/companies/prz.png',
     mark: '5.0',
     status: 'ended'
   },
   {
-    name: 'Zespół Szkół Elektronicznych (ZSE) w Rzeszowie',
+    name: t('education.school1.name'),
     when: '09/2017 - 06/2021',
-    title: 'Technik Informatyk, Informatyka',
+    title: t('education.school1.title'),
     img: '/assets/icons/companies/zse.svg',
     status: 'ended'
   }
@@ -104,7 +105,7 @@ onMounted(() => {
     margin-top: 20px;
   }
 
-  .education-item {
+.education-item {
   background-color: #f9f9f9;
   margin: 10px 0;
   border-radius: 8px;

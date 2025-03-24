@@ -1,5 +1,6 @@
 import { ref, isRef } from 'vue';
 import { useDebounceFn } from '@vueuse/core';
+import type { QScrollArea } from 'quasar';
 
 type SectionName = 'experience' | 'education' | 'technologies' | 'projects' | 'certificates';
 
@@ -14,7 +15,7 @@ export function useActiveSection() {
     sections.set(name, { ref: element, visibleHeight: 0 });
   };
 
-  const updateVisibleSections = useDebounceFn((scrollArea: Ref<HTMLElement | null>) => {
+  const updateVisibleSections = useDebounceFn((scrollArea: Ref<InstanceType<typeof QScrollArea> | null>) => {
     const scrollAreaHeight = scrollArea.value ? scrollArea.value.clientHeight : window.innerHeight;
 
     const visibleSections = Array.from(sections.entries())

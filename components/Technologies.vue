@@ -2,11 +2,26 @@
   <section ref="section">
     
     <div class="q-pt-sm q-mt-md">
-      <h1 class="text-center fancy-text bg-grey-2">technologies</h1>
-      <q-select v-model="selectedCategory" :options="options" label="Filtruj przez kategorię" style="width: 200px; margin-inline: auto" @update:model-value="slide = 0" />
+      <h1 class="text-center fancy-text bg-grey-2">{{ $t('nav.technologies') }}</h1>
 
       <div ref="carousel" class="custom-carousel">
-        <div v-if="!maxCardsAmountUpdated" class="carousel-grid q-py-xl" >
+
+        <div ref="select-container" class="bg-grey-2 q-mx-auto q-py-sm" :style="`width: ${maxCardsPerSlide * 190}px`">
+          <q-select
+            v-model="selectedCategory"
+            :options="options"
+            outlined
+            dense
+            :label="$t('technologies.filter')"
+            class="bg-white"
+            style="width: 200px; margin-inline: auto"
+            :clearable="true"
+            @update:model-value="slide = 0"
+          />
+        </div>
+
+      
+        <div v-if="!maxCardsAmountUpdated" class="carousel-grid q-pb-xl" >
           <div
             v-for="index in placeholderCardCount"
             :key="index"
@@ -30,6 +45,7 @@
           :arrows="visibleChunks.length > 1"
           infinite
         >
+
           <q-carousel-slide
             v-for="(chunk, chunkIndex) in visibleChunks"
             :key="chunkIndex"
@@ -73,18 +89,19 @@ interface Technology {
 }
 
 const technologies: Technology[] = [
-  { name: 'HTML', src: '/assets/icons/html5.png', type: 'frontend' },
-  { name: 'CSS', src: '/assets/icons/css.png', type: 'frontend' },
-  { name: 'JavaScript', src: '/assets/icons/js.png', type: 'frontend' },
-  { name: 'TypeScript', src: '/assets/icons/tss.png', type: 'frontend' },
-  { name: 'SEO', src: '/assets/icons/seo_no_bg.png', type: 'frontend' },
-  { name: 'Vue', src: '/assets/icons/vue.png', type: 'frontend' },
-  { name: 'Quasar', src: '/assets/icons/quasar.png', type: 'frontend' },
-  { name: 'Nuxt', src: '/assets/icons/nuxt.png', type: 'frontend' },
-  { name: 'PHP', src: '/assets/icons/php.png', type: 'backend' },
-  { name: 'Laravel', src: '/assets/icons/laravel.png', type: 'backend' },
-  { name: 'Bootstrap', src: 'assets/icons/bootstrap.png', type: 'frontend' },
-  { name: 'Git', src: '/assets/icons/git.png' },
+  { name: 'HTML', src: '/assets/icons/technologies/html5.png', type: 'frontend' },
+  { name: 'CSS', src: '/assets/icons/technologies/css.png', type: 'frontend' },
+  { name: 'JavaScript', src: '/assets/icons/technologies/js.png', type: 'frontend' },
+  { name: 'TypeScript', src: '/assets/icons/technologies/tss.png', type: 'frontend' },
+  { name: 'SEO', src: '/assets/icons/technologies/seo_no_bg.png', type: 'frontend' },
+  { name: 'Vue', src: '/assets/icons/technologies/vue.png', type: 'frontend' },
+  { name: 'Quasar', src: '/assets/icons/technologies/quasar.png', type: 'frontend' },
+  { name: 'Nuxt', src: '/assets/icons/technologies/nuxt.png', type: 'frontend' },
+  { name: 'PHP', src: '/assets/icons/technologies/php.png', type: 'backend' },
+  { name: 'Laravel', src: '/assets/icons/technologies/laravel.png', type: 'backend' },
+  { name: 'Node', src: '/assets/icons/technologies/node.png', type: 'backend' },
+  { name: 'Bootstrap', src: 'assets/icons/technologies/bootstrap.png', type: 'frontend' },
+  { name: 'Git', src: '/assets/icons/technologies/git.png' },
 ];
 
 const selectedCategory = ref<typeof options[number] | null>(null);
