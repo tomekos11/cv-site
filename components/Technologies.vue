@@ -4,22 +4,21 @@
     <div class="q-pt-sm q-mt-md">
       <h1 class="text-center fancy-text bg-grey-2">{{ $t('nav.technologies') }}</h1>
 
+      <div ref="select-container" class="bg-grey-2 q-mx-auto q-py-sm">
+        <q-select
+          v-model="selectedCategory"
+          :options="options"
+          outlined
+          dense
+          :label="$t('technologies.filter')"
+          class="bg-white"
+          style="width: 200px; margin-inline: auto"
+          :clearable="true"
+          @update:model-value="slide = 0"
+        />
+      </div>
+
       <div ref="carousel" class="custom-carousel">
-
-        <div ref="select-container" class="bg-grey-2 q-mx-auto q-py-sm" :style="`width: ${maxCardsPerSlide * 190}px`">
-          <q-select
-            v-model="selectedCategory"
-            :options="options"
-            outlined
-            dense
-            :label="$t('technologies.filter')"
-            class="bg-white"
-            style="width: 200px; margin-inline: auto"
-            :clearable="true"
-            @update:model-value="slide = 0"
-          />
-        </div>
-
       
         <div v-if="!maxCardsAmountUpdated" class="carousel-grid q-pb-xl" >
           <div
@@ -37,39 +36,30 @@
         </div>
 
         <q-carousel
-          v-else
           v-model="slide"
           animated
           control-color="primary"
-          swipeable
-          :arrows="visibleChunks.length > 1"
+          arrows
           infinite
         >
-
-          <q-carousel-slide
-            v-for="(chunk, chunkIndex) in visibleChunks"
-            :key="chunkIndex"
-            :name="chunkIndex"
-          >
+          <q-carousel-slide v-for="(tech, index) in technologies" :key="tech.name" :name="index">
             <div class="carousel-grid">
               <q-card
-                v-for="(tech, index) in chunk"
+                v-for="(tech, index) in visibleTechnologies"
                 :key="index"
                 class="bg-white text-dark text-center card-hover carousel-card"
-                style="transition: background-color 0.3s;"
               >
                 <q-card-section class="d-flex flex-column full-height">
                   <div class="d-flex flex-column flex-center full-height">
-                    <img
-                      :src="tech.src"
-                      style="width: 150px; height: auto; object-fit: cover;"
-                    >
+                    <img :src="tech.src" style="width: 150px; height: auto; object-fit: cover;">
                   </div>
                   <div class="q-my-sm text-bold">{{ tech.name }}</div>
                 </q-card-section>
               </q-card>
             </div>
           </q-carousel-slide>
+
+  
         </q-carousel>
       </div>
     </div>
@@ -78,6 +68,7 @@
 
 
 <script setup lang="ts">
+import type { QCarousel } from 'quasar';
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
 
 const options = ['frontend', 'backend'] as const;
@@ -104,27 +95,25 @@ const technologies: Technology[] = [
   { name: 'Git', src: '/assets/icons/technologies/git.png' },
 ];
 
+const carousel = useTemplateRef<InstanceType<typeof QCarousel> | null>('carousel');
+
 const selectedCategory = ref<typeof options[number] | null>(null);
-const carousel = ref<HTMLElement | null>(null);
 const slide = ref(0);
 const maxCardsPerSlide = ref(5);
 const maxCardsAmountUpdated = ref(false);
 const placeholderCardCount = ref(5);
 
-const visibleChunks = computed(() => {
-  const chunkSize = maxCardsPerSlide.value;
-  const filteredTechnologies = technologies.filter(
-    (tech) => !selectedCategory.value || tech.type === selectedCategory.value || !tech.type
-  );
+const visibleTechnologies = computed(() => {
+  const start = slide.value;
+  const end = start + maxCardsPerSlide.value;
+  let items = technologies.slice(start, end);
 
-  return filteredTechnologies.reduce<Technology[][]>((resultArray, item, index) => {
-    const chunkIndex = Math.floor(index / chunkSize);
-    if (!resultArray[chunkIndex]) {
-      resultArray[chunkIndex] = [];
-    }
-    resultArray[chunkIndex].push(item);
-    return resultArray;
-  }, []);
+  // Jeśli długość jest mniejsza niż maxCardsPerSlide, dodajemy brakujące elementy z początku listy
+  if (items.length < maxCardsPerSlide.value) {
+    items = [...items, ...technologies.slice(0, maxCardsPerSlide.value - items.length)];
+  }
+
+  return items;
 });
 
 const updateMaxCardsPerSlide = () => {
