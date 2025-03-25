@@ -31,11 +31,6 @@
         </q-card>
       </template>
     </div>
-    <!-- <div class="text-center q-py-xl">
-      <router-link to="/projects" class="extra-styled-link">
-        {{ $t('projects.viewAllProjects') }} <Icon name="fa-solid:external-link-alt" style="color: #2c3e50" size="1rem" />
-      </router-link>
-    </div> -->
 
     <div class="text-center q-py-lg q-pb-xl q-mx-lg">
       <q-btn

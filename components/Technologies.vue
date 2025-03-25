@@ -46,7 +46,7 @@
           transition-next="jump-left"
           transition-prev="jump-right"
         >
-          <q-carousel-slide v-for="(tech, index) in technologies" :key="tech.name" :name="index">
+          <q-carousel-slide v-for="(tech, index) in filteredTechnologies" :key="tech.name" :name="index">
             <div class="carousel-grid">
               <q-card
                 v-for="(tech, index) in visibleTechnologies"
@@ -55,7 +55,14 @@
               >
                 <q-card-section class="d-flex flex-column full-height">
                   <div class="d-flex flex-column flex-center full-height">
-                    <img :src="tech.src" style="width: 150px; height: auto; object-fit: cover;">
+                    <template v-if="tech.src">
+                      <img :src="tech.src" style="width: 150px; height: auto; object-fit: cover;">
+                    </template>
+                    <template v-else>
+                      <div style="font-size: 32px; width: 150px;">
+                        {{ tech.name }}
+                      </div>
+                    </template>
                   </div>
                   <div class="q-my-sm text-bold">{{ tech.name }}</div>
                 </q-card-section>
@@ -78,7 +85,7 @@ const options = ['frontend', 'backend'] as const;
 
 interface Technology {
   name: string;
-  src: string;
+  src?: string;
   type?: typeof options[number];
 }
 
@@ -93,7 +100,11 @@ const technologies: Technology[] = [
   { name: 'Nuxt', src: '/assets/icons/technologies/nuxt.png', type: 'frontend' },
   { name: 'PHP', src: '/assets/icons/technologies/php.png', type: 'backend' },
   { name: 'Laravel', src: '/assets/icons/technologies/laravel.png', type: 'backend' },
+  { name: 'SQL', src: null, type: 'backend' },
+  { name: 'ORM', src: null, type: 'backend' },
   { name: 'Node', src: '/assets/icons/technologies/node.png', type: 'backend' },
+  { name: 'Express', src: null, type: 'backend' },
+  { name: 'Adonis.js', src: null, type: 'backend' },
   { name: 'Bootstrap', src: 'assets/icons/technologies/bootstrap.png', type: 'frontend' },
   { name: 'Git', src: '/assets/icons/technologies/git.png' },
 ];
@@ -106,14 +117,17 @@ const maxCardsPerSlide = ref(5);
 const maxCardsAmountUpdated = ref(false);
 const placeholderCardCount = ref(5);
 
+const filteredTechnologies = computed(() => technologies.filter(el => !selectedCategory.value || el.type === selectedCategory.value));
+
 const visibleTechnologies = computed(() => {
   const start = slide.value;
   const end = start + maxCardsPerSlide.value;
-  let items = technologies.slice(start, end);
+
+  let items = filteredTechnologies.value.slice(start, end);
 
   // Jeśli długość jest mniejsza niż maxCardsPerSlide, dodajemy brakujące elementy z początku listy
   if (items.length < maxCardsPerSlide.value) {
-    items = [...items, ...technologies.slice(0, maxCardsPerSlide.value - items.length)];
+    items = [...items, ...filteredTechnologies.value.slice(0, maxCardsPerSlide.value - items.length)];
   }
 
   return items;
