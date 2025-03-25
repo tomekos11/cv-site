@@ -33,10 +33,25 @@
       <q-drawer v-if="shouldDownloadDrawer" v-model="drawer" side="left" class="bg-black text-white drawer">
         <div class="bg-white" style="height: 5px;" />
 
-        <q-list class="sticky">
-          <async-navigation :is-block="true" />
-          <lang-switcher :is-block="true" />
+        <q-list class="sticky d-flex flex-column" style="height: 90%;">
+          <div>
+            <async-navigation :is-block="true" />
+            <lang-switcher :is-block="true" />
+          </div>
+          <div class="q-mt-auto" style="background: #ffffff1a;">
+            <div class="d-flex justify-center gap-5 q-my-xs">
+
+              <a href="https://www.linkedin.com/in/tomasz-slapinski/" target="_blank">
+                <Icon name="uil:linkedin" style="color: #0a66c2" size="36px" class="d-flex"/>
+              </a>
+
+              <a href="https://github.com/tomekos11" target="_blank">
+                <Icon name="uil:github" style="color: #010409" size="36px" class="d-flex"/>
+              </a>
+            </div>
+          </div>
         </q-list>
+
       </q-drawer>
     </q-scroll-area>
   </q-layout>

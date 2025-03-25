@@ -63,8 +63,16 @@ export default {
       description: 'Certyfikat nabyty został podczas zajęć prowadzonych przez firmę SoftSystem w Politechnice Rzeszowskiej.'
     },
     cert2: {
+      name: 'Analytics Academy - SQL',
+      description: ''
+    },
+    cert3: {
       name: 'TOEIC Certyfikat osiągnięcia',
       description: 'Certyfikat stanowi potwierdzenie '
+    },
+    cert4: {
+      name: 'Certyfikacja SEO',
+      description: 'Ten kurs pomógł mi zrozumieć najlepsze praktyki optymalizacji SEO zarówno pod kątem technicznym, jak i tworzenia skutecznych treści. Nauczyłem się, jakie czynniki wpływają na SEO, czego unikać, aby nie zaszkodzić pozycji strony, oraz jak skutecznie monitorować i analizować postępy. Kurs pozwolił mi lepiej zarządzać widocznością stron w wyszukiwarkach i stosować sprawdzone strategie poprawiające ich ranking.'
     },
   }
 };

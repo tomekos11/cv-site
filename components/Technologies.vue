@@ -10,8 +10,10 @@
           :options="options"
           outlined
           dense
+          color="blue-9"
+          options-selected-class="text-blue-9"
+          bg-color="white"
           :label="$t('technologies.filter')"
-          class="bg-white"
           style="width: 200px; margin-inline: auto"
           :clearable="true"
           @update:model-value="slide = 0"
@@ -41,6 +43,8 @@
           control-color="primary"
           arrows
           infinite
+          transition-next="jump-left"
+          transition-prev="jump-right"
         >
           <q-carousel-slide v-for="(tech, index) in technologies" :key="tech.name" :name="index">
             <div class="carousel-grid">
@@ -58,7 +62,6 @@
               </q-card>
             </div>
           </q-carousel-slide>
-
   
         </q-carousel>
       </div>

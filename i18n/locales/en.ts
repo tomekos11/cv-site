@@ -63,8 +63,16 @@ export default {
       description: 'Certificate obtained during training sessions conducted by SoftSystem at Rzeszów University of Technology.'
     },
     cert2: {
+      name: 'Analytics Academy - SQL',
+      description: ''
+    },
+    cert3: {
       name: 'TOEIC Certificate of Achievement',
       description: 'The TOEIC (Test of English for International Communication) is a standardized English test designed for professionals and businesses. It consists of two separate tests: one assessing receptive English skills (reading and listening) and the other assessing productive English skills (speaking and writing).'
+    },
+    cert4: {
+      name: 'SEO Certification',
+      description: 'This course helped me understand the best SEO optimization practices, both from a technical perspective and in terms of creating effective content. I learned which factors influence SEO, what to avoid to prevent harming a website’s ranking, and how to effectively monitor and analyze progress. The course enabled me to better manage website visibility in search engines and apply proven strategies to improve rankings.'
     },
   }
 };

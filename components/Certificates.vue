@@ -94,6 +94,36 @@ const { t } = useI18n();
 
 const certificates: Certificate[] = [
   {
+    name: t('certificates.cert4.name'),
+    company: 'HubSpot Academy',
+    receivedDate: '2024-07',
+    skills: ['SEO'],
+    companyImage: '/assets/icons/companies/hubspot.jpg',
+    image: '/assets/icons/certificates/hubspot.png',
+    identifier: '3061024de9a74a61bc8c971f450688c1',
+    description: t('certificates.cert4.description')
+  },
+  {
+    name: t('certificates.cert3.name'),
+    company: 'ETS',
+    receivedDate: '2024-01',
+    skills: ['English C1'],
+    companyImage: '/assets/icons/companies/ets.jpg',
+    image: '/assets/icons/certificates/toeic.jpg',
+    identifier: '776460',
+    link: 'https://www.etsglobal.org/fr/en/digital-score-report/E82351FEC236574022D93D920C6A29DD1F27DA6347D454A35F19C46A8084FBB4cnFwWjVjKzFPWnArVnlXQnA2VDdsRmZFbGJoNmp5UC9Bazk2M3FwSThoTjJva1Rs',
+    description: t('certificates.cert3.description')
+  },
+  {
+    name: t('certificates.cert2.name'),
+    company: 'LabMasters Analytics Academy',
+    receivedDate: '2023-07',
+    skills: ['SQL'],
+    companyImage: '/assets/icons/companies/lab_masters.jpg',
+    image: '/assets/icons/certificates/lab_masters_sql.png',
+    description: t('certificates.cert2.description')
+  },
+  {
     // name: 'Building Modern Web Applications',
     name: t('certificates.cert1.name'),
     company: 'SoftSystem Sp. z.o.o',
@@ -102,17 +132,6 @@ const certificates: Certificate[] = [
     companyImage: '/assets/icons/companies/softsystem.jpg',
     image: '/assets/icons/companies/softsystem.jpg',
     description: t('certificates.cert1.description')
-  },
-  {
-    name: t('certificates.cert2.name'),
-    company: 'ETS',
-    receivedDate: '2024-01',
-    skills: ['English C1'],
-    companyImage: '/assets/icons/companies/ets.jpg',
-    image: '/assets/icons/certificates/toeic.jpg',
-    identifier: '776460',
-    link: 'https://www.etsglobal.org/fr/en/digital-score-report/E82351FEC236574022D93D920C6A29DD1F27DA6347D454A35F19C46A8084FBB4cnFwWjVjKzFPWnArVnlXQnA2VDdsRmZFbGJoNmp5UC9Bazk2M3FwSThoTjJva1Rs',
-    description: t('certificates.cert2.description')
   },
 ];
 

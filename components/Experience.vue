@@ -39,7 +39,7 @@
           </div>
         </div>
 
-        <div class="q-px-sm" v-html="job.description" />
+        <div class="q-px-lg" v-html="job.description" />
       </div>
     </div>
   </section>
@@ -65,13 +65,14 @@ const workHistory = [
     company: 'Polcar',
     logo: '/assets/icons/companies/polcar.png',
     dates: 'Lipiec 2023 - obecnie',
-    description: '<p><strong>Polcar</strong> to hurtownia części samochodowych, która zarządza stronami internetowymi dla partnerów. W ramach mojej roli realizowałem następujące zadania:</p> \
+    description: '<p><strong>Polcar</strong> to jedna z największych i najbardziej dynamicznych hurtowni części samochodowych w Europie.</p> \
+          <p>Jako członek działu innowacji i rozwoju oprogramowania odpowiadam za webowe aspekty firmy – od modernizacji stron i katalogów części po optymalizację wydajności, SEO i wdrażanie nowoczesnych technologii, które kształtują cyfrową przyszłość firmy.</p> \
           <ul> \
-            <li>Aktualizowałem i usprawniałem strony internetowe producentów części, koncentrując się na responsywności, wdrażaniu powiadomień o ciasteczkach, ulepszaniu map oraz aktualizowaniu wersji oprogramowania.</li> \
-            <li>Tworzyłem dynamiczną dokumentację dla obszernego API, co ułatwiało szybkie lokalizowanie problemów.</li> \
-            <li>Opracowałem aplikację do wizualizacji logów dla różnych typów dzienników, rozwijając swoje umiejętności w zakresie wyrażeń regularnych.</li> \
-            <li>Zbudowałem system CMS dla stron internetowych producentów.</li> \
-            <li>Aktualnie prowadzę proces refaktoryzacji frontendu projektu katalogowego z użyciem frameworka Quasar.</li> \
+            <li>Doprowadzam kluczowe projekty firmy do nowoczesnej formy, dbając o ich bezpieczeństwo, responsywność oraz wydajność. Moje działania zapewniają długoterminową stabilność i lepsze doświadczenie użytkownika.</li> \
+            <li>Wdrażam asynchroniczne komponenty i SSR (Server-Side Rendering), co znacząco poprawia szybkość ładowania stron oraz ich efektywność operacyjną, zapewniając płynne działanie systemów Polcar.</li> \
+            <li>Zoptymalizowałem strony pod kątem SEO, co przełożyło się na wyższe pozycje w wynikach wyszukiwania i zwiększenie ruchu organicznego, a także lepszą konwersję użytkowników.</li> \
+            <li>Stworzyłem dedykowany system zarządzania treścią (CMS), umożliwiający kontrahentom firmy sprawne zarządzanie treściami i aktualizowanie stron, co usprawnia procesy i zwiększa efektywność obsługi partnerów biznesowych.</li> \
+            <li>Prowadzę modernizację frontendu katalogu części Polcar, wykorzystując framework Quasar, co zapewnia większą skalowalność, wydajność oraz łatwiejszy dalszy rozwój projektu.</li> \
           </ul>',
     shortDescription: 'Worked as a Software Developer.',
     longDescription: 'I was responsible for developing web applications using Vue.js and Quasar Framework, ensuring optimal performance and scalability. My role involved collaborating with cross-functional teams, mentoring junior developers, and contributing to agile workflows.',
@@ -113,7 +114,7 @@ onMounted(() => {
 
 <style>
 .work-history {
-  max-width: 1000px;
+  max-width: 1120px;
   margin: auto;
 }
 
@@ -137,7 +138,7 @@ onMounted(() => {
 
 @media (min-width: 800px) {
   .work-history {
-    max-width: 1000px;
+    max-width: 1120px;
     margin: auto;
   }
 }
