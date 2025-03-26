@@ -73,7 +73,6 @@ onMounted(() => {
     const { stop } = useIntersectionObserver(
       el,
       ([entry]) => {
-        console.log(entry.isIntersecting);
         if (entry.isIntersecting) {
           visibleItems.value.push(index);
           stop();

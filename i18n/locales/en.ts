@@ -7,7 +7,16 @@ export default {
     certificates: 'Certificates'
   },
   
+  inquire: 'Send Inquiry',
+  downloadCv: 'Download CV',
   myDescription: 'Evolving Full Stack Developer with a passion for problem-solving. Always ready for new challenges, constantly striving to refine and enhance skills.',
+
+  inquiryModal: {
+    name: 'Name',
+    surname: 'Surname',
+    company: 'Company',
+    content: 'Inquiry content'
+  },
 
   experience: {
     date1: 'July 2023 - Present',

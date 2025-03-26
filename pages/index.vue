@@ -9,6 +9,27 @@
           {{ $t('myDescription') }}
         </p>
 
+        <q-btn
+          class="bg-primary text-white q-mr-sm"
+          style="font-size: 15px;"
+          size="md"
+          rounded
+          :loading="loading"
+          icon="mail"
+          :label="$t('inquire')"
+          @click="showInquiryModal = true; loading = true"
+        />
+
+        <q-btn
+          color="primary"
+          outline
+          style="font-size: 15px;"
+          size="md"
+          rounded
+          icon="download"
+          :label="$t('downloadCv')"
+        />
+
       </div>
       <div class="col-12 col-lg-4 text-center self-end">
         <img src="/assets/icons/img/2023_linkedin_no_bg.png" style="max-width: min(400px, 100%);">
@@ -32,10 +53,18 @@
     <projects />
     <certificates />
     
+    <inquiry-modal v-if="showInquiryModal" @hide="showInquiryModal = false" @before-show="loading = false"/>
+    <analytics/>
   </q-page>
 </template>
 
 <script setup lang="ts">
+import { Analytics } from '@vercel/analytics/nuxt';
+
+const InquiryModal = defineAsyncComponent(() => import('@/components/InquiryModal.vue'));
+
+const showInquiryModal = ref(false);
+const loading = ref(false);
 </script>
 
 <style scoped>

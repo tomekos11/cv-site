@@ -7,8 +7,17 @@ export default {
     certificates: 'Certyfikaty'
   },
 
+  inquire: 'Napisz do mnie',
+  downloadCv: 'Pobierz CV',
   myDescription: 'Rozwijający się Full Stack Developer, z zamiłowaniem do rozwiązywania problemów. Zawsze gotów na wyzwania, nieustannie dążący do doskonalenia swoich umiejętności.',
   
+  inquiryModal: {
+    name: 'Imie',
+    surname: 'Nazwisko',
+    company: 'Firma',
+    content: 'Treść zapytania'
+  },
+
   experience: {
     date1: 'Lipiec 2023 - obecnie',
     date2: 'Sierpień 2024 - Wrzesień 2024',

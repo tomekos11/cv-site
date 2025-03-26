@@ -98,7 +98,6 @@ const workHistory: WorkHistory[] = [
   },
 ];
 
-
 const section = useTemplateRef('section');
 
 onMounted(() => {
