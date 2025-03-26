@@ -9,6 +9,12 @@ export default {
 
   myDescription: 'Rozwijający się Full Stack Developer, z zamiłowaniem do rozwiązywania problemów. Zawsze gotów na wyzwania, nieustannie dążący do doskonalenia swoich umiejętności.',
   
+  experience: {
+    date1: 'Lipiec 2023 - obecnie',
+    date2: 'Sierpień 2024 - Wrzesień 2024',
+    date3: 'Lipiec 2023 - Maj 2024',
+  },
+
   education: {
     grade: 'Ocena',
     currently: 'obecnie',
