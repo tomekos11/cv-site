@@ -1,6 +1,8 @@
 import { ref, isRef } from 'vue';
 import { useDebounceFn } from '@vueuse/core';
 import type { QScrollArea } from 'quasar';
+import { scroll } from 'quasar'
+const { getScrollTarget, setVerticalScrollPosition } = scroll
 
 type SectionName = 'experience' | 'education' | 'technologies' | 'projects' | 'certificates';
 
@@ -44,10 +46,31 @@ export function useActiveSection() {
     return activeSection.value === name;
   };
 
+  // const scrollToSection = (name: SectionName) => {
+  //   const element = sections.get(name);
+  //   if (element?.ref.value) {
+  //     element?.ref.value.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  //   }
+  // };
+
   const scrollToSection = (name: SectionName) => {
     const element = sections.get(name);
     if (element?.ref.value) {
-      element?.ref.value.scrollIntoView({ behavior: 'smooth' });
+      const el = element.ref.value;
+      const rect = el.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      
+      if (rect.height > viewportHeight * 0.9) {
+        const offset = -10;
+
+        const target = getScrollTarget(el)
+        const height = el.offsetTop + offset
+        const duration = 500
+
+        setVerticalScrollPosition(target, height, duration)
+      } else {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     }
   };
 
