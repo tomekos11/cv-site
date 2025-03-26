@@ -7,7 +7,6 @@
             <Icon name="uil:github" style="color: #010409" size="36px" class="d-flex"/>
           </a>
         </div> -->
-
 <template>
   <q-page style="max-width: 2000px; margin-inline: auto;">
     <div class="row landing-page" style="max-width: 95vw; margin-inline: auto;">
@@ -69,6 +68,80 @@ const InquiryModal = defineAsyncComponent(() => import('@/components/InquiryModa
 
 const showInquiryModal = ref(false);
 const loading = ref(false);
+
+const { t, locale } = useI18n();
+
+const link = computed(() => {
+  if(locale.value === 'pl') {
+    return [
+      { rel: 'canonical', href: 'https://cv-site-nu-henna.vercel.app' },
+      { rel: 'alternate', hreflang: 'en', href: 'https://cv-site-nu-henna.vercel.app/en' },
+    ];
+  }
+
+  return [
+    { rel: 'canonical', href: 'https://cv-site-nu-henna.vercel.app/en' },
+    { rel: 'alternate', hreflang: 'pl', href: 'https://cv-site-nu-henna.vercel.app' },
+  ];
+});
+
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        'name': 'Tomasz Słapiński',
+        'jobTitle': 'Full-Stack Developer',
+        'url': 'https://cv-site-nu-henna.vercel.app',
+        'email': 'tom.slapinski@gmail.com',
+        'sameAs': [
+          'https://www.linkedin.com/in/tomasz-slapinski/',
+          'https://github.com/tomekos11'
+        ],
+        'image': 'https://cv-site-nu-henna.vercel.app/assets/icons/img/2023_linkedin_no_bg.png',
+        'address': {
+          '@type': 'PostalAddress',
+          'streetAddress': 'ul. Przykładowa 12',
+          'addressLocality': 'Rzeszów',
+          'addressRegion': 'Podkarpacie',
+          'postalCode': '00-123',
+          'addressCountry': t('seo.country')
+        },
+        'hasOccupation': [
+          {
+            '@type': 'Role',
+            'hasOccupation': {
+              '@type': 'Occupation',
+              'name': 'Full-Stack Developer'
+            },
+            'startDate': '2023-07-01'
+          }
+        ],
+        'worksFor': {
+          '@type': 'Organization',
+          'name': 'Polcar',
+          'url': 'https://www.polcar.com'
+        }
+      })
+    }
+  ],
+
+  title: 'Tomasz Slapinski - CV | Fullstack developer',
+
+  meta: [
+    { name: 'description', content: t('seo.description') },
+    { name: 'robots', content: 'index, nofollow' },
+    { property: 'og:title', content: 'Tomasz Slapinski - CV' },
+    { property: 'og:description', content: t('seo.ogDescription') },
+    { property: 'og:image', content: 'https://cv-site-nu-henna.vercel.app/assets/icons/img/2023_linkedin_no_bg.png' },
+    { property: 'og:url', content: 'https://cv-site-nu-henna.vercel.app' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+  ],
+
+  link: link.value
+});
 </script>
 
 <style scoped>

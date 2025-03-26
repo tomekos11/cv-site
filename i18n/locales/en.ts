@@ -7,6 +7,12 @@ export default {
     certificates: 'Certificates'
   },
   
+  seo: {
+    description: 'Discover my experience as a Full-Stack Developer. Browse my projects and get in touch with me.',
+    ogDescription: 'Full-Stack Developer with 2 years of experience.',
+    country: 'Poland',
+  },
+
   inquire: 'Send Inquiry',
   downloadCv: 'Download CV',
   myDescription: 'Evolving Full Stack Developer with a passion for problem-solving. Always ready for new challenges, constantly striving to refine and enhance skills.',

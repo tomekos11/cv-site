@@ -7,6 +7,12 @@ export default {
     certificates: 'Certyfikaty'
   },
 
+  seo: {
+    description: 'Odkryj moje doświadczenie jako Full-Stack Developer. Przeglądaj moje projekty i skontaktuj się ze mną.',
+    ogDescription: 'Full-Stack Developer z 2-letnim doświadczeniem.',
+    country: 'Polska',
+  },
+
   inquire: 'Napisz do mnie',
   downloadCv: 'Pobierz CV',
   myDescription: 'Rozwijający się Full Stack Developer, z zamiłowaniem do rozwiązywania problemów. Zawsze gotów na wyzwania, nieustannie dążący do doskonalenia swoich umiejętności.',

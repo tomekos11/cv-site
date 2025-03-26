@@ -85,7 +85,7 @@ const options = ['frontend', 'backend'] as const;
 
 interface Technology {
   name: string;
-  src?: string;
+  src: string | null;
   type?: typeof options[number];
 }
 
