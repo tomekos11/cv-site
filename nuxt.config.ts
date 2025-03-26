@@ -9,7 +9,8 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/image',
     '@vueuse/nuxt',
-    '@nuxtjs/i18n'
+    '@nuxtjs/i18n',
+    'nuxt-security'
   ],
   plugins: [
     { src: '~/plugins/pinia.ts', mode: 'client' }
@@ -18,6 +19,20 @@ export default defineNuxtConfig({
     '@/assets/styles/global.css',
     'flag-icon-css/css/flag-icons.min.css'
   ],
+
+  security: {
+    headers: {
+      contentSecurityPolicy: {
+        'default-src': ['\'self\''],
+        'script-src': ['\'self\'', 'https:', '\'unsafe-inline\''],
+        'style-src': ['\'self\'', 'https:', '\'unsafe-inline\''],
+        'img-src': ['\'self\'', 'data:', 'https:'],
+        'font-src': ['\'self\'', 'https:', 'data:'],
+        'object-src': ['\'none\''],
+        'upgrade-insecure-requests': true,
+      },
+    },
+  },
 
   quasar: {
     plugins: [
