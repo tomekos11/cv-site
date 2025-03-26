@@ -164,7 +164,7 @@ onBeforeUnmount(() => {
 
 <style>
 .custom-carousel {
-  width: 100%;
+  width: 90%;
   max-width: 1200px;
   margin: auto;
 }

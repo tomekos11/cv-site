@@ -1,7 +1,6 @@
 <template>
-  <q-btn :class="{'d-block': isBlock, 'full-width': isBlock}">
+  <q-btn flat :class="{'d-block': isBlock, 'full-width': isBlock}">
     <div>
-      {{ locale }}
       <span :class="`flag-icon flag-icon-${getCountryCode(locale)}`"/>
     </div>
     <q-menu>

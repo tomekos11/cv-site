@@ -5,8 +5,9 @@
       <q-toolbar class="q-px-md justify-between">
         <q-toolbar-title>CV</q-toolbar-title>
         <div v-if="$q.screen.gt.sm" class="d-none d-md-flex gap-20 flex-center">
-          <async-navigation />
+          <navigation />
           <lang-switcher />
+          <!-- <q-btn flat @click="toggleDarkMode" :label="isDark ? '☀️' : '🌙'" /> -->
         </div>
 
         <!-- Przycisk hamburgera dla mniejszych ekranów -->
@@ -18,15 +19,23 @@
           @click="drawer = !drawer"
         />
       </q-toolbar>
-
     </q-toolbar-title>
   </q-toolbar>
 </template>
 
 <script setup lang="ts">
-const AsyncNavigation = defineAsyncComponent(() => import('@/components/Navigation.vue'));
+const Navigation = defineAsyncComponent(() => import('@/components/Navigation.vue'));
 
 const drawer = defineModel<boolean>();
+
+// const $q = useQuasar();
+// const isDark = ref($q.dark.isActive);
+
+// const toggleDarkMode = () => {
+//   $q.dark.set(!$q.dark.isActive);
+//   isDark.value = $q.dark.isActive;
+//   localStorage.setItem("darkMode", isDark.value);
+// };
 
 </script>
 

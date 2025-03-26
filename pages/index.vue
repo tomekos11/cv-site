@@ -1,49 +1,53 @@
-<template>
-  <q-page style="max-width: 2000px; margin-inline: auto;">
-    <div class="row q-mt-xl" style="max-width: 95vw; margin-inline: auto;">
-      <div class="col-12 col-lg-8 text-center">
-        <h1 class="text-dark" style="font-size: 72px;">Tomasz Słapiński</h1>
-        <h2 class="text-grey-8">Fullstack Developer</h2>
-
-        <p style="font-size: 24px; width: min(600px, calc(100% - 24px));" class="text-center q-mx-auto q-mt-lg">
-          {{ $t('myDescription') }}
-        </p>
-
-        <q-btn
-          class="bg-primary text-white q-mr-sm"
-          style="font-size: 15px;"
-          size="md"
-          rounded
-          :loading="loading"
-          icon="mail"
-          :label="$t('inquire')"
-          @click="showInquiryModal = true; loading = true"
-        />
-
-        <q-btn
-          color="primary"
-          outline
-          style="font-size: 15px;"
-          size="md"
-          rounded
-          icon="download"
-          :label="$t('downloadCv')"
-        />
-
-      </div>
-      <div class="col-12 col-lg-4 text-center self-end">
-        <img src="/assets/icons/img/2023_linkedin_no_bg.png" style="max-width: min(400px, 100%);">
-        
-        <div class="d-flex justify-center gap-10 q-my-sm" >
-
+<!-- <div class="d-flex justify-end" style="padding-right: 15px; padding-top: 15px;">
           <a href="https://www.linkedin.com/in/tomasz-slapinski/" target="_blank">
-            <Icon name="uil:linkedin" style="color: #0a66c2" size="42px" class="d-flex"/>
+            <Icon name="uil:linkedin" style="color: #0a66c2" size="36px" class="d-flex"/>
           </a>
 
           <a href="https://github.com/tomekos11" target="_blank">
-            <Icon name="uil:github" style="color: #010409" size="43px" class="d-flex"/>
+            <Icon name="uil:github" style="color: #010409" size="36px" class="d-flex"/>
           </a>
+        </div> -->
+
+<template>
+  <q-page style="max-width: 2000px; margin-inline: auto;">
+    <div class="row landing-page" style="max-width: 95vw; margin-inline: auto;">
+
+      <div class="col-12 col-lg-8 text-center d-flex flex-column justify-center">
+        <h1 class="text-dark name-style">Tomasz Słapiński</h1>
+        <h2 class="text-grey-8 position-style">Fullstack Developer</h2>
+
+        <p class="description-style text-center q-mx-auto q-mt-lg">
+          {{ $t('myDescription') }}
+        </p>
+
+        <div>
+          <q-btn
+            class="bg-primary text-white q-mr-sm q-mb-sm"
+            style="font-size: 15px; min-width: 190px;"
+            size="md"
+            rounded
+            :loading="loading"
+            icon="mail"
+            :label="$t('inquire')"
+            @click="showInquiryModal = true; loading = true"
+          />
+  
+          <q-btn
+            class="q-mb-sm"
+            color="primary"
+            outline
+            style="font-size: 15px; min-width: 190px;"
+            size="md"
+            rounded
+            icon="download"
+            :label="$t('downloadCv')"
+          />
         </div>
+
+      </div>
+
+      <div class="col-12 col-lg-4 text-center self-center d-flex justify-center">
+        <img src="/assets/icons/img/2023_linkedin_no_bg.png" class="profile-img">
       </div>
     </div>
     
@@ -69,7 +73,6 @@ const loading = ref(false);
 
 <style scoped>
 :deep(.card-hover:hover) {
-  /* background-color: #dbdbdb !important; */
   transform: scale(1.2);
 }
 
@@ -79,5 +82,52 @@ const loading = ref(false);
 
 .img:hover {
   filter: drop-shadow(2px 4px 6px black);
+}
+
+.landing-page {
+  min-height: 93vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 95vw;
+  margin-inline: auto;
+  padding: 24px; 
+}
+
+.profile-img {
+  max-width: min(420px, 100%);
+  height: auto;
+  border-radius: 20%;
+}
+
+.name-style {
+  font-size: 72px;
+}
+
+.position-style {
+  font-size: 2.4rem
+}
+
+.description-style {
+  font-size: 24px;
+  width: min(600px, calc(100% - 24px));
+}
+
+@media (max-width: 610px) {
+  .profile-img {
+    max-width: min(320px, 100%);
+  }
+
+  .name-style {
+    font-size: 48px;
+  }
+
+  .position-style {
+    font-size: 2rem;
+  }
+
+  .description-style {
+    font-size: 19px
+  }
 }
 </style>

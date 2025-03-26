@@ -11,11 +11,15 @@ export default {
   downloadCv: 'Download CV',
   myDescription: 'Evolving Full Stack Developer with a passion for problem-solving. Always ready for new challenges, constantly striving to refine and enhance skills.',
 
+  fieldRequired: 'Field {field} is required',
+
   inquiryModal: {
+    title: 'Send Inquiry',
     name: 'Name',
     surname: 'Surname',
     company: 'Company',
-    content: 'Inquiry content'
+    content: 'Inquiry content',
+    send: 'Send'
   },
 
   experience: {

@@ -3,20 +3,20 @@
     <q-card style="width: 400px">
       <q-form @submit="sendInquiry">
         <q-card-section class="row items-center q-pb-none">
-          <div class="text-h6">Wyślij zapytanie</div>
+          <div class="text-h6">{{ $t('inquiryModal.title') }}</div>
           <q-space />
           <q-btn icon="close" flat round dense @click="showModal = false" />
         </q-card-section>
         
         <q-card-section>
 
-          <q-input v-model.trim="name" label="" type="text" hide-bottom-space outlined no-error-icon :rules="[() => !!name ||  `Pole ${ $t('inquiryModal.name') } nie może być puste`]">
+          <q-input v-model.trim="name" label="" type="text" hide-bottom-space outlined no-error-icon :rules="[() => !!name ||  $t('fieldRequired', {field: $t('inquiryModal.name')})]">
             <template #label>
               <span>{{ $t('inquiryModal.name') }}</span><span style="color: red;">*</span>
             </template>
           </q-input>
     
-          <q-input v-model.trim="surname" label="" type="text" hide-bottom-space outlined no-error-icon class="q-mt-sm" :rules="[() => !!surname || `Pole ${ $t('inquiryModal.surname') } nie może być puste`]">
+          <q-input v-model.trim="surname" label="" type="text" hide-bottom-space outlined no-error-icon class="q-mt-sm" :rules="[() => !!surname || $t('fieldRequired', {field: $t('inquiryModal.surname')})]">
             <template #label>
               <span>{{ $t('inquiryModal.surname') }}</span><span style="color: red;">*</span>
             </template>
@@ -24,7 +24,7 @@
     
           <q-input v-model.trim="company" :label="$t('inquiryModal.company')" type="text" hide-bottom-space outlined no-error-icon class="q-mt-sm"/>
                 
-          <q-input v-model="email" type="email" label="" hide-bottom-space outlined no-error-icon class="q-mt-sm" :rules="[() => !!email || `Pole Email nie może być puste`]">
+          <q-input v-model="email" type="email" label="" hide-bottom-space outlined no-error-icon class="q-mt-sm" :rules="[() => !!email || $t('fieldRequired', {field: 'Email'})]">
             <template #label>
               Email<span style="color: red;">*</span>
             </template>
@@ -34,7 +34,7 @@
             </template>
           </q-input>
     
-          <q-input v-model.trim="content" label="" hide-bottom-space no-error-icon autogrow type="textarea" outlined class="q-mt-sm" :rules="[() => !!content ||  `Pole ${ $t('inquiryModal.content') } nie może być puste`]" >
+          <q-input v-model.trim="content" label="" hide-bottom-space no-error-icon autogrow type="textarea" outlined class="q-mt-sm" :rules="[() => !!content ||  $t('fieldRequired', {field: $t('inquiryModal.content')})]" >
             <template #label>
               <span>{{ $t('inquiryModal.content') }}</span><span style="color: red;">*</span>
             </template>    
@@ -42,7 +42,7 @@
         </q-card-section>
         
         <q-card-actions align="right">
-          <q-btn type="submit" label="Wyślij" color="primary" />
+          <q-btn type="submit" :label="$t('inquiryModal.send')" color="primary" />
         </q-card-actions>
       </q-form>
     </q-card>
@@ -52,6 +52,7 @@
 <script setup lang="ts">
 import { Notify } from 'quasar';
 
+const { locale } = useI18n();
 
 const showModal = ref(true);
 
@@ -80,10 +81,16 @@ const sendInquiry = async () => {
 
     if (!response.ok) throw new Error(data.error || 'Błąd wysyłania zapytania');
     else {
+
+      const message = locale.value === 'pl' ? 'Wiadomość dotarła do adresata.<br> <b>Dziękuję za kontakt</b>' : 'The message has been delivered to the recipient.<br> <b>Thank you for reaching out</b>'
+
       Notify.create({
-        message: 'Poprawnie wysłano wiadomość',
-        type: 'positive'
+        message,
+        html: true,
+        type: 'positive',
+        timeout: 5000
       });
+      showModal.value = false
     }
 
   } catch (error) {

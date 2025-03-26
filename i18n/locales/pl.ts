@@ -11,11 +11,16 @@ export default {
   downloadCv: 'Pobierz CV',
   myDescription: 'Rozwijający się Full Stack Developer, z zamiłowaniem do rozwiązywania problemów. Zawsze gotów na wyzwania, nieustannie dążący do doskonalenia swoich umiejętności.',
   
+
+  fieldRequired: 'Pole {field} jest wymagane',
+
   inquiryModal: {
+    title: 'Wyślij zapytanie',
     name: 'Imie',
     surname: 'Nazwisko',
     company: 'Firma',
-    content: 'Treść zapytania'
+    content: 'Treść zapytania',
+    send: 'Wyślij'
   },
 
   experience: {

@@ -8,7 +8,7 @@
       @scroll="handleScroll"
     >
       <q-header elevated class="bg-black text-white">
-        <Header v-model="drawer" />
+        <Header class="bg-black" v-model="drawer" />
       </q-header>
 
       <q-page-container>
@@ -35,18 +35,17 @@
 
         <q-list class="sticky d-flex flex-column" style="height: 90%;">
           <div>
-            <async-navigation :is-block="true" />
+            <navigation :is-block="true" />
             <lang-switcher :is-block="true" />
           </div>
           <div class="q-mt-auto" style="background: #ffffff1a;">
             <div class="d-flex justify-center gap-5 q-my-xs">
-
               <a href="https://www.linkedin.com/in/tomasz-slapinski/" target="_blank">
-                <Icon name="uil:linkedin" style="color: #0a66c2" size="36px" class="d-flex"/>
+                <Icon name="uil:linkedin" style="color: white" size="36px" class="d-flex"/>
               </a>
 
               <a href="https://github.com/tomekos11" target="_blank">
-                <Icon name="uil:github" style="color: #010409" size="36px" class="d-flex"/>
+                <Icon name="uil:github" style="color: white;" size="36px" class="d-flex"/>
               </a>
             </div>
           </div>
@@ -61,7 +60,7 @@
 <script setup lang="ts">
 import type { QScrollArea } from 'quasar';
 
-const AsyncNavigation = defineAsyncComponent(() => import('@/components/Navigation.vue'));
+const Navigation = defineAsyncComponent(() => import('@/components/Navigation.vue'));
 
 const drawer = ref(false);
 const shouldDownloadDrawer = ref(false);

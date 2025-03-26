@@ -18,9 +18,18 @@ export default defineNuxtConfig({
     '@/assets/styles/global.css',
     'flag-icon-css/css/flag-icons.min.css'
   ],
-  // i18n:{
-  //   vueI18n: '/i18n/i18n.config.ts'
-  // }
+
+  quasar: {
+    plugins: [
+      'Notify'
+    ],
+    config: {
+      notify: {
+        progress: true
+      }
+    }
+  },
+
   i18n: {
     strategy: 'prefix_except_default', // Język w URL, ale nie dla domyślnego
     locales: [
