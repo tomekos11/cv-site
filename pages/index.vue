@@ -85,6 +85,8 @@ const link = computed(() => {
   ];
 });
 
+const ogUrl = computed(() => locale.value === 'pl' ? 'https://cv-site-nu-henna.vercel.app' : 'https://cv-site-nu-henna.vercel.app/en');
+
 useHead({
   script: [
     {
@@ -133,10 +135,13 @@ useHead({
   meta: [
     { name: 'description', content: t('seo.description') },
     { name: 'robots', content: 'index, nofollow' },
+
+    { property: 'og:type', content: 'website' },
     { property: 'og:title', content: 'Tomasz Slapinski - CV' },
     { property: 'og:description', content: t('seo.ogDescription') },
     { property: 'og:image', content: 'https://cv-site-nu-henna.vercel.app/assets/icons/img/2023_linkedin_no_bg.png' },
-    { property: 'og:url', content: 'https://cv-site-nu-henna.vercel.app' },
+    { property: 'og:url', content: ogUrl.value },
+
     { name: 'twitter:card', content: 'summary_large_image' },
   ],
 
