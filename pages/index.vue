@@ -74,62 +74,58 @@ const { t, locale } = useI18n();
 const link = computed(() => {
   if(locale.value === 'pl') {
     return [
-      { rel: 'canonical', href: 'https://cv-site-nu-henna.vercel.app' },
-      { rel: 'alternate', hreflang: 'en', href: 'https://cv-site-nu-henna.vercel.app/en' },
+      { rel: 'canonical', href: 'https://cv.tomasz-slapinski.pl' },
+      { rel: 'alternate', hreflang: 'en', href: 'https://cv.tomasz-slapinski.pl/en' },
     ];
   }
 
   return [
-    { rel: 'canonical', href: 'https://cv-site-nu-henna.vercel.app/en' },
-    { rel: 'alternate', hreflang: 'pl', href: 'https://cv-site-nu-henna.vercel.app' },
+    { rel: 'canonical', href: 'https://cv.tomasz-slapinski.pl/en' },
+    { rel: 'alternate', hreflang: 'pl', href: 'https://cv.tomasz-slapinski.pl' },
   ];
 });
 
-const ogUrl = computed(() => locale.value === 'pl' ? 'https://cv-site-nu-henna.vercel.app' : 'https://cv-site-nu-henna.vercel.app/en');
+const ogUrl = computed(() => locale.value === 'pl' ? 'https://cv.tomasz-slapinski.pl' : 'https://cv.tomasz-slapinski.pl/en');
 
-useHead({
-  script: [
+// eslint-disable-next-line no-undef
+useJsonld(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  'name': 'Tomasz Słapiński',
+  'jobTitle': 'Full-Stack Developer',
+  'url': 'https://cv.tomasz-slapinski.pl',
+  'email': 'tom.slapinski@gmail.com',
+  'sameAs': [
+    'https://www.linkedin.com/in/tomasz-slapinski/',
+    'https://github.com/tomekos11'
+  ],
+  'image': 'https://cv.tomasz-slapinski.pl/assets/icons/img/2023_linkedin_no_bg.png',
+  'address': {
+    '@type': 'PostalAddress',
+    'streetAddress': 'ul. Przykładowa 12',
+    'addressLocality': 'Rzeszów',
+    'addressRegion': 'Podkarpacie',
+    'postalCode': '00-123',
+    'addressCountry': t('seo.country')
+  },
+  'hasOccupation': [
     {
-      type: 'application/ld+json',
-      innerHTML: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'Person',
-        'name': 'Tomasz Słapiński',
-        'jobTitle': 'Full-Stack Developer',
-        'url': 'https://cv-site-nu-henna.vercel.app',
-        'email': 'tom.slapinski@gmail.com',
-        'sameAs': [
-          'https://www.linkedin.com/in/tomasz-slapinski/',
-          'https://github.com/tomekos11'
-        ],
-        'image': 'https://cv-site-nu-henna.vercel.app/assets/icons/img/2023_linkedin_no_bg.png',
-        'address': {
-          '@type': 'PostalAddress',
-          'streetAddress': 'ul. Przykładowa 12',
-          'addressLocality': 'Rzeszów',
-          'addressRegion': 'Podkarpacie',
-          'postalCode': '00-123',
-          'addressCountry': t('seo.country')
-        },
-        'hasOccupation': [
-          {
-            '@type': 'Role',
-            'hasOccupation': {
-              '@type': 'Occupation',
-              'name': 'Full-Stack Developer'
-            },
-            'startDate': '2023-07-01'
-          }
-        ],
-        'worksFor': {
-          '@type': 'Organization',
-          'name': 'Polcar',
-          'url': 'https://www.polcar.com'
-        }
-      })
+      '@type': 'Role',
+      'hasOccupation': {
+        '@type': 'Occupation',
+        'name': 'Full-Stack Developer'
+      },
+      'startDate': '2023-07-01'
     }
   ],
+  'worksFor': {
+    '@type': 'Organization',
+    'name': 'Polcar',
+    'url': 'https://www.polcar.com'
+  }
+}));
 
+useHead({
   title: 'Tomasz Slapinski - CV | Fullstack developer',
 
   meta: [
@@ -139,7 +135,7 @@ useHead({
     { property: 'og:type', content: 'website' },
     { property: 'og:title', content: 'Tomasz Slapinski - CV' },
     { property: 'og:description', content: t('seo.ogDescription') },
-    { property: 'og:image', content: 'https://cv-site-nu-henna.vercel.app/assets/icons/img/2023_linkedin_no_bg.png' },
+    { property: 'og:image', content: 'https://cv.tomasz-slapinski.pl/assets/icons/img/2023_linkedin_no_bg.png' },
     { property: 'og:url', content: ogUrl.value },
 
     { name: 'twitter:card', content: 'summary_large_image' },

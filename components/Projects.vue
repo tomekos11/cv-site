@@ -34,7 +34,6 @@
 
     <div class="text-center q-py-lg q-pb-xl q-mx-lg">
       <q-btn
-        to="/projects"
         class="bg-primary text-white"
         style="font-size: 15px;"
         size="md"

@@ -10,7 +10,7 @@ export default {
   seo: {
     description: 'Discover my experience as a Full-Stack Developer. Browse my projects and get in touch with me.',
     ogDescription: 'Full-Stack Developer with 2 years of experience.',
-    country: 'Poland',
+    country: 'PL',
   },
 
   inquire: 'Send Inquiry',
