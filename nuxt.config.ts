@@ -60,6 +60,7 @@ export default defineNuxtConfig({
         'img-src': ['\'self\'', 'data:', 'https:'],
         'font-src': ['\'self\'', 'https:', 'data:'],
         'object-src': ['\'none\''],
+        'frame-src': ['\'self\'', 'www.youtube.com'],
         'upgrade-insecure-requests': true,
       },
     },
