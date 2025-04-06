@@ -1,8 +1,8 @@
 import { ref, isRef } from 'vue';
 import { useDebounceFn } from '@vueuse/core';
 import type { QScrollArea } from 'quasar';
-import { scroll } from 'quasar'
-const { getScrollTarget, setVerticalScrollPosition } = scroll
+import { scroll } from 'quasar';
+const { getScrollTarget, setVerticalScrollPosition } = scroll;
 
 type SectionName = 'experience' | 'education' | 'technologies' | 'projects' | 'certificates';
 
@@ -40,6 +40,13 @@ export function useActiveSection() {
       .sort((a, b) => b.visibleHeight - a.visibleHeight);
 
     activeSection.value = visibleSections[0]?.name || null;
+
+    if (visibleSections[0]?.name) {
+      history.replaceState(null, '', `#${visibleSections[0].name}`);
+    } else {
+      // Usuwa hash
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
   }, 10);
 
   const isSectionActive = (name: SectionName) => {
@@ -63,14 +70,16 @@ export function useActiveSection() {
       if (rect.height > viewportHeight * 0.9) {
         const offset = -10;
 
-        const target = getScrollTarget(el)
-        const height = el.offsetTop + offset
-        const duration = 500
+        const target = getScrollTarget(el);
+        const height = el.offsetTop + offset;
+        const duration = 500;
 
-        setVerticalScrollPosition(target, height, duration)
+        setVerticalScrollPosition(target, height, duration);
       } else {
         el.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
+
+      history.replaceState(null, '', `#${name}`);
     }
   };
 
