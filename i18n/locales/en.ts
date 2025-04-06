@@ -99,5 +99,21 @@ export default {
       name: 'SEO Certification',
       description: 'This course helped me understand the best SEO optimization practices, both from a technical perspective and in terms of creating effective content. I learned which factors influence SEO, what to avoid to prevent harming a website’s ranking, and how to effectively monitor and analyze progress. The course enabled me to better manage website visibility in search engines and apply proven strategies to improve rankings.'
     },
+  },
+
+  cookie: {
+    title: 'Privacy Settings',
+    description: 'We use cookies to improve your experience and analyze traffic. Choose which cookies you accept:',
+    necessary: {
+      label: 'Necessary',
+      tooltip: 'Essential for website functionality (e.g. language preferences)'
+    },
+    analytics: {
+      label: 'Analytics',
+      tooltip: 'Help us understand how the site is used'
+    },
+    accept: 'Accept Selected',
+    reject: 'Reject All',
+    settings: 'Details'
   }
 };

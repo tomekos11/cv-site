@@ -100,5 +100,21 @@ export default {
       name: 'Certyfikacja SEO',
       description: 'Ten kurs pomógł mi zrozumieć najlepsze praktyki optymalizacji SEO zarówno pod kątem technicznym, jak i tworzenia skutecznych treści. Nauczyłem się, jakie czynniki wpływają na SEO, czego unikać, aby nie zaszkodzić pozycji strony, oraz jak skutecznie monitorować i analizować postępy. Kurs pozwolił mi lepiej zarządzać widocznością stron w wyszukiwarkach i stosować sprawdzone strategie poprawiające ich ranking.'
     },
+  },
+
+  cookie: {
+    title: 'Ustawienia Prywatności',
+    description: 'Używamy plików cookie do poprawy działania strony i analizy ruchu. Wybierz jakie cookies akceptujesz:',
+    necessary: {
+      label: 'Wymagane',
+      tooltip: 'Niezbędne do działania strony (np. preferencje językowe)'
+    },
+    analytics: {
+      label: 'Analityczne',
+      tooltip: 'Pomagają zrozumieć jak używana jest strona'
+    },
+    accept: 'Zaakceptuj wybrane',
+    reject: 'Odrzuć wszystkie',
+    settings: 'Szczegóły'
   }
 };

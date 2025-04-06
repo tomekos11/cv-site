@@ -58,6 +58,8 @@
     
     <inquiry-modal v-if="showInquiryModal" @hide="showInquiryModal = false" @before-show="loading = false"/>
     <analytics/>
+    
+    <cookie-modal />
   </q-page>
 </template>
 
