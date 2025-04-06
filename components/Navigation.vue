@@ -1,9 +1,9 @@
 <template>
-  <q-btn flat :class="{ 'active-link': isSectionActive('experience'), 'd-block': isBlock, 'full-width': isBlock}" @click="scrollToSection('experience')"> {{ $t('nav.experience') }}</q-btn>
-  <q-btn flat :class="{ 'active-link': isSectionActive('education'), 'd-block': isBlock, 'full-width': isBlock}" @click="scrollToSection('education')">{{ $t('nav.education') }}</q-btn>
-  <q-btn flat :class="{ 'active-link': isSectionActive('technologies'), 'd-block': isBlock, 'full-width': isBlock}" @click="scrollToSection('technologies')">{{ $t('nav.technologies') }}</q-btn>
-  <q-btn flat :class="{ 'active-link': isSectionActive('projects'), 'd-block': isBlock, 'full-width': isBlock}" @click="scrollToSection('projects')">{{ $t('nav.projects') }}</q-btn>
-  <q-btn flat :class="{ 'active-link': isSectionActive('certificates'), 'd-block': isBlock, 'full-width': isBlock}" @click="scrollToSection('certificates')">{{ $t('nav.certificates') }}</q-btn>
+  <q-btn flat :class="{ 'active-link': isSectionActive('experience'), 'd-block': isBlock, 'full-width': isBlock}" tag="a" href="#experience" @click.prevent="scrollToSection('experience')"> {{ $t('nav.experience') }}</q-btn>
+  <q-btn flat :class="{ 'active-link': isSectionActive('education'), 'd-block': isBlock, 'full-width': isBlock}" tag="a" href="#education" @click.prevent="scrollToSection('education')">{{ $t('nav.education') }}</q-btn>
+  <q-btn flat :class="{ 'active-link': isSectionActive('technologies'), 'd-block': isBlock, 'full-width': isBlock}" tag="a" href="#technologies" @click.prevent="scrollToSection('technologies')">{{ $t('nav.technologies') }}</q-btn>
+  <q-btn flat :class="{ 'active-link': isSectionActive('projects'), 'd-block': isBlock, 'full-width': isBlock}" tag="a" href="#projects" @click.prevent="scrollToSection('projects')">{{ $t('nav.projects') }}</q-btn>
+  <q-btn flat :class="{ 'active-link': isSectionActive('certificates'), 'd-block': isBlock, 'full-width': isBlock}" tag="a" href="#certificates" @click.prevent="scrollToSection('certificates')">{{ $t('nav.certificates') }}</q-btn>
 </template>
 
 <script setup lang="ts">

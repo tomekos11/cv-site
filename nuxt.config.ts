@@ -47,7 +47,7 @@ export default defineNuxtConfig({
         loc: '/en',
         priority: 1,
         changefreq: 'daily'
-      }
+      },
     ]
   },
 

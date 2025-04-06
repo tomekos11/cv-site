@@ -1,5 +1,5 @@
 <template>
-  <section ref="section">
+  <section id="technologies" ref="section">
     
     <div class="q-pt-sm q-mt-md">
       <h1 class="text-center fancy-text bg-grey-2">{{ $t('nav.technologies') }}</h1>
