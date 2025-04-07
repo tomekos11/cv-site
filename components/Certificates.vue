@@ -9,7 +9,7 @@
               <img :src="cert.companyImage" alt="company logo" class="school-logo" style="object-fit: scale-down;" >
               <div class="school-info full-width">
                 <div class="d-flex justify-between">
-                  <div class="school-name">{{ cert.name }}</div>
+                  <h2 class="school-name">{{ cert.name }}</h2>
                   <div>
                     <q-btn v-if="cert.link" round class="q-mr-sm" size="xs" :href="cert.link" target="_blank">
                       <Icon name="fa-solid:external-link-alt" style="color: #2c3e50" size="0.8rem" />

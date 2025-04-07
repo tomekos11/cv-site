@@ -18,7 +18,7 @@
             class="d-flex flex-column full-height fit"
             style="z-index: 1; position: relative;"
           >
-            <div class="q-my-sm text-bold">{{ project.name }}</div>
+            <h2 class="q-my-sm text-bold" style="font-size: 14px">{{ project.name }}</h2>
             <div class="d-flex justify-center q-mb-sm gap-5">
               <template v-for="tech in project.technologies" :key="tech">
                 <technologies-badge :technology="tech" />

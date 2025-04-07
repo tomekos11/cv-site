@@ -8,7 +8,7 @@ export default {
   },
   
   seo: {
-    description: 'Discover my experience as a Full-Stack Developer. Browse my projects and get in touch with me.',
+    description: 'Explore my experience, which includes working at companies such as Polcar and Infra Team, where I carried out projects related to website modernization, SEO optimization, and the implementation of cutting-edge technologies.',
     ogDescription: 'Full-Stack Developer with 2 years of experience.',
     country: 'PL',
     baseSalary: 'Base salary',

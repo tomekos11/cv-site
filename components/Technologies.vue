@@ -64,7 +64,7 @@
                       </div>
                     </template>
                   </div>
-                  <div class="q-my-sm text-bold">{{ tech.name }}</div>
+                  <h2 class="q-my-sm text-bold" style="font-size: 16px;">{{ tech.name }}</h2>
                 </q-card-section>
               </q-card>
             </div>

@@ -14,7 +14,7 @@
           <div :class="`entry-header ${index % 2 === 0 ? 'justify-end' : ''}`">
             <img :src="job.logo" class="company-logo" >
             <div>
-              <div class="text-bold">{{ job.company }}</div>
+              <h2 class="text-bold" style="font-size: large;">{{ job.company }}</h2>
               <div class="text-caption">{{ job.dates }}</div>
             </div>
           </div>
@@ -35,7 +35,7 @@
         <div class="entry-header q-px-xl">
           <q-img :src="job.logo" class="company-logo" />
           <div>
-            <div class="text-bold">{{ job.company }}</div>
+            <h2 class="text-bold" style="font-size: large;">{{ job.company }}</h2>
             <div class="text-caption">{{ job.dates }}</div>
           </div>
         </div>

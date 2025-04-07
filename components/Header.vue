@@ -4,7 +4,7 @@
 
       <q-toolbar class="q-px-md justify-between">
         <q-toolbar-title>CV</q-toolbar-title>
-        <nav v-if="$q.screen.gt.sm" class="d-none d-md-flex gap-20 flex-center">
+        <nav class="d-none d-md-flex gap-20 flex-center">
           <navigation />
           <lang-switcher />
           <!-- <q-btn flat @click="toggleDarkMode" :label="isDark ? '☀️' : '🌙'" /> -->

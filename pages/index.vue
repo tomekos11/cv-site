@@ -95,6 +95,7 @@ useJsonld(() => ({
   'jobTitle': 'Full-Stack Developer',
   'url': 'https://cv.tomasz-slapinski.pl',
   'email': 'tom.slapinski@gmail.com',
+  'description': t('seo.description'),
   'sameAs': [
     'https://www.linkedin.com/in/tomasz-slapinski/',
     'https://github.com/tomekos11'
@@ -143,7 +144,7 @@ useJsonld(() => ({
           },
           {
             '@type': 'Country',
-            'name': 'Polska'
+            'name': t('seo.country')
           }
         ],
         'mainEntityOfPage': {
@@ -168,11 +169,18 @@ useJsonld(() => ({
     'PHP',
     'Laravel',
   ],
-  'worksFor': {
-    '@type': 'Organization',
-    'name': 'Polcar',
-    'url': 'https://www.polcar.com'
-  },
+  'worksFor': [
+    {
+      '@type': 'Organization',
+      'name': 'Polcar',
+      'url': 'https://www.polcar.com'
+    },
+    {
+      '@type': 'Organization',
+      'name': 'Infra Team',
+      'url': 'https://infrateam.eu/'
+    }
+  ],
   'mainEntityOfPage': {
     '@type': 'WebPage',
     '@id': 'https://cv.tomasz-slapinski.pl'
