@@ -275,7 +275,7 @@ useHead({
 
   meta: [
     { name: 'description', content: t('seo.description') },
-    { name: 'robots', content: 'index, nofollow' },
+    { name: 'robots', content: 'index, follow' },
 
     { property: 'og:type', content: 'website' },
     { property: 'og:title', content: 'Tomasz Slapinski - CV' },

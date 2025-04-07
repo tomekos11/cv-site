@@ -8,7 +8,7 @@
       @scroll="handleScroll"
     >
       <q-header elevated class="bg-black text-white">
-        <Header class="bg-black" v-model="drawer" />
+        <Header v-model="drawer" class="bg-black" />
       </q-header>
 
       <q-page-container>
