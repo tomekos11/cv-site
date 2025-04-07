@@ -126,21 +126,30 @@ useJsonld(() => ({
         'name': 'Full-Stack Developer',
         'description': t('seo.role.description'),
         'estimatedSalary': {
-          '@type': 'MonetaryAmount',
-          'currency': 'PLN',
-          'value': {
-            '@type': 'QuantitativeValue',
-            'value': 13000,
-            'unitText': 'MONTH'
+          '@type': 'MonetaryAmountDistribution',
+          'name': t('seo.baseSalary'),
+          'currency': 'USD',
+          'duration': 'P1Y',
+          'percentile10': 10950,
+          'percentile25': 14405,
+          'median': 20630,
+          'percentile75': 34025,
+          'percentile90': 49750
+        },
+        'occupationLocation': [
+          {
+            '@type': 'City',
+            'name': 'Rzeszów'
+          },
+          {
+            '@type': 'Country',
+            'name': 'Polska'
           }
-        },
-        'occupationLocation': {
-          '@type': 'AdministrativeArea',
-          'name': 'Podkarpacie, Poland'
-        },
+        ],
         'mainEntityOfPage': {
           '@type': 'WebPage',
-          '@id': 'https://cv.tomasz-slapinski.pl'
+          '@id': 'https://cv.tomasz-slapinski.pl',
+          'lastReviewed': '2025-04-07'
         }
       }
     }

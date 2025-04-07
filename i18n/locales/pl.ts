@@ -11,6 +11,7 @@ export default {
     description: 'Odkryj moje doświadczenie jako Full-Stack Developer. Przeglądaj moje projekty i skontaktuj się ze mną.',
     ogDescription: 'Full-Stack Developer z 2-letnim doświadczeniem.',
     country: 'PL',
+    baseSalary: 'Płaca podstawowa roczna',
     role: {
       description: 'Full-Stack Developer odpowiada za projektowanie, tworzenie i utrzymanie zarówno front-endu, jak i back-endu aplikacji internetowych. Wymaga to znajomości technologii klienckich (HTML, CSS, JavaScript, Vue/React) oraz serwerowych (Node.js, PHP, Python). Współpracuje z zespołem projektowym, tworzy API, zarządza bazami danych, dba o wydajność i jakość kodu. Kluczowe są tu elastyczność, umiejętność rozwiązywania problemów i praca w całym cyklu życia oprogramowania.'
     }
