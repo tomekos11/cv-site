@@ -11,6 +11,9 @@ export default {
     description: 'Discover my experience as a Full-Stack Developer. Browse my projects and get in touch with me.',
     ogDescription: 'Full-Stack Developer with 2 years of experience.',
     country: 'PL',
+    role: {
+      description: 'A Full-Stack Developer is responsible for designing, developing, and maintaining both front-end and back-end parts of web applications. This role requires knowledge of client-side technologies (HTML, CSS, JavaScript, Vue/React) as well as server-side ones (Node.js, PHP, Python). They collaborate with the project team, build APIs, manage databases, and ensure performance and code quality. Flexibility, problem-solving skills, and the ability to work across the full software development lifecycle are essential in this role.'
+    }
   },
 
   inquire: 'Send Inquiry',

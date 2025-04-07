@@ -123,7 +123,25 @@ useJsonld(() => ({
       '@type': 'Role',
       'hasOccupation': {
         '@type': 'Occupation',
-        'name': 'Full-Stack Developer'
+        'name': 'Full-Stack Developer',
+        'description': t('seo.role.description'),
+        'estimatedSalary': {
+          '@type': 'MonetaryAmount',
+          'currency': 'PLN',
+          'value': {
+            '@type': 'QuantitativeValue',
+            'value': 13000,
+            'unitText': 'MONTH'
+          }
+        },
+        'occupationLocation': {
+          '@type': 'AdministrativeArea',
+          'name': 'Podkarpacie, Poland'
+        },
+        'mainEntityOfPage': {
+          '@type': 'WebPage',
+          '@id': 'https://cv.tomasz-slapinski.pl'
+        }
       }
     }
   ],
