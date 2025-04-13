@@ -1,12 +1,3 @@
-<!-- <div class="d-flex justify-end" style="padding-right: 15px; padding-top: 15px;">
-          <a href="https://www.linkedin.com/in/tomasz-slapinski/" target="_blank">
-            <Icon name="uil:linkedin" style="color: #0a66c2" size="36px" class="d-flex"/>
-          </a>
-
-          <a href="https://github.com/tomekos11" target="_blank">
-            <Icon name="uil:github" style="color: #010409" size="36px" class="d-flex"/>
-          </a>
-        </div> -->
 <template>
   <q-page style="max-width: 2000px; margin-inline: auto;">
     <div class="row landing-page" style="max-width: 95vw; margin-inline: auto;">
@@ -75,13 +66,15 @@ const link = computed(() => {
   if(locale.value === 'pl') {
     return [
       { rel: 'canonical', href: 'https://cv.tomasz-slapinski.pl' },
-      { rel: 'alternate', hreflang: 'en', href: 'https://cv.tomasz-slapinski.pl/en' },
+      { rel: 'alternate', hreflang: 'en-US', href: 'https://cv.tomasz-slapinski.pl/en' },
+      { rel: 'alternate', hreflang: 'x-default', href: 'https://cv.tomasz-slapinski.pl' },
     ];
   }
 
   return [
     { rel: 'canonical', href: 'https://cv.tomasz-slapinski.pl/en' },
-    { rel: 'alternate', hreflang: 'pl', href: 'https://cv.tomasz-slapinski.pl' },
+    { rel: 'alternate', hreflang: 'pl-PL', href: 'https://cv.tomasz-slapinski.pl' },
+    { rel: 'alternate', hreflang: 'x-default', href: 'https://cv.tomasz-slapinski.pl/en' },
   ];
 });
 
@@ -92,6 +85,7 @@ useJsonld(() => ({
   '@context': 'https://schema.org',
   '@type': 'Person',
   'name': 'Tomasz Słapiński',
+  'alternateName': 'Tomasz Slapinski',
   'jobTitle': 'Full-Stack Developer',
   'url': 'https://cv.tomasz-slapinski.pl',
   'email': 'tom.slapinski@gmail.com',
@@ -271,16 +265,24 @@ useJsonld(() => ({
 }));
 
 useHead({
-  title: 'Tomasz Slapinski - CV | Fullstack developer',
+  title: computed(() => locale.value === 'pl' 
+    ? 'Tomasz Słapiński - CV | Fullstack Developer' 
+    : 'Tomasz Slapinski - CV | Fullstack Developer'),
 
   meta: [
     { name: 'description', content: t('seo.description') },
     { name: 'robots', content: 'index, follow' },
 
     { property: 'og:type', content: 'website' },
-    { property: 'og:title', content: 'Tomasz Slapinski - CV' },
+    
+    { property: 'og:title', content: computed(() => locale.value === 'pl' 
+      ? 'Tomasz Słapiński - CV' 
+      : 'Tomasz Slapinski - CV') },
+
     { property: 'og:description', content: t('seo.ogDescription') },
+
     { property: 'og:image', content: 'https://cv.tomasz-slapinski.pl/assets/icons/img/2023_linkedin_no_bg.png' },
+
     { property: 'og:url', content: ogUrl.value },
 
     { name: 'twitter:card', content: 'summary_large_image' },

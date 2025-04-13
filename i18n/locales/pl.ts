@@ -8,7 +8,7 @@ export default {
   },
 
   seo: {
-    description: 'Zapoznaj się z moim doświadczeniem, które obejmuje pracę w firmach takich jak Polcar i Infra Team, gdzie realizowałem projekty z zakresu modernizacji stron, optymalizacji SEO i wdrażania nowoczesnych technologii',
+    description: 'Zapoznaj się z doświadczeniem Tomasza Słapińskiego, które obejmuje pracę w Polcar i Infra Team, modernizację stron, optymalizację SEO i wdrażanie technologii',
     ogDescription: 'Full-Stack Developer z 2-letnim doświadczeniem.',
     country: 'PL',
     baseSalary: 'Płaca podstawowa roczna',
