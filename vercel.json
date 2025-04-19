@@ -1,0 +1,15 @@
+{
+    "redirects": [
+      {
+        "source": "/(.*)",
+        "destination": "https://cv.tomasz-slapinski.pl/$1",
+        "has": [
+          {
+            "type": "host",
+            "value": "tomasz-slapinski.pl"
+          }
+        ],
+        "statusCode": 301
+      }
+    ]
+  }
