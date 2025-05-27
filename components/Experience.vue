@@ -68,8 +68,8 @@ const { t } = useI18n();
 
 interface WorkHistory {
   company: string;
-  slug: 'polcar' | 'cemex' | 'infra-team';
-  logo: string;
+  slug: 'polcar' | 'cemex' | 'infra-team' | 'nda';
+  logo: string | null;
   dates: string;
   expanded: boolean;
 }
@@ -80,6 +80,13 @@ const workHistory: WorkHistory[] = [
     slug: 'polcar',
     logo: '/assets/icons/companies/polcar.png',
     dates: t('experience.date1'),
+    expanded: false,
+  },
+  {
+    company: t('experience.name'),
+    slug: 'nda',
+    logo: null,
+    dates: t('experience.date4'),
     expanded: false,
   },
   {

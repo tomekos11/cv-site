@@ -34,9 +34,11 @@ export default {
   },
 
   experience: {
+    name: 'Popularna firma, tworząca gry komputerowe',
     date1: 'Lipiec 2023 - obecnie',
     date2: 'Sierpień 2024 - Wrzesień 2024',
     date3: 'Lipiec 2023 - Maj 2024',
+    date4: 'Marzec 2025 - Maj 2025',
   },
 
   education: {

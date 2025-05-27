@@ -33,9 +33,11 @@ export default {
   },
 
   experience: {
+    name: 'Popular company that develops computer games',
     date1: 'July 2023 - Present',
     date2: 'August 2024 - September 2024',
     date3: 'July 2023 - May 2024',
+    date4: 'March 2025 - May 2025',
   },
 
   education: {
