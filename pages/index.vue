@@ -31,6 +31,7 @@
             rounded
             icon="download"
             :label="$t('downloadCv')"
+            @click="downloadCv"
           />
         </div>
 
@@ -61,6 +62,18 @@ const showInquiryModal = ref(false);
 const loading = ref(false);
 
 const { t, locale } = useI18n();
+
+const downloadCv = () => {
+  const fileUrl = `/assets/files/cv_${locale.value}.pdf`;
+
+  const link = document.createElement('a');
+  link.href = fileUrl;
+  link.download = `cv_${locale.value}.pdf`;
+
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
 
 const link = computed(() => {
   if(locale.value === 'pl') {
