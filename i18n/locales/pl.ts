@@ -4,7 +4,8 @@ export default {
     education: 'Edukacja',
     technologies: 'Technologie',
     projects: 'Projekty',
-    certificates: 'Certyfikaty'
+    certificates: 'Certyfikaty',
+    'back-to-cv': 'Wróć do CV',
   },
 
   seo: {

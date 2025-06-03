@@ -12,10 +12,16 @@ const activeSection = ref<SectionName | null>(null);
 const visibilityThreshold = 0.2;
 
 export function useActiveSection() {
+
+  const { locale } = useI18n();
+  const route = useRoute();
+
   const registerSection = (name: SectionName, element: Ref<HTMLElement | null>) => {
     if (!isRef(element)) return;
     sections.set(name, { ref: element, visibleHeight: 0 });
   };
+
+  let lastVisibleSection: null|SectionName = null;
 
   const updateVisibleSections = useDebounceFn((scrollArea: Ref<InstanceType<typeof QScrollArea> | null>) => {
     const scrollAreaHeight = scrollArea.value ? scrollArea.value.clientHeight : window.innerHeight;
@@ -42,10 +48,16 @@ export function useActiveSection() {
     activeSection.value = visibleSections[0]?.name || null;
 
     if (visibleSections[0]?.name) {
-      history.replaceState(null, '', `#${visibleSections[0].name}`);
+      if(lastVisibleSection === visibleSections[0]?.name) return;
+
+      history.replaceState(history.state, '', `${locale.value === 'pl' ? '' : `/${locale.value}`}/${visibleSections[0].name}`);
+      lastVisibleSection = visibleSections[0]?.name;
+
     } else {
-      // Usuwa hash
-      history.replaceState(null, '', window.location.pathname + window.location.search);
+      if(!['index___pl', 'index___en', 'dynamic___pl', 'dynamic___en'].includes(route.name)) return;
+
+      history.replaceState(history.state, '', `/${locale.value === 'pl' ? '' : locale.value}${ window.location.search ? `/${  window.location.search}` : ''}`);
+      lastVisibleSection = null;
     }
   }, 10);
 
@@ -78,8 +90,8 @@ export function useActiveSection() {
       } else {
         el.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
-
-      history.replaceState(null, '', `#${name}`);
+      
+      history.replaceState(history.state, '', `${locale.value === 'pl' ? '' : `/${locale.value}`}/${name}`);
     }
   };
 

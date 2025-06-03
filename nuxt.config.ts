@@ -1,3 +1,5 @@
+import { resolve } from 'path';
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
@@ -89,6 +91,16 @@ export default defineNuxtConfig({
       useCookie: true,
       cookieKey: 'i18n_redirected',
       redirectOn: 'root',
+    }
+  },
+
+  hooks: {
+    'pages:extend'(pages) {
+      pages.push({
+        name: 'dynamic',
+        path: '/:slug*',
+        file: resolve(__dirname, 'pages/index.vue')
+      });
     }
   }
 });

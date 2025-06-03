@@ -5,7 +5,7 @@
     </div>
     <q-menu>
       <div>
-        <q-btn v-for="availableLocale in availableLocales" :key="availableLocale" @click="setLocale(availableLocale)">
+        <q-btn v-for="availableLocale in availableLocales" :key="availableLocale" @click="setLocaleCustom(availableLocale)">
           {{ availableLocale }}
           <span :class="`q-ml-sm flag-icon flag-icon-${ getCountryCode(availableLocale) }`"/>
         </q-btn>
@@ -25,8 +25,19 @@ const { isBlock = false } = defineProps<Props>();
 
 const { locale, availableLocales, setLocale } = useI18n();
 
+const { activeSection, scrollToSection } = useActiveSection();
+
 const getCountryCode = (availableLocale: string): string => {
   return availableLocale.toLowerCase() === 'en' ? 'gb' : availableLocale.toLowerCase();
+};
+
+const setLocaleCustom = (lang: 'en' | 'pl') => {
+  if(activeSection.value) {
+    locale.value = lang;
+    scrollToSection(activeSection.value);
+  } else {
+    setLocale(lang);
+  }
 };
 </script>
 
