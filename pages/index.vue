@@ -196,81 +196,81 @@ useJsonld(() => ({
   '@graph': [
     {
       '@type': 'WebPageElement',
-      '@id': 'https://cv.tomasz-slapinski.pl/#experience',
+      '@id': 'https://cv.tomasz-slapinski.pl/experience',
       'name': 'Doświadczenie',
-      'url': 'https://cv.tomasz-slapinski.pl/#experience',
+      'url': 'https://cv.tomasz-slapinski.pl/experience',
       'description': 'Dowiedz się więcej o moim doświadczeniu',
       'inLanguage': 'pl'
     },
     {
       '@type': 'WebPageElement',
-      '@id': 'https://cv.tomasz-slapinski.pl/en#experience',
+      '@id': 'https://cv.tomasz-slapinski.pl/en/experience',
       'name': 'Experience',
-      'url': 'https://cv.tomasz-slapinski.pl/en#experience',
+      'url': 'https://cv.tomasz-slapinski.pl/en/experience',
       'description': 'Learn more about my experience',
       'inLanguage': 'en'
     },
     {
       '@type': 'WebPageElement',
-      '@id': 'https://cv.tomasz-slapinski.pl/#education',
+      '@id': 'https://cv.tomasz-slapinski.pl/education',
       'name': 'Edukacja',
-      'url': 'https://cv.tomasz-slapinski.pl/#education',
+      'url': 'https://cv.tomasz-slapinski.pl/education',
       'description': 'Dowiedz się więcej o mojej edukacji',
       'inLanguage': 'pl'
     },
     {
       '@type': 'WebPageElement',
-      '@id': 'https://cv.tomasz-slapinski.pl/en#education',
+      '@id': 'https://cv.tomasz-slapinski.pl/en/education',
       'name': 'Education',
-      'url': 'https://cv.tomasz-slapinski.pl/en#education',
+      'url': 'https://cv.tomasz-slapinski.pl/en/education',
       'description': 'Learn more about my education',
       'inLanguage': 'en'
     },
     {
       '@type': 'WebPageElement',
-      '@id': 'https://cv.tomasz-slapinski.pl/#technologies',
+      '@id': 'https://cv.tomasz-slapinski.pl/technologies',
       'name': 'Technologie',
-      'url': 'https://cv.tomasz-slapinski.pl/#technologies',
+      'url': 'https://cv.tomasz-slapinski.pl/technologies',
       'description': 'Odkryj używane przeze mnie technologie',
       'inLanguage': 'pl'
     },
     {
       '@type': 'WebPageElement',
-      '@id': 'https://cv.tomasz-slapinski.pl/en#technologies',
+      '@id': 'https://cv.tomasz-slapinski.pl/en/technologies',
       'name': 'Technologies',
-      'url': 'https://cv.tomasz-slapinski.pl/en#technologies',
+      'url': 'https://cv.tomasz-slapinski.pl/en/technologies',
       'description': 'Discover the technologies I use',
       'inLanguage': 'en'
     },
     {
       '@type': 'WebPageElement',
-      '@id': 'https://cv.tomasz-slapinski.pl/#projects',
+      '@id': 'https://cv.tomasz-slapinski.pl/projects',
       'name': 'Projekty',
-      'url': 'https://cv.tomasz-slapinski.pl/#projects',
+      'url': 'https://cv.tomasz-slapinski.pl/projects',
       'description': 'Sprawdź jakie projekty stworzyłem podczas mojej przygody z programowaniem',
       'inLanguage': 'pl'
     },
     {
       '@type': 'WebPageElement',
-      '@id': 'https://cv.tomasz-slapinski.pl/en#projects',
+      '@id': 'https://cv.tomasz-slapinski.pl/en/projects',
       'name': 'Projects',
-      'url': 'https://cv.tomasz-slapinski.pl/en#projects',
+      'url': 'https://cv.tomasz-slapinski.pl/en/projects',
       'description': 'Check out the projects I’ve created during my journey with programming',
       'inLanguage': 'en'
     },
     {
       '@type': 'WebPageElement',
-      '@id': 'https://cv.tomasz-slapinski.pl/#certificates',
+      '@id': 'https://cv.tomasz-slapinski.pl/certificates',
       'name': 'Certyfikaty',
-      'url': 'https://cv.tomasz-slapinski.pl/#certificates',
+      'url': 'https://cv.tomasz-slapinski.pl/certificates',
       'description': 'Zobacz jakie certyfikaty udało mi się osiągnąć',
       'inLanguage': 'pl'
     },
     {
       '@type': 'WebPageElement',
-      '@id': 'https://cv.tomasz-slapinski.pl/en#certificates',
+      '@id': 'https://cv.tomasz-slapinski.pl/en/certificates',
       'name': 'Certificates',
-      'url': 'https://cv.tomasz-slapinski.pl/en#certificates',
+      'url': 'https://cv.tomasz-slapinski.pl/en/certificates',
       'description': 'See the certifications I have achieved',
       'inLanguage': 'en'
     }
