@@ -12,7 +12,8 @@
       >
         <template #title>
           <div :class="`entry-header ${index % 2 === 0 ? 'justify-end' : ''}`">
-            <img :src="job.logo" class="company-logo" >
+            <img v-if="job.logo" :src="job.logo" class="company-logo" >
+            <div v-else><q-icon name="apartment" /> </div>
             <div>
               <h2 class="text-bold" style="font-size: large;">{{ job.company }}</h2>
               <div class="text-caption">{{ job.dates }}</div>
@@ -33,7 +34,8 @@
         class="q-mb-lg"
       >
         <div class="entry-header q-px-xl">
-          <q-img :src="job.logo" class="company-logo" />
+          <q-img v-if="job.logo" :src="job.logo" class="company-logo" />
+          <div v-else><q-icon name="apartment" /> </div>
           <div>
             <h2 class="text-bold" style="font-size: large;">{{ job.company }}</h2>
             <div class="text-caption">{{ job.dates }}</div>

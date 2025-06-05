@@ -23,7 +23,7 @@ const { isSectionActive, scrollToSection } = useActiveSection();
 
 const { locale: currentLocale } = useI18n();
 
-const localeForURL = computed(() => currentLocale.value === 'pl' ? '' : currentLocale.value);
+const localeForURL = computed(() => currentLocale.value === 'pl' ? '' : `/${currentLocale.value}`);
 </script>
 
 <style scoped>
