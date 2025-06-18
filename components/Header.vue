@@ -29,12 +29,13 @@ const Navigation = defineAsyncComponent(() => import('@/components/Navigation.vu
 const drawer = defineModel<boolean>();
 
 const $q = useQuasar();
-const isDark = ref($q.dark.isActive);
+
+const isDark = computed(() => $q.dark.isActive);
 
 const toggleDarkMode = () => {
-  $q.dark.set(!$q.dark.isActive);
-  isDark.value = $q.dark.isActive;
-  localStorage.setItem('darkMode', isDark.value);
+  const newValue = !$q.dark.isActive;
+  $q.dark.set(newValue);
+  $q.cookies.set('nuxt-color-mode', newValue ? 'dark' : 'light', { path: '/', expires: 365 });
 };
 
 </script>

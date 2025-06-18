@@ -16,12 +16,25 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     'nuxt-security',
     '@nuxtjs/sitemap',
-    'nuxt-jsonld'
+    'nuxt-jsonld',
+    '@nuxtjs/color-mode'
   ],
 
+  colorMode: {
+    preference: 'light',
+    fallback: 'dark',
+    storage: 'cookie',
+  },
+
   plugins: [
-    { src: '~/plugins/pinia.ts', mode: 'client' }
+    { src: '~/plugins/pinia.ts', mode: 'client' },
   ],
+
+  nitro: {
+    plugins: [
+      '~/server/plugins/color.ts'
+    ]
+  },
 
   vite: {
     plugins: [
@@ -76,7 +89,8 @@ export default defineNuxtConfig({
 
   quasar: {
     plugins: [
-      'Notify'
+      'Notify',
+      'Cookies',
     ],
     config: {
       notify: {
