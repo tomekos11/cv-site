@@ -1,6 +1,8 @@
 <template>
   <section id="projects" ref="section" class="q-pt-sm">
-    <h1 class="text-center fancy-text bg-grey-2">{{ $t('nav.projects') }}</h1>
+
+    <section-title :title="$t('nav.projects')" />
+
     <div 
       class="q-pt-sm q-pb-md q-px-md" 
       style="display: grid; grid-template-columns: repeat(auto-fit, min(374px, 100%)); gap: 0 30px; justify-content: center;"
@@ -10,21 +12,21 @@
         :key="index"
       >
         <q-card
-          class="bg-white text-dark text-center education-item"
-          style="transition: 1s; position: relative; color: white; overflow: hidden;"
+          class="bg-white text-dark text-center education-item t:dark:!bg-slate-900"
         >
-          <q-parallax :src="project.image" class="full-width" :height="150"/>
-          <q-card-section 
+          <q-img :src="project.image" class="t:w-full t:lg:h-[150px] t:h-[120px]" />
+
+          <q-card-section
             class="d-flex flex-column full-height fit"
             style="z-index: 1; position: relative;"
           >
-            <h2 class="q-my-sm text-bold" style="font-size: 14px">{{ project.name }}</h2>
+            <h2 class="q-my-sm text-bold t:dark:text-slate-300" style="font-size: 14px">{{ project.name }}</h2>
             <div class="d-flex justify-center q-mb-sm gap-5">
               <template v-for="tech in project.technologies" :key="tech">
                 <technologies-badge :technology="tech" />
               </template>
             </div>
-            <p class="limit-lines">{{ project.description }}</p>
+            <p class="limit-lines t:dark:text-slate-400">{{ project.description }}</p>
             <q-btn flat color="blue-13" no-caps> {{ $t('projects.readMore')}}...</q-btn>
 
           </q-card-section>

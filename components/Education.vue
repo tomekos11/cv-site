@@ -1,23 +1,24 @@
 <template>
   <section id="education" ref="section">
-    <h1 class="text-center fancy-text bg-grey-2">{{ $t('nav.education') }}</h1>
+    <section-title :title="$t('nav.education')"/>
+
     <div class="education-section">
       <q-list class="education-list">
         <q-item
           v-for="(school, index) in education"
           :key="school.when"
           ref="educationItems"
-          class="education-item"
+          class="education-item t:dark:!bg-slate-900"
           :class="{ visible: visibleItems.includes(index) }"
         >
           <q-item-section>
             <div class="d-flex align-center school">
               <img :src="school.img" alt="school logo" class="school-logo" style="object-fit: scale-down" loading="lazy">
               <div class="school-info">
-                <h2 class="school-name">{{ school.name }}</h2>
-                <p class="school-title q-mb-none">{{ school.title }}</p>
-                <div v-if="school.mark" class="school-title">{{ $t('education.grade') }}: {{ school.mark }}</div>
-                <div class="school-period">
+                <h2 class="school-name t:dark:!text-slate-400">{{ school.name }}</h2>
+                <p class="school-title q-mb-none t:dark:!text-slate-500">{{ school.title }}</p>
+                <div v-if="school.mark" class="school-title t:dark:!text-slate-500">{{ $t('education.grade') }}: {{ school.mark }}</div>
+                <div class="school-period t:dark:!text-slate-400">
                   {{ school.when }}
                   <span v-if="school.status === 'ongoing' && new Date() < new Date('2026-08-01')" class="text-orange-10">
                     ({{ $t('education.currently') }})

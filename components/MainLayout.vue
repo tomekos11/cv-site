@@ -15,7 +15,8 @@
         <nuxt-page />
       </q-page-container>
   
-      <q-footer elevated class="text-white" style="background-color: #2c3e50;">
+      <!-- style="background-color: #2c3e50;" -->
+      <q-footer elevated class="text-white t:!bg-slate-900">
         <q-toolbar class="q-py-sm">
           <q-toolbar-title>
             <div class="row justify-between">

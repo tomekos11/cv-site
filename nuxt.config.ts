@@ -1,4 +1,5 @@
 import { resolve } from 'path';
+import tailwindcss from '@tailwindcss/vite';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -21,10 +22,16 @@ export default defineNuxtConfig({
   plugins: [
     { src: '~/plugins/pinia.ts', mode: 'client' }
   ],
+
+  vite: {
+    plugins: [
+      tailwindcss(),
+    ],
+  },
   
   css: [
     '@/assets/styles/global.css',
-    'flag-icon-css/css/flag-icons.min.css'
+    'flag-icon-css/css/flag-icons.min.css',
   ],
 
   site: {
@@ -75,7 +82,8 @@ export default defineNuxtConfig({
       notify: {
         progress: true
       }
-    }
+    },
+    sassVariables: 'assets/styles/quasar.variables.scss'
   },
 
   i18n: {

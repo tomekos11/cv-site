@@ -2,9 +2,9 @@
   <section id="technologies" ref="section">
     
     <div class="q-pt-sm q-mt-md">
-      <h1 class="text-center fancy-text bg-grey-2">{{ $t('nav.technologies') }}</h1>
+      <section-title :title="$t('nav.technologies')" />
 
-      <div ref="select-container" class="bg-grey-2 q-mx-auto q-py-sm">
+      <div ref="select-container" class="q-mx-auto q-py-sm">
         <q-select
           v-model="selectedCategory"
           :options="options"
@@ -12,7 +12,6 @@
           dense
           color="blue-9"
           options-selected-class="text-blue-9"
-          bg-color="white"
           :label="$t('technologies.filter')"
           style="width: 200px; margin-inline: auto"
           :clearable="true"
@@ -43,6 +42,7 @@
           control-color="primary"
           arrows
           infinite
+          class="t:!bg-transparent"
           transition-next="jump-left"
           transition-prev="jump-right"
         >
@@ -51,7 +51,7 @@
               <q-card
                 v-for="(tech, index) in visibleTechnologies"
                 :key="index"
-                class="bg-white text-dark text-center card-hover carousel-card"
+                class="bg-white text-dark text-center card-hover carousel-card t:dark:!bg-slate-900 t:dark:!shadow-2xl"
               >
                 <q-card-section class="d-flex flex-column full-height">
                   <div class="d-flex flex-column flex-center full-height">
@@ -59,12 +59,12 @@
                       <img :src="tech.src" style="width: 150px; height: auto; object-fit: cover;">
                     </template>
                     <template v-else>
-                      <div style="font-size: 32px; width: 150px;">
+                      <div class="t:text-[32px] t:dark:!text-slate-300 t:w-[150px]">
                         {{ tech.name }}
                       </div>
                     </template>
                   </div>
-                  <h2 class="q-my-sm text-bold" style="font-size: 16px;">{{ tech.name }}</h2>
+                  <h2 class="q-my-sm text-bold t:!text-[16px] t:dark:!text-slate-300">{{ tech.name }}</h2>
                 </q-card-section>
               </q-card>
             </div>

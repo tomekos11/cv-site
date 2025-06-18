@@ -7,7 +7,7 @@
         <nav class="d-none d-md-flex gap-20 flex-center">
           <navigation />
           <lang-switcher />
-          <!-- <q-btn flat @click="toggleDarkMode" :label="isDark ? '☀️' : '🌙'" /> -->
+          <q-btn flat :label="isDark ? '☀️' : '🌙'" @click="toggleDarkMode" />
         </nav>
 
         <!-- Przycisk hamburgera dla mniejszych ekranów -->
@@ -28,14 +28,14 @@ const Navigation = defineAsyncComponent(() => import('@/components/Navigation.vu
 
 const drawer = defineModel<boolean>();
 
-// const $q = useQuasar();
-// const isDark = ref($q.dark.isActive);
+const $q = useQuasar();
+const isDark = ref($q.dark.isActive);
 
-// const toggleDarkMode = () => {
-//   $q.dark.set(!$q.dark.isActive);
-//   isDark.value = $q.dark.isActive;
-//   localStorage.setItem("darkMode", isDark.value);
-// };
+const toggleDarkMode = () => {
+  $q.dark.set(!$q.dark.isActive);
+  isDark.value = $q.dark.isActive;
+  localStorage.setItem('darkMode', isDark.value);
+};
 
 </script>
 

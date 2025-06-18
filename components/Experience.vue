@@ -1,50 +1,100 @@
 <template>
   <section id="experience" ref="section">
-    <h1 class="text-center fancy-text bg-grey-2">{{ $t('nav.experience') }}</h1>
+    <section-title :title="$t('nav.experience')" description="Domyślnie pokazany jest tylko skrótowy opis. Aby rozwinąć szczegółowe informacje, naciśnij na nazwę firmy" />
 
-    <q-timeline v-if="isDesktop" color="primary" layout="loose" class="q-pa-lg work-history">
+    <q-timeline v-if="isDesktop" color="indigo-11" layout="loose" class="q-pa-lg work-history">
       <q-timeline-entry
         v-for="(job, index) in workHistory"
         :key="index"
         :side="index % 2 === 0 ? 'left' : 'right'"
         :title="job.company"
-        :header-class="'text-primary'"
       >
         <template #title>
-          <div :class="`entry-header ${index % 2 === 0 ? 'justify-end' : ''}`">
-            <img v-if="job.logo" :src="job.logo" class="company-logo" >
-            <div v-else><q-icon name="apartment" /> </div>
-            <div>
-              <h2 class="text-bold" style="font-size: large;">{{ job.company }}</h2>
-              <div class="text-caption">{{ job.dates }}</div>
-            </div>
-          </div>
+          <q-expansion-item
+            expand-separator
+            :header-class="`${index % 2 === 0 ? 'justify-end' : ''}`"
+            expand-icon="none"
+            expand-icon-class="hidden"
+            class="t:!mt-2 t:hover:!bg-blue-100 t:dark:hover:!bg-transparent"
+          >
+            <template #header>
+              <div :class="`t:flex t:gap-2 t:items-center t:justify-center  t:dark:p-3 t:rounded-2xl ${index % 2 === 0 ? 'justify-end' : ''}`">
+                <img v-if="job.logo" :src="job.logo" class="company-logo" >
+                <div v-else>
+                  <q-icon name="apartment" size="30px" color="grey-800" class="t:p-2.5" />
+                </div>
+                <div>
+                  <h2 class="text-bold t:text-center t:!text-lg">{{ job.company }}</h2>
+                  <div class="t:text-sm t:mt-0.5 t:mb-2 t:text-center t:dark:text-slate-400">{{ job.shortDescription }}</div>
+
+                  <div class="t:flex t:gap-2 t:flex-wrap">
+                    <q-badge v-for="tech in job.technologies" :key="tech" class="t:!bg-slate-900 t:!py-1 t:!px-1.5">
+                      {{ tech }}
+                    </q-badge>
+                  </div>
+                
+                  <div class="text-caption t:text-center t:!tracking-wider t:text-indigo-900 t:dark:text-slate-400 t:font-bold t:mt-1">{{ job.dates }}</div>
+                </div>
+              </div>
+            </template>
+
+            <q-card class="t:dark:!bg-transparent t:dark:text-white">
+              <q-card-section>
+                <job-description :job="job.slug" class="t:text-sm"/>
+              </q-card-section>
+            </q-card>
+
+          </q-expansion-item>
         </template>
-        <div>
-          
-          <job-description :job="job.slug"/>
-        </div>
       </q-timeline-entry>
     </q-timeline>
 
+    <!-- dla mobilek -->
     <div v-else>
       <div
         v-for="(job, index) in workHistory"
         :key="index"
-        class="q-mb-lg"
+        class="t:px-3"
       >
-        <div class="entry-header q-px-xl">
-          <q-img v-if="job.logo" :src="job.logo" class="company-logo" />
-          <div v-else><q-icon name="apartment" /> </div>
-          <div>
-            <h2 class="text-bold" style="font-size: large;">{{ job.company }}</h2>
-            <div class="text-caption">{{ job.dates }}</div>
-          </div>
-        </div>
+        <q-expansion-item
+          header-class="justify-start"
+          expand-icon="none"
+          expand-icon-class="hidden"
+          class="t:!mt-2 t:hover:!bg-blue-100"
+        >
+          <template #header>
+            <div class="t:flex t:gap-2 t:items-center t:justify-center">
+              <img v-if="job.logo" :src="job.logo" class="company-logo" >
+              <div v-else>
+                <q-icon name="apartment" size="30px" color="grey-800" class="t:p-2.5" />
+              </div>
+              <div>
+                <h2 class="text-bold t:!text-lg">{{ job.company }}</h2>
+                <div class="t:text-sm t:mt-0.5 t:mb-2">{{ job.shortDescription }}</div>
 
-        <job-description class="q-px-md" :job="job.slug"/>
+                <div class="t:flex t:gap-2 t:flex-wrap">
+                  <q-badge v-for="tech in job.technologies" :key="tech" class="t:!bg-slate-900 t:!py-1 t:!px-1.5">
+                    {{ tech }}
+                  </q-badge>
+                </div>
+
+                <div class="t:text-slate-900 t:font-semibold t:my-1">{{ job.dates }}</div>
+              </div>
+            </div>
+          </template>
+          <q-card>
+            <q-card-section>
+              <job-description :job="job.slug" class="t:text-sm"/>
+            </q-card-section>
+          </q-card>
+
+          <q-separator class="t:!mx-4 t:!bg-slate-900"/>
+
+        </q-expansion-item>
+
       </div>
     </div>
+
   </section>
 </template>
 
@@ -70,39 +120,49 @@ const { t } = useI18n();
 
 interface WorkHistory {
   company: string;
+  shortDescription: string;
   slug: 'polcar' | 'cemex' | 'infra-team' | 'nda';
   logo: string | null;
   dates: string;
+  technologies: string[];
   expanded: boolean;
 }
 
 const workHistory: WorkHistory[] = [
   {
     company: 'Polcar',
+    shortDescription: 'xD',
     slug: 'polcar',
     logo: '/assets/icons/companies/polcar.png',
     dates: t('experience.date1'),
+    technologies: ['Vue', 'Quasar', 'SSR', 'PWA', 'Laravel', 'SEO'],
     expanded: false,
   },
   {
     company: t('experience.name'),
+    shortDescription: 'NDA',
     slug: 'nda',
     logo: null,
     dates: t('experience.date4'),
+    technologies: [],
     expanded: false,
   },
   {
     company: 'Infra Team',
+    shortDescription: 'xD',
     slug: 'cemex',
     logo: '/assets/icons/companies/infrateam.jpg',
     dates: t('experience.date2'),
+    technologies: ['Vue', 'Quasar', 'Laravel'],
     expanded: false,
   },
   {
     company: 'Infra Team',
+    shortDescription: 'xD',
     slug: 'infra-team',
     logo: '/assets/icons/companies/infrateam.jpg',
     dates: t('experience.date3'),
+    technologies: ['Vue', 'Bootstrap', 'Laravel'],
     expanded: false,
   },
 ];
@@ -115,6 +175,20 @@ onMounted(() => {
 });
 
 </script>
+
+<style scoped>
+:deep(.body--light .q-expansion-item--expanded) {
+  background: var(--t-color-slate-200);
+}
+
+:deep(.body--dark .q-expansion-item--expanded) {
+  background: transparent;
+}
+
+:deep(.q-item) {
+  transition: none;
+}
+</style>
 
 <style>
 .work-history {
@@ -130,20 +204,4 @@ onMounted(() => {
   object-fit: cover;
 }
 
-.entry-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.q-expansion-item {
-  margin-top: 10px;
-}
-
-@media (min-width: 800px) {
-  .work-history {
-    max-width: 1120px;
-    margin: auto;
-  }
-}
 </style>
