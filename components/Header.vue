@@ -4,11 +4,14 @@
 
       <q-toolbar class="q-px-md justify-between">
         <q-toolbar-title>CV</q-toolbar-title>
-        <nav class="d-none d-md-flex gap-20 flex-center">
+        <nav class="d-none d-md-flex gap-20 flex-center t:lg:pe-5 t:md:pe-4 t:sm:pe-2">
           <navigation />
-          <lang-switcher />
-          <q-btn flat :label="isDark ? '☀️' : '🌙'" @click="toggleDarkMode" />
         </nav>
+
+        <div class="d-none d-md-flex flex-center">
+          <lang-switcher />
+          <dark-mode-switcher />
+        </div>
 
         <!-- Przycisk hamburgera dla mniejszych ekranów -->
         <q-btn
@@ -27,16 +30,6 @@
 const Navigation = defineAsyncComponent(() => import('@/components/Navigation.vue'));
 
 const drawer = defineModel<boolean>();
-
-const $q = useQuasar();
-
-const isDark = computed(() => $q.dark.isActive);
-
-const toggleDarkMode = () => {
-  const newValue = !$q.dark.isActive;
-  $q.dark.set(newValue);
-  $q.cookies.set('nuxt-color-mode', newValue ? 'dark' : 'light', { path: '/', expires: 365 });
-};
 
 </script>
 

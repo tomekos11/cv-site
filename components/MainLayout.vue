@@ -37,7 +37,10 @@
         <q-list class="sticky d-flex flex-column" style="height: 90%;">
           <div>
             <navigation :is-block="true" />
-            <lang-switcher :is-block="true" />
+            <div class="t:flex t:justify-center t:gap-1">
+              <lang-switcher />
+              <dark-mode-switcher />
+            </div>
           </div>
           <div class="q-mt-auto" style="background: #ffffff1a;">
             <div class="d-flex justify-center gap-5 q-my-xs">

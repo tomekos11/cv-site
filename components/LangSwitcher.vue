@@ -1,6 +1,6 @@
 <template>
   <q-btn flat :class="{'d-block': isBlock, 'full-width': isBlock}">
-    <div>
+    <div class="t:flex">
       <span :class="`flag-icon flag-icon-${getCountryCode(locale)}`"/>
     </div>
     <q-menu>
