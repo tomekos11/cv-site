@@ -33,12 +33,25 @@ export default {
     send: 'Send'
   },
 
+
   experience: {
-    name: 'Popular company that develops computer games',
-    date1: 'July 2023 - Present',
-    date2: 'August 2024 - September 2024',
-    date3: 'July 2023 - May 2024',
-    date4: 'March 2025 - May 2025',
+    polcar: {
+      shortDescription: 'Wholesale distributor of car parts',
+      date: 'July 2023 - Present',
+    },
+    nda: {
+      name: 'Well-known company developing computer games',
+      shortDescription: 'NDA project',
+      date: 'March 2025 - May 2025',
+    },
+    infraTeam2: {
+      shortDescription: 'Event management system',
+      date: 'August 2024 - September 2024',
+    },
+    infraTeam1: {
+      shortDescription: 'Conference management system',
+      date: 'July 2023 - May 2024',
+    }
   },
 
   education: {

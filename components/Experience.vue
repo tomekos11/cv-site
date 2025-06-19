@@ -28,7 +28,7 @@
                   <div class="t:text-sm t:mt-0.5 t:mb-2 t:text-center t:dark:text-slate-400">{{ job.shortDescription }}</div>
 
                   <div class="t:flex t:gap-2 t:flex-wrap">
-                    <q-badge v-for="tech in job.technologies" :key="tech" class="t:!bg-slate-900 t:!py-1 t:!px-1.5">
+                    <q-badge v-for="tech in job.technologies" :key="tech" class="dark-badge">
                       {{ tech }}
                     </q-badge>
                   </div>
@@ -73,7 +73,7 @@
                 <div class="t:text-sm t:mt-0.5 t:mb-2">{{ job.shortDescription }}</div>
 
                 <div class="t:flex t:gap-2 t:flex-wrap">
-                  <q-badge v-for="tech in job.technologies" :key="tech" class="t:!bg-slate-900 t:!py-1 t:!px-1.5">
+                  <q-badge v-for="tech in job.technologies" :key="tech" class="dark-badge">
                     {{ tech }}
                   </q-badge>
                 </div>
@@ -131,37 +131,37 @@ interface WorkHistory {
 const workHistory: WorkHistory[] = [
   {
     company: 'Polcar',
-    shortDescription: 'xD',
+    shortDescription: t('experience.polcar.shortDescription'),
     slug: 'polcar',
     logo: '/assets/icons/companies/polcar.png',
-    dates: t('experience.date1'),
+    dates: t('experience.polcar.date'),
     technologies: ['Vue', 'Quasar', 'SSR', 'PWA', 'Laravel', 'SEO'],
     expanded: false,
   },
   {
-    company: t('experience.name'),
-    shortDescription: 'NDA',
+    company: t('experience.nda.name'),
+    shortDescription: t('experience.nda.shortDescription'),
     slug: 'nda',
     logo: null,
-    dates: t('experience.date4'),
+    dates: t('experience.nda.date'),
     technologies: [],
     expanded: false,
   },
   {
     company: 'Infra Team',
-    shortDescription: 'xD',
+    shortDescription: t('experience.infraTeam2.shortDescription'),
     slug: 'cemex',
     logo: '/assets/icons/companies/infrateam.jpg',
-    dates: t('experience.date2'),
+    dates: t('experience.infraTeam2.date'),
     technologies: ['Vue', 'Quasar', 'Laravel'],
     expanded: false,
   },
   {
     company: 'Infra Team',
-    shortDescription: 'xD',
+    shortDescription: t('experience.infraTeam1.shortDescription'),
     slug: 'infra-team',
     logo: '/assets/icons/companies/infrateam.jpg',
-    dates: t('experience.date3'),
+    dates: t('experience.infraTeam1.date'),
     technologies: ['Vue', 'Bootstrap', 'Laravel'],
     expanded: false,
   },

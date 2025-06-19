@@ -10,26 +10,26 @@
               <img :src="cert.companyImage" alt="company logo" class="school-logo" style="object-fit: scale-down;" >
               <div class="school-info full-width">
                 <div class="d-flex justify-between">
-                  <h2 class="school-name">{{ cert.name }}</h2>
+                  <h2 class="school-name t:dark:!text-slate-400">{{ cert.name }}</h2>
                   <div>
-                    <q-btn v-if="cert.link" round class="q-mr-sm" size="xs" :href="cert.link" target="_blank">
-                      <Icon name="fa-solid:external-link-alt" style="color: #2c3e50" size="0.8rem" />
+                    <q-btn v-if="cert.link" round class="q-mr-sm t:dark:!bg-slate-800" size="xs" :href="cert.link" target="_blank">
+                      <Icon name="fa-solid:external-link-alt" class="t:dark:!text-slate-400" style="color: #2c3e50" size="0.8rem" />
                       <q-tooltip class="bg-dark" :delay="400" max-width="300px">
                         {{ $t('certificates.openLink') }}
                       </q-tooltip>
                     </q-btn>
 
-                    <q-btn v-if="cert.image" round size="xs" @click="openModal(cert)">
-                      <Icon name="pepicons-pop:photo-camera" style="color: #2c3e50" class="q-pa-sm" size="1rem"/>
+                    <q-btn v-if="cert.image" round size="xs" class="t:dark:!bg-slate-800" @click="openModal(cert)">
+                      <Icon name="pepicons-pop:photo-camera" class="t:dark:!text-slate-400 q-pa-sm" style="color: #2c3e50" size="1rem"/>
                       <q-tooltip class="bg-dark" :delay="400" max-width="300px">
                         {{ $t('certificates.showPhoto') }}
                       </q-tooltip>
                     </q-btn>
                   </div>
                 </div>
-                <div class="school-title">{{ cert.company }}</div>
-                <div class="school-period">{{ $t('certificates.issued') }} {{ cert.receivedDate }}</div>
-                <div v-if="cert.identifier" class="school-period">{{ $t('certificates.credentialId') }} {{ cert.identifier }}</div>
+                <div class="school-title t:dark:!text-slate-500">{{ cert.company }}</div>
+                <div class="school-period t:dark:!text-slate-400">{{ $t('certificates.issued') }} {{ cert.receivedDate }}</div>
+                <div v-if="cert.identifier" class="school-period t:dark:!text-slate-400">{{ $t('certificates.credentialId') }} {{ cert.identifier }}</div>
               
                 <q-expansion-item
                   icon="star"
@@ -37,15 +37,16 @@
                   header-class="text-amber-10"
                   dense
                 >
-                  <q-card class="bg-grey-1">
+                  <q-card class="bg-grey-1 t:dark:!bg-transparent">
                     <q-card-section>
                       <div class="d-flex justify-center q-mb-sm gap-5">
                         <template v-for="technology in cert.skills" :key="technology">
-                          <technologies-badge :technology="technology" />
+                          <!-- <technologies-badge :technology="technology" /> -->
+                          <q-badge class="dark-badge t:dark:!bg-slate-800" :label="technology" />
                         </template>
                       </div>
 
-                      <p v-if="cert.description">
+                      <p v-if="cert.description" class="t:dark:!text-slate-400">
                         {{ cert.description }}
                       </p>
                     

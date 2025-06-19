@@ -5,10 +5,7 @@
 </template>
 
 <script setup lang="ts">
-const colorMode = useColorMode();
 const $q = useQuasar();
 
-console.log('to?:', colorMode.value);
-
-$q.dark.set(colorMode.value === 'dark');
+$q.dark.set($q.cookies.get('nuxt-color-mode') === 'dark');
 </script>

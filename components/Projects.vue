@@ -36,7 +36,7 @@
 
     <div class="text-center q-py-lg q-pb-xl q-mx-lg">
       <q-btn
-        class="bg-primary text-white"
+        class="custom-button"
         style="font-size: 15px;"
         size="md"
         rounded

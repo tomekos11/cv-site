@@ -12,7 +12,7 @@
 
         <div class="t:flex t:flex-col t:justify-center t:items-center t:gap-3.5 t:space-x-1 t:space-y-1 t:md:flex-row">
           <q-btn
-            class="t:!bg-gradient-to-r t:!from-slate-950 t:!to-slate-800 text-white  t:dark:!from-slate-900 t:dark:!to-slate-900  t:!border t:!border-slate-800 t:font-[15px]"
+            class="custom-button"
             size="md"
             rounded
             :loading="loading"
@@ -23,7 +23,7 @@
           />
   
           <q-btn
-            class="t:!bg-gradient-to-r t:!from-slate-950 t:!to-slate-800 text-white  t:dark:!from-slate-900 t:dark:!to-slate-900  t:!border t:!border-slate-800 t:font-[15px]"
+            class="custom-button"
             size="md"
             rounded
             no-caps

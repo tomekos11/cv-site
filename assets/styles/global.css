@@ -2,6 +2,14 @@
 
 @custom-variant dark (&:where(.body--dark, .body--dark *));
 
+.dark-badge {
+  @apply t:!bg-slate-900 t:!py-1 t:!px-1.5;
+}
+
+.custom-button {
+  @apply t:!bg-gradient-to-r t:!from-slate-950 t:!to-slate-800 t:!text-white t:dark:!from-slate-900 t:dark:!to-slate-900 t:!border t:!border-slate-800 t:font-[15px]
+}
+
 body {
     font-family: 'Lato', sans-serif;
 }

@@ -35,12 +35,32 @@ export default {
   },
 
   experience: {
-    name: 'Popularna firma, tworząca gry komputerowe',
-    date1: 'Lipiec 2023 - obecnie',
-    date2: 'Sierpień 2024 - Wrzesień 2024',
-    date3: 'Lipiec 2023 - Maj 2024',
-    date4: 'Marzec 2025 - Maj 2025',
+    polcar: {
+      shortDescription: 'Hurtownia części samochowych',
+      date: 'Lipiec 2023 - obecnie',
+    },
+    nda: {
+      name: 'Popularna firma, tworząca gry komputerowe',
+      shortDescription: 'Zlecenie NDA',
+      date: 'Marzec 2025 - Maj 2025',
+    },
+    infraTeam2: {
+      shortDescription: 'System zarządzania wydarzeniami',
+      date: 'Sierpień 2024 - Wrzesień 2024',
+    },
+    infraTeam1: {
+      shortDescription: 'System obsługi konferencji',
+      date: 'Lipiec 2023 - Maj 2024',
+    }
   },
+
+  // experience: {
+  //   name: 'Popularna firma, tworząca gry komputerowe',
+  //   date1: 'Lipiec 2023 - obecnie',
+  //   date2: 'Sierpień 2024 - Wrzesień 2024',
+  //   date3: 'Lipiec 2023 - Maj 2024',
+  //   date4: 'Marzec 2025 - Maj 2025',
+  // },
 
   education: {
     grade: 'Ocena',

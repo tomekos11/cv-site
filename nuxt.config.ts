@@ -28,6 +28,7 @@ export default defineNuxtConfig({
 
   plugins: [
     { src: '~/plugins/pinia.ts', mode: 'client' },
+    { src: '~/plugins/color.ts', mode: 'client' },
   ],
 
   nitro: {
