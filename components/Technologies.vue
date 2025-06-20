@@ -109,7 +109,7 @@ const technologies: Technology[] = [
   { name: 'Express', src: '/assets/icons/technologies/express.webp', type: 'backend' },
   { name: 'Nest', src: '/assets/icons/technologies/nest.webp', type: 'backend' },
   { name: 'Adonis.js', src: '/assets/icons/technologies/adonis.png', type: 'backend' },
-  { name: 'Bootstrap', src: 'assets/icons/technologies/bootstrap.png', type: 'frontend' },
+  { name: 'Bootstrap', src: '/assets/icons/technologies/bootstrap.png', type: 'frontend' },
   { name: 'Git', src: '/assets/icons/technologies/git.png' },
 ];
 

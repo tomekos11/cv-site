@@ -1,6 +1,6 @@
 <template>
   <section id="experience" ref="section">
-    <section-title :title="$t('nav.experience')" description="Domyślnie pokazany jest tylko skrótowy opis. Aby rozwinąć szczegółowe informacje, naciśnij na nazwę firmy" />
+    <section-title :title="$t('nav.experience')" :description="$t('experience.description')" />
 
     <q-timeline v-if="isDesktop" color="indigo-11" layout="loose" class="q-pa-lg work-history">
       <q-timeline-entry
@@ -128,7 +128,7 @@ interface WorkHistory {
   expanded: boolean;
 }
 
-const workHistory: WorkHistory[] = [
+const workHistory: WorkHistory[] = computed(() => [
   {
     company: 'Polcar',
     shortDescription: t('experience.polcar.shortDescription'),
@@ -165,7 +165,7 @@ const workHistory: WorkHistory[] = [
     technologies: ['Vue', 'Bootstrap', 'Laravel'],
     expanded: false,
   },
-];
+]);
 
 const section = useTemplateRef('section');
 

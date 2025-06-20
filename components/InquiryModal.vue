@@ -12,7 +12,7 @@
         <q-card-section>
 
           <div class="t:text-center t:!text-sm t:!tracking-wider t:font-light t:text-slate-700 t:dark:text-slate-500 t:mb-2 t:px-3">
-            Uzupełnij formularz, aby skontaktować się z właścicielem CV.
+            {{ $t('inquiryModal.description') }}
           </div>
 
           <q-input

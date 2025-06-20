@@ -75,13 +75,14 @@
 </template>
   
 <script setup lang="ts">
-import type { Technology } from '~/helpers/technology';
+// import type { Technology } from '~/helpers/technology';
 
+// skills: Technology[];
 interface Certificate {
     name: string;
     company: string;
     receivedDate: string;
-    skills: Technology[];
+    skills: string[];
     companyImage: string;
     image?: string;
     identifier?: string;
@@ -94,7 +95,7 @@ const modalImage = ref('');
 
 const { t } = useI18n();
 
-const certificates: Certificate[] = [
+const certificates = computed<Certificate[]>(() => [
   {
     name: t('certificates.cert4.name'),
     company: 'HubSpot Academy',
@@ -135,7 +136,7 @@ const certificates: Certificate[] = [
     image: '/assets/icons/companies/softsystem.jpg',
     description: t('certificates.cert1.description')
   },
-];
+]);
 
 const openModal = (certificate: Certificate) => {
   if(!certificate.image) return;

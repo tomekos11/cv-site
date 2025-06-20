@@ -27,6 +27,7 @@ export default {
 
   inquiryModal: {
     title: 'Wyślij zapytanie',
+    description: 'Uzupełnij formularz, aby skontaktować się z właścicielem CV.',
     name: 'Imie',
     surname: 'Nazwisko',
     company: 'Firma',
@@ -35,6 +36,7 @@ export default {
   },
 
   experience: {
+    description: 'Domyślnie pokazany jest tylko skrótowy opis. Aby rozwinąć szczegółowe informacje, naciśnij na nazwę firmy',
     polcar: {
       shortDescription: 'Hurtownia części samochowych',
       date: 'Lipiec 2023 - obecnie',

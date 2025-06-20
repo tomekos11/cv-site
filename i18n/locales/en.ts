@@ -26,6 +26,7 @@ export default {
 
   inquiryModal: {
     title: 'Send Inquiry',
+    description: 'Fill out the form to contact the CV owner.',
     name: 'Name',
     surname: 'Surname',
     company: 'Company',
@@ -35,6 +36,7 @@ export default {
 
 
   experience: {
+    description: 'By default, only a brief description is shown. To view detailed information, click on the company name.',
     polcar: {
       shortDescription: 'Wholesale distributor of car parts',
       date: 'July 2023 - Present',

@@ -70,7 +70,7 @@ interface Project {
 
 const { t } = useI18n();
 
-const projects: Project[] = [
+const projects = computed<Project[]>(() => [
   { 
     name: t('projects.englishLearning.name'),
     description: t('projects.englishLearning.description'),
@@ -103,7 +103,7 @@ const projects: Project[] = [
     technologies: ['Spring', 'Thymeleaf'],
     image: testImg
   }
-];
+]);
 
 const section = useTemplateRef('section');
 

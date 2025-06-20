@@ -8,7 +8,7 @@
           v-for="(school, index) in education"
           :key="school.when"
           ref="educationItems"
-          class="education-item t:dark:!bg-slate-900"
+          class="education-item t:dark:!bg-slate-900 "
           :class="{ visible: visibleItems.includes(index) }"
         >
           <q-item-section>
@@ -41,7 +41,7 @@ import { useIntersectionObserver } from '@vueuse/core';
 
 const { t } = useI18n();
 
-const education = [
+const education = computed(() => [
   {
     name: t('education.school3.name'),
     when: '02/2025 - 07/2026',
@@ -64,7 +64,7 @@ const education = [
     img: '/assets/icons/companies/zse.svg',
     status: 'ended'
   }
-];
+]);
 
 const visibleItems = ref<number[]>([]);
 const educationItems = ref<InstanceType<typeof QItem>[]>([]);
