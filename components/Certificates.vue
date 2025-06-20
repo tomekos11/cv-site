@@ -97,6 +97,15 @@ const { t } = useI18n();
 
 const certificates = computed<Certificate[]>(() => [
   {
+    name: t('certificates.cert5.name'),
+    company: 'Google Cloud Skill Boost',
+    receivedDate: '2024-07',
+    skills: ['Cloud', 'Google cloud'],
+    companyImage: '/assets/icons/companies/google_cloud.jpg',
+    image: '/assets/icons/certificates/google_cloud.png',
+    description: t('certificates.cert5.description')
+  },
+  {
     name: t('certificates.cert4.name'),
     company: 'HubSpot Academy',
     receivedDate: '2024-07',

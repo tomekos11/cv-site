@@ -129,5 +129,9 @@ export default {
       name: 'Certyfikacja SEO',
       description: 'Ten kurs pomógł mi zrozumieć najlepsze praktyki optymalizacji SEO zarówno pod kątem technicznym, jak i tworzenia skutecznych treści. Nauczyłem się, jakie czynniki wpływają na SEO, czego unikać, aby nie zaszkodzić pozycji strony, oraz jak skutecznie monitorować i analizować postępy. Kurs pozwolił mi lepiej zarządzać widocznością stron w wyszukiwarkach i stosować sprawdzone strategie poprawiające ich ranking.'
     },
+    cert5: {
+      name: 'Ścieżka szkoleniowa Cloud Digital Leader',
+      description: 'Cloud Digital Leader Learning Path pozwolił mi zrozumieć kluczowe koncepcje chmury oraz sposoby wykorzystania Google Cloud do wspierania cyfrowej transformacji organizacji. Dzięki kursowi nauczyłem się, jak technologie chmurowe wpływają na efektywność biznesową i jakie strategie wdrażać, by skutecznie zarządzać zmianą.'
+    },
   }
 };

@@ -121,5 +121,9 @@ export default {
       name: 'SEO Certification',
       description: 'This course helped me understand the best SEO optimization practices, both from a technical perspective and in terms of creating effective content. I learned which factors influence SEO, what to avoid to prevent harming a website’s ranking, and how to effectively monitor and analyze progress. The course enabled me to better manage website visibility in search engines and apply proven strategies to improve rankings.'
     },
+    cert5: {
+      name: 'Cloud Digital Leader Learning Path',
+      description: 'Cloud Digital Leader Learning Path helped me understand the key concepts of cloud computing and how to use Google Cloud to support an organization’s digital transformation. Through the course, I learned how cloud technologies impact business efficiency and which strategies to implement for effective change management.'
+    },
   }
 };
