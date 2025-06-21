@@ -3,7 +3,9 @@
     <q-toolbar-title class="d-flex full-width justify-between items-center">
 
       <q-toolbar class="q-px-md justify-between">
-        <q-toolbar-title>CV</q-toolbar-title>
+        <q-toolbar-title>
+          <q-btn flat tag="a" :to="localeForURL + '/'" class="t:!text-[18px]"> CV</q-btn>
+        </q-toolbar-title>
         <nav class="d-none d-md-flex gap-20 flex-center t:lg:pe-5 t:md:pe-4 t:sm:pe-2">
           <navigation />
         </nav>
@@ -30,6 +32,10 @@
 const Navigation = defineAsyncComponent(() => import('@/components/Navigation.vue'));
 
 const drawer = defineModel<boolean>();
+
+const { locale: currentLocale } = useI18n();
+
+const localeForURL = computed(() => currentLocale.value === 'pl' ? '' : `/${currentLocale.value}`);
 
 </script>
 
