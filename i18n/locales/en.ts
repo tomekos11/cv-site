@@ -81,6 +81,22 @@ export default {
   projects: {
     viewAllProjects: 'View All Projects',
     readMore: 'Read more',
+
+    forum: {
+      name: 'Cybersecurity Forum',
+      description: 'An internet forum project encompassing various categories, topics, and posts, with user profile  management and an admin panel. It allows pinning, editing, and deleting posts, as well as deleting accounts and performing all standard operations typical of modern discussion forums.'
+    },
+
+    webAttacks: {
+      name: 'Tool for visualizing attacks on web applications',
+      description: ' The project involved developing a tool for visualizing web application attacks, featuring a central backend (ExpressJS) and two server-side rendered (SSR) applications built with Nuxt and Quasar. The solution demonstrates various attack types – including XSS, CSRF, clickjacking, SQL injection, path traversal, and command line injection – while enabling interactive testing and activation of security measures through a dedicated API. This setup allows comparative analysis of protection effectiveness across different frontend environments.'
+    },
+
+    cvSite: {
+      name: 'CV site',
+      description: 'The CV website was created as a project to develop my skills in building SSR (Nuxt) applications and SEO optimization. Its purpose is to make it easy for anyone to find my professional profile online and learn about my competencies, technologies, education, certifications, and projects.'
+    },
+
     englishLearning: {
       name: 'English Learning Application',
       description: 'An English learning application built using Vue.js (frontend) and Laravel (backend). It offers interactive lessons, quizzes, progress tracking, and content customization, providing a dynamic and modern approach to language learning.'

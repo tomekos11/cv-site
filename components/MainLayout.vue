@@ -1,12 +1,13 @@
 <template>
-  <q-layout view="hHh lpR fff">
-    <q-scroll-area
-      ref="scrollArea"
-      style="height: 100vh;"
-      :thumb-style="{width: '6px', background: '#2c3e50' }"
-      :vertical-offset="[68,52]"
-      @scroll="handleScroll"
-    >
+  <q-scroll-area
+    ref="scrollArea"
+    style="height: 100svh;"
+    :thumb-style="{width: '6px', background: '#2c3e50' }"
+    :vertical-offset="[68,52]"
+    @scroll="handleScroll"
+  >
+    <q-layout view="hHh lpR fff">
+  
       <q-header elevated class="bg-black text-white">
         <Header v-model="drawer" class="bg-black" />
       </q-header>
@@ -56,9 +57,8 @@
         </q-list>
 
       </q-drawer>
-    </q-scroll-area>
-  </q-layout>
-  
+    </q-layout>
+  </q-scroll-area>
 </template>
 
 <script setup lang="ts">

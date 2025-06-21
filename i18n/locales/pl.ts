@@ -89,6 +89,22 @@ export default {
   projects: {
     viewAllProjects: 'Zobacz wszystkie projekty',
     readMore: 'Czytaj więcej',
+
+    forum: {
+      name: 'Forum o cyberbezpieczeństwie',
+      description: 'Projekt forum internetowego obejmującego różne kategorie, tematy i posty, z możliwością zarządzania profilami użytkowników oraz panelem administratora. Umożliwia przypinanie, edycję i usuwanie postów, a także usuwanie kont i wykonywanie wszystkich standardowych operacji typowych dla nowoczesnych forów dyskusyjnych.'
+    },
+
+    webAttacks: {
+      name: 'Narzędzie do wizualizacji ataków na aplikacje webowe',
+      description: 'Projekt obejmował stworzenie narzędzia do wizualizacji ataków na aplikacje webowe z centralnym backendem (ExpressJS) oraz dwoma aplikacjami SSR (Nuxt i Quasar). Aplikacja prezentuje różne rodzaje ataków (XSS, CSRF, clickjacking, SQL injection, path traversal, command line injection) oraz umożliwia interaktywne testowanie i włączanie zabezpieczeń, poprzez dedykowane API. Rozwiązanie pozwala na analizę skuteczności ochrony w różnych środowiskach frontendowych.'
+    },
+
+    cvSite: {
+      name: 'Strona z CV',
+      description: 'Strona z CV została stworzona jako projekt rozwijający umiejętności tworzenia aplikacji SSR(Nuxt) oraz optymalizacji SEO. Jej celem jest umożliwienie każdemu łatwego znalezienia mojego profilu zawodowego w internecie oraz zapoznania się z moimi kompetencjami, technologiami, edukacją, certyfikatami i projektami.'
+    },
+
     englishLearning: {
       name: 'Aplikacja do nauki języka angielskiego',
       description: 'Aplikacja do nauki języka angielskiego stworzona w technologii Vue.js (frontend) i Laravel (backend). Umożliwia interaktywne lekcje, quizy, zarządzanie postępami oraz personalizację materiałów, zapewniając dynamiczny i nowoczesny sposób nauki.'
