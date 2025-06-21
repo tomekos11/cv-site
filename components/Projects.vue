@@ -40,6 +40,7 @@
         style="font-size: 15px;"
         size="md"
         rounded
+        to="/projects-list"
       >
         <div>
           {{ $t('projects.viewAllProjects') }}
