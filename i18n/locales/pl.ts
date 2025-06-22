@@ -90,6 +90,16 @@ export default {
     viewAllProjects: 'Zobacz wszystkie projekty',
     readMore: 'Czytaj więcej',
 
+    votingSystem: {
+      name: 'System do głosowania',
+      description: 'Projekt systemu głosowań wykorzystujący technologię blockchain (z integracją MetaMask) oraz serwer off-chain do tworzenia i przeprowadzania głosowań. Umożliwia bezpieczne tworzenie ankiet, weryfikowalne oddawanie głosów oraz zapewnia pełną integralność danych poprzez niezmienny zapis transakcji w sieci blockchain. Rozwiązanie łączy zalety decentralizacji (transparentność i odporność na manipulacje) z wydajnością obliczeń off-chain, umożliwiając testowanie w warunkach edukacyjnych i instytucjonalnych.'
+    },
+
+    keystrokeDynamics: {
+      name: 'Keystroke Dynamics',
+      description: 'Pozwala na rejestrowanie i przetwarzanie charakterystycznych cech pisania, takich jak czas naciskania i zwalniania klawiszy czy przerwy między znakami, co umożliwia tworzenie dodatkowej warstwy zabezpieczeń opartych na zachowaniu użytkownika. Rozwiązanie może być wykorzystywane do testowania i edukacji w zakresie nowoczesnych metod uwierzytelniania oraz oceny skuteczności biometrii behawioralnej w warunkach edukacyjnych.'
+    },
+
     forum: {
       name: 'Forum o cyberbezpieczeństwie',
       description: 'Projekt forum internetowego obejmującego różne kategorie, tematy i posty, z możliwością zarządzania profilami użytkowników oraz panelem administratora. Umożliwia przypinanie, edycję i usuwanie postów, a także usuwanie kont i wykonywanie wszystkich standardowych operacji typowych dla nowoczesnych forów dyskusyjnych.'

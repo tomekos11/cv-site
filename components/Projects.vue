@@ -33,11 +33,10 @@
         </q-card>
       </template>
     </div>
-
+      
     <div class="text-center q-py-lg q-pb-xl q-mx-lg">
       <q-btn
-        class="custom-button"
-        style="font-size: 15px;"
+        class="custom-button t:!text-[15px]"
         size="md"
         rounded
         to="/projects-list"

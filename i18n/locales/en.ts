@@ -82,6 +82,16 @@ export default {
     viewAllProjects: 'View All Projects',
     readMore: 'Read more',
 
+    votingSystem: {
+      name: 'Voting System',
+      description: 'A voting system project leveraging blockchain technology (with MetaMask integration) and an off-chain server for creating and conducting polls. It enables secure poll creation, verifiable vote casting, and ensures full data integrity through immutable transaction recording on the blockchain. The solution combines decentralization advantages (transparency and tamper-resistance) with off-chain computational efficiency, supporting testing in educational and institutional environments.'
+    },
+
+    keystrokeDynamics: {
+      name: 'Keystroke Dynamics',
+      description: 'A behavioral biometrics system analyzing individual typing patterns on a keyboard. It enables recording and processing unique writing characteristics – including key press/release durations, inter-key intervals, and typing rhythms – to create an additional security layer based on user behavior. The solution supports testing and educational applications for modern authentication methods, allowing evaluation of behavioral biometric effectiveness in academic environments.'
+    },
+
     forum: {
       name: 'Cybersecurity Forum',
       description: 'An internet forum project encompassing various categories, topics, and posts, with user profile  management and an admin panel. It allows pinning, editing, and deleting posts, as well as deleting accounts and performing all standard operations typical of modern discussion forums.'

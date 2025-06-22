@@ -123,7 +123,7 @@ const projects = computed<Project[]>(() => [
     image: '/assets/icons/projects/voting-system.png',
     slug: 'voting-system',
     peopleCount: 2,
-    technologies: [],
+    technologies: ['Blockchain'],
     githubLinks: {
       frontend: 'https://github.com/tomekos11/forum-frontend',
       backend: 'https://github.com/tomekos11/forum-backend',
@@ -134,7 +134,7 @@ const projects = computed<Project[]>(() => [
     description: t('projects.keystrokeDynamics.description'),
     startDate: new Date('2025-03-25'),
     endDate: new Date('2025-05-29'),
-    image: '/assets/icons/projects/forum.png',
+    image: '/assets/icons/projects/keystroke-dynamics.png',
     slug: 'forum',
     peopleCount: 2,
     technologies: [],
