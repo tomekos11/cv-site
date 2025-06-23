@@ -90,6 +90,11 @@ export default {
     viewAllProjects: 'Zobacz wszystkie projekty',
     readMore: 'Czytaj więcej',
 
+    checkers: {
+      name: 'System do analizy gry w warcaby i podpowiedziach w czasie rzeczywistym',
+      description: 'TODO.'
+    },
+
     votingSystem: {
       name: 'System do głosowania',
       description: 'Projekt systemu głosowań wykorzystujący technologię blockchain (z integracją MetaMask) oraz serwer off-chain do tworzenia i przeprowadzania głosowań. Umożliwia bezpieczne tworzenie ankiet, weryfikowalne oddawanie głosów oraz zapewnia pełną integralność danych poprzez niezmienny zapis transakcji w sieci blockchain. Rozwiązanie łączy zalety decentralizacji (transparentność i odporność na manipulacje) z wydajnością obliczeń off-chain, umożliwiając testowanie w warunkach edukacyjnych i instytucjonalnych.'

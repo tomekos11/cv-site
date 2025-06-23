@@ -82,6 +82,11 @@ export default {
     viewAllProjects: 'View All Projects',
     readMore: 'Read more',
 
+    checkers: {
+      name: 'System for analyzing checkers games and providing real-time suggestions',
+      description: 'TODO.'
+    },
+
     votingSystem: {
       name: 'Voting System',
       description: 'A voting system project leveraging blockchain technology (with MetaMask integration) and an off-chain server for creating and conducting polls. It enables secure poll creation, verifiable vote casting, and ensures full data integrity through immutable transaction recording on the blockchain. The solution combines decentralization advantages (transparency and tamper-resistance) with off-chain computational efficiency, supporting testing in educational and institutional environments.'

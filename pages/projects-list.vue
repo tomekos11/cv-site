@@ -8,7 +8,7 @@
 
         <div class="t:flex t:justify-center t:gap-x-4 t:gap-y-2">
           <q-select v-model="sorting" clearable dense filled label="Sortowanie" class="t:min-w-[180px]" :options="sortingOptions" />
-          <q-select v-model="filter" clearable dense filled multiple label="Filtracja" class="t:min-w-[180px]" :options="filterOptions" />
+          <q-select v-model="filter" use-input clearable dense filled multiple label="Filtracja" class="t:min-w-[180px]" :options="filterOptions" />
         </div>
       </section-title>
 
@@ -40,7 +40,7 @@
                       </div>
                     </div>
 
-                    <div class="d-flex justify-center q-mb-sm t:gap-2">
+                    <div class="d-flex justify-center q-mb-sm t:gap-2 t:flex-wrap">
                       <template v-for="tech in project.technologies" :key="tech">
                         <technologies-badge :technology="tech" />
                       </template>
@@ -48,15 +48,18 @@
                   </div>
 
                   <q-btn v-if="project.githubLinks" flat round rounded class="t:self-start t:!p-0">
-                    <q-menu>
-                      <q-item v-if="project.githubLinks.frontend" dense>
+                    <q-menu class="t:!max-w-[180px]">
+                      <div class="t:p-3 t:text-sm t:text-center t:tracking-wide t:dark:text-slate-400 t:text-slate-700">
+                        Wybierz repozytorium, którego kod chcesz obejrzeć
+                      </div>
+                      <q-item v-if="project.githubLinks.frontend" dense clickable>
                         <q-item-section>
                           <a :href="project.githubLinks.frontend" target="_blank">
                             Frontend <q-icon name="code" />
                           </a>
                         </q-item-section>
                       </q-item>
-                      <q-item v-if="project.githubLinks.backend" dense>
+                      <q-item v-if="project.githubLinks.backend" dense clickable>
                         <q-item-section>
                           <a :href="project.githubLinks.backend" target="_blank">
                             Backend <q-icon name="code" />
@@ -116,6 +119,20 @@ const sorting = ref<typeof sortingOptions[number] | null>(sortingOptions[0]);
 
 const projects = computed<Project[]>(() => [
   {
+    name: t('projects.checkers.name'),
+    description: t('projects.checkers.description'),
+    startDate: new Date('2025-03-25'),
+    endDate: new Date('2025-05-29'),
+    image: '/assets/icons/projects/checkers.png',
+    slug: 'checkers',
+    peopleCount: 2,
+    technologies: ['Vue', 'Quasar', 'Python', 'Django', 'WebSocket'],
+    githubLinks: {
+      frontend: 'https://github.com/tomekos11/voting-app-frontend',
+      backend: 'https://github.com/tomekos11/voting-app-backend',
+    }
+  },
+  {
     name: t('projects.votingSystem.name'),
     description: t('projects.votingSystem.description'),
     startDate: new Date('2025-03-25'),
@@ -123,10 +140,10 @@ const projects = computed<Project[]>(() => [
     image: '/assets/icons/projects/voting-system.png',
     slug: 'voting-system',
     peopleCount: 2,
-    technologies: ['Blockchain'],
+    technologies: ['Vue', 'Nuxt', 'Nuxt UI', 'Tailwind', 'Blockchain', 'MetaMask Integration', 'Node', 'Express', 'Prisma'],
     githubLinks: {
-      frontend: 'https://github.com/tomekos11/forum-frontend',
-      backend: 'https://github.com/tomekos11/forum-backend',
+      frontend: 'https://github.com/tomekos11/voting-app-frontend',
+      backend: 'https://github.com/tomekos11/voting-app-backend',
     }
   },
   {
@@ -137,10 +154,11 @@ const projects = computed<Project[]>(() => [
     image: '/assets/icons/projects/keystroke-dynamics.png',
     slug: 'forum',
     peopleCount: 2,
-    technologies: [],
+    technologies: ['Vue', 'Nuxt', 'Nuxt UI', 'Tailwind', 'Node', 'Nest.js', 'Typeorm', 'Python', 'GRPC'],
     githubLinks: {
-      frontend: 'https://github.com/tomekos11/forum-frontend',
-      backend: 'https://github.com/tomekos11/forum-backend',
+      frontend: 'https://github.com/tomekos11/keystroke-dynamics-frontend',
+      backend: 'https://github.com/Narelsiak/keystroke-dynamics-backend',
+      'backend-2': 'https://github.com/Narelsiak/keystroke-dynamics-model',
     }
   },
   {
@@ -240,15 +258,17 @@ const formatDate = (date: Date) => {
 };
 
 const projectsSorted = computed(() => {
-  const filtered = filter.value
+  console.log(filter.value);
+
+  const filtered = filter.value && filter.value.length
     ? projects.value.filter(p => p.technologies.some(el => filter.value?.includes(el)))
     : [...projects.value];
   
   if (sorting.value?.value === 'date_desc') {
-    return [...filtered].sort((a, b) => b.startDate.getTime() - a.startDate.getTime());
+    return [...filtered].sort((a, b) => b.endDate.getTime() - a.endDate.getTime());
   } 
   else if (sorting.value?.value  === 'date_asc') {
-    return [...filtered].sort((a, b) => a.startDate.getTime() - b.startDate.getTime());
+    return [...filtered].sort((a, b) => a.endDate.getTime() - b.endDate.getTime());
   }
   
   return filtered;

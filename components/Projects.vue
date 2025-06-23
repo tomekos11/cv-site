@@ -36,7 +36,7 @@
       
     <div class="text-center q-py-lg q-pb-xl q-mx-lg">
       <q-btn
-        class="custom-button t:!text-[15px]"
+        class="custom-button t:!text-[15px] t:!z-50"
         size="md"
         rounded
         to="/projects-list"
