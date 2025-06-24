@@ -1,13 +1,13 @@
 <template>
   <q-badge 
-    :color="getTechColor(technology)" 
+    :color="getTechColor(technology)"
     :label="technology" 
-    class="q-py-xs q-px-sm text-with-border"
+    :class="`q-py-xs q-px-sm text-with-border ${getTechClass(technology)}`"
   />
 </template>
 
 <script setup lang="ts">
-import { getTechColor, type Technology } from '~/helpers/technology';
+import { getTechColor, getTechClass, type Technology } from '~/helpers/technology';
 
 interface Props {
   technology: Technology

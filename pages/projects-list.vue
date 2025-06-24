@@ -6,15 +6,15 @@
           Na tej podstronie znajdziesz większość projektów które stworzyłem lub współtworzyłem.
         </div>
 
-        <div class="t:flex t:justify-center t:gap-x-4 t:gap-y-2">
-          <q-select v-model="sorting" clearable dense filled label="Sortowanie" class="t:min-w-[180px]" :options="sortingOptions" />
-          <q-select v-model="filter" use-input clearable dense filled multiple label="Filtracja" class="t:min-w-[180px]" :options="filterOptions" />
+        <div class="t:flex t:justify-center t:gap-x-4 t:gap-y-2 t:flex-wrap t:max-w-[600px] t:mx-auto t:px-2">
+          <q-select v-model="sorting" clearable dense filled label="Sortowanie" class="t:min-w-[180px] t:w-full t:sm:w-auto t:grow" :options="sortingOptions" />
+          <q-select v-model="filter" use-input use-chips clearable dense filled multiple :input-debounce="300" label="Filtracja" class="t:min-w-[180px] t:w-full t:sm:w-auto t:grow" :options="filterOptionsFiltered" @input-value="onFilter" />
         </div>
       </section-title>
 
       <div 
-        class="t:grid t:gap-x-8 t:gap-y-8 t:py-6 t:px-4 t:justify-center
-        t:grid-cols-1 t:md:grid-cols-2 t:lg:grid-cols-3"
+        class="t:grid t:gap-x-8 t:gap-y-8 t:py-6 t:px-2 t:justify-center
+        t:grid-cols-1 t:sm:grid-cols-2 t:lg:grid-cols-3 t:xl:grid-cols-4"
       >
         <template v-for="(project, index) in projectsSorted" :key="index">
           <q-card
@@ -31,7 +31,7 @@
                   <div class="t:grow">
                     <h2 class="q-my-sm text-bold t:dark:text-slate-300 t:!text-[14px]">{{ project.name }}</h2>
 
-                    <div class="t-text-xs t-text-gray-500 t:mb-2 t:flex t:items-center t:justify-center t:gap-x-5 t:flex-wrap t:gap-y-1">
+                    <div class="t-text-xs t-text-gray-500 t:mb-2 t:flex t:items-center t:justify-center t:gap-x-5 t:flex-wrap t:gap-y-1 t:dark:text-slate-300">
                       <div class="t-text-xs t-text-gray-500 t:flex t:items-center t:justify-center t:gap-0.5">
                         <q-icon name="account_circle" /> {{ project.peopleCount }}
                       </div>
@@ -52,6 +52,15 @@
                       <div class="t:p-3 t:text-sm t:text-center t:tracking-wide t:dark:text-slate-400 t:text-slate-700">
                         Wybierz repozytorium, którego kod chcesz obejrzeć
                       </div>
+
+                      <q-item v-if="project.githubLinks.project" dense clickable>
+                        <q-item-section>
+                          <a :href="project.githubLinks.project" target="_blank">
+                            Cały projekt <q-icon name="code" />
+                          </a>
+                        </q-item-section>
+                      </q-item>
+
                       <q-item v-if="project.githubLinks.frontend" dense clickable>
                         <q-item-section>
                           <a :href="project.githubLinks.frontend" target="_blank">
@@ -59,6 +68,7 @@
                           </a>
                         </q-item-section>
                       </q-item>
+
                       <q-item v-if="project.githubLinks.backend" dense clickable>
                         <q-item-section>
                           <a :href="project.githubLinks.backend" target="_blank">
@@ -66,8 +76,16 @@
                           </a>
                         </q-item-section>
                       </q-item>
+
+                      <q-item v-if="project.githubLinks['backend-2']" dense clickable>
+                        <q-item-section>
+                          <a :href="project.githubLinks['backend-2']" target="_blank">
+                            Backend2 <q-icon name="code" />
+                          </a>
+                        </q-item-section>
+                      </q-item>
                     </q-menu>
-                    <Icon name="uil:github" size="24px" class="d-flex"/>
+                    <Icon name="uil:github" size="24px" class="t:flex t:dark:text-slate-300"/>
                   </q-btn>
                 </div>
 
@@ -85,6 +103,8 @@
 </template>
 
 <script setup lang="ts">
+import type { Technology } from '~/helpers/technology';
+
 // import type { Technology } from '~/helpers/technology';
 
 interface Project {
@@ -92,12 +112,12 @@ interface Project {
   peopleCount: number;
   description: string;
   slug: string;
-  // technologies: Technology[];
-  technologies: string[];
+  technologies: Technology[];
+  // technologies: string[];
   image: string;
   startDate: Date;
   endDate: Date;
-  githubLinks?: Record<string, string>;
+  githubLinks?: Partial<Record<'frontend' | 'backend' | 'backend-2' | 'project', string>>;
 }
 
 const { t } = useI18n();
@@ -109,6 +129,18 @@ const filterOptions = [
   'Nuxt UI',
 ] as const;
 
+const inputValue = ref('');
+
+function onFilter(val: string) {
+  inputValue.value = val;
+}
+
+const filterOptionsFiltered = computed(() => {
+  if (!inputValue.value) return filterOptions;
+  const val = inputValue.value.toLowerCase();
+  return filterOptions.filter(opt => opt.toLowerCase().includes(val));
+});
+
 const sortingOptions = [
   { value: 'date_desc', label: 'Od najnowszych' },
   { value: 'date_asc', label: 'Od najstarszych' },
@@ -117,7 +149,34 @@ const sortingOptions = [
 const filter = ref<typeof filterOptions[number] | null>(null);
 const sorting = ref<typeof sortingOptions[number] | null>(sortingOptions[0]);
 
+
 const projects = computed<Project[]>(() => [
+  {
+    name: t('projects.heat-control-assistant.name'),
+    description: t('projects.heat-control-assistant.description'),
+    startDate: new Date('2024-01-05'),
+    endDate: new Date('2023-10-10'),
+    image: '/assets/icons/projects/heat-control-assistant.png',
+    slug: 'heat-control-assistant',
+    peopleCount: 1,
+    technologies: ['Arduino', 'C++'],
+    githubLinks: {
+      project: 'https://github.com/tomekos11/heat_control_assistant'
+    }
+  },
+  {
+    name: t('projects.tic-tac-toe.name'),
+    description: t('projects.tic-tac-toe.description'),
+    startDate: new Date('2024-04-15'),
+    endDate: new Date('2024-04-24'),
+    image: '/assets/icons/projects/tic-tac-toe.png',
+    slug: 'tic-tac-toe',
+    peopleCount: 1,
+    technologies: ['Vue', 'PHP', 'Laravel', 'Bootstrap'],
+    githubLinks: {
+      project: 'https://github.com/tomekos11/tic-tac-toe'
+    }
+  },
   {
     name: t('projects.checkers.name'),
     description: t('projects.checkers.description'),
@@ -125,12 +184,8 @@ const projects = computed<Project[]>(() => [
     endDate: new Date('2025-05-29'),
     image: '/assets/icons/projects/checkers.png',
     slug: 'checkers',
-    peopleCount: 2,
-    technologies: ['Vue', 'Quasar', 'Python', 'Django', 'WebSocket'],
-    githubLinks: {
-      frontend: 'https://github.com/tomekos11/voting-app-frontend',
-      backend: 'https://github.com/tomekos11/voting-app-backend',
-    }
+    peopleCount: 3,
+    technologies: ['Vue', 'Quasar', 'Python', 'Django', 'Computer Vision', 'AI Integration', 'WebSocket'],
   },
   {
     name: t('projects.votingSystem.name'),
@@ -183,7 +238,7 @@ const projects = computed<Project[]>(() => [
     image: '/assets/icons/projects/web-attacks.png',
     slug: 'web-attacks',
     peopleCount: 2,
-    technologies: ['Vue', 'Quasar', 'Node', 'Express'],
+    technologies: ['Vue', 'Quasar', 'Node', 'Express', 'WebSocket'],
     githubLinks: {
       frontend: 'https://github.com/tomekos11/web-attacks-frontend',
       backend: 'https://github.com/tomekos11/web-attacks-backend',
@@ -197,7 +252,7 @@ const projects = computed<Project[]>(() => [
     image: '/assets/icons/projects/cv-site.png',
     slug: 'cv-site',
     peopleCount: 1,
-    technologies: ['Vue', 'Nuxt', 'Quasar UI', 'SEO', 'Nitro'],
+    technologies: ['Vue', 'Nuxt', 'Quasar UI', 'SEO'],
     githubLinks: {
       frontend: 'https://github.com/tomekos11/cv-site',
     }
@@ -232,7 +287,7 @@ const projects = computed<Project[]>(() => [
     image: '/assets/icons/projects/czat.jpg',
     peopleCount: 1,
     githubLinks: {
-      frontend: 'https://github.com/tomekos11/spring-chat-AI'
+      project: 'https://github.com/tomekos11/spring-chat-AI'
     }
   },
   {

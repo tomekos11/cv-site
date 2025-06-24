@@ -90,9 +90,19 @@ export default {
     viewAllProjects: 'Zobacz wszystkie projekty',
     readMore: 'Czytaj więcej',
 
+    'heat-control-assistant': {
+      name: 'Asystent kontroli temperatury',
+      description: 'Heat Control Assistant to projekt systemu wspomagającego zarządzanie temperaturą w domu lub biurze. Dzięki niemu użytkownik otrzymuje powiadomienia o konieczności dołożenia do pieca oraz o zmianach temperatury, co pozwala na oszczędność czasu i wygodę.'
+    },
+
+    'tic-tac-toe': {
+      name: 'Gra kółko-krzyżyk',
+      description: 'Aplikacja "Gra kółko-krzyżyk" została zrealizowana jako projekt na studia. Umożliwia rozgrywkę z botem, a także zapisuje wyniki każdej partii w bazie danych.'
+    },
+
     checkers: {
       name: 'System do analizy gry w warcaby i podpowiedziach w czasie rzeczywistym',
-      description: 'TODO.'
+      description: 'Aplikacja do analizy gry w warcaby w czasie rzeczywistym, wykorzystująca techniki wizji komputerowej oraz AI do rozpoznawania pozycji pionków na planszy. System umożliwia automatyczne śledzenie przebiegu rozgrywki oraz generowanie podpowiedzi ruchów dla różnych trybów gry. Rozwiązanie zapewnia wsparcie edukacyjne oraz analizę strategii, pozwalając na interaktywne doskonalenie umiejętności graczy.'
     },
 
     votingSystem: {

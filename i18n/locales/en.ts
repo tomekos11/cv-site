@@ -82,9 +82,19 @@ export default {
     viewAllProjects: 'View All Projects',
     readMore: 'Read more',
 
+    'heat-control-assistant': {
+      name: 'Heat Control Assistant',
+      description: 'Heat Control Assistant is a project designed to help manage temperature in homes or offices. The system sends notifications about when to feed the boiler and informs users about temperature changes, saving time and increasing convenience.'
+    },
+
+    'tic-tac-toe': {
+      name: 'Tic-Tac-Toe Game',
+      description: 'The "Tic-Tac-Toe Game" application was developed as a university project. It allows users to play against a bot, with each match result being saved to a database.'
+    },
+
     checkers: {
       name: 'System for analyzing checkers games and providing real-time suggestions',
-      description: 'TODO.'
+      description: 'A real-time checkers game analysis application utilizing computer vision techniques and AI to recognize the position of pieces on the board. The system automatically tracks the course of the game and generates move suggestions for various game modes. The solution provides educational support and strategy analysis, enabling interactive skill improvement for players.'
     },
 
     votingSystem: {
