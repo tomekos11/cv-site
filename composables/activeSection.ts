@@ -73,7 +73,6 @@ export function useActiveSection() {
   // };
 
   const scrollToSection = (name: SectionName) => {
-    console.log('scroll');
     const element = sections.get(name);
     if (element?.ref.value) {
       const el = element.ref.value;
