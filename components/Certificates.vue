@@ -99,7 +99,7 @@ const certificates = computed<Certificate[]>(() => [
   {
     name: t('certificates.cert5.name'),
     company: 'Google Cloud Skill Boost',
-    receivedDate: '2024-07',
+    receivedDate: '2025-05',
     skills: ['Cloud', 'Google cloud'],
     companyImage: '/assets/icons/companies/google_cloud.jpg',
     image: '/assets/icons/certificates/google_cloud.png',
