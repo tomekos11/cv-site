@@ -39,7 +39,7 @@
         class="custom-button t:!text-[15px] t:!z-50"
         size="md"
         rounded
-        to="/projects-list"
+        :to="`${localeForURL}/projects-list`"
       >
         <div>
           {{ $t('projects.viewAllProjects') }}
@@ -58,7 +58,6 @@ import chatImg from 'assets/icons/projects/czat.jpg';
 import testImg from 'assets/icons/projects/test.webp';
 import type { Technology } from '~/helpers/technology';
 
-
 interface Project {
   name: string;
   description: string;
@@ -68,7 +67,9 @@ interface Project {
   image: string;
 }
 
-const { t } = useI18n();
+const { t, locale: currentLocale } = useI18n();
+
+const localeForURL = computed(() => currentLocale.value === 'pl' ? '' : `/${currentLocale.value}`);
 
 const projects = computed<Project[]>(() => [
   { 

@@ -56,7 +56,7 @@
                 <q-card-section class="d-flex flex-column full-height">
                   <div class="d-flex flex-column flex-center full-height">
                     <template v-if="tech.src">
-                      <img :src="tech.src" style="width: 150px; height: auto; object-fit: cover;">
+                      <img :src="tech.src" :alt="`logo ${tech.name}`" style="width: 150px; height: auto; object-fit: cover;">
                     </template>
                     <template v-else>
                       <div class="t:text-[32px] t:dark:!text-slate-300 t:w-[150px]">

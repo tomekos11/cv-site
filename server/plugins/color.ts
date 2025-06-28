@@ -17,7 +17,6 @@ export default defineNitroPlugin((nitroApp) => {
     const darkMode = cookieData['nuxt-color-mode'] === 'dark';
 
     if(darkMode && typeof response.body === 'string' && response.body.includes('body--light')){
-      console.log('zmodyfikowane');
       response.body = response.body.replace(/body--light/g, 'body--dark');
     }
 

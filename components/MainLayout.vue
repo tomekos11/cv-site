@@ -8,7 +8,7 @@
   >
     <q-layout view="hHh lpR fff">
   
-      <q-header elevated class="bg-black text-white">
+      <q-header elevated class="bg-black text-white" :height-hint="66">
         <Header v-model="drawer" class="bg-black" />
       </q-header>
 
@@ -17,7 +17,7 @@
       </q-page-container>
   
       <!-- style="background-color: #2c3e50;" -->
-      <q-footer elevated class="text-white t:!bg-slate-900">
+      <q-footer elevated class="text-white t:!bg-slate-900" :height-hint="50"> 
         <q-toolbar class="q-py-sm">
           <q-toolbar-title>
             <div class="row justify-between">
@@ -84,6 +84,14 @@ onMounted(() => {
 watch(drawer, (newValue) => {
   if (newValue) {
     shouldDownloadDrawer.value = true;
+  }
+});
+
+const route = useRoute();
+
+watch(() => route.name, () => {
+  if(scrollArea.value) {
+    scrollArea.value.setScrollPosition('vertical', 0, 0);
   }
 });
 

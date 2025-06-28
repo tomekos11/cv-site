@@ -7,5 +7,7 @@
 <script setup lang="ts">
 const $q = useQuasar();
 
-$q.dark.set($q.cookies.get('nuxt-color-mode') === 'dark');
+if($q.cookies.get('nuxt-color-mode')) {
+  $q.dark.set($q.cookies.get('nuxt-color-mode') === 'dark');
+}
 </script>

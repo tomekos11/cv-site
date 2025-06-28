@@ -89,6 +89,7 @@ export default {
   projects: {
     viewAllProjects: 'Zobacz wszystkie projekty',
     readMore: 'Czytaj więcej',
+    description: 'Na tej podstronie znajdziesz większość projektów które stworzyłem lub współtworzyłem.',
 
     'heat-control-assistant': {
       name: 'Asystent kontroli temperatury',

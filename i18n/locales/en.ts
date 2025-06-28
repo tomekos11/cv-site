@@ -81,6 +81,7 @@ export default {
   projects: {
     viewAllProjects: 'View All Projects',
     readMore: 'Read more',
+    description: 'On this subpage, you will find most of the projects that I have created or co-created.',
 
     'heat-control-assistant': {
       name: 'Heat Control Assistant',

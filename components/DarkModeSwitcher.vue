@@ -11,11 +11,14 @@
 const $q = useQuasar();
 
 const isDark = computed(() => $q.dark.isActive);
+const colorMode = useColorMode();
 
 const toggleDarkMode = () => {
   const newValue = !$q.dark.isActive;
   $q.dark.set(newValue);
-  $q.cookies.set('nuxt-color-mode', newValue ? 'dark' : 'light', { path: '/', expires: 365 });
+
+  // zmienia ciastko
+  colorMode.preference = newValue ? 'dark' : 'light';
 };
 
 </script>

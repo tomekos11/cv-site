@@ -36,7 +36,7 @@
       </div>
 
       <div class="col-12 col-md-5 col-lg-4 text-center self-center d-flex justify-center">
-        <img src="/assets/icons/img/2023_linkedin_no_bg.png" class="profile-img">
+        <img src="/assets/icons/img/2023_linkedin_no_bg.png" class="profile-img" alt="Tomasz Słapiński">
       </div>
     </div>
     

@@ -13,7 +13,7 @@ export const getTechColor = (tech: Technology) => {
   }
 };
 
-const technologies = ['Vue', 'Quasar', 'Nuxt', 'Nuxt UI', 'WebSocket', 'PHP', 'Laravel', 'Bootstrap', 'Python', 'Django', 'Computer Vision', 'AI Integration', 'Tailwind', 'Blockchain', 'MetaMask Integration', 'Node', 'Express', 'Prisma', 'Nest.js', 'Typeorm', 'GRPC', 'Java', 'Spring', 'Thymeleaf', 'Quasar UI', 'SEO', 'Arduino', 'C++', 'Adonis.js'] as const;
+export const technologies = ['Vue', 'Quasar', 'Nuxt', 'Nuxt UI', 'WebSocket', 'PHP', 'Laravel', 'Bootstrap', 'Python', 'Django', 'Computer Vision', 'AI Integration', 'Tailwind', 'Blockchain', 'MetaMask Integration', 'Node', 'Express', 'Prisma', 'Nest.js', 'Typeorm', 'GRPC', 'Java', 'Spring', 'Thymeleaf', 'Quasar UI', 'SEO', 'Arduino', 'C++', 'Adonis.js'] as const;
 
 export type Technology = typeof technologies[number]
 // export type Technology = 'Vue' | 'Quasar' | 'Nuxt' | 'Nuxt UI' | 'WebSocket' | 'PHP' | 'Laravel' | 'Bootstrap' | 'Python' | 'Django' | 'Computer Vision' | 'AI Integration' | 'Tailwind' | 'Blockchain' | 'MetaMask Integration' | 'Node' | 'Express' | 'Prisma' | 'Nest.js' | 'Typeorm' | 'GRPC' | 'Java' | 'Spring' | 'Thymeleaf' | 'Quasar UI' | 'SEO' | 'Arduino' | 'C++' | 'Adonis.js'

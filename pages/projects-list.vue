@@ -3,7 +3,7 @@
     <section class="landing-page q-pt-sm t:xl:p-5 t:lg:p-4 t:md:p-3 t:p-2">
       <section-title :title="$t('nav.projects')">
         <div class="t:text-center t:!text-sm t:!tracking-wider t:font-light t:text-slate-700 t:dark:text-slate-400 t:mb-2 t:px-3">
-          Na tej podstronie znajdziesz większość projektów które stworzyłem lub współtworzyłem.
+          {{ t('projects.description') }}
         </div>
 
         <div class="t:flex t:justify-center t:gap-x-4 t:gap-y-2 t:flex-wrap t:max-w-[600px] t:mx-auto t:px-2">
@@ -20,7 +20,7 @@
           <q-card
             class="t:!flex t:!flex-col bg-white text-dark text-center education-item t:dark:!bg-slate-900"
           >
-            <img :src="project.image" class="t:object-cover t:w-full t:lg:h-[150px] t:h-[120px]" >
+            <img :src="project.image" class="t:object-cover t:w-full t:lg:h-[150px] t:h-[120px]" :alt="`${project.name}`">
 
             <q-card-section class="t:grow" >
               <div class="t:flex t:flex-col t:grow">
@@ -104,6 +104,7 @@
 
 <script setup lang="ts">
 import type { Technology } from '~/helpers/technology';
+import { technologies } from '~/helpers/technology';
 
 // import type { Technology } from '~/helpers/technology';
 
@@ -122,13 +123,6 @@ interface Project {
 
 const { t } = useI18n();
 
-const filterOptions = [
-  'Vue',
-  'Nuxt',
-  'Quasar',
-  'Nuxt UI',
-] as const;
-
 const inputValue = ref('');
 
 function onFilter(val: string) {
@@ -136,9 +130,9 @@ function onFilter(val: string) {
 }
 
 const filterOptionsFiltered = computed(() => {
-  if (!inputValue.value) return filterOptions;
+  if (!inputValue.value) return technologies;
   const val = inputValue.value.toLowerCase();
-  return filterOptions.filter(opt => opt.toLowerCase().includes(val));
+  return technologies.filter(opt => opt.toLowerCase().includes(val));
 });
 
 const sortingOptions = [
@@ -146,7 +140,7 @@ const sortingOptions = [
   { value: 'date_asc', label: 'Od najstarszych' },
 ] as const;
 
-const filter = ref<typeof filterOptions[number] | null>(null);
+const filter = ref<typeof technologies[number] | null>(null);
 const sorting = ref<typeof sortingOptions[number] | null>(sortingOptions[0]);
 
 
@@ -180,12 +174,15 @@ const projects = computed<Project[]>(() => [
   {
     name: t('projects.checkers.name'),
     description: t('projects.checkers.description'),
-    startDate: new Date('2025-03-25'),
-    endDate: new Date('2025-05-29'),
+    startDate: new Date('2023-12-04'),
+    endDate: new Date('2024-12-19'),
     image: '/assets/icons/projects/checkers.png',
     slug: 'checkers',
     peopleCount: 3,
     technologies: ['Vue', 'Quasar', 'Python', 'Django', 'Computer Vision', 'AI Integration', 'WebSocket'],
+    githubLinks: {
+      project: 'https://github.com/tomekos11/warcaby'
+    }
   },
   {
     name: t('projects.votingSystem.name'),
@@ -313,7 +310,6 @@ const formatDate = (date: Date) => {
 };
 
 const projectsSorted = computed(() => {
-  console.log(filter.value);
 
   const filtered = filter.value && filter.value.length
     ? projects.value.filter(p => p.technologies.some(el => filter.value?.includes(el)))
