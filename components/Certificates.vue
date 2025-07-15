@@ -39,7 +39,7 @@
                 >
                   <q-card class="bg-grey-1 t:dark:!bg-transparent">
                     <q-card-section>
-                      <div class="d-flex justify-center q-mb-sm gap-5">
+                      <div class="d-flex justify-center q-mb-sm gap-5 flex-wrap">
                         <template v-for="technology in cert.skills" :key="technology">
                           <!-- <technologies-badge :technology="technology" /> -->
                           <q-badge class="dark-badge t:dark:!bg-slate-800" :label="technology" />
@@ -96,6 +96,17 @@ const modalImage = ref('');
 const { t } = useI18n();
 
 const certificates = computed<Certificate[]>(() => [
+  {
+    name: 'OWASP Top 10 Minutes Hack',
+    company: 'easytools',
+    receivedDate: '2025-07',
+    skills: ['Cybersecurity','XSS','SQL Injection', 'JWT Attacks', 'Deserialization Attacks', 'Vibe Coding (AI/Security)', 'Hashing Algorithms', 'Breaking Weak Hashes'],
+    companyImage: '/assets/icons/companies/easytools.jpg',
+    image: '/assets/icons/certificates/10minuteshack.png',
+    description: t('certificates.cert6.description'),
+    identifier: 'VFPUDMqpz6Vm1tghCXh-Q',
+    link: 'https://app.easy.tools/players/owasp-top-10-pl/certificates/VFPUDMqpz6Vm1tghCXh-Q',
+  },
   {
     name: t('certificates.cert5.name'),
     company: 'Google Cloud Skill Boost',

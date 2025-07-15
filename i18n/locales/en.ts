@@ -167,5 +167,9 @@ export default {
       name: 'Cloud Digital Leader Learning Path',
       description: 'Cloud Digital Leader Learning Path helped me understand the key concepts of cloud computing and how to use Google Cloud to support an organization’s digital transformation. Through the course, I learned how cloud technologies impact business efficiency and which strategies to implement for effective change management.'
     },
+    cert6: {
+      name: '',
+      description: 'During the "OWASP Top 10 Minutes Hack" course, I explored the most critical cybersecurity threats according to the OWASP Top 10. I practically exercised attacks such as Broken Access Control, Injection, Security Misconfiguration, and other common vulnerabilities. I learned to identify and secure applications against JWT attacks, deserialization flaws, and weak hash algorithms. Finally, I became familiar with Vibe Coding principles with a focus on security in the context of artificial intelligence.'
+    },
   }
 };

@@ -89,7 +89,7 @@ export default {
   projects: {
     viewAllProjects: 'Zobacz wszystkie projekty',
     readMore: 'Czytaj więcej',
-    description: 'Na tej podstronie znajdziesz większość projektów które stworzyłem lub współtworzyłem.',
+    description: 'Na tej podstronie znajdziesz większość projektów, które stworzyłem lub współtworzyłem.',
 
     'heat-control-assistant': {
       name: 'Asystent kontroli temperatury',
@@ -174,6 +174,10 @@ export default {
     cert5: {
       name: 'Ścieżka szkoleniowa Cloud Digital Leader',
       description: 'Cloud Digital Leader Learning Path pozwolił mi zrozumieć kluczowe koncepcje chmury oraz sposoby wykorzystania Google Cloud do wspierania cyfrowej transformacji organizacji. Dzięki kursowi nauczyłem się, jak technologie chmurowe wpływają na efektywność biznesową i jakie strategie wdrażać, by skutecznie zarządzać zmianą.'
+    },
+    cert6: {
+      name: '',
+      description: 'Podczas kursu "OWASP Top 10 Minutes Hack" zapoznałem się z najważniejszymi zagrożeniami cyberbezpieczeństwa według OWASP Top 10. Praktycznie przećwiczyłem ataki takie jak Broken Access Control, Injection, Security Misconfiguration oraz inne typowe podatności. Uczyłem się rozpoznawać i zabezpieczać aplikacje przed atakami na JWT, deserializację oraz słabe algorytmy haszujące. Na koniec poznałem również zasady Vibe Coding z naciskiem na bezpieczeństwo w kontekście sztucznej inteligencji.'
     },
   }
 };
