@@ -179,5 +179,18 @@ export default {
       name: '',
       description: 'Podczas kursu "OWASP Top 10 Minutes Hack" zapoznałem się z najważniejszymi zagrożeniami cyberbezpieczeństwa według OWASP Top 10. Praktycznie przećwiczyłem ataki takie jak Broken Access Control, Injection, Security Misconfiguration oraz inne typowe podatności. Uczyłem się rozpoznawać i zabezpieczać aplikacje przed atakami na JWT, deserializację oraz słabe algorytmy haszujące. Na koniec poznałem również zasady Vibe Coding z naciskiem na bezpieczeństwo w kontekście sztucznej inteligencji.'
     },
+  },
+
+
+  projectsList: {
+    sort: 'Sortowanie',
+    filter: 'Filtracja',
+    choose: 'Wybierz repozytorium, którego kod chcesz obejrzeć',
+    wholeProject: 'Cały projekt',
+    sortingOptions: {
+      fromTheNewest: 'Od najnowszych',
+      fromTheOldest: 'Od najstarszych'
+    }
   }
+
 };

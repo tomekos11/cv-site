@@ -276,9 +276,11 @@ useJsonld(() => ({
 }));
 
 useHead({
+  htmlAttrs: { lang: locale.value },
+
   title: computed(() => locale.value === 'pl' 
-    ? 'Tomasz Słapiński - CV | Fullstack Developer' 
-    : 'Tomasz Slapinski - CV | Fullstack Developer'),
+    ? 'Tomasz Słapiński - CV | Fullstack Developer | Vue | Quasar | Nuxt | Rzeszów' 
+    : 'Tomasz Slapinski - CV | Fullstack Developer | Vue | Quasar | Nuxt | Rzeszow'),
 
   meta: [
     { name: 'description', content: t('seo.description') },

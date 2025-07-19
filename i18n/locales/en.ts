@@ -171,5 +171,16 @@ export default {
       name: '',
       description: 'During the "OWASP Top 10 Minutes Hack" course, I explored the most critical cybersecurity threats according to the OWASP Top 10. I practically exercised attacks such as Broken Access Control, Injection, Security Misconfiguration, and other common vulnerabilities. I learned to identify and secure applications against JWT attacks, deserialization flaws, and weak hash algorithms. Finally, I became familiar with Vibe Coding principles with a focus on security in the context of artificial intelligence.'
     },
+  },
+
+  projectsList: {
+    sort: 'Sorting',
+    filter: 'Filtering',
+    choose: 'Choose the repository whose code you want to view',
+    wholeProject: 'Whole project',
+    sortingOptions: {
+      fromTheNewest: 'Newest first',
+      fromTheOldest: 'Oldest first'
+    }
   }
 };

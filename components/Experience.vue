@@ -24,7 +24,7 @@
                   <q-icon name="apartment" size="30px" color="grey-800" class="t:p-2.5" />
                 </div>
                 <div>
-                  <h2 class="text-bold t:text-center t:!text-lg">{{ job.company }}</h2>
+                  <h4 class="text-bold t:text-center t:!text-lg">{{ job.company }}</h4>
                   <div class="t:text-sm t:mt-0.5 t:mb-2 t:text-center t:dark:text-slate-400">{{ job.shortDescription }}</div>
 
                   <div class="t:flex t:gap-2 t:flex-wrap">
@@ -69,7 +69,7 @@
                 <q-icon name="apartment" size="30px" color="grey-800" class="t:p-2.5" />
               </div>
               <div>
-                <h2 class="text-bold t:!text-lg">{{ job.company }}</h2>
+                <h4 class="text-bold t:!text-lg">{{ job.company }}</h4>
                 <div class="t:text-sm t:mt-0.5 t:mb-2">{{ job.shortDescription }}</div>
 
                 <div class="t:flex t:gap-2 t:flex-wrap">

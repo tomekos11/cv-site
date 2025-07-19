@@ -7,8 +7,8 @@
         </div>
 
         <div class="t:flex t:justify-center t:gap-x-4 t:gap-y-2 t:flex-wrap t:max-w-[600px] t:mx-auto t:px-2">
-          <q-select v-model="sorting" clearable dense filled label="Sortowanie" class="t:min-w-[180px] t:w-full t:sm:w-auto t:grow" :options="sortingOptions" />
-          <q-select v-model="filter" use-input use-chips clearable dense filled multiple :input-debounce="300" label="Filtracja" class="t:min-w-[180px] t:w-full t:sm:w-auto t:grow" :options="filterOptionsFiltered" @input-value="onFilter" />
+          <q-select v-model="sorting" clearable dense filled :label="$t('projectsList.sort')" class="t:min-w-[180px] t:w-full t:sm:w-auto t:grow" :options="sortingOptions" />
+          <q-select v-model="filter" use-input use-chips clearable dense filled multiple :input-debounce="300" :label="$t('projectsList.filter')" class="t:min-w-[180px] t:w-full t:sm:w-auto t:grow" :options="filterOptionsFiltered" @input-value="onFilter" />
         </div>
       </section-title>
 
@@ -50,13 +50,13 @@
                   <q-btn v-if="project.githubLinks" flat round rounded class="t:self-start t:!p-0">
                     <q-menu class="t:!max-w-[180px]">
                       <div class="t:p-3 t:text-sm t:text-center t:tracking-wide t:dark:text-slate-400 t:text-slate-700">
-                        Wybierz repozytorium, którego kod chcesz obejrzeć
+                        {{ $t('projectsList.choose') }} 
                       </div>
 
                       <q-item v-if="project.githubLinks.project" dense clickable>
                         <q-item-section>
                           <a :href="project.githubLinks.project" target="_blank">
-                            Cały projekt <q-icon name="code" />
+                            {{ $t('projectsList.wholeProject') }}  <q-icon name="code" />
                           </a>
                         </q-item-section>
                       </q-item>
@@ -135,13 +135,13 @@ const filterOptionsFiltered = computed(() => {
   return technologies.filter(opt => opt.toLowerCase().includes(val));
 });
 
-const sortingOptions = [
-  { value: 'date_desc', label: 'Od najnowszych' },
-  { value: 'date_asc', label: 'Od najstarszych' },
-] as const;
+const sortingOptions = computed(() => [
+  { value: 'date_desc', label: t('projectsList.sortingOptions.fromTheNewest')  },
+  { value: 'date_asc', label: t('projectsList.sortingOptions.fromTheOldest') },
+] as const);
 
 const filter = ref<typeof technologies[number] | null>(null);
-const sorting = ref<typeof sortingOptions[number] | null>(sortingOptions[0]);
+const sorting = ref<typeof sortingOptions.value[number] | null>(sortingOptions.value[0]);
 
 
 const projects = computed<Project[]>(() => [

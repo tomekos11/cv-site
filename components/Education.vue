@@ -15,7 +15,7 @@
             <div class="d-flex align-center school">
               <img :src="school.img" alt="school logo" class="school-logo" style="object-fit: scale-down" loading="lazy">
               <div class="school-info">
-                <h2 class="school-name t:dark:!text-slate-400">{{ school.name }}</h2>
+                <h4 class="school-name t:dark:!text-slate-400">{{ school.name }}</h4>
                 <p class="school-title q-mb-none t:dark:!text-slate-500">{{ school.title }}</p>
                 <div v-if="school.mark" class="school-title t:dark:!text-slate-500">{{ $t('education.grade') }}: {{ school.mark }}</div>
                 <div class="school-period t:dark:!text-slate-400">
