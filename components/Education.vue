@@ -46,14 +46,14 @@ const education = computed(() => [
     name: t('education.school3.name'),
     when: '02/2025 - 07/2026',
     title: t('education.school3.title'),
-    img: '/assets/icons/companies/prz.png',
+    img: '/assets/icons/companies/prz.webp',
     status: 'ongoing'
   },
   {
     name: t('education.school2.name'),
     when: '10/2021 - 02/2025',
     title: t('education.school2.title'),
-    img: '/assets/icons/companies/prz.png',
+    img: '/assets/icons/companies/prz.webp',
     mark: '5.0',
     status: 'ended'
   },

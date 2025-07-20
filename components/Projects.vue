@@ -14,7 +14,7 @@
         <q-card
           class="bg-white text-dark text-center education-item t:dark:!bg-slate-900"
         >
-          <q-img :src="project.image" class="t:w-full t:lg:h-[150px] t:h-[120px]" />
+          <q-img :src="project.image" class="t:w-full t:lg:h-[150px] t:h-[120px]" :alt="project.name"/>
 
           <q-card-section
             class="d-flex flex-column full-height fit"
@@ -52,10 +52,10 @@
 </template>
 
 <script setup lang="ts">
-import gbFlag from 'assets/icons/projects/gb_flag.jpg';
-import treesImg from 'assets/icons/projects/trees.jpg';
-import chatImg from 'assets/icons/projects/czat.jpg';
-import testImg from 'assets/icons/projects/test.webp';
+// import gbFlag from 'assets/icons/projects/gb_flag.jpg';
+// import treesImg from 'assets/icons/projects/trees.webp';
+// import chatImg from 'assets/icons/projects/czat.jpg';
+// import testImg from 'assets/icons/projects/test.webp';
 import type { Technology } from '~/helpers/technology';
 
 interface Project {
@@ -78,7 +78,7 @@ const projects = computed<Project[]>(() => [
     year: 2023,
     slug: 'ela',
     technologies: ['Vue', 'Laravel'],
-    image: gbFlag
+    image: '/assets/icons/projects/gb_flag.jpg',
   },
   {
     name: t('projects.dtVisualization.name'),
@@ -86,7 +86,7 @@ const projects = computed<Project[]>(() => [
     year: 2024,
     slug: 'dt',
     technologies: ['Quasar', 'Laravel'],
-    image: treesImg
+    image: '/assets/icons/projects/trees.webp',
   },
   {
     name: t('projects.AIchat.name'),
@@ -94,7 +94,7 @@ const projects = computed<Project[]>(() => [
     year: 2024,
     slug: 'ai-chat',
     technologies: ['Quasar', 'Java', 'Spring'],
-    image: chatImg
+    image: '/assets/icons/projects/czat.jpg',
   },
   {
     name: t('projects.testManagement.name'),
@@ -102,7 +102,7 @@ const projects = computed<Project[]>(() => [
     year: 2024,
     slug: 'test-management',
     technologies: ['Spring', 'Thymeleaf'],
-    image: testImg
+    image: '/assets/icons/projects/test.webp',
   }
 ]);
 

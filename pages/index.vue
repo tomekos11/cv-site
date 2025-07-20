@@ -78,14 +78,14 @@ const link = computed(() => {
     return [
       { rel: 'canonical', href: 'https://cv.tomasz-slapinski.pl' },
       { rel: 'alternate', hreflang: 'en-US', href: 'https://cv.tomasz-slapinski.pl/en' },
-      { rel: 'alternate', hreflang: 'x-default', href: 'https://cv.tomasz-slapinski.pl' },
+      { rel: 'alternate', hreflang: 'pl-PL', href: 'https://cv.tomasz-slapinski.pl' },
     ];
   }
 
   return [
     { rel: 'canonical', href: 'https://cv.tomasz-slapinski.pl/en' },
     { rel: 'alternate', hreflang: 'pl-PL', href: 'https://cv.tomasz-slapinski.pl' },
-    { rel: 'alternate', hreflang: 'x-default', href: 'https://cv.tomasz-slapinski.pl/en' },
+    { rel: 'alternate', hreflang: 'pl-PL', href: 'https://cv.tomasz-slapinski.pl/en' },
   ];
 });
 
@@ -279,8 +279,8 @@ useHead({
   htmlAttrs: { lang: locale.value },
 
   title: computed(() => locale.value === 'pl' 
-    ? 'Tomasz Słapiński - CV | Fullstack Developer | Vue | Quasar | Nuxt | Rzeszów' 
-    : 'Tomasz Slapinski - CV | Fullstack Developer | Vue | Quasar | Nuxt | Rzeszow'),
+    ? 'Tomasz Słapiński | Fullstack Dev | Vue | Nuxt | Rzeszów' 
+    : 'Tomasz Slapinski | Fullstack Dev | Vue | Nuxt | Rzeszow'),
 
   meta: [
     { name: 'description', content: t('seo.description') },

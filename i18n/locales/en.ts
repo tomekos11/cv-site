@@ -9,7 +9,7 @@ export default {
   },
   
   seo: {
-    description: 'Discover Tomasz Słapiński\'s experience, including work at Polcar and Infra Team, focusing on website modernization, SEO optimization, and advanced technologies',
+    description: 'Explore Tomasz Słapiński\'s work at Polcar and Infra Team – website modernization, SEO, advanced technologies',
     ogDescription: 'Full-Stack Developer with 2 years of experience.',
     country: 'PL',
     baseSalary: 'Base salary',

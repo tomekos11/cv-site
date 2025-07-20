@@ -271,7 +271,7 @@ const projects = computed<Project[]>(() => [
     endDate: new Date('2025-01-20'),
     slug: 'dt',
     technologies: ['Vue', 'Quasar', 'PHP', 'Laravel'],
-    image: '/assets/icons/projects/trees.jpg',
+    image: '/assets/icons/projects/trees.webp',
     peopleCount: 1,
   },
   {
