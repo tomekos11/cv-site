@@ -21,6 +21,9 @@
           round
           icon="menu"
           class="d-md-none"
+          :aria-label="drawer ? $t('aria.close') : $t('aria.open')"
+          aria-controls="main-navigation"
+          :aria-expanded="drawer?.toString()"
           @click="drawer = !drawer"
         />
       </q-toolbar>

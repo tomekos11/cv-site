@@ -7,7 +7,16 @@
         <q-item v-for="(cert, index) in certificates" :key="index" class="education-item t:dark:!bg-slate-900">
           <q-item-section>
             <div class="d-flex align-center school">
-              <img :src="cert.companyImage" alt="company logo" class="school-logo" style="object-fit: scale-down;" >
+              <nuxt-img
+                :src="cert.companyImage"
+                alt="company logo"
+                class="school-logo"
+                style="object-fit: scale-down;"
+                width="auto"
+                format="auto"
+                loading="lazy"
+              />
+              
               <div class="school-info full-width">
                 <div class="d-flex justify-between">
                   <h4 class="school-name t:dark:!text-slate-400">{{ cert.name }}</h4>

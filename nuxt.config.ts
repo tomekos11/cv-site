@@ -43,9 +43,15 @@ export default defineNuxtConfig({
     ],
   },
   
+  image: {
+    quality: 80,
+    format: ['webp'],
+    densities: [1],
+  },
+
   css: [
     '@/assets/styles/global.css',
-    'flag-icon-css/css/flag-icons.min.css',
+    // 'flag-icon-css/css/flag-icons.min.css',
   ],
 
   site: {

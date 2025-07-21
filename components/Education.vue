@@ -13,7 +13,7 @@
         >
           <q-item-section>
             <div class="d-flex align-center school">
-              <img :src="school.img" alt="school logo" class="school-logo" style="object-fit: scale-down" loading="lazy">
+              <nuxt-img :src="school.img" width="410" :alt="school.name + ' logo'" class="school-logo" format="auto" style="object-fit: scale-down" loading="lazy" />
               <div class="school-info">
                 <h4 class="school-name t:dark:!text-slate-400">{{ school.name }}</h4>
                 <p class="school-title q-mb-none t:dark:!text-slate-500">{{ school.title }}</p>

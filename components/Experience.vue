@@ -19,7 +19,16 @@
           >
             <template #header>
               <div :class="`t:flex t:gap-2 t:items-center t:justify-center  t:dark:p-3 t:rounded-2xl ${index % 2 === 0 ? 'justify-end' : ''}`">
-                <img v-if="job.logo" :src="job.logo" class="company-logo" :alt="`${job.company} logo`" >
+                <nuxt-img
+                  v-if="job.logo"
+                  :src="job.logo"
+                  :alt="`${job.company} logo`"
+                  class="company-logo"
+                  width="50"
+                  format="auto"
+                  loading="lazy"
+                />
+
                 <div v-else>
                   <q-icon name="apartment" size="30px" color="grey-800" class="t:p-2.5" />
                 </div>
@@ -64,7 +73,16 @@
         >
           <template #header>
             <div class="t:flex t:gap-2 t:items-center t:justify-center">
-              <img v-if="job.logo" :src="job.logo" class="company-logo" :alt="`${job.company} logo`" >
+              <nuxt-img
+                v-if="job.logo"
+                :src="job.logo"
+                :alt="`${job.company} logo`"
+                class="company-logo"
+                width="50"
+                format="auto"
+                loading="lazy"
+              />
+                
               <div v-else>
                 <q-icon name="apartment" size="30px" color="grey-800" class="t:p-2.5" />
               </div>

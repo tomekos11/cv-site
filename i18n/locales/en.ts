@@ -1,4 +1,10 @@
 export default {
+  aria: {
+    open: 'Open menu',
+    close: 'Close menu',
+    about: 'about',
+  },
+
   nav: {
     experience: 'Experience',
     education: 'Education',

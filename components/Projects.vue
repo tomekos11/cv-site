@@ -14,7 +14,15 @@
         <q-card
           class="bg-white text-dark text-center education-item t:dark:!bg-slate-900"
         >
-          <q-img :src="project.image" class="t:w-full t:lg:h-[150px] t:h-[120px]" :alt="project.name"/>
+          <!-- <q-img :src="project.image" class="t:w-full t:lg:h-[150px] t:h-[120px]" :alt="project.name"/> -->
+
+          <nuxt-img
+            :src="project.image"
+            :alt="project.name"
+            class="t:w-full t:lg:h-[150px] t:h-[120px] t:object-cover"
+            width="400"
+            densities="x1 x2"
+          />
 
           <q-card-section
             class="d-flex flex-column full-height fit"
@@ -27,7 +35,7 @@
               </template>
             </div>
             <p class="limit-lines t:dark:text-slate-400">{{ project.description }}</p>
-            <q-btn flat color="blue-13" no-caps> {{ $t('projects.readMore')}}...</q-btn>
+            <q-btn flat color="blue-13" no-caps :aria-label="$t('projects.readMore') + ' ' + $t('aria.about') + ' ' + project.name"> {{ $t('projects.readMore')}}...</q-btn>
 
           </q-card-section>
         </q-card>
