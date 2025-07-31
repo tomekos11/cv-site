@@ -85,195 +85,229 @@ const link = computed(() => {
   return [
     { rel: 'canonical', href: 'https://cv.tomasz-slapinski.pl/en' },
     { rel: 'alternate', hreflang: 'pl-PL', href: 'https://cv.tomasz-slapinski.pl' },
-    { rel: 'alternate', hreflang: 'pl-PL', href: 'https://cv.tomasz-slapinski.pl/en' },
+    { rel: 'alternate', hreflang: 'en-US', href: 'https://cv.tomasz-slapinski.pl/en' },
   ];
 });
 
 const ogUrl = computed(() => locale.value === 'pl' ? 'https://cv.tomasz-slapinski.pl' : 'https://cv.tomasz-slapinski.pl/en');
 
- 
-useJsonld(() => ({
-  '@context': 'https://schema.org',
-  '@type': 'Person',
-  'name': 'Tomasz Słapiński',
-  'alternateName': 'Tomasz Slapinski',
-  'jobTitle': 'Full-Stack Developer',
-  'url': 'https://cv.tomasz-slapinski.pl',
-  'email': 'tom.slapinski@gmail.com',
-  'description': t('seo.description'),
-  'sameAs': [
-    'https://www.linkedin.com/in/tomasz-slapinski/',
-    'https://github.com/tomekos11'
-  ],
-  'image': 'https://cv.tomasz-slapinski.pl/assets/icons/img/2023_linkedin_no_bg.png',
-  'address': {
-    '@type': 'PostalAddress',
-    'streetAddress': 'ul. Przykładowa 12',
-    'addressLocality': 'Rzeszów',
-    'addressRegion': 'Podkarpacie',
-    'postalCode': '00-123',
-    'addressCountry': t('seo.country')
+const graph = [
+  {
+    '@type': 'WebPageElement',
+    '@id': 'https://cv.tomasz-slapinski.pl/experience',
+    'name': 'Doświadczenie',
+    'url': 'https://cv.tomasz-slapinski.pl/experience',
+    'description': 'Dowiedz się więcej o moim doświadczeniu',
+    'inLanguage': 'pl'
   },
-  'memberOf': {
-    '@type': 'OrganizationRole',
-    'roleName': 'Full-Stack Developer',
-    'startDate': '2023-07-01',
-    'memberOf': {
-      '@type': 'Organization',
-      'name': 'Polcar',
-      'url': 'https://www.polcar.com'
-    },
+  {
+    '@type': 'WebPageElement',
+    '@id': 'https://cv.tomasz-slapinski.pl/en/experience',
+    'name': 'Experience',
+    'url': 'https://cv.tomasz-slapinski.pl/en/experience',
+    'description': 'Learn more about my experience',
+    'inLanguage': 'en'
   },
-  'hasOccupation': [
-    {
-      '@type': 'Role',
-      'hasOccupation': {
-        '@type': 'Occupation',
-        'name': 'Full-Stack Developer',
-        'description': t('seo.role.description'),
-        'estimatedSalary': {
-          '@type': 'MonetaryAmountDistribution',
-          'name': t('seo.baseSalary'),
-          'currency': 'USD',
-          'duration': 'P1Y',
-          'percentile10': 10950,
-          'percentile25': 14405,
-          'median': 20630,
-          'percentile75': 34025,
-          'percentile90': 49750
-        },
-        'occupationLocation': [
-          {
-            '@type': 'City',
-            'name': 'Rzeszów'
-          },
-          {
-            '@type': 'Country',
-            'name': t('seo.country')
-          }
-        ],
-        'mainEntityOfPage': {
-          '@type': 'WebPage',
-          '@id': 'https://cv.tomasz-slapinski.pl',
-          'lastReviewed': '2025-04-07'
-        }
+  {
+    '@type': 'WebPageElement',
+    '@id': 'https://cv.tomasz-slapinski.pl/education',
+    'name': 'Edukacja',
+    'url': 'https://cv.tomasz-slapinski.pl/education',
+    'description': 'Dowiedz się więcej o mojej edukacji',
+    'inLanguage': 'pl'
+  },
+  {
+    '@type': 'WebPageElement',
+    '@id': 'https://cv.tomasz-slapinski.pl/en/education',
+    'name': 'Education',
+    'url': 'https://cv.tomasz-slapinski.pl/en/education',
+    'description': 'Learn more about my education',
+    'inLanguage': 'en'
+  },
+  {
+    '@type': 'WebPageElement',
+    '@id': 'https://cv.tomasz-slapinski.pl/technologies',
+    'name': 'Technologie',
+    'url': 'https://cv.tomasz-slapinski.pl/technologies',
+    'description': 'Odkryj używane przeze mnie technologie',
+    'inLanguage': 'pl'
+  },
+  {
+    '@type': 'WebPageElement',
+    '@id': 'https://cv.tomasz-slapinski.pl/en/technologies',
+    'name': 'Technologies',
+    'url': 'https://cv.tomasz-slapinski.pl/en/technologies',
+    'description': 'Discover the technologies I use',
+    'inLanguage': 'en'
+  },
+  {
+    '@type': 'WebPageElement',
+    '@id': 'https://cv.tomasz-slapinski.pl/projects',
+    'name': 'Projekty',
+    'url': 'https://cv.tomasz-slapinski.pl/projects',
+    'description': 'Sprawdź jakie projekty stworzyłem podczas mojej przygody z programowaniem',
+    'inLanguage': 'pl'
+  },
+  {
+    '@type': 'WebPageElement',
+    '@id': 'https://cv.tomasz-slapinski.pl/en/projects',
+    'name': 'Projects',
+    'url': 'https://cv.tomasz-slapinski.pl/en/projects',
+    'description': 'Check out the projects I’ve created during my journey with programming',
+    'inLanguage': 'en'
+  },
+  {
+    '@type': 'WebPageElement',
+    '@id': 'https://cv.tomasz-slapinski.pl/certificates',
+    'name': 'Certyfikaty',
+    'url': 'https://cv.tomasz-slapinski.pl/certificates',
+    'description': 'Zobacz jakie certyfikaty udało mi się osiągnąć',
+    'inLanguage': 'pl'
+  },
+  {
+    '@type': 'WebPageElement',
+    '@id': 'https://cv.tomasz-slapinski.pl/en/certificates',
+    'name': 'Certificates',
+    'url': 'https://cv.tomasz-slapinski.pl/en/certificates',
+    'description': 'See the certifications I have achieved',
+    'inLanguage': 'en'
+  }
+];
+
+interface Faq {
+  '@type': 'Question';
+  name: string;
+  acceptedAnswer: {
+    '@type': 'Answer';
+    text: string;
+  }
+}
+
+const faqArray = computed<Faq[]>(() =>
+  Array.from({ length: 10 }, (_, i) => {
+    const id = i + 1;
+    return {
+      '@type': 'Question',
+      name: t(`faq.${id}.question`),
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: t(`faq.${id}.answer`)
       }
-    }
-  ],
-  'knowsAbout': [
-    'JavaScript',
-    'TypeScript',
-    'Vue',
-    'Vue.js',
-    'Quasar',
-    'Nuxt',
-    'SSR',
-    'Seo',
-    'Docker',
-    'Node.js',
-    'PHP',
-    'Laravel',
-  ],
-  'worksFor': [
-    {
-      '@type': 'Organization',
-      'name': 'Polcar',
-      'url': 'https://www.polcar.com'
+    };
+  })
+);
+
+useJsonld(() => (
+  [{
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    'dateCreated': '2025-05-01T18:34:00+01:00',
+    'dateModified': '2025-07-31T23:10:00+01:00',
+    'mainEntity': {
+      '@type': 'Person',
+      'name': 'Tomasz Słapiński',
+      'alternateName': 'Tomasz Slapinski',
+      'jobTitle': 'Full-Stack Developer',
+      'url': 'https://cv.tomasz-slapinski.pl',
+      'email': 'tom.slapinski@gmail.com',
+      'description': t('seo.description'),
+      'sameAs': [
+        'https://www.linkedin.com/in/tomasz-slapinski/',
+        'https://github.com/tomekos11'
+      ],
+      'image': 'https://cv.tomasz-slapinski.pl/assets/icons/img/2023_linkedin_no_bg.png',
+      'address': {
+        '@type': 'PostalAddress',
+        'streetAddress': 'ul. Przykładowa 12',
+        'addressLocality': 'Rzeszów',
+        'addressRegion': 'PL-18',
+        'postalCode': '00-123',
+        'addressCountry': t('seo.country')
+      },
+      'memberOf': {
+        '@type': 'OrganizationRole',
+        'roleName': 'Full-Stack Developer',
+        'startDate': '2023-07-01',
+        'memberOf': {
+          '@type': 'Organization',
+          'name': 'Polcar',
+          'url': 'https://www.polcar.com'
+        },
+      },
+      'hasOccupation': {
+        '@type': 'Role',
+        'hasOccupation': {
+          '@type': 'Occupation',
+          'name': 'Full-Stack Developer',
+          'description': t('seo.role.description'),
+          'estimatedSalary': {
+            '@type': 'MonetaryAmountDistribution',
+            'name': t('seo.baseSalary'),
+            'currency': 'USD',
+            'duration': 'P1Y',
+            'percentile10': 10950,
+            'percentile25': 14405,
+            'median': 20630,
+            'percentile75': 34025,
+            'percentile90': 49750
+          },
+          'occupationLocation': [
+            {
+              '@type': 'City',
+              'name': 'Rzeszów'
+            },
+            {
+              '@type': 'Country',
+              'name': t('seo.country')
+            }
+          ],
+          'mainEntityOfPage': {
+            '@type': 'WebPage',
+            '@id': 'https://cv.tomasz-slapinski.pl',
+            'lastReviewed': '2025-04-07'
+          }
+        }
+      },
+      'knowsAbout': [
+        'JavaScript',
+        'TypeScript',
+        'Vue',
+        'Vue.js',
+        'Quasar',
+        'Nuxt',
+        'SSR',
+        'Seo',
+        'Docker',
+        'Node.js',
+        'PHP',
+        'Laravel',
+      ],
+      'worksFor': [
+        {
+          '@type': 'Organization',
+          'name': 'Polcar',
+          'url': 'https://www.polcar.com'
+        },
+        {
+          '@type': 'Organization',
+          'name': 'Infra Team',
+          'url': 'https://infrateam.eu/'
+        }
+      ],
+      'mainEntityOfPage': {
+        '@type': 'WebPage',
+        '@id': 'https://cv.tomasz-slapinski.pl'
+      },
+      'gender': 'Male',
     },
-    {
-      '@type': 'Organization',
-      'name': 'Infra Team',
-      'url': 'https://infrateam.eu/'
-    }
-  ],
-  'mainEntityOfPage': {
-    '@type': 'WebPage',
-    '@id': 'https://cv.tomasz-slapinski.pl'
+    'hasPart': graph
   },
-  'gender': 'Male',
-  '@graph': [
-    {
-      '@type': 'WebPageElement',
-      '@id': 'https://cv.tomasz-slapinski.pl/experience',
-      'name': 'Doświadczenie',
-      'url': 'https://cv.tomasz-slapinski.pl/experience',
-      'description': 'Dowiedz się więcej o moim doświadczeniu',
-      'inLanguage': 'pl'
-    },
-    {
-      '@type': 'WebPageElement',
-      '@id': 'https://cv.tomasz-slapinski.pl/en/experience',
-      'name': 'Experience',
-      'url': 'https://cv.tomasz-slapinski.pl/en/experience',
-      'description': 'Learn more about my experience',
-      'inLanguage': 'en'
-    },
-    {
-      '@type': 'WebPageElement',
-      '@id': 'https://cv.tomasz-slapinski.pl/education',
-      'name': 'Edukacja',
-      'url': 'https://cv.tomasz-slapinski.pl/education',
-      'description': 'Dowiedz się więcej o mojej edukacji',
-      'inLanguage': 'pl'
-    },
-    {
-      '@type': 'WebPageElement',
-      '@id': 'https://cv.tomasz-slapinski.pl/en/education',
-      'name': 'Education',
-      'url': 'https://cv.tomasz-slapinski.pl/en/education',
-      'description': 'Learn more about my education',
-      'inLanguage': 'en'
-    },
-    {
-      '@type': 'WebPageElement',
-      '@id': 'https://cv.tomasz-slapinski.pl/technologies',
-      'name': 'Technologie',
-      'url': 'https://cv.tomasz-slapinski.pl/technologies',
-      'description': 'Odkryj używane przeze mnie technologie',
-      'inLanguage': 'pl'
-    },
-    {
-      '@type': 'WebPageElement',
-      '@id': 'https://cv.tomasz-slapinski.pl/en/technologies',
-      'name': 'Technologies',
-      'url': 'https://cv.tomasz-slapinski.pl/en/technologies',
-      'description': 'Discover the technologies I use',
-      'inLanguage': 'en'
-    },
-    {
-      '@type': 'WebPageElement',
-      '@id': 'https://cv.tomasz-slapinski.pl/projects',
-      'name': 'Projekty',
-      'url': 'https://cv.tomasz-slapinski.pl/projects',
-      'description': 'Sprawdź jakie projekty stworzyłem podczas mojej przygody z programowaniem',
-      'inLanguage': 'pl'
-    },
-    {
-      '@type': 'WebPageElement',
-      '@id': 'https://cv.tomasz-slapinski.pl/en/projects',
-      'name': 'Projects',
-      'url': 'https://cv.tomasz-slapinski.pl/en/projects',
-      'description': 'Check out the projects I’ve created during my journey with programming',
-      'inLanguage': 'en'
-    },
-    {
-      '@type': 'WebPageElement',
-      '@id': 'https://cv.tomasz-slapinski.pl/certificates',
-      'name': 'Certyfikaty',
-      'url': 'https://cv.tomasz-slapinski.pl/certificates',
-      'description': 'Zobacz jakie certyfikaty udało mi się osiągnąć',
-      'inLanguage': 'pl'
-    },
-    {
-      '@type': 'WebPageElement',
-      '@id': 'https://cv.tomasz-slapinski.pl/en/certificates',
-      'name': 'Certificates',
-      'url': 'https://cv.tomasz-slapinski.pl/en/certificates',
-      'description': 'See the certifications I have achieved',
-      'inLanguage': 'en'
-    }
-  ]
-}));
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': faqArray.value,
+  }
+  ]));
 
 useHead({
   htmlAttrs: { lang: locale.value },

@@ -198,6 +198,49 @@ export default {
       fromTheNewest: 'Od najnowszych',
       fromTheOldest: 'Od najstarszych'
     }
+  },
+
+  faq: {
+    1: {
+      question: 'Jakie technologie wykorzystuje Tomasz Słapiński?',
+      answer: 'Specjalizuję się w JavaScript, Vue.js, Quasar, Nuxt, Node.js, PHP, Laravel oraz technologiach frontendowych i backendowych nowoczesnych aplikacji webowych.'
+    },
+    2: {
+      question: 'W jakich firmach pracował Tomasz Słapiński?',
+      answer: 'Doświadczenie zdobywałem m.in. w Polcar oraz Infra Team, gdzie wdrażałem zaawansowane systemy i modernizowałem strony internetowe.'
+    },
+    3: {
+      question: 'Jakie są główne obszary specjalizacji Tomasza?',
+      answer: 'Zajmuję się full-stack developmentem, SEO, wdrażaniem nowych technologii oraz modernizacją istniejących aplikacji webowych.'
+    },
+    4: {
+      question: 'Czy Tomasz ma doświadczenie w pracy z zespołem?',
+      answer: 'Tak, współpracuję z zespołami projektowymi w celu skutecznej realizacji zadań i wdrażania najlepszych praktyk w procesie tworzenia oprogramowania.'
+    },
+    5: {
+      question: 'Gdzie można znaleźć portfolio Tomasza Słapińskiego?',
+      answer: 'Portfolio oraz szczegóły dotyczące projektów dostępne są na stronie https://cv.tomasz-slapinski.pl w sekcji \'Projekty\'.'
+    },
+    6: {
+      question: 'Czy Tomasz pracuje z technologiami backendowymi?',
+      answer: 'Tak, tworzę API i serwisy backendowe w Node.js oraz PHP (głównie z wykorzystaniem Laravel), często integrując je z aplikacjami frontendowymi w Nuxt.'
+    },
+    7: {
+      question: 'Czy Tomasz wdraża aplikacje w środowiskach produkcyjnych?',
+      answer: 'Tak, posiadam doświadczenie w konteneryzacji z Dockerem, wdrażaniu aplikacji SSR oraz konfiguracji środowisk hostingowych i CI/CD.'
+    },
+    8: {
+      question: 'W jakim języku Tomasz tworzy aplikacje?',
+      answer: 'Głównie w JavaScript i TypeScript, zarówno po stronie frontendu (Vue, Nuxt), jak i backendu (Node.js).'
+    },
+    9: {
+      question: 'Czy Tomasz posiada certyfikaty branżowe?',
+      answer: 'Tak, posiadam certyfikaty potwierdzające moją wiedzę, które można zobaczyć w sekcji „Certyfikaty” na moim CV online.'
+    },
+    10: {
+      question: 'Czy Tomasz przykłada wagę do SEO?',
+      answer: 'Tak, optymalizacja SEO jest integralną częścią moich projektów. Tworzę aplikacje SSR z uwzględnieniem dobrych praktyk optymalizacji pod wyszukiwarki.'
+    }
   }
 
 };

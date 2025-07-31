@@ -188,5 +188,48 @@ export default {
       fromTheNewest: 'Newest first',
       fromTheOldest: 'Oldest first'
     }
+  },
+
+  faq: {
+    1: {
+      question: 'What technologies does Tomasz Słapiński use?',
+      answer: 'I specialize in JavaScript, Vue.js, Quasar, Nuxt, Node.js, PHP, Laravel, and modern frontend and backend web technologies.'
+    },
+    2: {
+      question: 'Which companies has Tomasz Słapiński worked for?',
+      answer: 'I gained experience at companies like Polcar and Infra Team, where I implemented advanced systems and modernized websites.'
+    },
+    3: {
+      question: 'What are Tomasz’s main areas of specialization?',
+      answer: 'I focus on full-stack development, SEO, implementing new technologies, and modernizing existing web applications.'
+    },
+    4: {
+      question: 'Does Tomasz have experience working in a team?',
+      answer: 'Yes, I collaborate with project teams to effectively complete tasks and apply best practices in software development.'
+    },
+    5: {
+      question: 'Where can I find Tomasz Słapiński’s portfolio?',
+      answer: 'My portfolio and project details are available at https://cv.tomasz-slapinski.pl in the “Projects” section.'
+    },
+    6: {
+      question: 'Does Tomasz work with backend technologies?',
+      answer: 'Yes, I build APIs and backend services using Node.js and PHP (primarily Laravel), often integrated with frontend apps in Nuxt.'
+    },
+    7: {
+      question: 'Does Tomasz deploy applications to production?',
+      answer: 'Yes, I have experience with Docker-based deployments, SSR apps, and setting up hosting environments and CI/CD pipelines.'
+    },
+    8: {
+      question: 'Which programming languages does Tomasz use?',
+      answer: 'Mainly JavaScript and TypeScript — both on the frontend (Vue, Nuxt) and the backend (Node.js).'
+    },
+    9: {
+      question: 'Does Tomasz hold any industry certifications?',
+      answer: 'Yes, I hold certifications confirming my skills, which you can find in the "Certificates" section of my online CV.'
+    },
+    10: {
+      question: 'Does Tomasz care about SEO?',
+      answer: 'Yes, SEO optimization is an integral part of my projects. I build SSR apps following best practices for search engines.'
+    }
   }
 };
