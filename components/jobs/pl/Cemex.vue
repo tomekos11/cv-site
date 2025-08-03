@@ -1,6 +1,6 @@
 <template>
   <p>
-    CEMEX to globalny lider w branży materiałów budowlanych, znany z innowacyjnych rozwiązań i zaawansowanych technologii stosowanych w budownictwie. InfraTeam, jako partner technologiczny, współpracuje z CEMEX w zakresie wdrażania nowoczesnych systemów informatycznych, które wspierają rozwój i efektywność operacyjną firmy.
+    CEMEX to globalny lider w branży materiałów budowlanych, znany z innowacyjnych rozwiązań i zaawansowanych technologii stosowanych w budownictwie. StormCode, jako partner technologiczny, współpracuje z CEMEX w zakresie wdrażania nowoczesnych systemów informatycznych, które wspierają rozwój i efektywność operacyjną firmy.
   </p>
 
   <p>

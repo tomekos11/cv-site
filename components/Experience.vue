@@ -23,14 +23,14 @@
                   v-if="job.logo"
                   :src="job.logo"
                   :alt="`${job.company} logo`"
-                  class="company-logo"
+                  :class="`company-logo t:bg-gray-100 t:dark:bg-slate-900 t:!object-scale-down t:p-[5px]`"
                   width="50"
                   format="auto"
                   loading="lazy"
                 />
 
                 <div v-else>
-                  <q-icon name="apartment" size="30px" color="grey-800" class="t:p-2.5" />
+                  <q-icon name="apartment" size="30px" color="grey-800" class="t:bg-gray-100 t:dark:bg-slate-900 t:dark:!text-gray-400 t:!text-gray-800 t:p-2.5 t:mr-[10px] t:rounded-full" />
                 </div>
                 <div>
                   <h4 class="text-bold t:text-center t:!text-lg">{{ job.company }}</h4>
@@ -77,14 +77,14 @@
                 v-if="job.logo"
                 :src="job.logo"
                 :alt="`${job.company} logo`"
-                class="company-logo"
+                :class="`company-logo t:bg-gray-100 t:dark:bg-slate-900 t:!object-scale-down t:p-[5px]`"
                 width="50"
                 format="auto"
                 loading="lazy"
               />
                 
               <div v-else>
-                <q-icon name="apartment" size="30px" color="grey-800" class="t:p-2.5" />
+                <q-icon name="apartment" size="30px" color="grey-800" class="t:bg-gray-100 t:dark:bg-slate-900 t:dark:!text-gray-400 t:!text-gray-800 t:p-2.5 t:mr-[10px] t:rounded-full" />
               </div>
               <div>
                 <h4 class="text-bold t:!text-lg">{{ job.company }}</h4>
@@ -96,7 +96,7 @@
                   </q-badge>
                 </div>
 
-                <div class="t:text-slate-900 t:font-semibold t:my-1">{{ job.dates }}</div>
+                <div class="t:text-slate-900 t:dark:text-slate-700 t:font-semibold t:my-1">{{ job.dates }}</div>
               </div>
             </div>
           </template>
@@ -151,7 +151,7 @@ const workHistory: WorkHistory[] = computed(() => [
     company: 'Polcar',
     shortDescription: t('experience.polcar.shortDescription'),
     slug: 'polcar',
-    logo: '/assets/icons/companies/polcar.png',
+    logo: '/assets/icons/companies/polcar_no_bg.png',
     dates: t('experience.polcar.date'),
     technologies: ['Vue', 'Quasar', 'SSR', 'PWA', 'Laravel', 'SEO'],
     expanded: false,
@@ -166,10 +166,10 @@ const workHistory: WorkHistory[] = computed(() => [
     expanded: false,
   },
   {
-    company: 'Infra Team',
+    company: 'StormCode',
     shortDescription: t('experience.infraTeam2.shortDescription'),
     slug: 'cemex',
-    logo: '/assets/icons/companies/infrateam.jpg',
+    logo: '/assets/icons/companies/stormcode.png',
     dates: t('experience.infraTeam2.date'),
     technologies: ['Vue', 'Quasar', 'Laravel'],
     expanded: false,
@@ -178,7 +178,7 @@ const workHistory: WorkHistory[] = computed(() => [
     company: 'Infra Team',
     shortDescription: t('experience.infraTeam1.shortDescription'),
     slug: 'infra-team',
-    logo: '/assets/icons/companies/infrateam.jpg',
+    logo: '/assets/icons/companies/infrateam_no_bg.png',
     dates: t('experience.infraTeam1.date'),
     technologies: ['Vue', 'Bootstrap', 'Laravel'],
     expanded: false,
@@ -200,6 +200,10 @@ onMounted(() => {
 }
 
 :deep(.body--dark .q-expansion-item--expanded) {
+  background: transparent;
+}
+
+:deep(.q-card--dark) {
   background: transparent;
 }
 

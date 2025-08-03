@@ -61,20 +61,28 @@ export default defineNuxtConfig({
 
   sitemap: {
     autoI18n: true,
+    discoverImages: true,
     defaults: {
+      lastmod: new Date().toISOString(),
       changefreq: 'daily',
       priority: 0.3,
     },
+
+    autoLastmod: true,
+
+    sitemapName: 'Tomasz Słapiński - CV',
 
     urls: [
       {
         loc: '/',
         priority: 1,
+        lastmod: new Date().toISOString(),
         changefreq: 'daily'
       },
       {
         loc: '/en',
         priority: 1,
+        lastmod: new Date().toISOString(),
         changefreq: 'daily'
       },
     ]

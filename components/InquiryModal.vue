@@ -44,7 +44,7 @@
             </template>
 
             <template #append>
-              <q-icon name="mail" class="t:text-slate-900" />
+              <q-icon name="mail" class="t:text-slate-800" />
             </template>
           </q-input>
     
