@@ -15,12 +15,23 @@ export default {
   },
   
   seo: {
+    title: 'Tomasz Slapinski {\'|\'}  Fullstack Dev {\'|\'}  Vue {\'|\'}  Nuxt {\'|\'}  Rzeszow',
     description: 'Explore Tomasz Słapiński\'s work at Polcar and Infra Team – website modernization, SEO, advanced technologies',
-    ogDescription: 'Full-Stack Developer with 2 years of experience.',
+    ogDescription: 'Full-Stack Developer with 3 years of experience',
     country: 'PL',
     baseSalary: 'Base salary',
     role: {
       description: 'A Full-Stack Developer is responsible for designing, developing, and maintaining both front-end and back-end parts of web applications. This role requires knowledge of client-side technologies (HTML, CSS, JavaScript, Vue/React) as well as server-side ones (Node.js, PHP, Python). They collaborate with the project team, build APIs, manage databases, and ensure performance and code quality. Flexibility, problem-solving skills, and the ability to work across the full software development lifecycle are essential in this role.'
+    },
+
+    projectsList: {
+      title: 'Projects {\'|\'} Tomasz Slapinski',
+      description: 'Browse projects by Tomasz Słapiński – from web applications and security tools to educational solutions and advanced real-time data analysis systems',
+      collection: {
+        name: 'Tomasz Słapiński\'s Project List',
+        description: 'A collection of web projects, tools, and applications created by Tomasz Słapiński',
+        url: 'https://cv.tomasz-slapinski.pl/en/projects-list',
+      }
     }
   },
 

@@ -36,7 +36,7 @@
       </div>
 
       <div class="col-12 col-md-5 col-lg-4 text-center self-center d-flex justify-center">
-        <nuxt-img src="/assets/icons/img/2023_linkedin_no_bg.png" class="profile-img" alt="Tomasz Słapiński" width="420" densities="x1 x2" format="auto" fetchpriority="high" />
+        <nuxt-img src="/assets/icons/img/2023_linkedin_no_bg.png" class="profile-img" alt="Tomasz Słapiński" width="420" densities="x1 x2" format="webp" fetchpriority="high" />
       </div>
     </div>
     
@@ -72,24 +72,6 @@ const downloadCv = () => {
   link.click();
   document.body.removeChild(link);
 };
-
-const link = computed(() => {
-  if(locale.value === 'pl') {
-    return [
-      { rel: 'canonical', href: 'https://cv.tomasz-slapinski.pl' },
-      { rel: 'alternate', hreflang: 'en-US', href: 'https://cv.tomasz-slapinski.pl/en' },
-      { rel: 'alternate', hreflang: 'pl-PL', href: 'https://cv.tomasz-slapinski.pl' },
-    ];
-  }
-
-  return [
-    { rel: 'canonical', href: 'https://cv.tomasz-slapinski.pl/en' },
-    { rel: 'alternate', hreflang: 'pl-PL', href: 'https://cv.tomasz-slapinski.pl' },
-    { rel: 'alternate', hreflang: 'en-US', href: 'https://cv.tomasz-slapinski.pl/en' },
-  ];
-});
-
-const ogUrl = computed(() => locale.value === 'pl' ? 'https://cv.tomasz-slapinski.pl' : 'https://cv.tomasz-slapinski.pl/en');
 
 const graph = [
   {
@@ -197,109 +179,15 @@ const faqArray = computed<Faq[]>(() =>
   })
 );
 
+const { person } = usePerson();
+
 useJsonld(() => (
   [{
     '@context': 'https://schema.org',
     '@type': 'ProfilePage',
     'dateCreated': '2025-05-01T18:34:00+01:00',
     'dateModified': '2025-07-31T23:10:00+01:00',
-    'mainEntity': {
-      '@type': 'Person',
-      'name': 'Tomasz Słapiński',
-      'alternateName': 'Tomasz Slapinski',
-      'jobTitle': 'Full-Stack Developer',
-      'url': 'https://cv.tomasz-slapinski.pl',
-      'email': 'tom.slapinski@gmail.com',
-      'description': t('seo.description'),
-      'sameAs': [
-        'https://www.linkedin.com/in/tomasz-slapinski/',
-        'https://github.com/tomekos11'
-      ],
-      'image': 'https://cv.tomasz-slapinski.pl/assets/icons/img/2023_linkedin_no_bg.png',
-      'address': {
-        '@type': 'PostalAddress',
-        'streetAddress': 'ul. Przykładowa 12',
-        'addressLocality': 'Rzeszów',
-        'addressRegion': 'PL-18',
-        'postalCode': '00-123',
-        'addressCountry': t('seo.country')
-      },
-      'memberOf': {
-        '@type': 'OrganizationRole',
-        'roleName': 'Full-Stack Developer',
-        'startDate': '2023-07-01',
-        'memberOf': {
-          '@type': 'Organization',
-          'name': 'Polcar',
-          'url': 'https://www.polcar.com'
-        },
-      },
-      'hasOccupation': {
-        '@type': 'Role',
-        'hasOccupation': {
-          '@type': 'Occupation',
-          'name': 'Full-Stack Developer',
-          'description': t('seo.role.description'),
-          'estimatedSalary': {
-            '@type': 'MonetaryAmountDistribution',
-            'name': t('seo.baseSalary'),
-            'currency': 'USD',
-            'duration': 'P1Y',
-            'percentile10': 10950,
-            'percentile25': 14405,
-            'median': 20630,
-            'percentile75': 34025,
-            'percentile90': 49750
-          },
-          'occupationLocation': [
-            {
-              '@type': 'City',
-              'name': 'Rzeszów'
-            },
-            {
-              '@type': 'Country',
-              'name': t('seo.country')
-            }
-          ],
-          'mainEntityOfPage': {
-            '@type': 'WebPage',
-            '@id': 'https://cv.tomasz-slapinski.pl',
-            'lastReviewed': '2025-04-07'
-          }
-        }
-      },
-      'knowsAbout': [
-        'JavaScript',
-        'TypeScript',
-        'Vue',
-        'Vue.js',
-        'Quasar',
-        'Nuxt',
-        'SSR',
-        'Seo',
-        'Docker',
-        'Node.js',
-        'PHP',
-        'Laravel',
-      ],
-      'worksFor': [
-        {
-          '@type': 'Organization',
-          'name': 'Polcar',
-          'url': 'https://www.polcar.com'
-        },
-        {
-          '@type': 'Organization',
-          'name': 'Infra Team',
-          'url': 'https://infrateam.eu/'
-        }
-      ],
-      'mainEntityOfPage': {
-        '@type': 'WebPage',
-        '@id': 'https://cv.tomasz-slapinski.pl'
-      },
-      'gender': 'Male',
-    },
+    'mainEntity': person.value,
     'hasPart': graph
   },
   {
@@ -309,34 +197,7 @@ useJsonld(() => (
   }
   ]));
 
-useHead({
-  htmlAttrs: { lang: locale.value },
-
-  title: computed(() => locale.value === 'pl' 
-    ? 'Tomasz Słapiński | Fullstack Dev | Vue | Nuxt | Rzeszów' 
-    : 'Tomasz Slapinski | Fullstack Dev | Vue | Nuxt | Rzeszow'),
-
-  meta: [
-    { name: 'description', content: t('seo.description') },
-    { name: 'robots', content: 'index, follow' },
-
-    { property: 'og:type', content: 'website' },
-    
-    { property: 'og:title', content: computed(() => locale.value === 'pl' 
-      ? 'Tomasz Słapiński - CV' 
-      : 'Tomasz Slapinski - CV') },
-
-    { property: 'og:description', content: t('seo.ogDescription') },
-
-    { property: 'og:image', content: 'https://cv.tomasz-slapinski.pl/assets/icons/img/2023_linkedin_no_bg.png' },
-
-    { property: 'og:url', content: ogUrl.value },
-
-    { name: 'twitter:card', content: 'summary_large_image' },
-  ],
-
-  link: link.value
-});
+useSeo('', t('seo.title'),  t('seo.description'), t('seo.title'), t('seo.ogDescription'));
 
 </script>
 

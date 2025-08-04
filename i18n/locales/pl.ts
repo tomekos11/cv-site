@@ -16,12 +16,23 @@ export default {
   },
 
   seo: {
+    title: 'Tomasz Słapiński {\'|\'}  Fullstack Dev {\'|\'}  Vue {\'|\'}  Nuxt {\'|\'}  Rzeszów',
     description: 'Poznaj doświadczenie Tomasza Słapińskiego z Polcar i Infra Team — modernizacja stron, SEO, wdrożenie nowych technologii',
-    ogDescription: 'Full-Stack Developer z 2-letnim doświadczeniem.',
+    ogDescription: 'Full-Stack Developer z 3-letnim doświadczeniem.',
     country: 'PL',
     baseSalary: 'Płaca podstawowa roczna',
     role: {
       description: 'Full-Stack Developer odpowiada za projektowanie, tworzenie i utrzymanie zarówno front-endu, jak i back-endu aplikacji internetowych. Wymaga to znajomości technologii klienckich (HTML, CSS, JavaScript, Vue/React) oraz serwerowych (Node.js, PHP, Python). Współpracuje z zespołem projektowym, tworzy API, zarządza bazami danych, dba o wydajność i jakość kodu. Kluczowe są tu elastyczność, umiejętność rozwiązywania problemów i praca w całym cyklu życia oprogramowania.'
+    },
+
+    projectsList: {
+      title: 'Projekty {\'|\'} Tomasz Słapiński',
+      description: 'Przeglądaj projekty Tomasza Słapińskiego – od aplikacji webowych i narzędzi do bezpieczeństwa po rozwiązania edukacyjne i zaawansowaną analizę danych',
+      collection: {
+        name: 'Lista projektów Tomasza Słapińskiego',
+        description: 'Kolekcja projektów webowych, narzędzi i aplikacji stworzonych przez Tomasza Słapińskiego',
+        url: 'https://cv.tomasz-slapinski.pl/projects-list',
+      }
     }
   },
 

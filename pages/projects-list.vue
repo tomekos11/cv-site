@@ -1,7 +1,7 @@
 <template>
   <q-page class="t:bg-white t:dark:bg-gradient-to-br t:dark:from-black t:dark:to-slate-800 t:mx-auto t:max-w-[2000px] t:pb-[50px]">
     <section class="landing-page q-pt-sm t:xl:p-5 t:lg:p-4 t:md:p-3 t:p-2">
-      <section-title :title="$t('nav.projects')">
+      <section-title component="h1" :title="$t('nav.projects')">
         <div class="t:text-center t:!text-sm t:!tracking-wider t:font-light t:text-slate-700 t:dark:text-slate-400 t:mb-2 t:px-3">
           {{ t('projects.description') }}
         </div>
@@ -20,7 +20,7 @@
           <q-card
             class="t:!flex t:!flex-col bg-white text-dark text-center education-item t:dark:!bg-slate-900"
           >
-            <nuxt-img :src="project.image" width="610" format="auto" class="t:object-cover t:w-full t:lg:h-[150px] t:h-[120px]" :alt="`${project.name}`"/>
+            <nuxt-img :src="project.image" width="500" format="avif" class="t:object-cover t:w-full t:lg:h-[150px] t:h-[120px]" :alt="`${project.name}`" placeholder/>
             <q-card-section class="t:grow" >
               <div class="t:flex t:flex-col t:grow">
                 <div class="t:flex">
@@ -105,8 +105,6 @@
 import type { Technology } from '~/helpers/technology';
 import { technologies } from '~/helpers/technology';
 
-// import type { Technology } from '~/helpers/technology';
-
 interface Project {
   name: string;
   peopleCount: number;
@@ -121,6 +119,24 @@ interface Project {
 }
 
 const { t } = useI18n();
+
+const title = computed(() => t('seo.projectsList.title'));
+const description = computed(() => t('seo.projectsList.description'));
+
+useSeo('/projects-list', title.value, description.value, title.value, description.value);
+
+const { person } = usePerson();
+
+useJsonld(() => ([
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    'name': 'Lista projektów Tomasza Słapińskiego',
+    'description': 'Kolekcja projektów webowych, narzędzi i aplikacji stworzonych przez Tomasza Słapińskiego, Full-Stack Developera.',
+    'url': 'https://cv.tomasz-slapinski.pl/projects-list',
+    'creator': person.value,
+  }
+]));
 
 const inputValue = ref('');
 
