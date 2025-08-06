@@ -37,7 +37,8 @@ export default defineNuxtConfig({
           'form_factor': 'wide'
         }
       ],
-      theme_color: '#4A90E2',
+      theme_color: '#000',
+      background_color: '#000',
       icons: [
         {
           src: '/assets/icons/pwa/ts_192.png',
