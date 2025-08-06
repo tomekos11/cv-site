@@ -47,6 +47,8 @@ export default defineNuxtConfig({
     quality: 80,
     format: ['webp'],
     densities: [1],
+    provider: process.env.NODE_ENV === 'development' ? 'ipx' : 'ipxStatic',
+    // dir: 'public/assets/icons'
   },
 
   css: [
@@ -70,7 +72,7 @@ export default defineNuxtConfig({
 
     autoLastmod: true,
 
-    sitemapName: 'Tomasz Słapiński - CV',
+    sitemapName: 'Tomasz Słapiński - CV.xml',
 
     urls: [
       {

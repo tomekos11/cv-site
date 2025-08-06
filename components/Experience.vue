@@ -25,8 +25,7 @@
                   :alt="`${job.company} logo`"
                   :class="`company-logo t:bg-gray-100 t:dark:bg-slate-900 t:!object-scale-down t:p-[5px]`"
                   width="50"
-                  format="auto"
-                  loading="lazy"
+                  format="webp"
                 />
 
                 <div v-else>
@@ -79,8 +78,7 @@
                 :alt="`${job.company} logo`"
                 :class="`company-logo t:bg-gray-100 t:dark:bg-slate-900 t:!object-scale-down t:p-[5px]`"
                 width="50"
-                format="auto"
-                loading="lazy"
+                format="webp"
               />
                 
               <div v-else>

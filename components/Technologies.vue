@@ -49,22 +49,23 @@
           <q-carousel-slide v-for="(tech, index) in filteredTechnologies" :key="tech.name" :name="index">
             <div class="carousel-grid">
               <q-card
-                v-for="(tech, index) in visibleTechnologies"
-                :key="index"
+                v-for="(vt, vtIndex) in visibleTechnologies"
+                :key="vtIndex"
                 class="bg-white text-dark text-center card-hover carousel-card t:dark:!bg-slate-900 t:dark:!shadow-2xl"
               >
                 <q-card-section class="d-flex flex-column full-height">
                   <div class="d-flex flex-column flex-center full-height">
-                    <template v-if="tech.src">
-                      <nuxt-img :src="tech.src" :alt="`logo ${tech.name}`" width="150" densities="x1 x2" style="object-fit: cover;" />
+                    <template v-if="vt.src">
+                      <!-- <nuxt-img :src="tech.src" :alt="`logo ${tech.name}`" width="150" densities="x1 x2" style="object-fit: cover;" /> -->
+                      <img :src="vt.src" :alt="`logo ${vt.name}`" width="150px" style="object-fit: cover;" >
                     </template>
                     <template v-else>
                       <div class="t:text-[32px] t:dark:!text-slate-300 t:w-[150px]">
-                        {{ tech.name }}
+                        {{ vt.name }}
                       </div>
                     </template>
                   </div>
-                  <h4 class="q-my-sm text-bold t:!text-[16px] t:dark:!text-slate-300">{{ tech.name }}</h4>
+                  <h4 class="q-my-sm text-bold t:!text-[16px] t:dark:!text-slate-300">{{ vt.name }}</h4>
                 </q-card-section>
               </q-card>
             </div>

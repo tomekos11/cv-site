@@ -20,7 +20,7 @@
           <q-card
             class="t:!flex t:!flex-col bg-white text-dark text-center education-item t:dark:!bg-slate-900"
           >
-            <nuxt-img :src="project.image" width="500" format="avif" class="t:object-cover t:w-full t:lg:h-[150px] t:h-[120px]" :alt="`${project.name}`" placeholder/>
+            <nuxt-img :src="project.image" width="500" format="avif" class="t:object-cover t:w-full t:lg:h-[150px] t:h-[120px]" :alt="`${project.name}`"/>
             <q-card-section class="t:grow" >
               <div class="t:flex t:flex-col t:grow">
                 <div class="t:flex">

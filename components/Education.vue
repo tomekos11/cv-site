@@ -13,7 +13,8 @@
         >
           <q-item-section>
             <div class="d-flex align-center school">
-              <nuxt-img :src="school.img" width="410" :alt="school.name + ' logo'" class="school-logo" format="auto" style="object-fit: scale-down" loading="lazy" />
+              <img v-if="school.id === 1" :src="school.img" class="school-logo" :alt="school.name + ' logo'" style="object-fit: scale-down" >
+              <nuxt-img v-else :key="school.id" :src="school.img" width="410" :alt="school.name + ' logo'" class="school-logo" format="avif" style="object-fit: scale-down"  />
               <div class="school-info">
                 <h4 class="school-name t:dark:!text-slate-400">{{ school.name }}</h4>
                 <p class="school-title q-mb-none t:dark:!text-slate-500">{{ school.title }}</p>
@@ -43,6 +44,7 @@ const { t } = useI18n();
 
 const education = computed(() => [
   {
+    id: 3,
     name: t('education.school3.name'),
     when: '02/2025 - 07/2026',
     title: t('education.school3.title'),
@@ -50,6 +52,7 @@ const education = computed(() => [
     status: 'ongoing'
   },
   {
+    id: 2,
     name: t('education.school2.name'),
     when: '10/2021 - 02/2025',
     title: t('education.school2.title'),
@@ -58,6 +61,7 @@ const education = computed(() => [
     status: 'ended'
   },
   {
+    id: 1,
     name: t('education.school1.name'),
     when: '09/2017 - 06/2021',
     title: t('education.school1.title'),

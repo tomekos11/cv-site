@@ -4,17 +4,18 @@
 
     <div class="education-section">
       <q-list class="education-list">
-        <q-item v-for="(cert, index) in certificates" :key="index" class="education-item t:dark:!bg-slate-900">
+        <q-item v-for="cert in certificates" :key="cert.name" class="education-item t:dark:!bg-slate-900">
           <q-item-section>
+            <!-- :placeholder="img(cert.companyImage, { h: 10, f: 'png', blur: 2, q: 50 })" -->
             <div class="d-flex align-center school">
               <nuxt-img
                 :src="cert.companyImage"
                 alt="company logo"
+                width="200px"
+                height="200px"
+                format="avif"
                 class="school-logo"
                 style="object-fit: scale-down;"
-                width="auto"
-                format="auto"
-                loading="lazy"
               />
               
               <div class="school-info full-width">
@@ -103,6 +104,7 @@ const showModal = ref(false);
 const modalImage = ref('');
 
 const { t } = useI18n();
+const img = useImage();
 
 const certificates = computed<Certificate[]>(() => [
   {
