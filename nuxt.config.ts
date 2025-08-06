@@ -56,7 +56,12 @@ export default defineNuxtConfig({
   app: {
     head: {
       link: [
-        { rel: 'manifest', href: '/manifest.webmanifest' }
+        { rel: 'manifest', href: '/manifest.webmanifest' },
+        { rel: 'icon', type: 'image/png', href: '/assets/icons/favicons/ts_16.png', sizes: '16x16' },
+        { rel: 'icon', type: 'image/png', href: '/assets/icons/favicons/ts_32.png', sizes: '32x32' },
+        { rel: 'icon', type: 'image/png', href: '/assets/icons/favicons/ts_48.png', sizes: '48x48' },
+        { rel: 'icon', type: 'image/png', href: '/assets/icons/favicons/ts_96.png', sizes: '96x96' },
+        { rel: 'icon', type: 'image/png', href: '/assets/icons/favicons/ts_180.png', sizes: '180x180' },
       ]
     }
   },
