@@ -17,8 +17,49 @@ export default defineNuxtConfig({
     'nuxt-security',
     '@nuxtjs/sitemap',
     'nuxt-jsonld',
-    '@nuxtjs/color-mode'
+    '@nuxtjs/color-mode',
+    '@vite-pwa/nuxt'
   ],
+
+  pwa: {
+    registerType: 'autoUpdate',
+    manifest: {
+      name: 'Tomasz Słapiński - CV',
+      short_name: 'Tomasz Słapiński',
+      description: 'Aplikacja skupia się na przedstawieniu historii, umiejętności, zdobytych certyfikatów i wiele więcej przez Tomasz Słapińskiego',
+      lang: 'pl',
+      start_url: '/',
+      screenshots: [
+        {
+          'src': '/assets/icons/pwa/screen.png',
+          'sizes': '800x600',
+          'type': 'image/png',
+          'form_factor': 'wide'
+        }
+      ],
+      theme_color: '#4A90E2',
+      icons: [
+        {
+          src: '/assets/icons/pwa/ts_192.png',
+          sizes: '192x192',
+          type: 'image/png',
+        },
+        {
+          src: '/assets/icons/pwa/ts_512.png',
+          sizes: '512x512',
+          type: 'image/png',
+        },
+      ],
+    },
+  },
+
+  app: {
+    head: {
+      link: [
+        { rel: 'manifest', href: '/manifest.webmanifest' }
+      ]
+    }
+  },
 
   colorMode: {
     preference: 'light',
