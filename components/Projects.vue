@@ -21,6 +21,7 @@
             :alt="project.name"
             class="t:w-full t:lg:h-[150px] t:h-[120px] t:object-cover"
             width="400"
+            format="webp"
             densities="x1 x2"
           />
 
