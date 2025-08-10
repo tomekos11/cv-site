@@ -75,7 +75,7 @@ export default defineNuxtConfig({
               window.OneSignalDeferred = window.OneSignalDeferred || [];
               OneSignalDeferred.push(async function(OneSignal) {
                 await OneSignal.init({
-                  appId: "${process.env.NUXT_DISCORD_WEBHOOK_URL}",
+                  appId: "${process.env.NUXT_ONE_SIGNAL_APP_ID}",
                 });
               });
             }
