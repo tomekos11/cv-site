@@ -163,6 +163,7 @@ export default defineNuxtConfig({
         'script-src': ['\'self\'', 'https:', '\'unsafe-inline\''],
         'style-src': ['\'self\'', 'https:', '\'unsafe-inline\''],
         'img-src': ['\'self\'', 'data:', 'https:'],
+        'connect-src': ['\'self\'', 'https://api.onesignal.com'],
         'font-src': ['\'self\'', 'https:', 'data:'],
         'object-src': ['\'none\''],
         'upgrade-insecure-requests': true,
