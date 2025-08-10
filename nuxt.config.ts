@@ -63,8 +63,27 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/png', href: '/assets/icons/favicons/ts_48.png', sizes: '48x48' },
         { rel: 'icon', type: 'image/png', href: '/assets/icons/favicons/ts_96.png', sizes: '96x96' },
         { rel: 'icon', type: 'image/png', href: '/assets/icons/favicons/ts_180.png', sizes: '180x180' },
+      ],
+      script: [
+        {
+          src: 'https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js',
+          defer: true,
+        },
+        {
+          innerHTML: `
+            if (window.location.origin === "${process.env.NUXT_APP_ORIGIN}") {
+              window.OneSignalDeferred = window.OneSignalDeferred || [];
+              OneSignalDeferred.push(async function(OneSignal) {
+                await OneSignal.init({
+                  appId: "${process.env.NUXT_DISCORD_WEBHOOK_URL}",
+                });
+              });
+            }
+          `,
+          type: 'text/javascript',
+        }
       ]
-    }
+    },
   },
 
   colorMode: {
