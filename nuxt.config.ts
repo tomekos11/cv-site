@@ -71,11 +71,11 @@ export default defineNuxtConfig({
         },
         {
           innerHTML: `
-            if (window.location.origin === "${process.env.NUXT_APP_ORIGIN}") {
+            if (window.location.origin === "${process.env.NUXT_PUBLIC_APP_ORIGIN}") {
               window.OneSignalDeferred = window.OneSignalDeferred || [];
               OneSignalDeferred.push(async function(OneSignal) {
                 await OneSignal.init({
-                  appId: "${process.env.NUXT_ONE_SIGNAL_APP_ID}",
+                  appId: "${process.env.NUXT_PUBLIC_ONE_SIGNAL_APP_ID}",
                 });
               });
             }
