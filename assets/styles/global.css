@@ -152,3 +152,7 @@ h1, h2, h3, h4, h5, h6 {
 .flag-icon-gb {
   background-image: url(/assets/icons/flags/gb.svg);
 }
+
+.fullscreen {
+  max-height: 100svh;
+}
