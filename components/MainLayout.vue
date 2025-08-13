@@ -43,7 +43,7 @@
               <dark-mode-switcher />
             </div>
           </div>
-          <div class="q-mt-auto" style="background: #ffffff1a;">
+          <div class="q-mt-auto" style="background: #ffffff1a; padding-bottom: env(safe-area-inset-bottom)">
             <div class="d-flex justify-center gap-5 q-my-xs">
               <a href="https://www.linkedin.com/in/tomasz-slapinski/" target="_blank">
                 <Icon name="uil:linkedin" style="color: white" size="36px" class="d-flex"/>
