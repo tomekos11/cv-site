@@ -112,6 +112,7 @@ const technologies: Technology[] = [
   { name: 'Adonis.js', src: '/assets/icons/technologies/adonis.png', type: 'backend' },
   { name: 'Bootstrap', src: '/assets/icons/technologies/bootstrap.png', type: 'frontend' },
   { name: 'Git', src: '/assets/icons/technologies/git.png' },
+  { name: 'Docker', src: '/assets/icons/technologies/docker.png' },
 ];
 
 const carousel = useTemplateRef<InstanceType<typeof QCarousel> | null>('carousel');
