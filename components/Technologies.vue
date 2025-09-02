@@ -87,14 +87,14 @@ const options = ['frontend', 'backend'] as const;
 interface Technology {
   name: string;
   src: string | null;
-  type?: typeof options[number];
+  type?: typeof options[number] | 'all';
 }
 
 const technologies: Technology[] = [
   { name: 'HTML', src: '/assets/icons/technologies/html5.png', type: 'frontend' },
   { name: 'CSS', src: '/assets/icons/technologies/css.png', type: 'frontend' },
-  { name: 'JavaScript', src: '/assets/icons/technologies/js.png', type: 'frontend' },
-  { name: 'TypeScript', src: '/assets/icons/technologies/tss.png', type: 'frontend' },
+  { name: 'JavaScript', src: '/assets/icons/technologies/js.png', type: 'all' },
+  { name: 'TypeScript', src: '/assets/icons/technologies/tss.png', type: 'all' },
   { name: 'SEO', src: '/assets/icons/technologies/seo_no_bg.png', type: 'frontend' },
   { name: 'Vue', src: '/assets/icons/technologies/vue.png', type: 'frontend' },
   { name: 'Nuxt', src: '/assets/icons/technologies/nuxt.png', type: 'frontend' },
@@ -106,6 +106,9 @@ const technologies: Technology[] = [
   { name: 'Laravel', src: '/assets/icons/technologies/laravel.png', type: 'backend' },
   { name: 'SQL', src: '/assets/icons/technologies/sql.png', type: 'backend' },
   { name: 'ORM', src: null, type: 'backend' },
+  { name: 'REST', src: '/assets/icons/technologies/rest.png', type: 'backend' },
+  { name: 'gRPC', src: '/assets/icons/technologies/grpc.svg', type: 'backend' },
+  { name: 'GraphQL', src: '/assets/icons/technologies/graphql.png', type: 'backend' },
   { name: 'Node', src: '/assets/icons/technologies/node.png', type: 'backend' },
   { name: 'Express', src: '/assets/icons/technologies/express.webp', type: 'backend' },
   { name: 'Nest', src: '/assets/icons/technologies/nest.webp', type: 'backend' },
@@ -123,7 +126,7 @@ const maxCardsPerSlide = ref(5);
 const maxCardsAmountUpdated = ref(false);
 const placeholderCardCount = ref(5);
 
-const filteredTechnologies = computed(() => technologies.filter(el => !selectedCategory.value || el.type === selectedCategory.value));
+const filteredTechnologies = computed(() => technologies.filter(el => !selectedCategory.value || el.type === selectedCategory.value || el.type === 'all'));
 
 const visibleTechnologies = computed(() => {
   const start = slide.value;

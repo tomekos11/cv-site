@@ -47,42 +47,27 @@
                   </div>
 
                   <q-btn v-if="project.githubLinks" flat round rounded class="t:self-start t:!p-0">
-                    <q-menu class="t:!max-w-[180px]">
-                      <div class="t:p-3 t:text-sm t:text-center t:tracking-wide t:dark:text-slate-400 t:text-slate-700">
-                        {{ $t('projectsList.choose') }} 
+                    <q-menu class="t:!max-w-[260px]">
+                      <div class="t:p-3 t:text-xs t:text-center t:tracking-wide t:dark:text-slate-400 t:text-slate-700">
+                        <strong>{{ project.name }}</strong><br> {{ $t('projectsList.choose') }} 
                       </div>
 
-                      <q-item v-if="project.githubLinks.project" dense clickable>
-                        <q-item-section>
-                          <a :href="project.githubLinks.project" target="_blank">
-                            {{ $t('projectsList.wholeProject') }}  <q-icon name="code" />
-                          </a>
-                        </q-item-section>
-                      </q-item>
+                      <q-separator />
 
-                      <q-item v-if="project.githubLinks.frontend" dense clickable>
-                        <q-item-section>
-                          <a :href="project.githubLinks.frontend" target="_blank">
-                            Frontend <q-icon name="code" />
-                          </a>
-                        </q-item-section>
-                      </q-item>
+                      <q-list separator>
 
-                      <q-item v-if="project.githubLinks.backend" dense clickable>
+                      <q-item
+                        v-for="(link, name) in project.githubLinks"
+                        :key="link"
+                        dense clickable
+                      >
                         <q-item-section>
-                          <a :href="project.githubLinks.backend" target="_blank">
-                            Backend <q-icon name="code" />
+                          <a :href="link" target="_blank">
+                            <q-badge :label="name" /> {{ link }}
                           </a>
                         </q-item-section>
                       </q-item>
-
-                      <q-item v-if="project.githubLinks['backend-2']" dense clickable>
-                        <q-item-section>
-                          <a :href="project.githubLinks['backend-2']" target="_blank">
-                            Backend2 <q-icon name="code" />
-                          </a>
-                        </q-item-section>
-                      </q-item>
+                      </q-list>
                     </q-menu>
                     <Icon name="uil:github" size="24px" class="t:flex t:dark:text-slate-300"/>
                   </q-btn>
