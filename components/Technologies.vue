@@ -109,6 +109,7 @@ const technologies: Technology[] = [
   { name: 'REST', src: '/assets/icons/technologies/rest.png', type: 'backend' },
   { name: 'gRPC', src: '/assets/icons/technologies/grpc.svg', type: 'backend' },
   { name: 'GraphQL', src: '/assets/icons/technologies/graphql.png', type: 'backend' },
+  { name: 'NX', src: '/assets/icons/technologies/nx.png', type: 'all' },
   { name: 'Node', src: '/assets/icons/technologies/node.png', type: 'backend' },
   { name: 'Express', src: '/assets/icons/technologies/express.webp', type: 'backend' },
   { name: 'Nest', src: '/assets/icons/technologies/nest.webp', type: 'backend' },
