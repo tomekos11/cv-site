@@ -40,11 +40,11 @@
       </div>
     </div>
     
-    <experience />
-    <education />
-    <technologies />
-    <projects />
-    <certificates />
+    <lazy-experience hydrate-on-idle />
+    <lazy-education hydrate-on-idle />
+    <lazy-technologies hydrate-on-idle />
+    <lazy-projects hydrate-on-idle />
+    <lazy-certificates hydrate-on-idle />
     
     <inquiry-modal v-if="showInquiryModal" @hide="showInquiryModal = false" @before-show="loading = false"/>
     <analytics/>
