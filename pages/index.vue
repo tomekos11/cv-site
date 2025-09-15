@@ -62,11 +62,14 @@ const loading = ref(false);
 const { t, locale } = useI18n();
 
 const downloadCv = () => {
-  const fileUrl = `/assets/files/cv_${locale.value}.pdf`;
+  const upperCaseLocale = locale.value.toUpperCase();
+
+  const fileName = `${upperCaseLocale}_Tomasz_Slapinski_Fullstack_Developer.pdf`;
+  const fileUrl = `/assets/files/${fileName}`;
 
   const link = document.createElement('a');
   link.href = fileUrl;
-  link.download = `cv_${locale.value}.pdf`;
+  link.download = fileName;
 
   document.body.appendChild(link);
   link.click();
