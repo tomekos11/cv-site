@@ -34,7 +34,7 @@ export const useSeo = (page: '' | '/projects-list', title: string, description: 
 
       { property: 'og:description', content: ogDescription },
 
-      { property: 'og:image', content: 'https://cv.tomasz-slapinski.pl/assets/icons/img/2023_linkedin_no_bg.png' },
+      { property: 'og:image', content: 'https://cv.tomasz-slapinski.pl/assets/icons/img/2023_linkedin_no_bg.webp' },
 
       { property: 'og:url', content: ogUrl.value },
 

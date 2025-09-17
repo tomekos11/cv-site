@@ -63,6 +63,7 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/png', href: '/assets/icons/favicons/ts_48.png', sizes: '48x48' },
         { rel: 'icon', type: 'image/png', href: '/assets/icons/favicons/ts_96.png', sizes: '96x96' },
         { rel: 'icon', type: 'image/png', href: '/assets/icons/favicons/ts_180.png', sizes: '180x180' },
+        { rel: 'preload', as: 'image', href: '/assets/icons/img/2023_linkedin_no_bg.webp', fetchpriority: 'high', type: 'image/webp' },
       ],
       script: [
         {

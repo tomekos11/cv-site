@@ -9,7 +9,7 @@ export default JSON.stringify({
     'https://www.linkedin.com/in/tomasz-slapinski/',
     'https://github.com/tomekos11'
   ],
-  'image': 'https://cv.tomasz-slapinski.pl/assets/icons/img/2023_linkedin_no_bg.png',
+  'image': 'https://cv.tomasz-slapinski.pl/assets/icons/img/2023_linkedin_no_bg.webp',
   'address': {
     '@type': 'PostalAddress',
     'streetAddress': 'ul. Przykładowa 12',
