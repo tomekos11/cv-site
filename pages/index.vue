@@ -37,7 +37,12 @@
 
       <div class="col-12 col-md-5 col-lg-4 text-center self-center d-flex justify-center">
         <!-- <nuxt-img src="/assets/icons/img/2023_linkedin_no_bg.png" preload fetchpriority="high" class="profile-img" alt="Tomasz Słapiński" width="420" densities="x1 x2" format="webp" /> -->
-        <img src="/assets/icons/img/2023_linkedin_no_bg.webp" fetchpriority="high" class="profile-img img" alt="Tomasz Słapiński" />
+        <!-- <img src="/assets/icons/img/2023_linkedin_no_bg.webp" fetchpriority="high" class="profile-img img" alt="Tomasz Słapiński" /> -->
+        <picture>
+          <source srcset="/assets/icons/img/2023_linkedin_no_bg.webp" type="image/webp" fetchpriority="high" />
+          <source srcset="/assets/icons/img/2023_linkedin_no_bg.png" type="image/png" />
+          <img src="/assets/icons/img/2023_linkedin_no_bg.png" alt="Tomasz Słapiński" class="profile-img img" />
+        </picture>
       </div>
     </div>
     

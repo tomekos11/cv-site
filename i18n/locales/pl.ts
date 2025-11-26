@@ -197,6 +197,10 @@ export default {
       name: '',
       description: 'Podczas kursu "OWASP Top 10 Minutes Hack" zapoznałem się z najważniejszymi zagrożeniami cyberbezpieczeństwa według OWASP Top 10. Praktycznie przećwiczyłem ataki takie jak Broken Access Control, Injection, Security Misconfiguration oraz inne typowe podatności. Uczyłem się rozpoznawać i zabezpieczać aplikacje przed atakami na JWT, deserializację oraz słabe algorytmy haszujące. Na koniec poznałem również zasady Vibe Coding z naciskiem na bezpieczeństwo w kontekście sztucznej inteligencji.'
     },
+    cert7: {
+      name: '',
+      description: 'Podczas kursu Certified Mid-Level Vue.js Developer potwierdziłem swoje umiejętności w zakresie budowania komponentów i aplikacji w Vue, jednocześnie poznając kilka nowych aspektów, o których wcześniej nie miałem pełnej wiedzy. Kurs obejmował zaawansowane techniki zarządzania stanem, optymalizację wydajności oraz najlepsze praktyki w tworzeniu skalowalnych aplikacji Vue.js.'
+    },
   },
 
 

@@ -102,6 +102,7 @@ const technologies: Technology[] = [
   { name: 'Nuxt UI', src: '/assets/icons/technologies/nuxt_ui.svg', type: 'frontend' },
   { name: 'Shadcn', src: '/assets/icons/technologies/shadcn.jpg', type: 'frontend' },
   { name: 'Tailwind', src: '/assets/icons/technologies/tailwind.svg', type: 'frontend' },
+  { name: 'React', src: '/assets/icons/technologies/react.png', type: 'frontend' },
   { name: 'PHP', src: '/assets/icons/technologies/php.png', type: 'backend' },
   { name: 'Laravel', src: '/assets/icons/technologies/laravel.png', type: 'backend' },
   { name: 'SQL', src: '/assets/icons/technologies/sql.png', type: 'backend' },

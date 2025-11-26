@@ -188,6 +188,10 @@ export default {
       name: '',
       description: 'During the "OWASP Top 10 Minutes Hack" course, I explored the most critical cybersecurity threats according to the OWASP Top 10. I practically exercised attacks such as Broken Access Control, Injection, Security Misconfiguration, and other common vulnerabilities. I learned to identify and secure applications against JWT attacks, deserialization flaws, and weak hash algorithms. Finally, I became familiar with Vibe Coding principles with a focus on security in the context of artificial intelligence.'
     },
+    cert7: {
+      name: '',
+      description: 'During the Certified Mid-Level Vue.js Developer course, I confirmed my skills in building components and applications with Vue while discovering several new aspects I hadn\`t fully known before. The course covered advanced state management techniques, performance optimization, and best practices for creating scalable Vue.js applications. This deepened my understanding of Vue 3\`s capabilities and improved my ability to build efficient and maintainable web applications.'
+    },
   },
 
   projectsList: {

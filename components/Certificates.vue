@@ -108,6 +108,17 @@ const img = useImage();
 
 const certificates = computed<Certificate[]>(() => [
   {
+    name: 'Certified Mid-Level Vue.js Developer',
+    company: 'Certificates.dev',
+    receivedDate: '2025-10',
+    skills: ['Vue', 'JS','TS', 'Frontend'],
+    companyImage: '/assets/icons/companies/certificates_dev.jpg',
+    image: '/assets/icons/certificates/vue_mid.png',
+    description: t('certificates.cert7.description'),
+    identifier: 'a0383457-31aa-4170-adf5-c4ff8530a240',
+    link: 'https://api.certificates.dev/certificates/a0383457-31aa-4170-adf5-c4ff8530a240/download?signature=68376c8bff19ba427067db6188d98a25203f33cf4badbbb69a8674f44e7662d3',
+  },
+  {
     name: 'OWASP Top 10 Minutes Hack',
     company: 'easytools',
     receivedDate: '2025-07',
