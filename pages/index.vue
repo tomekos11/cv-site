@@ -47,7 +47,14 @@
     </div>
     
     <lazy-experience hydrate-on-idle />
-    <lazy-education hydrate-on-idle />
+    <lazy-education hydrate-on-idle>
+      <template #fallback>
+        <section id="education">
+          <section-title :title="$t('nav.education')" />
+          <education-skeleton />
+        </section>
+      </template>
+    </lazy-education>
     <lazy-technologies hydrate-on-idle />
     <lazy-projects hydrate-on-idle />
     <lazy-certificates hydrate-on-idle />

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 150" role="img" aria-label="Discrete logarithm visualizer">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="150" fill="url(#bg)"/>
+  <text x="200" y="58" fill="#e2e8f0" font-family="Georgia, serif" font-size="28" text-anchor="middle">G</text>
+  <text x="228" y="48" fill="#93c5fd" font-family="Georgia, serif" font-size="18" text-anchor="middle">x</text>
+  <text x="248" y="58" fill="#e2e8f0" font-family="Georgia, serif" font-size="28" text-anchor="middle">a B (mod P)</text>
+  <text x="200" y="108" fill="#94a3b8" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">Baby-step Giant-step</text>
+</svg>

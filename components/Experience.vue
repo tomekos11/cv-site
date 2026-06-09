@@ -184,9 +184,9 @@ const workHistory: WorkHistory[] = computed(() => [
 ]);
 
 const section = useTemplateRef('section');
+const { registerSection } = useActiveSection();
 
 onMounted(() => {
-  const { registerSection } = useActiveSection();
   registerSection('experience', section);
 });
 

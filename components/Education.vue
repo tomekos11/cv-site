@@ -1,8 +1,10 @@
 <template>
-  <section id="education" ref="section">
+  <section id="education" ref="section" :class="{ 'education-ready': isReady }">
     <section-title :title="$t('nav.education')"/>
 
-    <div class="education-section">
+    <education-skeleton class="education-skeleton" />
+
+    <div class="education-section education-content">
       <q-list class="education-list">
         <q-item
           v-for="(school, index) in education"
@@ -70,10 +72,13 @@ const education = computed(() => [
   }
 ]);
 
+const isReady = ref(false);
 const visibleItems = ref<number[]>([]);
 const educationItems = ref<InstanceType<typeof QItem>[]>([]);
+const section = useTemplateRef('section');
+const { registerSection } = useActiveSection();
 
-onMounted(() => {
+const setupIntersectionObservers = () => {
   educationItems.value.forEach((el, index) => {
     const { stop } = useIntersectionObserver(
       el,
@@ -86,19 +91,53 @@ onMounted(() => {
       { threshold: 0.01 }
     );
   });
-});
-
-const section = useTemplateRef('section');
+};
 
 onMounted(() => {
-  const { registerSection } = useActiveSection();
   registerSection('education', section);
+
+  isReady.value = true;
+
+  nextTick(() => {
+    setupIntersectionObservers();
+  });
 });
 
 
 </script>
   
   <style scoped>
+  .education-skeleton {
+    display: block;
+  }
+
+  .education-content {
+    display: none;
+  }
+
+  .education-ready .education-skeleton {
+    display: none;
+  }
+
+  .education-ready .education-content {
+    display: block;
+  }
+
+  @media (scripting: none) {
+    .education-skeleton {
+      display: none;
+    }
+
+    .education-content {
+      display: block;
+    }
+
+    .education-item {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
   .education-section {
     padding: 30px;
     max-width: 1000px;

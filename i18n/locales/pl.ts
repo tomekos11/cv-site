@@ -107,6 +107,7 @@ export default {
   projects: {
     viewAllProjects: 'Zobacz wszystkie projekty',
     readMore: 'Czytaj więcej',
+    viewDemo: 'Zobacz demo',
     description: 'Na tej podstronie znajdziesz większość projektów, które stworzyłem lub współtworzyłem.',
 
     'heat-control-assistant': {
@@ -165,6 +166,10 @@ export default {
       name: 'Aplikacja do tworzenia i zarządzania testami',
       description: 'Aplikacja stworzona z wykorzystaniem Spring Boot i Thymeleaf, zaprojektowana z myślą o nauczycielach, którzy mogą tworzyć, zarządzać testami oraz przypisywać je do użytkowników w wyznaczonych grupach. Aplikacja umożliwia użytkownikom rozwiązywanie testów w ramach grup, podobnie jak w środowisku uniwersyteckim. Użytkownicy mogą rozwiązywać zadania w wyznaczonym czasie, a nauczyciele mają dostęp do wyników i statystyk. Aplikacja oferuje również funkcje generowania wyników i raportów z wykonanych testów.'
     },
+    discreteLogarithm: {
+      name: 'Wizualizator logarytmu dyskretnego (DLP)',
+      description: 'Interaktywne narzędzie edukacyjne do rozwiązywania problemu logarytmu dyskretnego algorytmem Baby-step Giant-step. Pozwala wpisać parametry G, B i P, a następnie krok po kroku prześledzić prekomputację baby steps, giant steps i dopasowanie prowadzące do wyniku.'
+    },
   },
 
   certificates: {
@@ -179,11 +184,11 @@ export default {
     },
     cert2: {
       name: 'Analytics Academy - SQL',
-      description: ''
+      description: 'Podczas kursu Analytics Academy - SQL w LabMasters Analytics Academy utrwalałem dotychczasową wiedzę z zakresu SQL oraz dowiedziałem się sporo ciekawostek, które poszerzyły moje spojrzenie na pracę z bazami danych i analizą danych.'
     },
     cert3: {
       name: 'TOEIC Certyfikat osiągnięcia',
-      description: 'Certyfikat stanowi potwierdzenie '
+      description: 'Certyfikat stanowi potwierdzenie mojego poziomu języka angielskiego na poziomie C1. TOEIC (Test of English for International Communication) to ustandaryzowany test języka angielskiego przeznaczony dla profesjonalistów i firm. Obejmuje ocenę umiejętności receptywnych (czytanie i słuchanie) oraz produktywnych (mówienie i pisanie).'
     },
     cert4: {
       name: 'Certyfikacja SEO',
@@ -200,6 +205,10 @@ export default {
     cert7: {
       name: '',
       description: 'Podczas kursu Certified Mid-Level Vue.js Developer potwierdziłem swoje umiejętności w zakresie budowania komponentów i aplikacji w Vue, jednocześnie poznając kilka nowych aspektów, o których wcześniej nie miałem pełnej wiedzy. Kurs obejmował zaawansowane techniki zarządzania stanem, optymalizację wydajności oraz najlepsze praktyki w tworzeniu skalowalnych aplikacji Vue.js.'
+    },
+    cert8: {
+      name: 'Junior Cybersecurity Analyst',
+      description: 'Ukończyłem ścieżkę kariery Junior Cybersecurity Analyst w programie Cisco Networking Academy, prowadzoną przez Eksperckie Centrum Szkolenia Cyberbezpieczeństwa. Kurs obejmował podstawy analizy zagrożeń cybernetycznych, bezpieczeństwa sieci oraz praktyczne umiejętności wspierające pracę na stanowisku analityka cyberbezpieczeństwa.'
     },
   },
 

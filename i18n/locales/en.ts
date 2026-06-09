@@ -98,6 +98,7 @@ export default {
   projects: {
     viewAllProjects: 'View All Projects',
     readMore: 'Read more',
+    viewDemo: 'View demo',
     description: 'On this subpage, you will find most of the projects that I have created or co-created.',
 
     'heat-control-assistant': {
@@ -156,6 +157,10 @@ export default {
       name: 'Test Creation and Management Application',
       description: 'An application developed using Spring Boot and Thymeleaf, designed for educators to create, manage, and assign tests to users in designated groups. Users can take tests within their groups, similar to a university environment. The application allows users to complete tasks within a specified timeframe, while teachers have access to results and statistics. Additional features include result generation and report creation for completed tests.'
     },
+    discreteLogarithm: {
+      name: 'Discrete Logarithm Visualizer (DLP)',
+      description: 'An interactive educational tool for solving the discrete logarithm problem using the Baby-step Giant-step algorithm. It lets you enter parameters G, B, and P, then follow step-by-step precomputation of baby steps, giant steps, and the matching that leads to the result.'
+    },
   },
 
   certificates: {
@@ -170,7 +175,7 @@ export default {
     },
     cert2: {
       name: 'Analytics Academy - SQL',
-      description: ''
+      description: 'During the Analytics Academy - SQL course at LabMasters Analytics Academy, I consolidated my existing SQL knowledge and picked up many interesting insights that broadened my perspective on working with databases and data analysis.'
     },
     cert3: {
       name: 'TOEIC Certificate of Achievement',
@@ -191,6 +196,10 @@ export default {
     cert7: {
       name: '',
       description: 'During the Certified Mid-Level Vue.js Developer course, I confirmed my skills in building components and applications with Vue while discovering several new aspects I hadn\`t fully known before. The course covered advanced state management techniques, performance optimization, and best practices for creating scalable Vue.js applications. This deepened my understanding of Vue 3\`s capabilities and improved my ability to build efficient and maintainable web applications.'
+    },
+    cert8: {
+      name: 'Junior Cybersecurity Analyst',
+      description: 'I completed the Junior Cybersecurity Analyst Career Path in the Cisco Networking Academy program, delivered by Eksperckie Centrum Szkolenia Cyberbezpieczeństwa. The course covered fundamentals of cyber threat analysis, network security, and practical skills supporting work as a junior cybersecurity analyst.'
     },
   },
 

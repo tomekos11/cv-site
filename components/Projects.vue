@@ -36,7 +36,30 @@
               </template>
             </div>
             <p class="limit-lines t:dark:text-slate-400">{{ project.description }}</p>
-            <q-btn flat color="blue-13" no-caps :aria-label="$t('projects.readMore') + ' ' + $t('aria.about') + ' ' + project.name"> {{ $t('projects.readMore')}}...</q-btn>
+            <div class="project-actions d-flex justify-center flex-wrap gap-5">
+              <q-btn
+                flat
+                no-caps
+                class="project-action project-action--read"
+                :aria-label="$t('projects.readMore') + ' ' + $t('aria.about') + ' ' + project.name"
+              >
+                {{ $t('projects.readMore') }}...
+              </q-btn>
+
+              <q-btn
+                v-if="project.demoLink"
+                flat
+                no-caps
+                class="project-action project-action--demo"
+                tag="a"
+                :href="project.demoLink"
+                target="_blank"
+                rel="noopener noreferrer"
+                :aria-label="$t('projects.viewDemo') + ' ' + project.name"
+              >
+                {{ $t('projects.viewDemo') }}
+              </q-btn>
+            </div>
 
           </q-card-section>
         </q-card>
@@ -74,6 +97,7 @@ interface Project {
   slug: string;
   technologies: Technology[];
   image: string;
+  demoLink?: string;
 }
 
 const { t, locale: currentLocale } = useI18n();
@@ -81,6 +105,15 @@ const { t, locale: currentLocale } = useI18n();
 const localeForURL = computed(() => currentLocale.value === 'pl' ? '' : `/${currentLocale.value}`);
 
 const projects = computed<Project[]>(() => [
+  {
+    name: t('projects.discreteLogarithm.name'),
+    description: t('projects.discreteLogarithm.description'),
+    year: 2026,
+    slug: 'discrete-logarithm',
+    technologies: ['Vue', 'Nuxt'],
+    image: '/assets/icons/projects/discrete-logarithm.svg',
+    demoLink: 'https://discrete-logarithm.tomasz-slapinski.pl/',
+  },
   { 
     name: t('projects.englishLearning.name'),
     description: t('projects.englishLearning.description'),
@@ -116,9 +149,9 @@ const projects = computed<Project[]>(() => [
 ]);
 
 const section = useTemplateRef('section');
+const { registerSection } = useActiveSection();
 
 onMounted(() => {
-  const { registerSection } = useActiveSection();
   registerSection('projects', section);
 });
 
@@ -126,14 +159,56 @@ onMounted(() => {
 
 <style scoped>
 
-.q-btn {
+.project-actions {
+  margin-top: 2px;
+}
+
+.project-actions .project-action {
   position: relative;
   overflow: hidden;
-  padding-bottom: 2px; /* Odstęp między tekstem a efektem podkreślenia */
+  padding-bottom: 2px;
   letter-spacing: 1px;
   font-size: 11px;
   padding: 10px;
   text-transform: uppercase;
+  border-radius: 6px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.project-action--read {
+  color: #64748b;
+}
+
+.project-action--read:hover {
+  color: #334155;
+  background-color: rgba(100, 116, 139, 0.1);
+}
+
+.project-action--demo {
+  color: #0d9488;
+}
+
+.project-action--demo:hover {
+  color: #0f766e;
+  background-color: rgba(13, 148, 136, 0.1);
+}
+
+:global(.body--dark) .project-action--read {
+  color: #94a3b8;
+}
+
+:global(.body--dark) .project-action--read:hover {
+  color: #e2e8f0;
+  background-color: rgba(148, 163, 184, 0.12);
+}
+
+:global(.body--dark) .project-action--demo {
+  color: #2dd4bf;
+}
+
+:global(.body--dark) .project-action--demo:hover {
+  color: #5eead4;
+  background-color: rgba(45, 212, 191, 0.12);
 }
 
 

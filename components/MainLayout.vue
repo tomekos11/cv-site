@@ -20,10 +20,19 @@
       <q-footer elevated class="text-white t:!bg-slate-900" :height-hint="50"> 
         <q-toolbar class="q-py-sm">
           <q-toolbar-title>
-            <div class="row justify-between">
+            <div class="row justify-between items-center flex-wrap gap-2">
               <span>
                 created by Tomasz Słapiński
               </span>
+              <div class="d-flex justify-center gap-5">
+                <a href="https://www.linkedin.com/in/tomasz-slapinski/" target="_blank" rel="noopener noreferrer">
+                  <Icon name="uil:linkedin" style="color: white" size="24px" class="d-flex"/>
+                </a>
+
+                <a href="https://github.com/tomekos11" target="_blank" rel="noopener noreferrer">
+                  <Icon name="uil:github" style="color: white" size="24px" class="d-flex"/>
+                </a>
+              </div>
               <span>
                 all rights reserved
               </span>

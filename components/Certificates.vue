@@ -108,6 +108,17 @@ const img = useImage();
 
 const certificates = computed<Certificate[]>(() => [
   {
+    name: t('certificates.cert8.name'),
+    company: 'Eksperckie Centrum Szkolenia Cyberbezpieczeństwa',
+    receivedDate: '2025-11',
+    skills: ['Cybersecurity', 'Cisco Networking Academy'],
+    companyImage: '/assets/icons/companies/eksperckie_centrum_szkolenia_cyberbezpieczestwa_logo.jpg',
+    image: '/assets/icons/certificates/cyberanalist.jpg',
+    description: t('certificates.cert8.description'),
+    identifier: 'f68360e7-dbef-4fbb-9d85-120fadf7326b',
+    link: 'https://www.credly.com/badges/f68360e7-dbef-4fbb-9d85-120fadf7326b',
+  },
+  {
     name: 'Certified Mid-Level Vue.js Developer',
     company: 'Certificates.dev',
     receivedDate: '2025-10',
@@ -188,9 +199,9 @@ const openModal = (certificate: Certificate) => {
 };
 
 const section = useTemplateRef('section');
+const { registerSection } = useActiveSection();
 
 onMounted(() => {
-  const { registerSection } = useActiveSection();
   registerSection('certificates', section);
 });
 </script>

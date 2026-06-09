@@ -6,6 +6,7 @@
 
       <div ref="select-container" class="q-mx-auto q-py-sm">
         <q-select
+          id="technologies-category-filter"
           v-model="selectedCategory"
           :options="options"
           outlined
@@ -19,7 +20,7 @@
         />
       </div>
 
-      <div ref="carousel" class="custom-carousel">
+      <div ref="carouselContainer" class="custom-carousel">
       
         <div v-if="!maxCardsAmountUpdated" class="carousel-grid q-pb-xl" >
           <div
@@ -37,6 +38,7 @@
         </div>
 
         <q-carousel
+          v-else
           v-model="slide"
           animated
           control-color="primary"
@@ -49,8 +51,8 @@
           <q-carousel-slide v-for="(tech, index) in filteredTechnologies" :key="tech.name" :name="index">
             <div class="carousel-grid">
               <q-card
-                v-for="(vt, vtIndex) in visibleTechnologies"
-                :key="vtIndex"
+                v-for="vt in visibleTechnologies"
+                :key="vt.name"
                 class="bg-white text-dark text-center card-hover carousel-card t:dark:!bg-slate-900 t:dark:!shadow-2xl"
               >
                 <q-card-section class="d-flex flex-column full-height">
@@ -79,8 +81,7 @@
 
 
 <script setup lang="ts">
-import type { QCarousel } from 'quasar';
-import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
+import { ref, computed, onMounted, onBeforeUnmount, nextTick } from 'vue';
 
 const options = ['frontend', 'backend'] as const;
 
@@ -118,9 +119,13 @@ const technologies: Technology[] = [
   { name: 'Bootstrap', src: '/assets/icons/technologies/bootstrap.png', type: 'frontend' },
   { name: 'Git', src: '/assets/icons/technologies/git.png' },
   { name: 'Docker', src: '/assets/icons/technologies/docker.png' },
+  { name: 'Agile', src: '/assets/icons/technologies/agile.svg' },
+  { name: 'Scrum', src: '/assets/icons/technologies/scrum.svg' },
+  { name: 'AWS', src: '/assets/icons/technologies/aws.svg' },
+  { name: 'Terraform', src: '/assets/icons/technologies/terraform.svg' },
 ];
 
-const carousel = useTemplateRef<InstanceType<typeof QCarousel> | null>('carousel');
+const carouselContainer = useTemplateRef<HTMLElement | null>('carouselContainer');
 
 const selectedCategory = ref<typeof options[number] | null>(null);
 const slide = ref(0);
@@ -145,30 +150,49 @@ const visibleTechnologies = computed(() => {
 });
 
 const updateMaxCardsPerSlide = () => {
-  if (typeof window === 'undefined' || !carousel.value) return; // Sprawdzanie środowiska klienta
+  if (typeof window === 'undefined') return;
+
+  const container = carouselContainer.value;
+  if (!container) return;
+
   slide.value = 0;
-  const containerWidth = carousel.value.offsetWidth;
+  const containerWidth = container.offsetWidth || container.clientWidth;
   const cardWidth = 220; // szerokość karty + gap
   maxCardsPerSlide.value = Math.max(1, Math.floor(containerWidth / cardWidth));
-  placeholderCardCount.value = maxCardsPerSlide.value; // Ustawienie liczby placeholderów
-  if (!maxCardsAmountUpdated.value) {
-    maxCardsAmountUpdated.value = true;
-  }
+  placeholderCardCount.value = maxCardsPerSlide.value;
+  maxCardsAmountUpdated.value = true;
 };
 
-const section = useTemplateRef('section');
+let resizeObserver: ResizeObserver | null = null;
 
-onMounted(() => {
+const section = useTemplateRef('section');
+const { registerSection } = useActiveSection();
+
+onMounted(async () => {
+  await nextTick();
   updateMaxCardsPerSlide();
+
+  if (!maxCardsAmountUpdated.value) {
+    await nextTick();
+    updateMaxCardsPerSlide();
+  }
+
+  if (carouselContainer.value) {
+    resizeObserver = new ResizeObserver(() => {
+      updateMaxCardsPerSlide();
+    });
+    resizeObserver.observe(carouselContainer.value);
+  }
+
   window.addEventListener('resize', updateMaxCardsPerSlide);
 
-  const { registerSection } = useActiveSection();
   registerSection('technologies', section);
 });
 
 
 onBeforeUnmount(() => {
   window.removeEventListener('resize', updateMaxCardsPerSlide);
+  resizeObserver?.disconnect();
 });
 </script>
 
