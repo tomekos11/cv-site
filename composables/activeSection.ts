@@ -4,7 +4,7 @@ import type { QScrollArea } from 'quasar';
 import { scroll } from 'quasar';
 const { getScrollTarget, setVerticalScrollPosition } = scroll;
 
-type SectionName = 'experience' | 'education' | 'technologies' | 'projects' | 'certificates';
+type SectionName = 'experience' | 'education' | 'languages' | 'technologies' | 'projects' | 'certificates';
 
 const sections = new Map<SectionName, { ref: Ref<HTMLElement | null>, visibleHeight: number }>();
 const activeSection = ref<SectionName | null>(null);

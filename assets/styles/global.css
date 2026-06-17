@@ -153,6 +153,16 @@ h1, h2, h3, h4, h5, h6 {
   background-image: url(/assets/icons/flags/gb.svg);
 }
 
+.flag-icon-es {
+  background-image: url(/assets/icons/flags/es.svg);
+}
+
+.flag-icon-lg {
+  width: 24px;
+  height: 18px;
+  line-height: 18px;
+}
+
 .fullscreen {
   max-height: 100svh;
 }

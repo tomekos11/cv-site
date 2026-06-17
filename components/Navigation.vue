@@ -2,6 +2,7 @@
   <template v-if="['index___pl', 'index___en', 'dynamic___pl', 'dynamic___en'].includes($route.name)">
     <q-btn flat :class="{ 'active-link': isSectionActive('experience'), 'd-block': isBlock, 'full-width': isBlock}" tag="a" :href="localeForURL + '/experience'" @click.prevent="scrollToSection('experience')"> {{ $t('nav.experience') }}</q-btn>
     <q-btn flat :class="{ 'active-link': isSectionActive('education'), 'd-block': isBlock, 'full-width': isBlock}" tag="a" :href="localeForURL + '/education'" @click.prevent="scrollToSection('education')">{{ $t('nav.education') }}</q-btn>
+    <q-btn flat :class="{ 'active-link': isSectionActive('languages'), 'd-block': isBlock, 'full-width': isBlock}" tag="a" :href="localeForURL + '/languages'" @click.prevent="scrollToSection('languages')">{{ $t('nav.languages') }}</q-btn>
     <q-btn flat :class="{ 'active-link': isSectionActive('technologies'), 'd-block': isBlock, 'full-width': isBlock}" tag="a" :href="localeForURL + '/technologies'" @click.prevent="scrollToSection('technologies')">{{ $t('nav.technologies') }}</q-btn>
     <q-btn flat :class="{ 'active-link': isSectionActive('projects'), 'd-block': isBlock, 'full-width': isBlock}" tag="a" :href="localeForURL + '/projects'" @click.prevent="scrollToSection('projects')">{{ $t('nav.projects') }}</q-btn>
     <q-btn flat :class="{ 'active-link': isSectionActive('certificates'), 'd-block': isBlock, 'full-width': isBlock}" tag="a" :href="localeForURL + '/certificates'" @click.prevent="scrollToSection('certificates')">{{ $t('nav.certificates') }}</q-btn>

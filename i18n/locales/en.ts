@@ -7,10 +7,12 @@ export default {
 
   nav: {
     experience: 'Experience',
+    commercialProjects: 'Commercial projects',
     education: 'Education',
     technologies: 'Technologies',
     projects: 'Projects',
     certificates: 'Certificates',
+    languages: 'Languages',
     'back-to-cv': 'Back to CV',
   },
   
@@ -39,6 +41,35 @@ export default {
   downloadCv: 'Download CV',
   myDescription: 'Evolving Full Stack Developer with a passion for problem-solving. Always ready for new challenges, constantly striving to refine and enhance skills.',
 
+  cvPdf: {
+    aboutDescription: 'I focus on continuous growth, attention to detail, and a practical approach to problem-solving. I enjoy learning new things, sharing experience with the team, and taking on challenges that lead to better products. I have extensive experience in the automotive industry and hands-on knowledge of the full web application development lifecycle, which allows me to solve problems effectively across frontend, backend, and security.',
+    consentClause: 'I consent to the processing of my personal data contained in this CV for the purposes necessary to carry out the recruitment process, as well as for the processing of my data for future recruitment purposes, in accordance with Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 (GDPR).',
+    skillsNotePrefix: 'Due to limited space, please visit my full CV online at ',
+    certificateLink: 'certificate',
+    technologyGroups: {
+      frontend: 'Frontend',
+      backend: 'Backend',
+      tools: 'Tools & infrastructure',
+      workflow: 'Work methodologies',
+    },
+    generationError: 'Failed to generate the PDF file. Please try again.',
+  },
+
+  languages: {
+    polish: {
+      name: 'Polish',
+      level: 'Native',
+    },
+    english: {
+      name: 'English',
+      level: 'C1',
+    },
+    spanish: {
+      name: 'Spanish',
+      level: 'A2',
+    },
+  },
+
   fieldRequired: 'Field {field} is required',
 
   inquiryModal: {
@@ -58,6 +89,10 @@ export default {
       shortDescription: 'Wholesale distributor of car parts',
       date: 'July 2023 - Present',
     },
+  },
+
+  commercialProjects: {
+    description: 'Selected commercial projects and assignments completed outside my main professional experience.',
     nda: {
       name: 'Well-known company developing computer games',
       shortDescription: 'NDA project',
@@ -70,7 +105,7 @@ export default {
     infraTeam1: {
       shortDescription: 'Conference management system',
       date: 'July 2023 - May 2024',
-    }
+    },
   },
 
   education: {

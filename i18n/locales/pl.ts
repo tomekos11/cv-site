@@ -8,10 +8,12 @@ export default {
 
   nav: {
     experience: 'Doświadczenie',
+    commercialProjects: 'Komercjalne projekty',
     education: 'Edukacja',
     technologies: 'Technologie',
     projects: 'Projekty',
     certificates: 'Certyfikaty',
+    languages: 'Języki',
     'back-to-cv': 'Wróć do CV',
   },
 
@@ -39,6 +41,35 @@ export default {
   inquire: 'Napisz do mnie',
   downloadCv: 'Pobierz CV',
   myDescription: 'Rozwijający się Full Stack Developer, z zamiłowaniem do rozwiązywania problemów. Zawsze gotów na wyzwania, nieustannie dążący do doskonalenia swoich umiejętności.',
+
+  cvPdf: {
+    aboutDescription: 'Stawiam na ciągły rozwój, dbałość o szczegóły i praktyczne podejście do rozwiązywania problemów. Lubię zdobywać nową wiedzę, dzielić się doświadczeniem z zespołem i podejmować wyzwania, które pozwalają tworzyć lepsze produkty. Mam szerokie doświadczenie w branży automotive oraz praktyczną znajomość pełnego cyklu tworzenia aplikacji webowych, co pozwala mi skutecznie rozwiązywać problemy zarówno po stronie frontendu, backendu, jak i w obszarze bezpieczeństwa.',
+    consentClause: 'Wyrażam zgodę na przetwarzanie moich danych osobowych zawartych w niniejszym CV dla potrzeb niezbędnych do realizacji procesu rekrutacji, a także na przetwarzanie danych w celu prowadzenia przyszłych rekrutacji, zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. (RODO).',
+    skillsNotePrefix: 'Z uwagi na limitowane miejsce, zapraszam do odwiedzenia strony poświęconej mojemu CV: ',
+    certificateLink: 'certyfikat',
+    technologyGroups: {
+      frontend: 'Frontend',
+      backend: 'Backend',
+      tools: 'Narzędzia i infrastruktura',
+      workflow: 'Metodyki pracy',
+    },
+    generationError: 'Nie udało się wygenerować pliku PDF. Spróbuj ponownie.',
+  },
+
+  languages: {
+    polish: {
+      name: 'Polski',
+      level: 'Native',
+    },
+    english: {
+      name: 'Angielski',
+      level: 'C1',
+    },
+    spanish: {
+      name: 'Hiszpański',
+      level: 'A2',
+    },
+  },
   
 
   fieldRequired: 'Pole {field} jest wymagane',
@@ -59,6 +90,10 @@ export default {
       shortDescription: 'Hurtownia części samochowych',
       date: 'Lipiec 2023 - obecnie',
     },
+  },
+
+  commercialProjects: {
+    description: 'Wybrane projekty komercyjne i zlecenia realizowane poza głównym doświadczeniem zawodowym.',
     nda: {
       name: 'Popularna firma, tworząca gry komputerowe',
       shortDescription: 'Zlecenie NDA',
@@ -71,7 +106,7 @@ export default {
     infraTeam1: {
       shortDescription: 'System obsługi konferencji',
       date: 'Lipiec 2023 - Maj 2024',
-    }
+    },
   },
 
   // experience: {
