@@ -100,21 +100,21 @@ export const useCvData = () => {
       company: t('commercialProjects.nda.name'),
       shortDescription: t('commercialProjects.nda.shortDescription'),
       slug: 'nda',
-      dates: t('commercialProjects.nda.date'),
+      dates: '',
       technologies: [],
     },
     {
       company: 'StormCode',
       shortDescription: t('commercialProjects.infraTeam2.shortDescription'),
       slug: 'cemex',
-      dates: t('commercialProjects.infraTeam2.date'),
+      dates: '',
       technologies: ['Vue', 'Quasar', 'Laravel'],
     },
     {
       company: 'Infra Team',
       shortDescription: t('commercialProjects.infraTeam1.shortDescription'),
       slug: 'infra-team',
-      dates: t('commercialProjects.infraTeam1.date'),
+      dates: '',
       technologies: ['Vue', 'Bootstrap', 'Laravel'],
     },
   ]);
@@ -154,7 +154,7 @@ export const useCvData = () => {
       year: 2026,
       slug: 'discrete-logarithm',
       technologies: ['Vue', 'Nuxt'],
-      image: '/assets/icons/projects/discrete-logarithm.svg',
+      image: '/assets/icons/projects/discrete-logarithm.webp',
       demoLink: 'https://discrete-logarithm.tomasz-slapinski.pl/',
     },
     {

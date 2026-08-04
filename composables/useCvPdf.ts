@@ -1,5 +1,3 @@
-import { buildCvPdf } from '~/helpers/buildCvPdf';
-
 export const useCvPdf = () => {
   const { locale, t } = useI18n();
   const { notify } = useQuasar();
@@ -26,6 +24,8 @@ export const useCvPdf = () => {
     isGenerating.value = true;
 
     try {
+      // Lazy-load heavy jspdf stack only when generating a PDF
+      const { buildCvPdf } = await import('~/helpers/buildCvPdf');
       await buildCvPdf({
         personal: personal.value,
         labels: {

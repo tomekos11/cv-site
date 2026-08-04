@@ -95,17 +95,18 @@ export default {
   commercialProjects: {
     description: 'Wybrane projekty komercyjne i zlecenia realizowane poza głównym doświadczeniem zawodowym.',
     nda: {
-      name: 'Popularna firma, tworząca gry komputerowe',
-      shortDescription: 'Zlecenie NDA',
-      date: 'Marzec 2025 - Maj 2025',
+      name: 'Firma gamingowa',
+      shortDescription: 'Projekt objęty NDA',
     },
     infraTeam2: {
       shortDescription: 'System zarządzania wydarzeniami',
-      date: 'Sierpień 2024 - Wrzesień 2024',
     },
     infraTeam1: {
       shortDescription: 'System obsługi konferencji',
-      date: 'Lipiec 2023 - Maj 2024',
+    },
+    shopify: {
+      name: 'Adastra',
+      shortDescription: 'Sklep internetowy Shopify',
     },
   },
 
@@ -257,6 +258,60 @@ export default {
       fromTheNewest: 'Od najnowszych',
       fromTheOldest: 'Od najstarszych'
     }
+  },
+
+  projectDetail: {
+    breadcrumb: {
+      home: 'CV',
+    },
+    about: 'O projekcie',
+    technologies: 'Technologie',
+    links: 'Linki',
+    otherProjects: 'Inne projekty',
+    carousel: {
+      prev: 'Poprzednie projekty',
+      next: 'Następne projekty',
+    },
+  },
+
+  collaboration: {
+    path: '/wspolpraca',
+    breadcrumb: 'Współpraca',
+    title: 'Współpraca komercyjna',
+    lead: 'Tworzę skalowalne i wydajne aplikacje webowe dla firm, które potrzebują niezawodnych rozwiązań cyfrowych wspierających rozwój biznesu. Łączę nowoczesny frontend, backend oraz optymalizację techniczną, aby dostarczać produkty szybkie, intuicyjne i gotowe do dalszego rozwoju.',
+    specializationsTitle: 'Specjalizacja',
+    specializationsIntro: 'Pracuję z nowoczesnym stackiem technologicznym JavaScript oraz PHP, który pozwala tworzyć szybkie i niezawodne rozwiązania, od stron internetowych i aplikacji typu SaaS, przez panele administracyjne, aż po rozbudowane systemy biznesowe.',
+    technologiesLabel: 'Technologie:',
+    moreTechnologies: 'więcej',
+    moreTechnologiesAria: 'Pokaż pozostałe {count} technologii',
+    commercialProjectsTitle: 'Wybrane projekty komercyjne',
+    commercialIntro: 'Realizowałem projekty dla firm z Polski, Stanów Zjednoczonych oraz innych rynków zagranicznych. Pracowałem przy rozwiązaniach dla branży e-commerce, eventowej, budowlanej oraz gamingowej, zarówno samodzielnie, jak i jako część większych zespołów projektowych.',
+    contactTitle: 'Porozmawiajmy o Twoim projekcie',
+    contactText: {
+      p1: 'Planujesz stworzenie aplikacji webowej, sklepu internetowego, dedykowanego systemu biznesowego lub potrzebujesz wsparcia przy rozwoju istniejącego rozwiązania?',
+      p2: 'Skontaktuj się ze mną. Przeanalizujemy potrzeby projektu i dobierzemy najlepsze podejście technologiczne.',
+    },
+    homeCta: 'Współpraca komercyjna',
+    experiencePromo: {
+      p1: 'Jestem otwarty na współpracę komercyjną przy realizacji projektów webowych dla firm z Polski oraz rynków zagranicznych. Specjalizuję się w tworzeniu nowoczesnych aplikacji internetowych jako programista Full-Stack, oferując kompleksowe wsparcie, od koncepcji i projektowania rozwiązań po ich wdrożenie i dalszy rozwój.',
+      p2: 'Jeśli poszukujesz doświadczonego specjalisty do realizacji swojego projektu, zapraszam do kontaktu oraz zapoznania się ze szczegółami współpracy.',
+    },
+    paragraphs: {
+      p1: 'Nazywam się Tomasz Słapiński i jestem programistą Full-Stack z Rzeszowa. Specjalizuję się w tworzeniu aplikacji webowych opartych o technologie Vue.js, Nuxt, Quasar oraz Laravel. Projektuję rozwiązania z myślą o wydajności, SEO, bezpieczeństwie oraz łatwej rozbudowie w przyszłości.',
+      p2: 'Współpracuję z firmami z Polski oraz zagranicy, zarówno przy pojedynczych projektach, jak i długoterminowym rozwoju produktów cyfrowych. Realizuję aplikacje internetowe, systemy administracyjne, integracje API, sklepy internetowe oraz dedykowane narzędzia usprawniające procesy biznesowe.',
+      p3: 'Stawiam na przejrzystą komunikację, odpowiedzialne podejście do kodu oraz rozwiązania dopasowane do rzeczywistych celów biznesowych. Każdy projekt traktuję indywidualnie, dbając nie tylko o implementację funkcji, ale również o stabilność, wydajność i możliwość dalszego skalowania.',
+      p4: 'Jeżeli szukasz programisty Full-Stack z Polski do stworzenia lub rozwoju aplikacji webowej, lokalnie w Rzeszowie lub w pełni zdalnie, zapraszam do kontaktu. Pomogę przełożyć Twój pomysł na profesjonalny produkt cyfrowy.',
+    },
+    commercialProjects: {
+      nda: 'Realizacja projektu dla renomowanej firmy z branży gier komputerowych. Odpowiadałem za rozwój aplikacji webowej obejmującej nowoczesny interfejs użytkownika oraz logikę biznesową. Projekt wymagał zachowania wysokich standardów jakości, wydajności oraz pełnej poufności.',
+      shopify: 'Współpraca przy rozwoju sklepu internetowego dla firmy z rynku amerykańskiego. Zakres prac obejmował konfigurację platformy Shopify, dostosowanie wyglądu sklepu, organizację struktury produktów oraz wdrażanie rozwiązań usprawniających sprzedaż online.',
+      cemex: 'Współtworzyłem system wspierający organizację wydarzeń oraz zarządzanie użytkownikami dla firmy CEMEX w ramach współpracy ze StormCode. Odpowiadałem za rozwój kluczowych modułów aplikacji wspierających procesy biznesowe, obsługę wydarzeń oraz zarządzanie zasobami.',
+      'infra-team': 'Rozwijałem dedykowany system obsługi konferencji obejmujący proces rejestracji uczestników, moduły administracyjne oraz narzędzia wspierające organizację wydarzeń. Projekt wymagał sprawnego wdrażania zmian, współpracy zespołowej oraz utrzymania wysokiej stabilności systemu.',
+    },
+    seo: {
+      title: 'Współpraca komercyjna {\'|\'} Programista Full-Stack Rzeszów {\'|\'} Tomasz Słapiński',
+      description: 'Programista Full-Stack z Rzeszowa: Vue.js, Nuxt, Laravel. Współpraca komercyjna przy aplikacjach webowych, sklepach internetowych i systemach biznesowych dla firm z Polski i zagranicy. Kontakt: kontakt{\'@\'}tomasz-slapinski.pl',
+    },
   },
 
   faq: {

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" role="img">
+  <title>WebSocket</title>
+  <!-- left node -->
+  <circle cx="5" cy="12" r="3.2" fill="#6366F1"/>
+  <!-- right node -->
+  <circle cx="19" cy="12" r="3.2" fill="#8B5CF6"/>
+  <!-- bidirectional connection -->
+  <path d="M9.2 10.2h5.6" stroke="#6366F1" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M9.2 13.8h5.6" stroke="#8B5CF6" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M13.6 8.4l2.2 1.8-2.2 1.8" fill="#6366F1"/>
+  <path d="M10.4 12.0l-2.2 1.8 2.2 1.8" fill="#8B5CF6"/>
+  <!-- pulse dots -->
+  <circle cx="12" cy="10.2" r="1" fill="#A5B4FC"/>
+  <circle cx="12" cy="13.8" r="1" fill="#C4B5FD"/>
+</svg>

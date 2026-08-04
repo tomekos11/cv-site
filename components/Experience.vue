@@ -16,17 +16,16 @@
           <h4 class="experience-company">{{ job.company }}</h4>
           <p class="experience-subtitle">{{ job.shortDescription }}</p>
 
-          <div class="t:flex t:gap-2 t:flex-wrap t:justify-center t:md:justify-start">
-            <q-badge v-for="tech in job.technologies" :key="tech" class="dark-badge">
-              {{ tech }}
-            </q-badge>
-          </div>
+          <technologies-mini-badges
+            :items="jobTechnologies"
+            class="t:justify-center t:md:justify-start"
+          />
 
           <p class="experience-dates">{{ job.dates }}</p>
         </div>
       </header>
 
-      <div class="experience-body">
+      <div class="experience-body t:dark:!bg-slate-900">
         <job-description :job="job.slug" class="t:text-base t:leading-relaxed t:dark:text-slate-300" />
       </div>
     </article>
@@ -71,13 +70,10 @@
                 <p class="commercial-company">{{ project.company }}</p>
                 <p class="commercial-subtitle">{{ project.shortDescription }}</p>
 
-                <div v-if="project.technologies.length" class="t:flex t:gap-2 t:flex-wrap t:justify-center t:md:justify-start">
-                  <q-badge v-for="tech in project.technologies" :key="tech" class="dark-badge">
-                    {{ tech }}
-                  </q-badge>
-                </div>
-
-                <p class="commercial-dates">{{ project.dates }}</p>
+                <technologies-mini-badges
+                  v-if="project.technologies.length"
+                  :items="getTechnologiesByNames(project.technologies)"
+                />
               </div>
             </div>
           </template>
@@ -91,14 +87,82 @@
 
         <q-separator v-if="index < commercialProjects.length - 1" class="t:!mx-2 t:!bg-slate-300 t:dark:!bg-slate-700" />
       </div>
+
+      <div class="commercial-collaboration-cta t:dark:!bg-slate-900">
+        <div class="commercial-collaboration-cta__media">
+          <nuxt-img
+            src="/assets/images/collaboration-handshake.jpg"
+            :alt="$t('collaboration.homeCta')"
+            width="520"
+            height="340"
+            format="webp"
+            class="commercial-collaboration-cta__image"
+          />
+        </div>
+
+        <div class="commercial-collaboration-cta__content">
+          <p class="commercial-collaboration-cta__text">{{ $t('collaboration.experiencePromo.p1') }}</p>
+          <p class="commercial-collaboration-cta__text">{{ $t('collaboration.experiencePromo.p2') }}</p>
+
+          <div class="commercial-collaboration-cta__actions">
+            <a
+              :href="`mailto:${contactEmail}`"
+              class="commercial-collaboration-cta__email"
+            >
+              <q-icon name="mail" size="18px" />
+              {{ contactEmail }}
+            </a>
+
+            <div class="commercial-collaboration-cta__buttons">
+              <q-btn
+                class="custom-button"
+                size="sm"
+                rounded
+                no-caps
+                icon="mail"
+                :loading="inquiryLoading"
+                :label="$t('inquire')"
+                @click="openInquiryModal"
+              />
+              <q-btn
+                class="custom-button"
+                size="sm"
+                rounded
+                no-caps
+                icon="handshake"
+                :label="$t('collaboration.homeCta')"
+                :to="collaborationPath"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <inquiry-modal
+      v-if="showInquiryModal"
+      @hide="showInquiryModal = false"
+      @before-show="inquiryLoading = false"
+    />
   </section>
 </template>
 
 <script setup lang="ts">
 import JobDescription from '@/components/jobs/JobDesciption.vue';
+import { getTechnologiesByNames } from '~/helpers/technologyCatalog';
+
+const InquiryModal = defineAsyncComponent(() => import('@/components/InquiryModal.vue'));
 
 const { t } = useI18n();
+const { commercialProjects } = useCommercialProjects();
+const localePath = useLocalePath();
+const collaborationPath = computed(() => localePath('wspolpraca'));
+
+const contactEmail = 'kontakt@tomasz-slapinski.pl';
+const showInquiryModal = ref(false);
+const inquiryLoading = ref(false);
+
+const jobTechnologyKeys = ['Vue', 'Quasar', 'SSR', 'PWA', 'Laravel', 'SEO'] as const;
 
 const job = computed(() => ({
   company: 'Polcar',
@@ -106,38 +170,18 @@ const job = computed(() => ({
   slug: 'polcar' as const,
   logo: '/assets/icons/companies/polcar_no_bg.png',
   dates: t('experience.polcar.date'),
-  technologies: ['Vue', 'Quasar', 'SSR', 'PWA', 'Laravel', 'SEO'],
+  technologies: [...jobTechnologyKeys],
 }));
 
-const commercialProjects = computed(() => [
-  {
-    company: t('commercialProjects.nda.name'),
-    shortDescription: t('commercialProjects.nda.shortDescription'),
-    slug: 'nda' as const,
-    logo: null,
-    dates: t('commercialProjects.nda.date'),
-    technologies: [] as string[],
-  },
-  {
-    company: 'StormCode',
-    shortDescription: t('commercialProjects.infraTeam2.shortDescription'),
-    slug: 'cemex' as const,
-    logo: '/assets/icons/companies/stormcode.png',
-    dates: t('commercialProjects.infraTeam2.date'),
-    technologies: ['Vue', 'Quasar', 'Laravel'],
-  },
-  {
-    company: 'Infra Team',
-    shortDescription: t('commercialProjects.infraTeam1.shortDescription'),
-    slug: 'infra-team' as const,
-    logo: '/assets/icons/companies/infrateam_no_bg.png',
-    dates: t('commercialProjects.infraTeam1.date'),
-    technologies: ['Vue', 'Bootstrap', 'Laravel'],
-  },
-]);
+const jobTechnologies = computed(() => getTechnologiesByNames([...jobTechnologyKeys]));
 
 const section = useTemplateRef('section');
 const { registerSection } = useActiveSection();
+
+function openInquiryModal() {
+  showInquiryModal.value = true;
+  inquiryLoading.value = true;
+}
 
 onMounted(() => {
   registerSection('experience', section);
@@ -168,7 +212,7 @@ onMounted(() => {
   background: #f1f5f9;
 }
 
-:global(.body--dark) .experience-logo {
+.body--dark .experience-logo {
   background: #0f172a;
 }
 
@@ -186,7 +230,7 @@ onMounted(() => {
   color: #0f172a;
 }
 
-:global(.body--dark) .experience-company {
+.body--dark .experience-company {
   color: #e2e8f0;
 }
 
@@ -196,7 +240,7 @@ onMounted(() => {
   color: #64748b;
 }
 
-:global(.body--dark) .experience-subtitle {
+.body--dark .experience-subtitle {
   color: #94a3b8;
 }
 
@@ -208,7 +252,7 @@ onMounted(() => {
   color: #312e81;
 }
 
-:global(.body--dark) .experience-dates {
+.body--dark .experience-dates {
   color: #94a3b8;
 }
 
@@ -219,8 +263,9 @@ onMounted(() => {
   background: #f8fafc;
 }
 
-:global(.body--dark) .experience-body {
-  background: rgba(15, 23, 42, 0.55);
+.body--dark .experience-body {
+  background: #0f172a;
+  border: 1px solid rgba(148, 163, 184, 0.12);
 }
 
 .commercial-subsection {
@@ -239,7 +284,7 @@ onMounted(() => {
   text-align: center;
 }
 
-:global(.body--dark) .commercial-heading {
+.body--dark .commercial-heading {
   color: #cbd5e1;
 }
 
@@ -250,7 +295,7 @@ onMounted(() => {
   color: #64748b;
 }
 
-:global(.body--dark) .commercial-description {
+.body--dark .commercial-description {
   color: #94a3b8;
 }
 
@@ -281,7 +326,7 @@ onMounted(() => {
   color: #0f172a;
 }
 
-:global(.body--dark) .commercial-company {
+.body--dark .commercial-company {
   color: #e2e8f0;
 }
 
@@ -297,19 +342,7 @@ onMounted(() => {
   color: #64748b;
 }
 
-:global(.body--dark) .commercial-subtitle {
-  color: #94a3b8;
-}
-
-.commercial-dates {
-  margin: 6px 0 0;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  color: #312e81;
-}
-
-:global(.body--dark) .commercial-dates {
+.body--dark .commercial-subtitle {
   color: #94a3b8;
 }
 
@@ -352,6 +385,131 @@ onMounted(() => {
   .commercial-heading,
   .commercial-description {
     text-align: left;
+  }
+}
+
+.commercial-collaboration-cta {
+  margin-top: 1.75rem;
+  padding: 1.25rem;
+  border-radius: 16px;
+  text-align: center;
+  background: linear-gradient(135deg, #f0fdfa 0%, #f8fafc 100%);
+  border: 1px solid rgba(13, 148, 136, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.body--dark .commercial-collaboration-cta {
+  background-image: linear-gradient(135deg, #0f172a 0%, #134e4a 100%);
+  background-color: #0f172a;
+  border-color: rgba(45, 212, 191, 0.2);
+}
+
+.commercial-collaboration-cta__media {
+  width: 100%;
+  max-width: 420px;
+  flex-shrink: 0;
+}
+
+.commercial-collaboration-cta__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+.commercial-collaboration-cta__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  min-width: 0;
+}
+
+.commercial-collaboration-cta__text {
+  margin: 0 0 1rem;
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: #475569;
+}
+
+.commercial-collaboration-cta__text:last-of-type {
+  margin-bottom: 1.15rem;
+}
+
+.body--dark .commercial-collaboration-cta__text {
+  color: #94a3b8;
+}
+
+.commercial-collaboration-cta__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  width: 100%;
+}
+
+.commercial-collaboration-cta__email {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0d9488;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  word-break: break-all;
+}
+
+.commercial-collaboration-cta__email:hover {
+  color: #0f766e;
+}
+
+.body--dark .commercial-collaboration-cta__email {
+  color: #2dd4bf;
+}
+
+.body--dark .commercial-collaboration-cta__email:hover {
+  color: #5eead4;
+}
+
+.commercial-collaboration-cta__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+}
+
+@media (min-width: 768px) {
+  .commercial-collaboration-cta {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    padding: 1.35rem 1.5rem;
+    gap: 1.75rem;
+  }
+
+  .commercial-collaboration-cta__media {
+    width: 42%;
+    max-width: 300px;
+  }
+
+  .commercial-collaboration-cta__content {
+    align-items: flex-start;
+    flex: 1;
+  }
+
+  .commercial-collaboration-cta__actions {
+    align-items: flex-start;
+  }
+
+  .commercial-collaboration-cta__buttons {
+    justify-content: flex-start;
   }
 }
 </style>

@@ -1,27 +1,34 @@
-import { resolve } from 'path';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import tailwindcss from '@tailwindcss/vite';
+
+const rootDir = dirname(fileURLToPath(import.meta.url));
+const isProd = process.env.NODE_ENV === 'production';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   components: true,
   
   modules: [
     'nuxt-quasar-ui',
-    '@nuxt/eslint',
     '@nuxt/icon',
     '@nuxt/image',
     '@vueuse/nuxt',
     '@nuxtjs/i18n',
     'nuxt-security',
-    '@nuxtjs/sitemap',
     'nuxt-jsonld',
     '@nuxtjs/color-mode',
-    '@vite-pwa/nuxt'
+    '@vite-pwa/nuxt',
+    ...(isProd
+      ? ['@nuxt/eslint', '@nuxtjs/sitemap']
+      : []),
   ],
 
   pwa: {
+    // Keep PWA inactive in local/dev (same as previously omitting the module outside production)
+    disable: !isProd,
     registerType: 'autoUpdate',
     manifest: {
       name: 'Tomasz Słapiński - CV',
@@ -105,17 +112,48 @@ export default defineNuxtConfig({
   },
 
   vite: {
+    // Stable cache path — avoids host-named cache dirs and re-bundling on every restart
+    cacheDir: resolve(rootDir, 'node_modules/.cache/vite'),
     plugins: [
       tailwindcss(),
     ],
+    optimizeDeps: {
+      // Pre-bundle at startup so opening the page doesn't trigger a late rediscovery + full reload.
+      // jspdf is intentionally omitted here — it's lazy-loaded only when generating a PDF.
+      include: [
+        '@vercel/analytics/nuxt',
+      ],
+    },
+    css: {
+      preprocessorOptions: {
+        scss: { api: 'modern-compiler' },
+        sass: { api: 'modern-compiler' },
+      },
+    },
   },
   
+  // Only 4 icons in the whole app — skip scanning ~220 Iconify packages on every cold start
+  icon: {
+    serverBundle: {
+      collections: ['fa-solid', 'pepicons-pop', 'uil'],
+      externalizeIconsJson: true,
+    },
+    clientBundle: {
+      icons: [
+        'uil:github',
+        'uil:linkedin',
+        'fa-solid:external-link-alt',
+        'pepicons-pop:photo-camera',
+      ],
+    },
+  },
+
   image: {
     quality: 80,
     format: ['webp'],
     densities: [1],
-    provider: process.env.NODE_ENV === 'development' ? 'ipx' : 'ipxStatic',
-    // dir: 'public/assets/icons'
+    // IPX adds work in dev; public/ assets are already optimized — serve as-is locally
+    provider: isProd ? 'ipxStatic' : 'none',
   },
 
   css: [
@@ -182,7 +220,6 @@ export default defineNuxtConfig({
         progress: true
       }
     },
-    sassVariables: 'assets/styles/quasar.variables.scss'
   },
 
   i18n: {
@@ -206,7 +243,7 @@ export default defineNuxtConfig({
       pages.push({
         name: 'dynamic',
         path: '/:slug*',
-        file: resolve(__dirname, 'pages/index.vue')
+        file: resolve(rootDir, 'pages/index.vue')
       });
     }
   }

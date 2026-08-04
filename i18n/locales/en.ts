@@ -94,17 +94,18 @@ export default {
   commercialProjects: {
     description: 'Selected commercial projects and assignments completed outside my main professional experience.',
     nda: {
-      name: 'Well-known company developing computer games',
-      shortDescription: 'NDA project',
-      date: 'March 2025 - May 2025',
+      name: 'Gaming company',
+      shortDescription: 'NDA-covered project',
     },
     infraTeam2: {
       shortDescription: 'Event management system',
-      date: 'August 2024 - September 2024',
     },
     infraTeam1: {
       shortDescription: 'Conference management system',
-      date: 'July 2023 - May 2024',
+    },
+    shopify: {
+      name: 'Adastra',
+      shortDescription: 'Shopify online store',
     },
   },
 
@@ -247,6 +248,60 @@ export default {
       fromTheNewest: 'Newest first',
       fromTheOldest: 'Oldest first'
     }
+  },
+
+  projectDetail: {
+    breadcrumb: {
+      home: 'CV',
+    },
+    about: 'About the project',
+    technologies: 'Technologies',
+    links: 'Links',
+    otherProjects: 'Other projects',
+    carousel: {
+      prev: 'Previous projects',
+      next: 'Next projects',
+    },
+  },
+
+  collaboration: {
+    path: '/collaboration',
+    breadcrumb: 'Collaboration',
+    title: 'Commercial collaboration',
+    lead: 'I build scalable, high-performance web applications for companies that need reliable digital solutions to support business growth. I combine modern frontend, backend, and technical optimization to deliver products that are fast, intuitive, and ready for further development.',
+    specializationsTitle: 'Specialization',
+    specializationsIntro: 'I work with a modern JavaScript and PHP technology stack that enables fast, reliable solutions, from websites and SaaS applications to admin panels and complex business systems.',
+    technologiesLabel: 'Technologies:',
+    moreTechnologies: 'more',
+    moreTechnologiesAria: 'Show remaining {count} technologies',
+    commercialProjectsTitle: 'Selected commercial projects',
+    commercialIntro: 'I have delivered projects for companies in Poland, the United States, and other international markets. I worked on solutions for e-commerce, events, construction, and gaming, both independently and as part of larger project teams.',
+    contactTitle: 'Let\'s talk about your project',
+    contactText: {
+      p1: 'Are you planning to build a web application, online store, custom business system, or need support developing an existing solution?',
+      p2: 'Get in touch. We will review your project needs and choose the best technical approach.',
+    },
+    homeCta: 'Commercial collaboration',
+    experiencePromo: {
+      p1: 'I am open to commercial collaboration on web projects for companies from Poland and international markets. I specialize in building modern web applications as a Full-Stack developer, offering comprehensive support from concept and solution design through implementation and further development.',
+      p2: 'If you are looking for an experienced specialist to deliver your project, feel free to get in touch and review the collaboration details.',
+    },
+    paragraphs: {
+      p1: 'My name is Tomasz Słapiński and I am a Full-Stack developer from Rzeszów. I specialize in building web applications based on Vue.js, Nuxt, Quasar, and Laravel. I design solutions with performance, SEO, security, and easy future expansion in mind.',
+      p2: 'I work with companies in Poland and abroad, both on one-off projects and long-term digital product development. I deliver web applications, admin systems, API integrations, online stores, and custom tools that streamline business processes.',
+      p3: 'I focus on clear communication, responsible coding, and solutions tailored to real business goals. I treat every project individually, caring not only about feature implementation but also stability, performance, and the ability to scale further.',
+      p4: 'If you are looking for a Full-Stack developer from Poland to build or grow a web application, locally in Rzeszów or fully remote, I invite you to get in touch. I will help turn your idea into a professional digital product.',
+    },
+    commercialProjects: {
+      nda: 'I delivered a project for a renowned computer games company. I was responsible for developing a web application including a modern user interface and business logic. The project required high standards of quality, performance, and full confidentiality.',
+      shopify: 'I collaborated on developing an online store for a company in the US market. The scope included Shopify platform configuration, store appearance customization, product structure organization, and implementing solutions to improve online sales.',
+      cemex: 'I co-developed a system supporting event organization and user management for CEMEX in collaboration with StormCode. I was responsible for developing key application modules supporting business processes, event handling, and resource management.',
+      'infra-team': 'I developed a dedicated conference management system covering participant registration, administrative modules, and tools supporting event organization. The project required fast iteration, teamwork, and maintaining high system stability.',
+    },
+    seo: {
+      title: 'Commercial Collaboration {\'|\'} Full-Stack Developer Rzeszów {\'|\'} Tomasz Słapiński',
+      description: 'Full-Stack developer from Rzeszów: Vue.js, Nuxt, Laravel. Commercial collaboration on web applications, online stores, and business systems for companies in Poland and abroad. Contact: kontakt{\'@\'}tomasz-slapinski.pl',
+    },
   },
 
   faq: {

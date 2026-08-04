@@ -41,6 +41,16 @@
             size="sm"
             rounded
             no-caps
+            icon="handshake"
+            :label="$t('collaboration.homeCta')"
+            :to="collaborationPath"
+          />
+
+          <q-btn
+            class="custom-button"
+            size="sm"
+            rounded
+            no-caps
             icon="download"
             :label="$t('downloadCv')"
             :loading="isGeneratingPdf"
@@ -91,6 +101,9 @@
 import { Analytics } from '@vercel/analytics/nuxt';
 
 const InquiryModal = defineAsyncComponent(() => import('@/components/InquiryModal.vue'));
+
+const localePath = useLocalePath();
+const collaborationPath = computed(() => localePath('wspolpraca'));
 
 const showInquiryModal = ref(false);
 const loading = ref(false);
@@ -419,7 +432,7 @@ useSeo('', t('seo.title'),  t('seo.description'), t('seo.title'), t('seo.ogDescr
 .landing-actions {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;

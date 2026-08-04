@@ -1,4 +1,4 @@
-export const useSeo = (page: '' | '/projects-list', title: string, description: string, ogTitle: string, ogDescription: string) => {
+export const useSeo = (page: string, title: string, description: string, ogTitle: string, ogDescription: string) => {
   const { locale } = useI18n();
     
   const link = computed(() => {

@@ -36,6 +36,7 @@
     "@iconify-json/pepicons-pop": "^1.2.1",
     "@iconify-json/uil": "^1.2.3",
     "@nuxt/eslint": "^0.7.6",
+    "@types/node": "^26.1.2",
     "@vueuse/core": "^12.5.0",
     "@vueuse/nuxt": "^12.5.0",
     "eslint": "^9.16.0",
