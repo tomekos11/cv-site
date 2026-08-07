@@ -108,7 +108,16 @@ export default defineNuxtConfig({
   nitro: {
     plugins: [
       '~/server/plugins/color.ts'
-    ]
+    ],
+  },
+
+  routeRules: {
+    '/api/**': {
+      prerender: false,
+      headers: {
+        'cache-control': 'no-store',
+      },
+    },
   },
 
   vite: {
