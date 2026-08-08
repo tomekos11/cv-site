@@ -170,7 +170,7 @@ export default defineNuxtConfig({
     densities: [1],
     // Dev: serve public/ as-is. Prod (node-server): runtime IPX — ipxStatic only works
     // with static generate and left /_ipx/* falling through to the /:slug* SPA catch-all.
-    provider: isProd ? 'ipx' : 'none',
+    // provider: isProd ? 'ipx' : 'none',
   },
 
   css: [
