@@ -109,6 +109,13 @@ export default defineNuxtConfig({
     plugins: [
       '~/server/plugins/color.ts'
     ],
+    prerender: {
+      // Hybrid: crawl in-app links into static HTML; /api/** stays on the Node server
+      crawlLinks: true,
+      routes: ['/', '/en'],
+      // Avoid catch-all /:slug* turning server routes into static HTML dirs
+      ignore: ['/api', '/_ipx', '/sitemap.xml', '/sitemap/**', '/__sitemap__/**'],
+    },
   },
 
   routeRules: {
@@ -161,8 +168,9 @@ export default defineNuxtConfig({
     quality: 80,
     format: ['webp'],
     densities: [1],
-    // IPX adds work in dev; public/ assets are already optimized — serve as-is locally
-    provider: isProd ? 'ipxStatic' : 'none',
+    // Dev: serve public/ as-is. Prod (node-server): runtime IPX — ipxStatic only works
+    // with static generate and left /_ipx/* falling through to the /:slug* SPA catch-all.
+    provider: isProd ? 'ipx' : 'none',
   },
 
   css: [
