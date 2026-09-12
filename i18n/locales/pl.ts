@@ -51,6 +51,7 @@ export default {
       frontend: 'Frontend',
       backend: 'Backend',
       tools: 'Narzędzia i infrastruktura',
+      aiWorkflow: 'AI & Produktywność',
       workflow: 'Metodyki pracy',
     },
     generationError: 'Nie udało się wygenerować pliku PDF. Spróbuj ponownie.',
@@ -81,7 +82,9 @@ export default {
     surname: 'Nazwisko',
     company: 'Firma',
     content: 'Treść zapytania',
-    send: 'Wyślij'
+    send: 'Wyślij',
+    successMessage: 'Wiadomość dotarła do adresata.<br> <b>Dziękuję za kontakt</b>',
+    errorMessage: 'Nie udało się wysłać wiadomości. Spróbuj ponownie później.',
   },
 
   experience: {

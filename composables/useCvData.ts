@@ -291,6 +291,10 @@ export const useCvData = () => {
       items: ['Git', 'Docker', 'Jenkins', 'GitHub Actions', 'NX', 'AWS', 'Terraform'],
     },
     {
+      label: t('cvPdf.technologyGroups.aiWorkflow'),
+      items: ['AI-Driven Development', 'LLM Agents', 'Workflow Automation'],
+    },
+    {
       label: t('cvPdf.technologyGroups.workflow'),
       items: ['Agile', 'Scrum'],
     },

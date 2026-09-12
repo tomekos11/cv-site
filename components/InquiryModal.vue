@@ -76,7 +76,7 @@
 <script setup lang="ts">
 import { Notify } from 'quasar';
 
-const { locale } = useI18n();
+const { t } = useI18n();
 
 const showModal = ref(true);
 
@@ -109,10 +109,8 @@ const sendInquiry = async () => {
     if (!response.ok) throw new Error(data.error || 'Błąd wysyłania zapytania');
     else {
 
-      const message = locale.value === 'pl' ? 'Wiadomość dotarła do adresata.<br> <b>Dziękuję za kontakt</b>' : 'The message has been delivered to the recipient.<br> <b>Thank you for reaching out</b>';
-
       Notify.create({
-        message,
+        message: t('inquiryModal.successMessage'),
         html: true,
         type: 'positive',
         timeout: 5000
@@ -122,6 +120,11 @@ const sendInquiry = async () => {
 
   } catch (error) {
     console.error('Błąd:', error);
+    Notify.create({
+      message: t('inquiryModal.errorMessage'),
+      type: 'negative',
+      timeout: 5000,
+    });
   } finally {
     loading.value = false;
   }

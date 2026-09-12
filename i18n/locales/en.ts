@@ -50,6 +50,7 @@ export default {
       frontend: 'Frontend',
       backend: 'Backend',
       tools: 'Tools & infrastructure',
+      aiWorkflow: 'AI & Productivity',
       workflow: 'Work methodologies',
     },
     generationError: 'Failed to generate the PDF file. Please try again.',
@@ -79,7 +80,9 @@ export default {
     surname: 'Surname',
     company: 'Company',
     content: 'Inquiry content',
-    send: 'Send'
+    send: 'Send',
+    successMessage: 'The message has been delivered to the recipient.<br> <b>Thank you for reaching out</b>',
+    errorMessage: 'Failed to send the message. Please try again later.',
   },
 
 
