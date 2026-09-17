@@ -252,7 +252,12 @@ export default defineNuxtConfig({
       useCookie: true,
       cookieKey: 'i18n_redirected',
       redirectOn: 'root',
-    }
+    },
+    // A couple of messages (e.g. inquiryModal.successMessage) intentionally contain HTML
+    // rendered via Quasar Notify's `html: true` option — don't fail the build over that.
+    compilation: {
+      strictMessage: false,
+    },
   },
 
   hooks: {
