@@ -51,7 +51,8 @@ const education = computed(() => [
     when: '02/2025 - 07/2026',
     title: t('education.school3.title'),
     img: '/assets/icons/companies/prz.webp',
-    status: 'ongoing'
+    mark: '5.0',
+    status: 'ended'
   },
   {
     id: 2,
