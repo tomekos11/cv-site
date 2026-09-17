@@ -1,3 +1,10 @@
+export type CvPdfVariant = 'fullstack' | 'frontend';
+
+const frontendDescription: Record<'pl' | 'en', string> = {
+  pl: 'Frontend Developer specjalizujący się w Vue i ekosystemie Nuxt. Buduję szybkie, dopracowane interfejsy (Vue, Nuxt, Quasar, Nuxt UI, TypeScript, Tailwind), dbając o SSR, SEO i wydajność. Vue to moje główne, najlepiej opanowane narzędzie pracy.',
+  en: 'Frontend Developer specializing in Vue and the Nuxt ecosystem. I build fast, polished interfaces (Vue, Nuxt, Quasar, Nuxt UI, TypeScript, Tailwind) with a focus on SSR, SEO and performance. Vue is my primary, most deeply mastered tool.',
+};
+
 export const useCvPdf = () => {
   const { locale, t } = useI18n();
   const { notify } = useQuasar();
@@ -13,12 +20,13 @@ export const useCvPdf = () => {
   } = useCvData();
   const isGenerating = ref(false);
 
-  const getFileName = () => {
+  const getFileName = (variant: CvPdfVariant) => {
     const upperCaseLocale = locale.value.toUpperCase();
-    return `${upperCaseLocale}_Tomasz_Slapinski_Fullstack_Developer.pdf`;
+    const suffix = variant === 'frontend' ? 'Frontend_Developer' : 'Fullstack_Developer';
+    return `${upperCaseLocale}_Tomasz_Slapinski_${suffix}.pdf`;
   };
 
-  const generatePdf = async () => {
+  const generatePdf = async (variant: CvPdfVariant = 'fullstack') => {
     if (!import.meta.client) return;
 
     isGenerating.value = true;
@@ -26,8 +34,16 @@ export const useCvPdf = () => {
     try {
       // Lazy-load heavy jspdf stack only when generating a PDF
       const { buildCvPdf } = await import('~/helpers/buildCvPdf');
+
+      const isFrontend = variant === 'frontend';
+      const localeKey = (locale.value as 'pl' | 'en') === 'en' ? 'en' : 'pl';
+
       await buildCvPdf({
-        personal: personal.value,
+        personal: {
+          ...personal.value,
+          title: isFrontend ? 'Frontend Developer' : personal.value.title,
+          description: isFrontend ? frontendDescription[localeKey] : personal.value.description,
+        },
         labels: {
           experience: t('nav.experience'),
           commercialProjects: t('nav.commercialProjects'),
@@ -51,7 +67,7 @@ export const useCvPdf = () => {
         projects: projects.value,
         certificates: certificates.value,
         locale: locale.value as 'pl' | 'en',
-      }, getFileName());
+      }, getFileName(variant));
     } catch (error) {
       console.error('Failed to generate CV PDF', error);
       notify({
