@@ -1,8 +1,8 @@
 export type CvPdfVariant = 'fullstack' | 'frontend';
 
 const frontendDescription: Record<'pl' | 'en', string> = {
-  pl: 'Frontend Developer specjalizujący się w Vue i ekosystemie Nuxt. Buduję szybkie, dopracowane interfejsy (Vue, Nuxt, Quasar, Nuxt UI, TypeScript, Tailwind), dbając o SSR, SEO i wydajność. Vue to moje główne, najlepiej opanowane narzędzie pracy.',
-  en: 'Frontend Developer specializing in Vue and the Nuxt ecosystem. I build fast, polished interfaces (Vue, Nuxt, Quasar, Nuxt UI, TypeScript, Tailwind) with a focus on SSR, SEO and performance. Vue is my primary, most deeply mastered tool.',
+  pl: 'Frontend Developer z doświadczeniem komercyjnym przy dużych aplikacjach produkcyjnych. Na co dzień rozwijam nowe funkcjonalności i porządkuję istniejące rozwiązania, dbając o wydajność, czytelny kod i wygodę użytkownika. Pracuję głównie w Vue, Nuxt i TypeScript, a bliska współpraca z backendem sprawia, że rozumiem projekt w całości, od interfejsu po API. Najbardziej lubię produkty, przy których widać efekt pracy i można je spokojnie rozwijać przez lata.',
+  en: 'Frontend Developer with commercial experience on large production applications. Day to day I build new features and clean up existing ones, with an eye on performance, readable code and the experience of the people using them. I work mainly with Vue, Nuxt and TypeScript, and close cooperation with the backend means I understand a project end to end, from the interface to the API. What I enjoy most are products where the work is visible and that can keep growing for years.',
 };
 
 export const useCvPdf = () => {

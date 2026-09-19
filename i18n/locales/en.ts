@@ -44,7 +44,7 @@ export default {
   cvPdf: {
     aboutDescription: 'I focus on continuous growth, attention to detail, and a practical approach to problem-solving. I enjoy learning new things, sharing experience with the team, and taking on challenges that lead to better products. I have extensive experience in the automotive industry and hands-on knowledge of the full web application development lifecycle, which allows me to solve problems effectively across frontend, backend, and security.',
     consentClause: 'I consent to the processing of my personal data contained in this CV for the purposes necessary to carry out the recruitment process, as well as for the processing of my data for future recruitment purposes, in accordance with Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 (GDPR).',
-    skillsNotePrefix: 'Due to limited space, please visit my full CV online at ',
+    skillsNotePrefix: 'More about my projects, experience and technologies: ',
     certificateLink: 'certificate',
     technologyGroups: {
       frontend: 'Frontend',
@@ -348,5 +348,45 @@ export default {
       question: 'Does Tomasz care about SEO?',
       answer: 'Yes, SEO optimization is an integral part of my projects. I build SSR apps following best practices for search engines.'
     }
-  }
+  },
+
+  frontendPage: {
+    title: 'Tomasz Slapinski {\'|\'} Frontend Developer',
+    eyebrow: 'Tomasz Słapiński',
+    heading: 'Frontend Developer',
+    lead: 'Frontend Developer with commercial experience on large production applications. Day to day I build new features and clean up existing ones, with an eye on performance, readable code and the experience of the people using them. I work mainly with Vue, Nuxt and TypeScript, and close cooperation with the backend means I understand a project end to end, from the interface to the API. What I enjoy most are products where the work is visible and that can keep growing for years.',
+    downloadCv: 'Download Frontend Developer CV (PDF)',
+    whyVueTitle: 'Why Vue',
+    whyVueText: 'Vue has been my main framework for years. I have used it commercially, often together with Nuxt and Quasar, on applications that required SSR, solid SEO and high performance on mobile devices. I know the Composition API, state management (Pinia), routing, SSR and hydration, render optimisation and building component systems from scratch, including the page you are looking at right now.',
+    stackTitle: 'Frontend stack',
+    projectsTitle: 'Commercial projects',
+    projects: {
+      polcar: {
+        description: 'An automotive parts catalog and an extensive B2B platform that I have been developing day to day since 2023. I build the interface in Vue and Quasar inside an SSR application with PWA support, deliver new catalog and partner panel modules, advanced part search and filtering, and order views. I optimise performance and SEO, keep the component system consistent and integrate the frontend with a Laravel backend.',
+      },
+      cemex: {
+        description: 'A user and event management system for CEMEX, delivered by StormCode. I was responsible for the frontend layer of the application built with Vue and Quasar. I developed views for managing users, permissions and event schedules, along with complex forms and data tables with filtering. I kept the component system consistent, handled client side validation and integrated the app with a Laravel API.',
+      },
+      'infra-team': {
+        description: 'The web platform for InfraDays, an industry event combining an expo and a conference for the infrastructure sector. I designed and built a responsive interface in Vue and Bootstrap, covering the event site, the agenda, speaker profiles and attendee registration. I optimised load time and runtime performance so the site stayed smooth under heavy traffic during the conference days.',
+      },
+    },
+    sideProjectsTitle: 'Personal projects',
+    sideProjectsIntro: 'Non-commercial, university and after-hours projects, where I usually handled everything from the interface to the backend. Each one is described in detail on the projects page.',
+    sideProjects: {
+      'discrete-logarithm': 'An interactive discrete logarithm visualiser built in Nuxt, walking through the Baby-step Giant-step algorithm step by step.',
+      'voting-system': 'A blockchain based voting system with a Nuxt and Nuxt UI interface and MetaMask integration.',
+      'keystroke-dynamics': 'Behavioural biometrics: a Nuxt interface that records typing rhythm, analysed by backend services.',
+      forum: 'A cybersecurity forum with categories, user profiles and an admin panel, with a Nuxt and Nuxt UI frontend.',
+      'web-attacks': 'A tool demonstrating web attacks (XSS, CSRF, SQL injection) across two SSR frontends: Nuxt and Quasar.',
+      checkers: 'Real time checkers analysis with a Quasar interface wired to computer vision and move suggestions.',
+      'cv-site': 'This site: Nuxt with SSR, PWA, dark mode, two languages and CV generation to PDF in the browser.',
+      'ai-chat': 'A chat with a virtual assistant: a Quasar interface, a Spring backend and OpenAI API integration.',
+      dt: 'An interactive decision tree visualiser in Quasar, letting you explore nodes and classification results.',
+      ela: 'An English learning app with lessons, quizzes and progress tracking, with a Vue frontend.',
+      'tic-tac-toe': 'Tic-tac-toe against a bot with match results stored in a database, written in Vue with Bootstrap.',
+    },
+    sideProjectsMore: 'See all projects',
+    footnote: 'This page is not linked from the main site and is not indexed by search engines. You can only reach it through this link.',
+  },
 };

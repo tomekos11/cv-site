@@ -293,7 +293,7 @@ export const useCvData = () => {
     },
     {
       label: t('cvPdf.technologyGroups.aiWorkflow'),
-      items: ['AI-Driven Development', 'LLM Agents', 'Workflow Automation'],
+      items: ['AI-Driven Development', 'LLM Agents', 'Workflow Automation', 'Claude', 'Cursor'],
     },
     {
       label: t('cvPdf.technologyGroups.workflow'),
